@@ -187,10 +187,7 @@
                                     </div>
                                 </li>
                                 <li role="separator" class="divider"></li>
-                                <li><router-link to="/change-password"><i class="fas fa-cogs"></i> {{trans('user.change_password')}}</router-link></li>
-                                <li v-if="getConfig('show_about_menu') && hasRole('admin')"><router-link to="/about"><i class="fas fa-user-tie"></i> {{trans('general.about')}}</router-link></li>
-                                <li v-if="getConfig('show_support_menu') && hasRole('admin')"><router-link to="/support"><i class="fas fa-life-ring"></i> {{trans('general.support')}}</router-link></li>
-                                <li v-if="hasRole('admin')"><router-link to="/update"><i class="fas fa-download"></i> {{trans('general.update')}}</router-link></li>
+                                <li><router-link to="/change-password"><i class="fas fa-cogs"></i> {{trans('user.change_password')}}</router-link></li>                                
                                 <li role="separator" class="divider"></li>
                                 <li><a href="#" @click.prevent="logout"><i class="fas fa-power-off"></i> {{trans('auth.logout')}}</a></li>
                             </ul>

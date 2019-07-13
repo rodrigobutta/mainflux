@@ -20,7 +20,7 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \App\Http\Middleware\TrustProxies::class,
         \App\Http\Middleware\XSSProtection::class,
-        \App\Http\Middleware\ScriptMint::class,
+        \App\Http\Middleware\Configuration::class,
         \App\Http\Middleware\RedirectSecureIfRequired::class,
         \Bepsvpt\SecureHeaders\SecureHeadersMiddleware::class,
     ];

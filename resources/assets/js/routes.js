@@ -14,19 +14,7 @@ let routes = [
             {
                 path: '/home',
                 component: require('./views/pages/home')
-            },
-            {
-                path: '/about',
-                component: require('./views/pages/about')
-            },
-            {
-                path: '/update',
-                component: require('./views/pages/update')
-            },
-            {
-                path: '/support',
-                component: require('./views/pages/support')
-            },
+            },            
             {
                 path: '/profile',
                 component: require('./views/pages/profile')
@@ -276,18 +264,7 @@ let routes = [
                 component: require('./views/task/task-summary')
             }
         ]
-    },
-    {
-        path: '/',                                       // all the routes which needs authentication + two factor authentication + lock screen
-        component: require('./layouts/default-page'),
-        meta: { validate: ['auth','two_factor','lock_screen'] },
-        children: [
-            {
-                path: '/license',
-                component: require('./views/license/index'),
-            },
-        ]
-    },
+    },  
     {
         path: '/',
         component: require('./layouts/guest-page'),
@@ -335,10 +312,6 @@ let routes = [
             {
                 path: '/auth/social',
                 component: require('./views/auth/social-auth')
-            },
-            {
-                path: '/install',
-                component: require('./views/install/index')
             }
         ]
     },
@@ -404,9 +377,7 @@ router.beforeEach((to, from, next) => {
 
             // Initialize toastr notification
             helper.notification();
-            if(helper.getConfig('failed_install') && to.fullPath != '/install')
-                return next({ path: '/install' })
-
+           
             // Check for IP Restriction; If restricted IP found, redirect to "/ip-restricted" route
             if(helper.getConfig('ip_filter') && localStorage.getItem('ip_restricted') && to.fullPath != '/ip-restricted')
                 return next({ path: '/ip-restricted' })

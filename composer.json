@@ -15,7 +15,6 @@
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
         "mews/purifier": "^2.0",
-        "mint/service": "dev-master",
         "nexmo/laravel": "^1.0",
         "pusher/pusher-php-server": "^4.0",
         "sentry/sentry-laravel": "^0.8.0",

@@ -46,7 +46,7 @@ class Activation extends Notification
         $url = url('/auth/'.$this->user->activation_token.'/activate');
 
         return (new MailMessage)
-                    ->subject('Activate Your Account | Script Mint')
+                    ->subject('Activate Your Account')
                     ->greeting('Hello '.$this->user->Profile->first_name)
                     ->line('Thank you for registering an account with us.')
                     ->line('Click on the below link to verify your email!')

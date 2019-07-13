@@ -46,12 +46,12 @@ class Activated extends Notification
         $url = url('/');
 
         return (new MailMessage)
-                    ->subject('Account Activated | Script Mint')
+                    ->subject('Account Activated')
                     ->greeting('Hello '.$this->user->Profile->first_name)
                     ->line('Your account has been activated.')
-                    ->line('Click on the below link to go to ScriptMint!')
+                    ->line('Click on the below link to go!')
                     ->action('Proceed', $url)
-                    ->line('Thank you for registering account with ScriptMint!');
+                    ->line('Thank you for registering account!');
     }
 
     /**

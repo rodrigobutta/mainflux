@@ -278,13 +278,6 @@ class ConfigurationRepository
         foreach($default_config as $key => $value)
             config(['config.'.$key => $value]);
         
-        config(['config.failed_install' => 0]);
-
-        if(!\Storage::exists('.app_installed')){
-            config(['config.failed_install' => 1]);
-            return false;
-        }
-
         foreach ($default_config as $key => $value) {
             $config = $this->firstOrCreate($key);
 
@@ -296,7 +289,7 @@ class ConfigurationRepository
         }
 
         config(['config' => $this->getAll()]);
-        config(['config.l' => (\Storage::exists('.access_code') ? 1 : 0)]);
+        config(['config.l' => 1]);
 
         $this->setVisibility();
 

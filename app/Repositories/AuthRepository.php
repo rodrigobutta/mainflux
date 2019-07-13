@@ -136,11 +136,7 @@ class AuthRepository
      */
     public function check()
     {
-        if(config('config.failed_install')) {
-            config(['config.verifier' => config('app.verifier')]);
-            return ['failed_install' => 1, 'config' => config('config')];
-        }
-        
+       
         $public_config = config('system.public_config');
         foreach (config('system.social_login_providers') as $value) {
             array_push($public_config, $value.'_login');

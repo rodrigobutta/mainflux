@@ -5,17 +5,17 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 use App\Repositories\ConfigurationRepository;
-use Mint\Service\Repositories\InitRepository;
 
-class ScriptMint
+
+class Configuration
 {
     protected $config;
     protected $repo;
 
-    public function __construct(ConfigurationRepository $config, InitRepository $repo)
+    public function __construct(ConfigurationRepository $config)
     {
         $this->config = $config;
-        $this->repo = $repo;
+        
     }
 
     /**
@@ -28,7 +28,6 @@ class ScriptMint
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        $this->repo->init();
 
         $this->config->setDefault();
         

@@ -155,9 +155,7 @@
                     show_designation_menu: 0,
                     show_location_menu: 0,
                     show_announcement_menu: 0,
-                    show_task_menu: 0,
-                    show_about_menu: 0,
-                    show_support_menu: 0,
+                    show_task_menu: 0,                    
                     config_type: 'menu'
                 },false)
             }
@@ -179,9 +177,7 @@
             this.configForm.show_designation_menu = helper.getConfig('show_designation_menu');
             this.configForm.show_location_menu = helper.getConfig('show_location_menu');
             this.configForm.show_announcement_menu = helper.getConfig('show_announcement_menu');
-            this.configForm.show_task_menu = helper.getConfig('show_task_menu');
-            this.configForm.show_about_menu = helper.getConfig('show_about_menu');
-            this.configForm.show_support_menu = helper.getConfig('show_support_menu');
+            this.configForm.show_task_menu = helper.getConfig('show_task_menu');            
         },
         methods: {
             submit(){
@@ -198,9 +194,7 @@
                 this.configForm.show_designation_menu = (this.configForm.show_designation_menu) ? 1 : 0;
                 this.configForm.show_location_menu = (this.configForm.show_location_menu) ? 1 : 0;
                 this.configForm.show_announcement_menu = (this.configForm.show_announcement_menu) ? 1 : 0;
-                this.configForm.show_task_menu = (this.configForm.show_task_menu) ? 1 : 0;
-                this.configForm.show_about_menu = (this.configForm.show_about_menu) ? 1 : 0;
-                this.configForm.show_support_menu = (this.configForm.show_support_menu) ? 1 : 0;
+                this.configForm.show_task_menu = (this.configForm.show_task_menu) ? 1 : 0;                
                 this.configForm.post('/api/configuration')
                     .then(response => {
                         this.$store.dispatch('setConfig',this.configForm);
