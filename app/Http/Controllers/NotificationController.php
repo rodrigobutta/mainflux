@@ -28,22 +28,24 @@ class NotificationController extends Controller
 
 
 
-    public function fetchUnread(Request $request)
+    public function fetchInbox(Request $request)
     {
         
         $user = \Auth::user();
-        $notifications = $user->unreadNotifications;
+        // $notifications = $user->unreadNotifications;
+        $notifications = $user->notifications;
 
         // TODO ver como fixear el sacar el data o pasar solo data
         foreach ($notifications as &$notification) {
             
             $notification->origin = 'database'; 
             
-            $notification->markReadLink = route('api.notification.read', [
-                'id' => $notification->id,
-                'origin' => $notification->origin
-            ]);
+            // $notification->markReadLink = route('api.notification.read', [
+            //     'id' => $notification->id,
+            //     'origin' => $notification->origin
+            // ]);
 
+            $notification->read = $notification->read()?true:false;
             $notification->unid = $notification->data['unid'];
             $notification->text = $notification->data['text'];
             $notification->taskId = $notification->data['taskId'];
@@ -66,30 +68,58 @@ class NotificationController extends Controller
         //     $notification->markAsRead();
         // }
 
+        if($notification = $this->getNotificationByOriginId($origin,$id)) {
+        
+            $notification->markAsRead();
+
+            return $this->success(['message' => 'OK']);
+        }
+        else{
+            return $this->error(['message' => 'NOTFOUND']);
+        }
+        
+    }
+
+    
+    public function dismiss($origin,$id)
+    {
+
+        if($notification = $this->getNotificationByOriginId($origin,$id)) {
+        
+            $notification->delete();
+
+            return $this->success(['message' => 'OK']);
+        }
+        else{
+            return $this->error(['message' => 'NOTFOUND']);
+        }
+        
+    }
+
+    // dependiendo de en la instancia de la notificacin que se esta usando, el id se saca o de la columna de id de la base Notifications, o bien, con un unid metido en data desde el Evento origen
+    private function getNotificationByOriginId($origin,$id)
+    {
+
         switch ($origin) {
-            case 'database':
-            
+
+            case 'database':            
                 if($notification = DatabaseNotification::find($id)) {
-                    $notification->markAsRead();
-                }
-                
+                    return $notification;
+                }                
                 break;
             
-            case 'push':
-                
+            case 'push':                
                 if($notification = DatabaseNotification::whereRaw('JSON_EXTRACT(data,\'$.unid\')=\''.$id.'\'')->first()) {
-                    $notification->markAsRead();
+                    return $notification;
                 }
-
                 break;
 
             default:
-                # code...
                 break;
         }
         
 
-        return $this->success(['message' => 'OK']);
+        return null;
 
     }
 

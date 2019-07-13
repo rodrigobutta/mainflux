@@ -25707,6 +25707,10 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__header_notifications__ = __webpack_require__(675);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__header_notifications___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__header_notifications__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__header_user__ = __webpack_require__(678);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__header_user___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__header_user__);
 //
 //
 //
@@ -25866,96 +25870,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+
+
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    components: { headerNotifications: __WEBPACK_IMPORTED_MODULE_0__header_notifications___default.a, headerUser: __WEBPACK_IMPORTED_MODULE_1__header_user___default.a },
     data: function data() {
-        return {
-            notifications: []
-        };
+        return {};
     },
     mounted: function mounted() {
-        var _this = this;
 
-        // console.log(process.env.MIX_APP_URL)
-
-        Echo.channel('notifications').listen('.newNotification', function (notification) {
-            notification.origin = 'push';
-            notification.markReadLink = '/api/notification/' + notification.origin + '/' + notification.unid + '/' + 'read';
-            _this.notifications.push(notification);
-        });
-
-        axios.get('/api/notification/fetch/unread').then(function (response) {
-            return response.data;
-        }).then(function (response) {
-            console.log(response);
-            _this.notifications = response.notifications;
-        }).catch(function (error) {
-            helper.showDataErrorMsg(error);
-        });
+        console.log("http://local.mainflux.com");
     },
 
     methods: {
-        logout: function logout() {
-            var _this2 = this;
-
-            helper.logout().then(function () {
-                _this2.$store.dispatch('resetAuthUserDetail');
-                _this2.$router.push('/login');
-            });
-        },
-        getAuthUser: function getAuthUser(name) {
-            return helper.getAuthUser(name);
-        },
         getConfig: function getConfig(name) {
             return helper.getConfig(name);
         },
@@ -25964,33 +25894,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         hasRole: function hasRole(role) {
             return helper.hasRole(role);
-        },
-        notificationClick: function notificationClick(notification, event) {
-            var _this3 = this;
-
-            if (event) event.preventDefault();
-
-            // marcar como leido
-            axios.get(notification.markReadLink).then(function (response) {
-                return response.data;
-            }).then(function (response) {
-
-                if (response.message == 'OK') {
-                    _this3.notifications.splice(_this3.notifications.indexOf(notification), 1);
-                }
-            }).catch(function (error) {
-                helper.showDataErrorMsg(error);
-            });
-
-            // ir al destino (EN PARALELO)
-            if (notification.linkTarget == '_self') {
-                // debería poner timer para dejar tiempo al markread, o en callback pero no quiero que pueda colgar
-                this.$router.push(notification.link);
-            } else {
-                window.open(notification.link, "_blank");
-            }
-
-            console.log(notification);
         }
     },
     computed: {
@@ -26058,412 +25961,230 @@ var render = function() {
           _vm._v(" "),
           _vm._m(1),
           _vm._v(" "),
-          _c("ul", { staticClass: "navbar-nav my-lg-0" }, [
-            _c("li", { staticClass: "nav-item dropdown" }, [
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "nav-link dropdown-toggle text-muted text-muted waves-effect waves-dark",
-                  attrs: {
-                    href: "",
-                    "data-toggle": "dropdown",
-                    "aria-haspopup": "true",
-                    "aria-expanded": "false"
-                  }
-                },
-                [
-                  _c("i", { staticClass: "mdi mdi-message" }),
-                  _vm._v(" "),
-                  _vm.notifications.length > 0
-                    ? _c("div", { staticClass: "notify" }, [
-                        _c("span", { staticClass: "heartbit" }),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "point" })
-                      ])
-                    : _vm._e()
-                ]
-              ),
+          _c(
+            "ul",
+            { staticClass: "navbar-nav my-lg-0" },
+            [
+              _c("header-notifications"),
               _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "dropdown-menu mailbox animated bounceInDown" },
-                [
-                  _c("ul", [
-                    _vm._m(2),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c(
-                        "div",
-                        { staticClass: "message-center" },
-                        _vm._l(_vm.notifications, function(item) {
-                          return _c(
-                            "a",
-                            {
-                              key: item.id,
-                              staticClass: "notification-item",
-                              on: {
-                                click: function($event) {
-                                  return _vm.notificationClick(item, $event)
-                                }
-                              }
-                            },
-                            [
-                              _vm._m(3, true),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "mail-contnet" }, [
-                                _c("h5", [_vm._v(_vm._s(item.user))]),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "mail-desc" }, [
-                                  _vm._v(_vm._s(item.text))
-                                ]),
-                                _vm._v(" "),
-                                _c("span", { staticClass: "time" }, [
-                                  _vm._v(_vm._s(item.unid) + " 9:30 AM")
-                                ])
-                              ])
-                            ]
-                          )
-                        }),
-                        0
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(4)
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _vm.getConfig("todo") && _vm.hasPermission("access-todo")
-              ? _c(
-                  "li",
-                  {
-                    directives: [
-                      {
-                        name: "tooltip",
-                        rawName: "v-tooltip.bottom",
-                        value: _vm.trans("todo.todo"),
-                        expression: "trans('todo.todo')",
-                        modifiers: { bottom: true }
-                      }
-                    ],
-                    staticClass: "nav-item"
-                  },
-                  [
-                    _c(
-                      "router-link",
-                      { staticClass: "nav-link", attrs: { to: "/todo" } },
-                      [_c("i", { staticClass: "far fa-check-circle" })]
-                    )
-                  ],
-                  1
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.getConfig("message") && _vm.hasPermission("access-message")
-              ? _c(
-                  "li",
-                  {
-                    directives: [
-                      {
-                        name: "tooltip",
-                        rawName: "v-tooltip.bottom",
-                        value: _vm.trans("message.message"),
-                        expression: "trans('message.message')",
-                        modifiers: { bottom: true }
-                      }
-                    ],
-                    staticClass: "nav-item"
-                  },
-                  [
-                    _c(
-                      "router-link",
-                      { staticClass: "nav-link", attrs: { to: "/message" } },
-                      [_c("i", { staticClass: "fas fa-envelope" })]
-                    )
-                  ],
-                  1
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.hasPermission("access-configuration") ||
-            _vm.hasPermission("list-department") ||
-            _vm.hasPermission("list-designation")
-              ? _c("li", { staticClass: "nav-item dropdown" }, [
-                  _c(
-                    "a",
+              _vm.getConfig("todo") && _vm.hasPermission("access-todo")
+                ? _c(
+                    "li",
                     {
                       directives: [
                         {
                           name: "tooltip",
                           rawName: "v-tooltip.bottom",
-                          value: _vm.trans("configuration.configuration"),
-                          expression: "trans('configuration.configuration')",
+                          value: _vm.trans("todo.todo"),
+                          expression: "trans('todo.todo')",
                           modifiers: { bottom: true }
                         }
                       ],
-                      staticClass:
-                        "nav-link dropdown-toggle text-muted waves-effect waves-dark",
-                      attrs: {
-                        href: "",
-                        "data-toggle": "dropdown",
-                        "aria-haspopup": "true",
-                        "aria-expanded": "false"
-                      }
-                    },
-                    [_c("i", { staticClass: "fas fa-cogs" })]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      class: [
-                        "dropdown-menu",
-                        _vm.getConfig("direction") != "rtl"
-                          ? "dropdown-menu-right"
-                          : ""
-                      ]
+                      staticClass: "nav-item"
                     },
                     [
-                      _c("ul", { staticClass: "dropdown-user" }, [
-                        _vm.hasPermission("access-configuration")
-                          ? _c(
-                              "li",
-                              [
-                                _c(
-                                  "router-link",
-                                  { attrs: { to: "/configuration" } },
-                                  [
-                                    _c("i", { staticClass: "fas fa-cogs" }),
-                                    _vm._v(
-                                      " " +
-                                        _vm._s(
-                                          _vm.trans(
-                                            "configuration.configuration"
-                                          )
-                                        )
-                                    )
-                                  ]
-                                )
-                              ],
-                              1
-                            )
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _vm.hasPermission("access-configuration") &&
-                        _vm.getConfig("backup")
-                          ? _c(
-                              "li",
-                              [
-                                _c(
-                                  "router-link",
-                                  { attrs: { to: "/backup" } },
-                                  [
-                                    _c("i", { staticClass: "fas fa-database" }),
-                                    _vm._v(
-                                      " " + _vm._s(_vm.trans("backup.backup"))
-                                    )
-                                  ]
-                                )
-                              ],
-                              1
-                            )
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _vm.hasPermission("access-configuration") &&
-                        _vm.getConfig("email_template")
-                          ? _c(
-                              "li",
-                              [
-                                _c(
-                                  "router-link",
-                                  { attrs: { to: "/email-template" } },
-                                  [
-                                    _c("i", { staticClass: "fas fa-envelope" }),
-                                    _vm._v(
-                                      " " +
-                                        _vm._s(
-                                          _vm.trans("template.email_template")
-                                        )
-                                    )
-                                  ]
-                                )
-                              ],
-                              1
-                            )
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _vm.hasPermission("access-configuration") &&
-                        _vm.getConfig("email_log")
-                          ? _c(
-                              "li",
-                              [
-                                _c(
-                                  "router-link",
-                                  { attrs: { to: "/email-log" } },
-                                  [
-                                    _c("i", { staticClass: "fas fa-folder" }),
-                                    _vm._v(
-                                      " " + _vm._s(_vm.trans("mail.email_log"))
-                                    )
-                                  ]
-                                )
-                              ],
-                              1
-                            )
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _vm.hasPermission("access-configuration") &&
-                        _vm.getConfig("activity_log")
-                          ? _c(
-                              "li",
-                              [
-                                _c(
-                                  "router-link",
-                                  { attrs: { to: "/activity-log" } },
-                                  [
-                                    _c("i", { staticClass: "fas fa-bars" }),
-                                    _vm._v(
-                                      " " +
-                                        _vm._s(
-                                          _vm.trans("activity.activity_log")
-                                        )
-                                    )
-                                  ]
-                                )
-                              ],
-                              1
-                            )
-                          : _vm._e()
-                      ])
-                    ]
+                      _c(
+                        "router-link",
+                        { staticClass: "nav-link", attrs: { to: "/todo" } },
+                        [_c("i", { staticClass: "far fa-check-circle" })]
+                      )
+                    ],
+                    1
                   )
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _c("li", { staticClass: "nav-item dropdown" }, [
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "nav-link dropdown-toggle text-muted waves-effect waves-dark",
-                  attrs: {
-                    href: "",
-                    "data-toggle": "dropdown",
-                    "aria-haspopup": "true",
-                    "aria-expanded": "false"
-                  }
-                },
-                [
-                  _c("img", {
-                    staticClass: "profile-pic",
-                    attrs: { src: _vm.getAuthUser("avatar"), alt: "user" }
-                  })
-                ]
-              ),
+                : _vm._e(),
               _vm._v(" "),
-              _c(
-                "div",
-                {
-                  class: [
-                    "dropdown-menu",
-                    _vm.getConfig("direction") != "rtl"
-                      ? "dropdown-menu-right"
-                      : ""
-                  ]
-                },
-                [
-                  _c("ul", { staticClass: "dropdown-user" }, [
-                    _c("li", [
-                      _c("div", { staticClass: "dw-user-box" }, [
-                        _c("div", { staticClass: "u-img" }, [
-                          _c("img", {
-                            attrs: {
-                              src: _vm.getAuthUser("avatar"),
-                              alt: "user"
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "u-text" },
-                          [
-                            _c("h4", [
-                              _vm._v(_vm._s(_vm.getAuthUser("full_name")))
-                            ]),
-                            _vm._v(" "),
-                            _c("p", { staticClass: "text-muted" }, [
-                              _vm._v(_vm._s(_vm.getAuthUser("email")))
-                            ]),
-                            _c(
-                              "router-link",
-                              {
-                                staticClass:
-                                  "btn btn-rounded btn-danger btn-sm",
-                                attrs: { to: "/profile" }
-                              },
-                              [_vm._v(_vm._s(_vm.trans("user.view_profile")))]
-                            )
-                          ],
-                          1
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", {
-                      staticClass: "divider",
-                      attrs: { role: "separator" }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "li",
-                      [
-                        _c(
-                          "router-link",
-                          { attrs: { to: "/change-password" } },
-                          [
-                            _c("i", { staticClass: "fas fa-cogs" }),
-                            _vm._v(
-                              " " + _vm._s(_vm.trans("user.change_password"))
-                            )
-                          ]
-                        )
+              _vm.getConfig("message") && _vm.hasPermission("access-message")
+                ? _c(
+                    "li",
+                    {
+                      directives: [
+                        {
+                          name: "tooltip",
+                          rawName: "v-tooltip.bottom",
+                          value: _vm.trans("message.message"),
+                          expression: "trans('message.message')",
+                          modifiers: { bottom: true }
+                        }
                       ],
-                      1
+                      staticClass: "nav-item"
+                    },
+                    [
+                      _c(
+                        "router-link",
+                        { staticClass: "nav-link", attrs: { to: "/message" } },
+                        [_c("i", { staticClass: "fas fa-envelope" })]
+                      )
+                    ],
+                    1
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.hasPermission("access-configuration") ||
+              _vm.hasPermission("list-department") ||
+              _vm.hasPermission("list-designation")
+                ? _c("li", { staticClass: "nav-item dropdown" }, [
+                    _c(
+                      "a",
+                      {
+                        directives: [
+                          {
+                            name: "tooltip",
+                            rawName: "v-tooltip.bottom",
+                            value: _vm.trans("configuration.configuration"),
+                            expression: "trans('configuration.configuration')",
+                            modifiers: { bottom: true }
+                          }
+                        ],
+                        staticClass:
+                          "nav-link dropdown-toggle text-muted waves-effect waves-dark",
+                        attrs: {
+                          href: "",
+                          "data-toggle": "dropdown",
+                          "aria-haspopup": "true",
+                          "aria-expanded": "false"
+                        }
+                      },
+                      [_c("i", { staticClass: "fas fa-cogs" })]
                     ),
                     _vm._v(" "),
-                    _c("li", {
-                      staticClass: "divider",
-                      attrs: { role: "separator" }
-                    }),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c(
-                        "a",
-                        {
-                          attrs: { href: "#" },
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              return _vm.logout($event)
-                            }
-                          }
-                        },
-                        [
-                          _c("i", { staticClass: "fas fa-power-off" }),
-                          _vm._v(" " + _vm._s(_vm.trans("auth.logout")))
+                    _c(
+                      "div",
+                      {
+                        class: [
+                          "dropdown-menu",
+                          _vm.getConfig("direction") != "rtl"
+                            ? "dropdown-menu-right"
+                            : ""
                         ]
-                      )
-                    ])
+                      },
+                      [
+                        _c("ul", { staticClass: "dropdown-user" }, [
+                          _vm.hasPermission("access-configuration")
+                            ? _c(
+                                "li",
+                                [
+                                  _c(
+                                    "router-link",
+                                    { attrs: { to: "/configuration" } },
+                                    [
+                                      _c("i", { staticClass: "fas fa-cogs" }),
+                                      _vm._v(
+                                        " " +
+                                          _vm._s(
+                                            _vm.trans(
+                                              "configuration.configuration"
+                                            )
+                                          )
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.hasPermission("access-configuration") &&
+                          _vm.getConfig("backup")
+                            ? _c(
+                                "li",
+                                [
+                                  _c(
+                                    "router-link",
+                                    { attrs: { to: "/backup" } },
+                                    [
+                                      _c("i", {
+                                        staticClass: "fas fa-database"
+                                      }),
+                                      _vm._v(
+                                        " " + _vm._s(_vm.trans("backup.backup"))
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.hasPermission("access-configuration") &&
+                          _vm.getConfig("email_template")
+                            ? _c(
+                                "li",
+                                [
+                                  _c(
+                                    "router-link",
+                                    { attrs: { to: "/email-template" } },
+                                    [
+                                      _c("i", {
+                                        staticClass: "fas fa-envelope"
+                                      }),
+                                      _vm._v(
+                                        " " +
+                                          _vm._s(
+                                            _vm.trans("template.email_template")
+                                          )
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.hasPermission("access-configuration") &&
+                          _vm.getConfig("email_log")
+                            ? _c(
+                                "li",
+                                [
+                                  _c(
+                                    "router-link",
+                                    { attrs: { to: "/email-log" } },
+                                    [
+                                      _c("i", { staticClass: "fas fa-folder" }),
+                                      _vm._v(
+                                        " " +
+                                          _vm._s(_vm.trans("mail.email_log"))
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.hasPermission("access-configuration") &&
+                          _vm.getConfig("activity_log")
+                            ? _c(
+                                "li",
+                                [
+                                  _c(
+                                    "router-link",
+                                    { attrs: { to: "/activity-log" } },
+                                    [
+                                      _c("i", { staticClass: "fas fa-bars" }),
+                                      _vm._v(
+                                        " " +
+                                          _vm._s(
+                                            _vm.trans("activity.activity_log")
+                                          )
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              )
+                            : _vm._e()
+                        ])
+                      ]
+                    )
                   ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _vm._m(5)
-          ])
+                : _vm._e(),
+              _vm._v(" "),
+              _c("header-user"),
+              _vm._v(" "),
+              _vm._m(2)
+            ],
+            1
+          )
         ])
       ]
     )
@@ -26910,47 +26631,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("div", { staticClass: "drop-title" }, [_vm._v("Notifications")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "btn btn-danger btn-circle" }, [
-      _c("i", { staticClass: "fa fa-link" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c(
-        "a",
-        {
-          staticClass: "nav-link text-center",
-          attrs: { href: "javascript:void(0);" }
-        },
-        [
-          _c("strong", [_vm._v("Check all notifications")]),
-          _vm._v(" "),
-          _c("i", { staticClass: "fa fa-angle-right" })
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("li", { staticClass: "nav-item dropdown" }, [
       _c(
         "a",
         {
-          staticClass:
-            "nav-link dropdown-toggle text-muted waves-effect waves-dark",
+          staticClass: "nav-link dropdown-toggle text-muted",
           attrs: {
             href: "",
             "data-toggle": "dropdown",
@@ -26965,7 +26650,7 @@ var staticRenderFns = [
         "div",
         {
           staticClass:
-            "dropdown-menu  dropdown-menu-right animated bounceInDown"
+            "dropdown-menu  dropdown-menu-right animated faster fadeInDown"
         },
         [
           _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
@@ -124839,6 +124524,606 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 608 */,
+/* 609 */,
+/* 610 */,
+/* 611 */,
+/* 612 */,
+/* 613 */,
+/* 614 */,
+/* 615 */,
+/* 616 */,
+/* 617 */,
+/* 618 */,
+/* 619 */,
+/* 620 */,
+/* 621 */,
+/* 622 */,
+/* 623 */,
+/* 624 */,
+/* 625 */,
+/* 626 */,
+/* 627 */,
+/* 628 */,
+/* 629 */,
+/* 630 */,
+/* 631 */,
+/* 632 */,
+/* 633 */,
+/* 634 */,
+/* 635 */,
+/* 636 */,
+/* 637 */,
+/* 638 */,
+/* 639 */,
+/* 640 */,
+/* 641 */,
+/* 642 */,
+/* 643 */,
+/* 644 */,
+/* 645 */,
+/* 646 */,
+/* 647 */,
+/* 648 */,
+/* 649 */,
+/* 650 */,
+/* 651 */,
+/* 652 */,
+/* 653 */,
+/* 654 */,
+/* 655 */,
+/* 656 */,
+/* 657 */,
+/* 658 */,
+/* 659 */,
+/* 660 */,
+/* 661 */,
+/* 662 */,
+/* 663 */,
+/* 664 */,
+/* 665 */,
+/* 666 */,
+/* 667 */,
+/* 668 */,
+/* 669 */,
+/* 670 */,
+/* 671 */,
+/* 672 */,
+/* 673 */,
+/* 674 */,
+/* 675 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(676)
+/* template */
+var __vue_template__ = __webpack_require__(677)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/layouts/header-notifications.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-90e788c0", Component.options)
+  } else {
+    hotAPI.reload("data-v-90e788c0", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 676 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            notifications: []
+        };
+    },
+    mounted: function mounted() {
+        var _this = this;
+
+        Echo.channel('notifications').listen('.newNotification', function (notification) {
+            notification.origin = 'push';
+            notification.read = false;
+            _this.notifications.push(notification);
+        });
+
+        axios.get('/api/notification/fetch/inbox').then(function (response) {
+            return response.data;
+        }).then(function (response) {
+            console.log(response);
+            _this.notifications = response.notifications;
+        }).catch(function (error) {
+            helper.showDataErrorMsg(error);
+        });
+    },
+
+    methods: {
+        notificationOpen: function notificationOpen(notification, event) {
+            if (event) event.preventDefault();
+
+            notification.read = true;
+
+            axios.get(this.getNotificationApiUri(notification, 'read')).then(function (response) {
+                return response.data;
+            }).then(function (response) {}).catch(function (error) {
+                helper.showDataErrorMsg(error);
+            });
+
+            // ir al destino (EN PARALELO)
+            if (notification.linkTarget == '_self') {
+                // debería poner timer para dejar tiempo al markread, o en callback pero no quiero que pueda colgar
+                this.$router.push(notification.link);
+            } else {
+                window.open(notification.link, "_blank");
+            }
+        },
+        notificationDismiss: function notificationDismiss(notification, event) {
+            if (event) event.preventDefault();
+
+            this.notifications.splice(this.notifications.indexOf(notification), 1);
+
+            axios.get(this.getNotificationApiUri(notification, 'dismiss')).then(function (response) {
+                return response.data;
+            }).then(function (response) {}).catch(function (error) {
+                helper.showDataErrorMsg(error);
+            });
+        },
+        getNotificationApiUri: function getNotificationApiUri(notification, trail) {
+
+            if (notification.origin == 'push') {
+                return '/api/notification/' + notification.origin + '/' + notification.unid + '/' + trail;
+            } else {
+                return '/api/notification/' + notification.origin + '/' + notification.id + '/' + trail;
+            }
+        },
+        getConfig: function getConfig(name) {
+            return helper.getConfig(name);
+        }
+    },
+    computed: {}
+});
+
+/***/ }),
+/* 677 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("li", { staticClass: "nav-item dropdown" }, [
+    _c(
+      "a",
+      {
+        staticClass:
+          "nav-link dropdown-toggle text-muted text-muted waves-effect waves-dark",
+        attrs: {
+          href: "",
+          "data-toggle": "dropdown",
+          "aria-haspopup": "true",
+          "aria-expanded": "false"
+        }
+      },
+      [
+        _c("i", { staticClass: "mdi mdi-message" }),
+        _vm._v(" "),
+        _vm.notifications.length > 0
+          ? _c("div", { staticClass: "notify" }, [
+              _c("span", { staticClass: "heartbit" }),
+              _vm._v(" "),
+              _c("span", { staticClass: "point" })
+            ])
+          : _vm._e()
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        class: [
+          "dropdown-menu mailbox animated faster fadeInDown ",
+          _vm.getConfig("direction") != "rtl" ? "dropdown-menu-right" : ""
+        ]
+      },
+      [
+        _c("ul", [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("li", [
+            _c(
+              "div",
+              { staticClass: "message-center" },
+              _vm._l(_vm.notifications, function(item) {
+                return _c(
+                  "a",
+                  {
+                    key: item.id,
+                    class: { read: item.read },
+                    on: {
+                      click: function($event) {
+                        return _vm.notificationOpen(item, $event)
+                      }
+                    }
+                  },
+                  [
+                    _vm._m(1, true),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "mail-contnet" }, [
+                      _c("h5", [_vm._v(_vm._s(item.user))]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "mail-desc" }, [
+                        _vm._v(_vm._s(item.text))
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "time" }, [
+                        _vm._v(_vm._s(item.unid) + " 9:30 AM")
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "close",
+                        attrs: {
+                          type: "button",
+                          "data-dismiss": "alert",
+                          "aria-label": "Close"
+                        },
+                        on: {
+                          click: function($event) {
+                            return _vm.notificationDismiss(item, $event)
+                          }
+                        }
+                      },
+                      [
+                        _c("span", { attrs: { "aria-hidden": "true" } }, [
+                          _vm._v("×")
+                        ])
+                      ]
+                    )
+                  ]
+                )
+              }),
+              0
+            )
+          ]),
+          _vm._v(" "),
+          _vm._m(2)
+        ])
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("div", { staticClass: "drop-title" }, [_vm._v("Notifications")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "btn btn-danger btn-circle" }, [
+      _c("i", { staticClass: "fa fa-link" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c(
+        "a",
+        {
+          staticClass: "nav-link text-center",
+          attrs: { href: "javascript:void(0);" }
+        },
+        [
+          _c("strong", [_vm._v("Check all notifications")]),
+          _vm._v(" "),
+          _c("i", { staticClass: "fa fa-angle-right" })
+        ]
+      )
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-90e788c0", module.exports)
+  }
+}
+
+/***/ }),
+/* 678 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(679)
+/* template */
+var __vue_template__ = __webpack_require__(680)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/layouts/header-user.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-9db5167a", Component.options)
+  } else {
+    hotAPI.reload("data-v-9db5167a", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 679 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+
+    methods: {
+        logout: function logout() {
+            var _this = this;
+
+            helper.logout().then(function () {
+                _this.$store.dispatch('resetAuthUserDetail');
+                _this.$router.push('/login');
+            });
+        },
+        getAuthUser: function getAuthUser(name) {
+            return helper.getAuthUser(name);
+        },
+        getConfig: function getConfig(name) {
+            return helper.getConfig(name);
+        }
+    }
+});
+
+/***/ }),
+/* 680 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("li", { staticClass: "nav-item dropdown" }, [
+    _c(
+      "a",
+      {
+        staticClass:
+          "nav-link dropdown-toggle text-muted waves-effect waves-dark",
+        attrs: {
+          href: "",
+          "data-toggle": "dropdown",
+          "aria-haspopup": "true",
+          "aria-expanded": "false"
+        }
+      },
+      [
+        _c("img", {
+          staticClass: "profile-pic",
+          attrs: { src: _vm.getAuthUser("avatar"), alt: "user" }
+        })
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        class: [
+          "dropdown-menu",
+          _vm.getConfig("direction") != "rtl" ? "dropdown-menu-right" : ""
+        ]
+      },
+      [
+        _c("ul", { staticClass: "dropdown-user" }, [
+          _c("li", [
+            _c("div", { staticClass: "dw-user-box" }, [
+              _c("div", { staticClass: "u-img" }, [
+                _c("img", {
+                  attrs: { src: _vm.getAuthUser("avatar"), alt: "user" }
+                })
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "u-text" },
+                [
+                  _c("h4", [_vm._v(_vm._s(_vm.getAuthUser("full_name")))]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "text-muted" }, [
+                    _vm._v(_vm._s(_vm.getAuthUser("email")))
+                  ]),
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "btn btn-rounded btn-danger btn-sm",
+                      attrs: { to: "/profile" }
+                    },
+                    [_vm._v(_vm._s(_vm.trans("user.view_profile")))]
+                  )
+                ],
+                1
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "divider", attrs: { role: "separator" } }),
+          _vm._v(" "),
+          _c(
+            "li",
+            [
+              _c("router-link", { attrs: { to: "/change-password" } }, [
+                _c("i", { staticClass: "fas fa-cogs" }),
+                _vm._v(" " + _vm._s(_vm.trans("user.change_password")))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("li", { staticClass: "divider", attrs: { role: "separator" } }),
+          _vm._v(" "),
+          _c("li", [
+            _c(
+              "a",
+              {
+                attrs: { href: "#" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.logout($event)
+                  }
+                }
+              },
+              [
+                _c("i", { staticClass: "fas fa-power-off" }),
+                _vm._v(" " + _vm._s(_vm.trans("auth.logout")))
+              ]
+            )
+          ])
+        ])
+      ]
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-9db5167a", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

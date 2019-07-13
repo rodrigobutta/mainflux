@@ -230,7 +230,8 @@ Route::group(['middleware' => ['jwt.auth']], function () {
     Route::patch('/task/{uuid}/attachment/{auuid}','TaskAttachmentController@update');
     Route::delete('/task/{uuid}/attachment/{auuid}','TaskAttachmentController@destroy');
 
-    Route::get('/notification/fetch/unread','NotificationController@fetchUnread');
+    Route::get('/notification/fetch/inbox','NotificationController@fetchInbox');
     Route::get('/notification/{origin}/{id}/read', ['as' => 'api.notification.read', 'uses' => 'NotificationController@markAsRead']);    
+    Route::get('/notification/{origin}/{id}/dismiss', ['as' => 'api.notification.dismiss', 'uses' => 'NotificationController@dismiss']);    
 
 });

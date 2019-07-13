@@ -111,49 +111,19 @@
                         </div>
                     </li>
 
-                       
                     <li class="nav-item hidden-sm-down">
                         <form class="app-search">
                             <input type="text" class="form-control" placeholder="Search for..."> <a class="srh-btn"><i class="ti-search"></i></a> </form>
                     </li>
 
                 </ul>
-                       
+
                 <ul class="navbar-nav mr-auto mt-md-0 ">
                     <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="fas fa-bars"></i></a> </li>                    
                 </ul>
                 <ul class="navbar-nav my-lg-0">
-                 
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-muted text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-message"></i>
-                            <div class="notify"  v-if="notifications.length > 0"> <span class="heartbit"></span> <span class="point"></span> </div>
-                        </a>
-                        <div class="dropdown-menu mailbox animated bounceInDown">
-                            <ul>
-                                <li>
-                                    <div class="drop-title">Notifications</div>
-                                </li>
-                                <li>
-                                    <div class="message-center">
-
-                                        <a class="notification-item" v-for="item in notifications" :key="item.id" v-on:click="notificationClick(item, $event)">
-                                            <div class="btn btn-danger btn-circle"><i class="fa fa-link"></i></div>
-                                            <div class="mail-contnet">
-                                                <h5>{{ item.user }}</h5> <span class="mail-desc">{{ item.text }}</span> <span class="time">{{ item.unid }} 9:30 AM</span>
-                                            </div>
-                                        </a>
-
-                                    </div>
-                                </li>
-                                <li>
-                                    <a class="nav-link text-center" href="javascript:void(0);"> <strong>Check all notifications</strong> <i class="fa fa-angle-right"></i> </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-
-                    
+                    <header-notifications />
 
                     <li class="nav-item" v-tooltip.bottom="trans('todo.todo')" v-if="getConfig('todo') && hasPermission('access-todo')">
                         <router-link class="nav-link" to="/todo"><i class="far fa-check-circle"></i></router-link>
@@ -173,32 +143,12 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img :src="getAuthUser('avatar')" alt="user" class="profile-pic" /></a>
-                        <div :class="['dropdown-menu', getConfig('direction') != 'rtl' ? 'dropdown-menu-right' : '']">
-                            <ul class="dropdown-user">
 
-                                <li>
-                                    <div class="dw-user-box">
-                                        <div class="u-img"><img :src="getAuthUser('avatar')" alt="user"></div>
-                                        <div class="u-text">
-                                            <h4>{{getAuthUser('full_name')}}</h4>
-                                            <p class="text-muted">{{getAuthUser('email')}}</p><router-link to="/profile" class="btn btn-rounded btn-danger btn-sm">{{trans('user.view_profile')}}</router-link></div>
-                                    </div>
-                                </li>
-                                <li role="separator" class="divider"></li>
-                                <li><router-link to="/change-password"><i class="fas fa-cogs"></i> {{trans('user.change_password')}}</router-link></li>                                
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#" @click.prevent="logout"><i class="fas fa-power-off"></i> {{trans('auth.logout')}}</a></li>
-                            </ul>
-                        </div>
-                    </li>
-
-                   
+                    <header-user />
                     
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="flag-icon flag-icon-ar"></i></a>
-                        <div class="dropdown-menu  dropdown-menu-right animated bounceInDown"> <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-ar"></i> Español</a> <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-us"></i> Inglés</a> </div>
+                        <a class="nav-link dropdown-toggle text-muted" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="flag-icon flag-icon-ar"></i></a>
+                        <div class="dropdown-menu  dropdown-menu-right animated faster fadeInDown"> <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-ar"></i> Español</a> <a class="dropdown-item" href="#"><i class="flag-icon flag-icon-us"></i> Inglés</a> </div>
                     </li>
                 </ul>
             </div>
@@ -208,45 +158,23 @@
 </template>
 
 <script>
+
+    import headerNotifications from './header-notifications';
+    import headerUser from './header-user';
+
     export default {
+        components : { headerNotifications, headerUser },
         data(){
             return {
-                notifications: []
+            
             }
         },
-
         mounted() {
 
-            // console.log(process.env.MIX_APP_URL)
-
-            Echo.channel('notifications')
-                .listen('.newNotification', (notification) => {
-                    notification.origin='push'; 
-                    notification.markReadLink='/api/notification/' + notification.origin + '/' + notification.unid + '/' + 'read';  
-                    this.notifications.push(notification);
-                });
-
-            axios.get('/api/notification/fetch/unread')
-                .then(response => response.data)
-                .then(response => {
-                    console.log(response)                    
-                    this.notifications = response.notifications;
-                })
-                .catch(error => {
-                    helper.showDataErrorMsg(error);
-                });
+            console.log(process.env.MIX_APP_URL)
 
         },
-        methods : {
-            logout(){
-                helper.logout().then(() => {
-                    this.$store.dispatch('resetAuthUserDetail');
-                    this.$router.push('/login')
-                })
-            },
-            getAuthUser(name){
-                return helper.getAuthUser(name);
-            },
+        methods : {            
             getConfig(name){
                 return helper.getConfig(name);
             },
@@ -255,37 +183,7 @@
             },
             hasRole(role){
                 return helper.hasRole(role);
-            },
-
-            notificationClick(notification,event){
-                if (event) event.preventDefault()
-
-                // marcar como leido
-                axios.get(notification.markReadLink)
-                .then(response => response.data)
-                .then(response => {                    
-                    
-                    if(response.message=='OK'){
-                        this.notifications.splice(this.notifications.indexOf(notification), 1);
-                    }
-                    
-                })
-                .catch(error => {
-                    helper.showDataErrorMsg(error);
-                });
-
-                // ir al destino (EN PARALELO)
-                if(notification.linkTarget=='_self'){
-                    // debería poner timer para dejar tiempo al markread, o en callback pero no quiero que pueda colgar
-                    this.$router.push(notification.link)
-                }
-                else{                    
-                    window.open(notification.link, "_blank");   
-                }
-
-                console.log(notification);
-            }
-
+            },            
         },
         computed: {
             getMainLogo(){
