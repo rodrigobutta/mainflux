@@ -1,0 +1,38 @@
+{
+	"message" : {
+		"auth_required" : 1,
+		"max_file_size" : 1,
+		"allowed_file_extensions" : ["jpg","png","jpeg","pdf","doc","docx","xls","xlsx","txt"],
+		"max_no_of_files" : 1
+	},
+    "announcement" : {
+        "auth_required" : 1,
+        "max_file_size" : 1,
+        "allowed_file_extensions" : ["jpg","png","jpeg","pdf","doc","docx","xls","xlsx","txt"],
+        "max_no_of_files" : 2
+    },
+    "task" : {
+        "auth_required" : 1,
+        "max_file_size" : 1,
+        "allowed_file_extensions" : ["jpg","png","jpeg","pdf","doc","docx","xls","xlsx","txt"],
+        "max_no_of_files" : 2
+    },
+    "sub_task" : {
+        "auth_required" : 1,
+        "max_file_size" : 1,
+        "allowed_file_extensions" : ["jpg","png","jpeg","pdf","doc","docx","xls","xlsx","txt"],
+        "max_no_of_files" : 2
+    },
+    "task_note" : {
+        "auth_required" : 1,
+        "max_file_size" : 1,
+        "allowed_file_extensions" : ["jpg","png","jpeg","pdf","doc","docx","xls","xlsx","txt"],
+        "max_no_of_files" : 2
+    },
+    "task_attachment" : {
+        "auth_required" : 1,
+        "max_file_size" : 1,
+        "allowed_file_extensions" : ["jpg","png","jpeg","pdf","doc","docx","xls","xlsx","txt"],
+        "max_no_of_files" : 2
+    }
+}
