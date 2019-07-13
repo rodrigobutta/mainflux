@@ -124678,6 +124678,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -124747,7 +124749,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             return helper.getConfig(name);
         }
     },
-    computed: {}
+    computed: {
+        unreadNotifications: function unreadNotifications() {
+            return this.notifications.filter(function (item) {
+                return item.read === false;
+            });
+        }
+    }
 });
 
 /***/ }),
@@ -124772,13 +124780,15 @@ var render = function() {
         }
       },
       [
-        _c("i", { staticClass: "mdi mdi-message" }),
+        _c("i", { staticClass: "mdi mdi-bell" }),
         _vm._v(" "),
-        _vm.notifications.length > 0
+        _vm.unreadNotifications.length > 0
           ? _c("div", { staticClass: "notify" }, [
               _c("span", { staticClass: "heartbit" }),
               _vm._v(" "),
-              _c("span", { staticClass: "point" })
+              _c("span", { staticClass: "badge badge-pill badge-danger" }, [
+                _vm._v(_vm._s(_vm.unreadNotifications.length))
+              ])
             ])
           : _vm._e()
       ]

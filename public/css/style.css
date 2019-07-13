@@ -19850,8 +19850,20 @@ Notify
 
 .notify {
   position: relative;
-  top: -25px;
-  right: -7px;
+  top: -27px;
+  right: -9px;
+}
+
+.notify .badge {
+  position: absolute;
+  font-size: 0.5em;
+  height: 16px;
+  width: 16px;
+  text-align: center;
+  padding: 0;
+  line-height: 16px;
+  top: -15px;
+  z-index: 10;
 }
 
 .notify .heartbit {

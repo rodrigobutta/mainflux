@@ -1,8 +1,10 @@
 <template>
 
     <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle text-muted text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-message"></i>
-            <div class="notify"  v-if="notifications.length > 0"> <span class="heartbit"></span> <span class="point"></span> </div>
+        <a class="nav-link dropdown-toggle text-muted text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-bell"></i>
+            <div class="notify"  v-if="unreadNotifications.length > 0">
+                <span class="heartbit"></span> <span class="badge badge-pill badge-danger">{{ unreadNotifications.length }}</span>
+            </div>
         </a>        
         <div :class="['dropdown-menu mailbox animated faster fadeInDown ', getConfig('direction') != 'rtl' ? 'dropdown-menu-right' : '']">
             <ul>
@@ -112,7 +114,9 @@
             }
         },
         computed: {
-           
+            unreadNotifications(){
+                return this.notifications.filter(item => item.read === false);
+            }
         }
     }
 </script>
