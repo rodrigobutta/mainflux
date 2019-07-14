@@ -25,6 +25,7 @@ class CreateMessagesTable extends Migration
             $table->boolean('is_important_by_sender')->default(0);
             $table->boolean('is_important_by_receiver')->default(0);
             $table->boolean('is_read')->default(0);
+            $table->timestamp('read_at')->nullable();
             $table->boolean('is_deleted_by_sender')->default(0);
             $table->boolean('is_deleted_by_receiver')->default(0);
             $table->integer('reply_id')->unsigned()->nullable();

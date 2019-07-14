@@ -171,9 +171,10 @@ class MessageController extends Controller
         $response = $this->repo->getInboxList($this->request->all());
 
         $messages = $response['messages'];
-        $message_details = $response['message_details'];
+        // $message_details = $response['message_details'];
 
-        return $this->success(compact('messages', 'message_details'));
+        return $this->success(compact('messages'));
+        // return $this->success(compact('messages', 'message_details'));
     }
 
     /**

@@ -125,12 +125,15 @@
 
                     <header-notifications />
 
+                    <header-messages />
+
                     <li class="nav-item" v-tooltip.bottom="trans('todo.todo')" v-if="getConfig('todo') && hasPermission('access-todo')">
                         <router-link class="nav-link" to="/todo"><i class="far fa-check-circle"></i></router-link>
                     </li>
-                    <li class="nav-item" v-tooltip.bottom="trans('message.message')" v-if="getConfig('message') && hasPermission('access-message')">
+                    <!-- <li class="nav-item" v-tooltip.bottom="trans('message.message')" v-if="getConfig('message') && hasPermission('access-message')">
                         <router-link class="nav-link" to="/message"><i class="fas fa-envelope"></i></router-link>
-                    </li>
+                    </li> -->
+
                     <li class="nav-item dropdown" v-if="hasPermission('access-configuration') || hasPermission('list-department') || hasPermission('list-designation')">
                         <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-tooltip.bottom="trans('configuration.configuration')"><i class="fas fa-cogs"></i> </a>
                         <div :class="['dropdown-menu', getConfig('direction') != 'rtl' ? 'dropdown-menu-right' : '']">
@@ -160,10 +163,11 @@
 <script>
 
     import headerNotifications from './header-notifications';
+    import headerMessages from './header-messages';
     import headerUser from './header-user';
 
     export default {
-        components : { headerNotifications, headerUser },
+        components : { headerNotifications, headerUser, headerMessages },
         data(){
             return {
             

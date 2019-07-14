@@ -33,12 +33,12 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr v-for="inbox in messages.data">
-                                                <td :class="message_details[inbox.id].read ? 'text-strong' : ''">
+                                            <tr v-for="inbox in messages.data" :key="inbox.id">
+                                                <td :class="inbox.read ? 'text-strong' : ''">
                                                     <span v-if="inbox.from_user_id">
                                                         {{inbox.user_from.email}}
-                                                        <template v-if="message_details[inbox.id].count">
-                                                            ({{message_details[inbox.id].count}})
+                                                        <template v-if="inbox.count">
+                                                            ({{inbox.count}})
                                                         </template>
                                                     </span>
                                                 </td>
@@ -125,7 +125,7 @@
                     .then(response => response.data)
                     .then(response => {
                         this.messages = response.messages;
-                        this.message_details = response.message_details;
+                        // this.message_details = response.message_details;
                     })
                     .catch(error => {
                         helper.showDataErrorMsg(error);

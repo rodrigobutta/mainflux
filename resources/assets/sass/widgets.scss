@@ -1,18 +1,10 @@
-/*
-Template Name: Monster Admin
-Author: Themedesigner
-Email: niravjoshi87@gmail.com
-File: scss
-*/
-
-
 /*******************
-/*User mail widgets*/
+/*topbar header notification*/
 /*******************/
 
 .topbar {
     .top-navbar {
-        .mailbox {
+        .notifications {
             width: 300px;
             ul {
                 padding: 0px;
@@ -24,7 +16,7 @@ File: scss
     }
 }
 
-.mailbox {
+.notifications {
     ul li {
         .drop-title {
             font-weight: 500;
@@ -36,7 +28,7 @@ File: scss
             padding-top: 15px;
         }
     }
-    .message-center {
+    .notification {
         height: 200px;
         overflow: auto;
         position: relative;
@@ -82,12 +74,131 @@ File: scss
                     background: $warning;
                 }
             }
-            .mail-contnet {
+            .body {
                 display: inline-block;
                 width: 75%;
                 vertical-align: middle;
                 h5 {
                     margin: 5px 0px 0;
+                    sup{
+                        position: relative;
+                        left: 3px;
+                        top: 3px;
+                        font-size: 0.75em;   
+                        color: $secondary;                     
+                    }
+                }
+                .mail-desc,
+                .time {
+                    font-size: 12px;
+                    display: block;
+                    margin: 1px 0;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    color: $bodytext;
+                    white-space: nowrap;
+                }
+            }
+            &.read{
+                opacity: 0.5;
+                background-color: #f1f1f1;
+            }
+        }
+    }
+}
+
+
+
+
+/*******************
+/*topbar header messages*/
+/*******************/
+
+.topbar {
+    .top-navbar {
+        .messages {
+            width: 450px;
+            ul {
+                padding: 0px;
+                li {
+                    list-style: none;
+                }
+            }
+        }
+    }
+}
+
+.messages {
+    ul li {
+        .drop-title {
+            font-weight: 500;
+            padding: 11px 20px 15px;
+            border-bottom: 1px solid $border;
+        }
+        .nav-link {
+            border-top: 1px solid $border;
+            padding-top: 15px;
+        }
+    }
+    .message {
+        height: 200px;
+        overflow: auto;
+        position: relative;
+        a {
+            border-bottom: 1px solid $border;
+            display: block;
+            text-decoration: none;
+            padding: 9px 15px;
+            &:hover {
+                background: $light;
+            }
+            div {
+                white-space: normal;
+            }
+            .user-img {
+                width: 40px;
+                position: relative;
+                display: inline-block;
+                margin: 0 10px 15px 0;
+                img {
+                    width: 100%;
+                }
+                .profile-status {
+                    border: 2px solid $white;
+                    border-radius: 50%;
+                    display: inline-block;
+                    height: 10px;
+                    left: 30px;
+                    position: absolute;
+                    top: 1px;
+                    width: 10px;
+                }
+                .online {
+                    background: $success;
+                }
+                .busy {
+                    background: $danger;
+                }
+                .away {
+                    background: $warning;
+                }
+                .offline {
+                    background: $warning;
+                }
+            }
+            .body {
+                display: inline-block;
+                width: 75%;
+                vertical-align: middle;
+                h5 {
+                    margin: 5px 0px 0;
+                    sup{
+                        position: relative;
+                        left: 3px;
+                        top: 3px;
+                        font-size: 0.75em;   
+                        color: $secondary;                     
+                    }
                 }
                 .mail-desc,
                 .time {
@@ -385,7 +496,7 @@ File: scss
                     background: $warning;
                 }
             }
-            .mail-contnet {
+            .body {
                 display: inline-block;
                 width: 75%;
                 vertical-align: middle;

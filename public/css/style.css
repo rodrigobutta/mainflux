@@ -25316,74 +25316,67 @@ When click on sidebar toggler and also for tablet
   }
 }
 
-/*
-Template Name: Monster Admin
-Author: Themedesigner
-Email: niravjoshi87@gmail.com
-File: scss
-*/
-
 /*******************
-/*User mail widgets*/
+/*topbar header notification*/
 
 /*******************/
 
-.topbar .top-navbar .mailbox {
+.topbar .top-navbar .notifications {
   width: 300px;
 }
 
-.topbar .top-navbar .mailbox ul {
+.topbar .top-navbar .notifications ul {
   padding: 0px;
 }
 
-.topbar .top-navbar .mailbox ul li {
+.topbar .top-navbar .notifications ul li {
   list-style: none;
 }
 
-.mailbox ul li .drop-title {
+.notifications ul li .drop-title {
   font-weight: 500;
   padding: 11px 20px 15px;
   border-bottom: 1px solid rgba(120, 130, 140, 0.13);
 }
 
-.mailbox ul li .nav-link {
+.notifications ul li .nav-link {
   border-top: 1px solid rgba(120, 130, 140, 0.13);
   padding-top: 15px;
 }
 
-.mailbox .message-center {
+.notifications .notification {
   height: 200px;
   overflow: auto;
   position: relative;
 }
 
-.mailbox .message-center a {
+.notifications .notification a {
   border-bottom: 1px solid rgba(120, 130, 140, 0.13);
   display: block;
   text-decoration: none;
   padding: 9px 15px;
 }
 
-.mailbox .message-center a:hover {
+.notifications .notification a:hover {
   background: #f2f7f8;
 }
 
-.mailbox .message-center a div {
+.notifications .notification a div {
   white-space: normal;
 }
 
-.mailbox .message-center a .user-img {
+.notifications .notification a .user-img {
   width: 40px;
   position: relative;
   display: inline-block;
   margin: 0 10px 15px 0;
 }
 
-.mailbox .message-center a .user-img img {
+.notifications .notification a .user-img img {
   width: 100%;
 }
 
-.mailbox .message-center a .user-img .profile-status {
+.notifications .notification a .user-img .profile-status {
   border: 2px solid #ffffff;
   border-radius: 50%;
   display: inline-block;
@@ -25394,34 +25387,42 @@ File: scss
   width: 10px;
 }
 
-.mailbox .message-center a .user-img .online {
+.notifications .notification a .user-img .online {
   background: #55ce63;
 }
 
-.mailbox .message-center a .user-img .busy {
+.notifications .notification a .user-img .busy {
   background: #f62d51;
 }
 
-.mailbox .message-center a .user-img .away {
+.notifications .notification a .user-img .away {
   background: #ffbc34;
 }
 
-.mailbox .message-center a .user-img .offline {
+.notifications .notification a .user-img .offline {
   background: #ffbc34;
 }
 
-.mailbox .message-center a .mail-contnet {
+.notifications .notification a .body {
   display: inline-block;
   width: 75%;
   vertical-align: middle;
 }
 
-.mailbox .message-center a .mail-contnet h5 {
+.notifications .notification a .body h5 {
   margin: 5px 0px 0;
 }
 
-.mailbox .message-center a .mail-contnet .mail-desc,
-.mailbox .message-center a .mail-contnet .time {
+.notifications .notification a .body h5 sup {
+  position: relative;
+  left: 3px;
+  top: 3px;
+  font-size: 0.75em;
+  color: #868e96;
+}
+
+.notifications .notification a .body .mail-desc,
+.notifications .notification a .body .time {
   font-size: 12px;
   display: block;
   margin: 1px 0;
@@ -25431,7 +25432,128 @@ File: scss
   white-space: nowrap;
 }
 
-.mailbox .message-center a.read {
+.notifications .notification a.read {
+  opacity: 0.5;
+  background-color: #f1f1f1;
+}
+
+/*******************
+/*topbar header messages*/
+
+/*******************/
+
+.topbar .top-navbar .messages {
+  width: 450px;
+}
+
+.topbar .top-navbar .messages ul {
+  padding: 0px;
+}
+
+.topbar .top-navbar .messages ul li {
+  list-style: none;
+}
+
+.messages ul li .drop-title {
+  font-weight: 500;
+  padding: 11px 20px 15px;
+  border-bottom: 1px solid rgba(120, 130, 140, 0.13);
+}
+
+.messages ul li .nav-link {
+  border-top: 1px solid rgba(120, 130, 140, 0.13);
+  padding-top: 15px;
+}
+
+.messages .message {
+  height: 200px;
+  overflow: auto;
+  position: relative;
+}
+
+.messages .message a {
+  border-bottom: 1px solid rgba(120, 130, 140, 0.13);
+  display: block;
+  text-decoration: none;
+  padding: 9px 15px;
+}
+
+.messages .message a:hover {
+  background: #f2f7f8;
+}
+
+.messages .message a div {
+  white-space: normal;
+}
+
+.messages .message a .user-img {
+  width: 40px;
+  position: relative;
+  display: inline-block;
+  margin: 0 10px 15px 0;
+}
+
+.messages .message a .user-img img {
+  width: 100%;
+}
+
+.messages .message a .user-img .profile-status {
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  display: inline-block;
+  height: 10px;
+  left: 30px;
+  position: absolute;
+  top: 1px;
+  width: 10px;
+}
+
+.messages .message a .user-img .online {
+  background: #55ce63;
+}
+
+.messages .message a .user-img .busy {
+  background: #f62d51;
+}
+
+.messages .message a .user-img .away {
+  background: #ffbc34;
+}
+
+.messages .message a .user-img .offline {
+  background: #ffbc34;
+}
+
+.messages .message a .body {
+  display: inline-block;
+  width: 75%;
+  vertical-align: middle;
+}
+
+.messages .message a .body h5 {
+  margin: 5px 0px 0;
+}
+
+.messages .message a .body h5 sup {
+  position: relative;
+  left: 3px;
+  top: 3px;
+  font-size: 0.75em;
+  color: #868e96;
+}
+
+.messages .message a .body .mail-desc,
+.messages .message a .body .time {
+  font-size: 12px;
+  display: block;
+  margin: 1px 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: #54667a;
+  white-space: nowrap;
+}
+
+.messages .message a.read {
   opacity: 0.5;
   background-color: #f1f1f1;
 }
@@ -25753,18 +25875,18 @@ File: scss
   background: #ffbc34;
 }
 
-.message-box .message-widget a .mail-contnet {
+.message-box .message-widget a .body {
   display: inline-block;
   width: 75%;
   vertical-align: middle;
 }
 
-.message-box .message-widget a .mail-contnet h5 {
+.message-box .message-widget a .body h5 {
   margin: 5px 0px 0;
 }
 
-.message-box .message-widget a .mail-contnet .mail-desc,
-.message-box .message-widget a .mail-contnet .time {
+.message-box .message-widget a .body .mail-desc,
+.message-box .message-widget a .body .time {
   font-size: 12px;
   display: block;
   margin: 1px 0;

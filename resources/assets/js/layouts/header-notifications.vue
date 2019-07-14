@@ -6,17 +6,17 @@
                 <span class="heartbit"></span> <span class="badge badge-pill badge-danger">{{ unreadNotifications.length }}</span>
             </div>
         </a>        
-        <div :class="['dropdown-menu mailbox animated faster fadeInDown ', getConfig('direction') != 'rtl' ? 'dropdown-menu-right' : '']">
+        <div :class="['dropdown-menu notifications animated faster fadeInDown ', getConfig('direction') != 'rtl' ? 'dropdown-menu-right' : '']">
             <ul>
                 <li>
                     <div class="drop-title">Notifications</div>
                 </li>
                 <li>
-                    <div class="message-center">
+                    <div class="notification">
 
                         <a v-for="item in notifications" :key="item.id" v-on:click="notificationOpen(item, $event)" v-bind:class="{ read: item.read }">
                             <div class="btn btn-danger btn-circle"><i class="fa fa-link"></i></div>
-                            <div class="mail-contnet">
+                            <div class="body">
                                 <h5>{{ item.user }}</h5> <span class="mail-desc">{{ item.text }}</span> <span class="time">{{ item.unid }} 9:30 AM</span>
                             </div>
                             <button type="button" v-on:click="notificationDismiss(item, $event)" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>

@@ -284,7 +284,9 @@ class MessageRepository
     {
         $page_length = isset($params['page_length']) ? $params['page_length'] : config('config.page_length');
 
-        $inbox_message = $this->message->filterByToUserId(\Auth::user()->id)
+        $user = \Auth::user();
+
+        $replies_ids = $this->message->filterByToUserId($user->id)
             ->select(\DB::raw('reply_id'))
             ->filterByIsDeletedByReceiver(0)
             ->whereNotNull('reply_id')
@@ -293,27 +295,48 @@ class MessageRepository
             ->pluck('reply_id')
             ->all();
 
-        $message_query = $this->message->with('userFrom', 'userTo')->where(function ($query) use ($inbox_message) {
-            $query->where(function ($query1) use ($inbox_message) {
-                $query1->filterByToUserId(\Auth::user()->id)
+        $rs = $this->message->with('userFrom', 'userTo')->where(function ($query) use ($user, $replies_ids) {
+            $query->where(function ($query1) use ($user, $replies_ids) {
+                $query1->filterByToUserId($user->id)
                 ->filterByIsDeletedByReceiver(0)
                 ->whereNull('reply_id');
-            })->orWhereIn('id', $inbox_message);
+            })->orWhereIn('id', $replies_ids);
         });
 
-        $message_query->orderBy('created_at', 'desc');
+        $rs->orderBy('created_at', 'desc');
 
-        $messages = $message_query->paginate($page_length);
+        $messages = $rs->paginate($page_length);
 
-        $message_details = array();
+        // $message_details = array();
 
-        foreach ($messages as $message) {
-            $read = ((!$message->is_read && $message->to_user_id === \Auth::user()->id) || ($message->Replies->where('to_user_id', '=', \Auth::user()->id)->where('is_read', '=', 0)->count())) ? 1 : 0;
-            $count = ($message->Replies->where('to_user_id', '=', \Auth::user()->id)->where('is_deleted_by_receiver', '=', 0)->count())+($message->Replies->where('from_user_id', '=', \Auth::user()->id)->where('is_deleted_by_sender', '=', 0)->count())+1;
-            $message_details[$message->id] = array('read' => $read, 'count' => $count);
+        foreach ($messages as &$message) {
+
+            // $message->read = ((!$message->is_read && $message->to_user_id === $user->id) || ($message->Replies->where('to_user_id', '=', $user->id)->where('is_read', '=', 0)->count())) ? true : false;
+            
+            
+            $message->count = ($message->Replies->where('to_user_id', '=', $user->id)->where('is_deleted_by_receiver', '=', 0)->count())+($message->Replies->where('from_user_id', '=', $user->id)->where('is_deleted_by_sender', '=', 0)->count())+1;
+            
+            if($message->count>1){
+                
+                $lastReply = $message->replies()->orderBy('id', 'desc')->first();
+
+                if($lastReply->to_user_id == $user->id){
+                    $message->read = ($lastReply->is_read==1) ? true : false;    
+                }
+                else{
+                    $message->read = true;
+                }
+                
+            }
+            else{
+                $message->read = $message->is_read==1 ? true : false;
+            }
+            
+            // $message_details[$message->id] = array('read' => $read, 'count' => $count);
         }
 
-        return compact('messages', 'message_details');
+        return compact('messages');
+        // return compact('messages', 'message_details');
     }
 
     /**
@@ -408,14 +431,21 @@ class MessageRepository
      */
     public function markAsRead($message)
     {
-        if (! $message->Replies->count()) {
-            return;
-        }
+        // if (! $message->Replies->count()) {
+        //     return;
+        // }
 
-        $this->message->filterByReplyId($message->id)->filterByToUserId(\Auth::user()->id)->update(['is_read' => 1]);
+        $user = \Auth::user();
 
-        if ($message->to_user_id === \Auth::user()->id) {
+        // actualizo todas las respuestas
+        $this->message->filterByReplyId($message->id)->filterByToUserId($user->id)->update([
+            'is_read' => 1,
+            'read_at' => date('Y-m-d H:i:s')
+        ]);
+
+        if ($message->to_user_id === $user->id) {
             $message->is_read = 1;
+            $message->read_at = date('Y-m-d H:i:s');
             $message->save();
         }
     }
