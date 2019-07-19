@@ -81,6 +81,7 @@ class SocialLoginController extends Controller
                 \Cache::put('message', trans('auth.login_permission_disabled'), 1);
             }
         } else {
+            
             $new_user = new \App\User;
             $new_user->email = $user->email;
             $new_user->status = 'activated';
@@ -88,16 +89,23 @@ class SocialLoginController extends Controller
             $new_user->save();
             $new_user->assignRole((\App\User::count()) ? config('system.default_role.user') : config('system.default_role.admin'));
             $name = explode(' ', $user->name);
+            
             $profile = new \App\Profile;
+
             $new_user->profile()->save($profile);
+            
             $profile->first_name = array_key_exists(0, $name) ? $name[0] : 'John';
             $profile->last_name = array_key_exists(1, $name) ? $name[1] : 'Doe';
             $profile->provider = $provider;
             $profile->provider_unique_id = $user->id;
+            
             $profile->save();
+
             $user_preference = new \App\UserPreference;
             $new_user->userPreference()->save($user_preference);
+
             $token = JWTAuth::fromUser($new_user);
+
             $user_id = $new_user->id;
         }
 

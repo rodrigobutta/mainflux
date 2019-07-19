@@ -235,3 +235,48 @@ Route::group(['middleware' => ['jwt.auth']], function () {
     Route::get('/notification/{origin}/{id}/dismiss', ['as' => 'api.notification.dismiss', 'uses' => 'NotificationController@dismiss']);    
 
 });
+
+
+
+
+// APP
+
+Route::group([
+    'namespace' => 'Api'
+], function () {
+    
+    Route::group([
+        'prefix' => 'auth',
+    ], function () {
+        
+        // Route::post('login', 'AuthController@login');
+        // Route::post('signup', 'AuthController@signup');
+
+        Route::post('firebase/login', 'AuthController@firebaseLogin');
+        
+        Route::group([
+        'middleware' => 'auth:api'
+        ], function() {
+
+            Route::get('logout', 'AuthController@logout');
+            Route::get('user', 'AuthController@user');
+        
+        });
+
+    });
+        
+        
+    Route::group([
+        'prefix'    => 'test',
+    ], function() {
+
+        Route::get('notification-push', 'TestController@pushNotification');
+        Route::get('notification-push-background', 'TestController@backgroundPushNotification');
+        Route::get('notification-push-user', 'TestController@userPushNotification');
+        Route::any('notification-negotiate-token', 'TestController@notificationNegotiateToken');
+    
+    });
+
+
+
+});

@@ -154,4 +154,21 @@ class User extends Authenticatable
 
         return $q->where('created_at', '>=', getStartOfDate($dates['start_date']))->where('created_at', '<=', getEndOfDate($dates['end_date']));
     }
+
+
+    public function jsonMainInfo(){
+
+        $res = [
+            'name' => $this->profile->first_name,
+            'photo_url' => $this->profile->avatar,
+            'email' => $this->email          
+        ];
+
+        return $res;
+
+
+    }
+
+
+
 }
