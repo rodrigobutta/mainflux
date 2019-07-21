@@ -43,7 +43,7 @@
 
         mounted() {
 
-            Echo.channel('notifications')
+            Echo.channel('web-notifications')
                 .listen('.newNotification', (notification) => {
                     notification.origin='push'; 
                     notification.read=false;                     

@@ -160,7 +160,7 @@ class User extends Authenticatable
 
         $res = [
             'name' => $this->profile->first_name,
-            'photo_url' => $this->profile->avatar,
+            'avatar' => url($this->profile->avatar),
             'email' => $this->email          
         ];
 

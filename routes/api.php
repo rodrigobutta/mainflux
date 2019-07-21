@@ -264,6 +264,18 @@ Route::group([
         });
 
     });
+
+
+          
+    Route::group([
+        // 'middleware' => 'auth:api',
+        'prefix'    => 'task',
+    ], function() {
+
+        Route::post('list', 'TaskController@list');
+    
+    });
+
         
         
     Route::group([

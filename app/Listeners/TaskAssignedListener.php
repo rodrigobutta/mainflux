@@ -3,26 +3,22 @@
 namespace App\Listeners;
 
 use JWTAuth;
-use App\Events\TaskAssigned;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Mint\Service\Repositories\InitRepository;
+// use Mint\Service\Repositories\InitRepository;
 
+use App\Events\TaskAssigned;
 use App\Notifications\TaskAssignation;
 
 class TaskAssignedListener
 {
     protected $init;
 
-    /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct(InitRepository $init)
-    {
-        $this->init = $init;
-    }
+    
+    // public function __construct(InitRepository $init)
+    // {
+    //     $this->init = $init;
+    // }
 
     public function handle(TaskAssigned $event)
     {

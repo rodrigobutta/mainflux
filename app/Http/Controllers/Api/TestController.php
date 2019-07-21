@@ -32,17 +32,12 @@ class TestController extends Controller
     public function pushNotification(Request $request){
         
         $response = new \stdClass();
-
         $statusCode = 200;
 
+        event(new TestEvent('texto notif push en la app','user1'));
 
-        event(new TestEvent('hello world'));
-
-
-        $response->message = 'Push notification sent..';
-
+        $response->message = 'InApp Push sent..';
         $response->code = $statusCode;
-
         return response()->json($response, $statusCode);
     }
 

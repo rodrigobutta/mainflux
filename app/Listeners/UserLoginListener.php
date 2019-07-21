@@ -6,21 +6,10 @@ use JWTAuth;
 use App\Events\UserLogin;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Mint\Service\Repositories\InitRepository;
 
 class UserLoginListener
 {
     protected $init;
-
-    /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct(InitRepository $init)
-    {
-        $this->init = $init;
-    }
 
     /**
      * To check logged in user has profile & user preferences associated with it
@@ -30,8 +19,7 @@ class UserLoginListener
      */
     public function handle(UserLogin $event)
     {
-        $this->init->check();
-
+       
         $user = $event->user;
 
         $profile = $user->Profile;
