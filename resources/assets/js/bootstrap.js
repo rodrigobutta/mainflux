@@ -22,6 +22,7 @@ Vue.use(VueRouter);
 window.axios = axios;
 window.Form = Form;
 window.helper = helper;
+
 Vue.prototype.trans = (string, args) => {
     let value = _get(window.i18n, string);
 
@@ -35,7 +36,8 @@ Vue.prototype.$last = function (item, list) {
 };
 
 Vue.use(VTooltip);
-Vue.use(VuejsDialog)
+Vue.use(VuejsDialog);
+
 Vue.component('show-tip',showTip);
 Vue.component('pagination-record',paginationRecord);
 Vue.component('show-error',showError);

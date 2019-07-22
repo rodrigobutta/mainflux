@@ -70,7 +70,7 @@
                                 </thead>
                                 <tbody>
                                     <tr v-for="department in departments.data">
-                                        <td v-text="department.name"></td>
+                                        <td v-text="department.namedepartments"></td>
                                         <td v-text="department.description"></td>
                                         <td class="table-option">
                                             <div class="btn-group">
@@ -82,6 +82,17 @@
                                 </tbody>
                             </table>
                         </div>
+
+
+                        <draggable v-model="items">
+                            <transition-group>                       
+                                <ul v-for="item in items" :key="item.id">
+                                    <li class="item">{{ item.title }}</li>
+                                </ul>                                
+                            </transition-group>
+                        </draggable>
+                        
+                            
                         <module-info v-if="!departments.total" module="department" title="module_info_title" description="module_info_description" icon="bank">
                         </module-info>
                         <pagination-record :page-length.sync="filterDepartmentForm.page_length" :records="departments" @updateRecords="getDepartments"></pagination-record>
@@ -94,9 +105,13 @@
 
 <script>
     import departmentForm from './form'
+    import draggable from 'vuedraggable'
 
     export default {
-        components : { departmentForm },
+        components : {
+            departmentForm,
+            draggable
+        },
         data() {
             return {
                 departments: {},
@@ -106,7 +121,14 @@
                     order: 'asc',
                     page_length: helper.getConfig('page_length')
                 },
-                showFilterPanel: false
+                showFilterPanel: false,
+
+                items: [
+                    {id: 1, title: "Item 1"},
+                    {id: 2, title: "Item 2"},
+                    {id: 3, title: "Item 3"}
+                ]
+                
             };
         },
         mounted(){
@@ -115,6 +137,14 @@
                 this.$router.push('/home');
             }
             this.getDepartments();
+
+
+            var self = this;
+            self.$nextTick(function(){
+
+            });
+
+            
         },
         methods: {
             hasPermission(permission){
