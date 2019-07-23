@@ -34,7 +34,11 @@ class TestController extends Controller
         $response = new \stdClass();
         $statusCode = 200;
 
-        event(new TestEvent('texto notif push en la app','user1'));
+        $text = $request->get('text','probando....');
+        $user = $request->get('user','userID1');
+
+
+        event(new TestEvent($text,$user));
 
         $response->message = 'InApp Push sent..';
         $response->code = $statusCode;
