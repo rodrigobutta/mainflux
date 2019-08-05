@@ -57,16 +57,16 @@ class AuthController extends Controller
             }
             else{
 
-                $new_user = new User;
-                $new_user->email = $email;
-                $new_user->status = 'activated';
-                $new_user->activation_token = Str::uuid();
-                $new_user->save();
+                $user = new User;
+                $user->email = $email;
+                $user->status = 'activated';
+                $user->activation_token = Str::uuid();
+                $user->save();
 
-                $new_user->assignRole((\App\User::count()) ? config('system.default_role.user') : config('system.default_role.admin'));
+                $user->assignRole((\App\User::count()) ? config('system.default_role.user') : config('system.default_role.admin'));
                 
                 $profile = new \App\Profile;
-                $new_user->profile()->save($profile);
+                $user->profile()->save($profile);
                 
                 $name = explode(' ', $name);
                 $profile->provider = $provider;                
@@ -78,11 +78,11 @@ class AuthController extends Controller
                 $profile->save();
 
                 $user_preference = new \App\UserPreference;
-                $new_user->userPreference()->save($user_preference);
+                $user->userPreference()->save($user_preference);
 
-                $token = JWTAuth::fromUser($new_user);
+                $token = JWTAuth::fromUser($user);
 
-                $user_id = $new_user->id;
+                $user_id = $user->id;
                 
             }
 
