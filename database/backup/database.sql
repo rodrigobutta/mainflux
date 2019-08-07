@@ -30,9 +30,9 @@ CREATE TABLE IF NOT EXISTS `activity_logs` (
   KEY `activity_logs_login_as_user_id_foreign` (`login_as_user_id`),
   CONSTRAINT `activity_logs_login_as_user_id_foreign` FOREIGN KEY (`login_as_user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   CONSTRAINT `activity_logs_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=91 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=115 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mainflux.activity_logs: ~74 rows (approximately)
+-- Dumping data for table mainflux.activity_logs: ~89 rows (approximately)
 /*!40000 ALTER TABLE `activity_logs` DISABLE KEYS */;
 REPLACE INTO `activity_logs` (`id`, `user_id`, `login_as_user_id`, `user_agent`, `module`, `module_id`, `sub_module`, `sub_module_id`, `activity`, `ip`, `created_at`, `updated_at`) VALUES
 	(1, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'user', '1', NULL, NULL, 'logged_in', '::1', '2019-07-08 19:08:46', '2019-07-08 19:08:46'),
@@ -114,7 +114,31 @@ REPLACE INTO `activity_logs` (`id`, `user_id`, `login_as_user_id`, `user_agent`,
 	(87, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'task', '1', NULL, NULL, 'updated', '::1', '2019-07-13 12:38:43', '2019-07-13 12:38:43'),
 	(88, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'task', '1', NULL, NULL, 'updated', '::1', '2019-07-13 13:32:05', '2019-07-13 13:32:05'),
 	(89, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'task', '1', NULL, NULL, 'updated', '::1', '2019-07-13 13:42:08', '2019-07-13 13:42:08'),
-	(90, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'task', '1', NULL, NULL, 'updated', '::1', '2019-07-13 14:20:08', '2019-07-13 14:20:08');
+	(90, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'task', '1', NULL, NULL, 'updated', '::1', '2019-07-13 14:20:08', '2019-07-13 14:20:08'),
+	(91, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'user', '1', NULL, NULL, 'logged_out', '::1', '2019-07-13 15:27:46', '2019-07-13 15:27:46'),
+	(92, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'task', '1', NULL, NULL, 'updated', '::1', '2019-07-13 17:06:27', '2019-07-13 17:06:27'),
+	(93, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'user', '1', NULL, NULL, 'logged_in', '::1', '2019-07-13 19:50:36', '2019-07-13 19:50:36'),
+	(94, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'task', '1', NULL, NULL, 'updated', '::1', '2019-07-13 20:32:52', '2019-07-13 20:32:52'),
+	(95, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'message', '1', NULL, NULL, 'sent', '::1', '2019-07-13 20:54:47', '2019-07-13 20:54:47'),
+	(96, 3, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'user', '3', NULL, NULL, 'logged_in', '::1', '2019-07-13 20:55:07', '2019-07-13 20:55:07'),
+	(97, 3, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'message', '2', NULL, NULL, 'replied', '::1', '2019-07-13 20:55:31', '2019-07-13 20:55:31'),
+	(98, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'user', '1', NULL, NULL, 'logged_in', '::1', '2019-07-13 22:43:27', '2019-07-13 22:43:27'),
+	(99, 3, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'message', '4', NULL, NULL, 'sent', '::1', '2019-07-13 22:45:34', '2019-07-13 22:45:34'),
+	(100, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'user', '1', NULL, NULL, 'logged_in', '::1', '2019-07-13 23:12:30', '2019-07-13 23:12:30'),
+	(101, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'user', '1', NULL, NULL, 'logged_in', '::1', '2019-07-14 01:55:55', '2019-07-14 01:55:55'),
+	(102, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'message', '5', NULL, NULL, 'replied', '::1', '2019-07-14 02:35:26', '2019-07-14 02:35:26'),
+	(103, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'message', '6', NULL, NULL, 'replied', '::1', '2019-07-14 02:35:49', '2019-07-14 02:35:49'),
+	(104, 3, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'user', '3', NULL, NULL, 'logged_in', '::1', '2019-07-14 02:52:14', '2019-07-14 02:52:14'),
+	(105, 3, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'message', '7', NULL, NULL, 'replied', '::1', '2019-07-14 02:52:36', '2019-07-14 02:52:36'),
+	(106, 3, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'message', '8', NULL, NULL, 'sent', '::1', '2019-07-14 03:06:08', '2019-07-14 03:06:08'),
+	(107, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36', 'task', '1', NULL, NULL, 'updated', '::1', '2019-07-21 20:13:54', '2019-07-21 20:13:54'),
+	(108, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36', 'task', '1', NULL, NULL, 'updated', '::1', '2019-07-21 20:19:54', '2019-07-21 20:19:54'),
+	(109, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36', 'user', '1', NULL, NULL, 'logged_in', '::1', '2019-07-22 14:37:55', '2019-07-22 14:37:55'),
+	(110, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36', 'announcement', '1', NULL, NULL, 'added', '::1', '2019-07-22 15:08:43', '2019-07-22 15:08:43'),
+	(111, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36', 'location', '2', NULL, NULL, 'updated', '::1', '2019-07-22 15:30:48', '2019-07-22 15:30:48'),
+	(112, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36', 'user', '1', NULL, NULL, 'logged_in', '::1', '2019-07-22 16:39:04', '2019-07-22 16:39:04'),
+	(113, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36', 'task', '1', NULL, NULL, 'updated', '::1', '2019-07-23 16:08:10', '2019-07-23 16:08:10'),
+	(114, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36', 'user', '1', NULL, NULL, 'logged_in', '::1', '2019-08-05 11:57:29', '2019-08-05 11:57:29');
 /*!40000 ALTER TABLE `activity_logs` ENABLE KEYS */;
 
 -- Dumping structure for table mainflux.announcements
@@ -134,10 +158,12 @@ CREATE TABLE IF NOT EXISTS `announcements` (
   PRIMARY KEY (`id`),
   KEY `announcements_user_id_foreign` (`user_id`),
   CONSTRAINT `announcements_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table mainflux.announcements: ~0 rows (approximately)
 /*!40000 ALTER TABLE `announcements` DISABLE KEYS */;
+REPLACE INTO `announcements` (`id`, `uuid`, `user_id`, `title`, `is_public`, `restricted_to`, `description`, `start_date`, `end_date`, `upload_token`, `created_at`, `updated_at`) VALUES
+	(1, '9fab1818-0e09-43d9-91ec-6cc491dd3aea', 1, 'Anuncio', 1, NULL, NULL, '2019-07-01', '2019-07-31', '593770c9-f082-403d-bb02-e21d07cffa90', '2019-07-22 15:08:43', '2019-07-22 15:08:43');
 /*!40000 ALTER TABLE `announcements` ENABLE KEYS */;
 
 -- Dumping structure for table mainflux.announcement_designation
@@ -507,12 +533,12 @@ CREATE TABLE IF NOT EXISTS `locations` (
 -- Dumping data for table mainflux.locations: ~6 rows (approximately)
 /*!40000 ALTER TABLE `locations` DISABLE KEYS */;
 REPLACE INTO `locations` (`id`, `name`, `description`, `top_location_id`, `is_default`, `created_at`, `updated_at`) VALUES
-	(1, 'Head office', NULL, NULL, 0, '2019-07-08 12:49:44', '2019-07-08 12:49:44'),
-	(2, 'Suboffice 1', '', 1, 0, '2019-07-09 16:10:23', '2019-07-09 16:10:23'),
-	(3, 'Suboffice 2', '', 1, 0, '2019-07-09 16:10:35', '2019-07-09 16:10:35'),
-	(4, 'Subsuboffice 2 A', '', 3, 0, '2019-07-09 16:11:41', '2019-07-09 16:11:41'),
-	(5, 'Subsuboffice 2 B', '', 3, 0, '2019-07-09 16:11:47', '2019-07-09 16:11:47'),
-	(6, 'Subsuboffice 2 C', '', 3, 0, '2019-07-09 16:11:54', '2019-07-09 16:11:54');
+	(1, 'Head office', NULL, NULL, 0, '2019-07-08 12:49:44', '2019-07-22 15:30:48'),
+	(2, 'Suboffice 1', '', 1, 1, '2019-07-09 16:10:23', '2019-07-22 15:30:48'),
+	(3, 'Suboffice 2', '', 1, 0, '2019-07-09 16:10:35', '2019-07-22 15:30:48'),
+	(4, 'Subsuboffice 2 A', '', 3, 0, '2019-07-09 16:11:41', '2019-07-22 15:30:48'),
+	(5, 'Subsuboffice 2 B', '', 3, 0, '2019-07-09 16:11:47', '2019-07-22 15:30:48'),
+	(6, 'Subsuboffice 2 C', '', 3, 0, '2019-07-09 16:11:54', '2019-07-22 15:30:48');
 /*!40000 ALTER TABLE `locations` ENABLE KEYS */;
 
 -- Dumping structure for table mainflux.messages
@@ -522,14 +548,15 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `is_draft` tinyint(1) NOT NULL DEFAULT '0',
   `from_user_id` int(10) unsigned NOT NULL,
   `to_user_id` int(10) unsigned DEFAULT NULL,
+  `reply_id` int(10) unsigned DEFAULT NULL,
   `subject` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `body` text COLLATE utf8mb4_unicode_ci,
   `is_important_by_sender` tinyint(1) NOT NULL DEFAULT '0',
   `is_important_by_receiver` tinyint(1) NOT NULL DEFAULT '0',
   `is_read` tinyint(1) NOT NULL DEFAULT '0',
+  `read_at` timestamp NULL DEFAULT NULL,
   `is_deleted_by_sender` tinyint(1) NOT NULL DEFAULT '0',
   `is_deleted_by_receiver` tinyint(1) NOT NULL DEFAULT '0',
-  `reply_id` int(10) unsigned DEFAULT NULL,
   `has_attachment` tinyint(1) NOT NULL DEFAULT '0',
   `upload_token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -541,10 +568,19 @@ CREATE TABLE IF NOT EXISTS `messages` (
   CONSTRAINT `messages_from_user_id_foreign` FOREIGN KEY (`from_user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   CONSTRAINT `messages_reply_id_foreign` FOREIGN KEY (`reply_id`) REFERENCES `messages` (`id`) ON DELETE CASCADE,
   CONSTRAINT `messages_to_user_id_foreign` FOREIGN KEY (`to_user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mainflux.messages: ~0 rows (approximately)
+-- Dumping data for table mainflux.messages: ~8 rows (approximately)
 /*!40000 ALTER TABLE `messages` DISABLE KEYS */;
+REPLACE INTO `messages` (`id`, `uuid`, `is_draft`, `from_user_id`, `to_user_id`, `reply_id`, `subject`, `body`, `is_important_by_sender`, `is_important_by_receiver`, `is_read`, `read_at`, `is_deleted_by_sender`, `is_deleted_by_receiver`, `has_attachment`, `upload_token`, `created_at`, `updated_at`) VALUES
+	(1, 'b59445d7-4560-4135-9c7a-1b2909e7d66f', 0, 1, 3, NULL, 'prueba mensaje 1 a test user 1', '<p>sa daskjd sañldjsa ñlsakj dklñasjd aklñdj asñlkj sa daskjd sañldjsa ñlsakj dklñasjd aklñdj asñlkj sa daskjd sañldjsa ñlsakj dklñasjd aklñdj asñlkj</p><p>sa daskjd sañldjsa ñlsakj dklñasjd aklñdj asñlkj</p><p>sa daskjd sañldjsa ñlsakj dklñasjd aklñdj asñlkj<br></p>', 0, 0, 1, '2019-07-14 02:54:44', 0, 0, 0, 'a9a18b31-b68b-4af5-a28a-f0c923d985e7', '2019-07-13 20:54:47', '2019-07-14 02:54:44'),
+	(2, 'f5eb636b-906f-4231-9b5b-53f134841c67', 0, 3, 1, 1, 'Re: prueba mensaje 1 a test user 1', 'soy Test 1 y te estoy respondiendo Rodrigo', 0, 0, 1, '2019-07-14 03:24:18', 0, 0, 0, '1a413891-664d-435d-bfaa-5b3520cf21e3', '2019-07-13 20:55:31', '2019-07-14 03:24:18'),
+	(3, 'f5eb636b-906f-4231-9b5b-53f134841c22', 0, 3, 1, NULL, 'prueba de mensaje 2', 'este es mansaje 22222', 0, 0, 0, NULL, 0, 0, 0, 'f5eb636b-906f-4231-9b5b-53f134841c11', '2019-07-13 22:42:36', '2019-07-13 22:42:37'),
+	(4, '9fe4b6a1-3bf4-4657-92ba-97fe0520aaf2', 0, 3, 1, NULL, 'prueba mensaje 3333', '<p>ds sa sa jkasj kl;saj a;kldj askljas;lkd jaskl;dj askldj kasjd kasjdad</p><p>asd jaksd jaksld jaskl;d jas;lkd jaskl;d jaksl;d jaksl;d ksladj ;asjdka sjdkals;j dklas;d jaskdj ksal</p>', 0, 0, 1, '2019-07-14 03:23:11', 0, 0, 1, 'c390cd42-168a-41c6-a777-d5660cf65729', '2019-07-13 22:45:34', '2019-07-14 03:23:11'),
+	(5, 'a58aeed2-0e63-42ff-800d-4ceb7f50b2ee', 0, 1, 3, 1, 'Re: prueba mensaje 1 a test user 1', 'mando otra resíesya para el mensaje 2', 0, 0, 0, NULL, 0, 0, 0, 'dec594dd-1a48-4dad-bdaf-dac69677b10d', '2019-07-14 02:35:26', '2019-07-14 02:35:26'),
+	(6, 'a69e1774-5479-4467-8dc3-3aec1dacfb0a', 0, 1, 3, 1, 'Re: prueba mensaje 1 a test user 1', 'ah la otra respuesta era del usuario test 1 y no mia', 0, 0, 0, NULL, 0, 0, 1, '', '2019-07-14 02:35:49', '2019-07-14 02:35:49'),
+	(7, '6bbb4e72-17b7-42f7-b88e-e8ebc6226195', 0, 3, 1, 1, 'Re: prueba mensaje 1 a test user 1', 'Yo TEST 1 le respondo a RODRIGO BUTTA&nbsp;', 0, 0, 1, '2019-07-14 03:24:18', 0, 0, 0, 'c796c54f-9380-4d2b-898b-cf4e1c456934', '2019-07-14 02:52:36', '2019-07-14 03:24:18'),
+	(8, '7165307d-3fcc-4934-ba64-0bd8abf6ad65', 0, 3, 1, NULL, 'nuevo mensaje para interval', 'prueba mensaje para interval', 0, 0, 0, NULL, 0, 0, 0, '2989e86a-252e-46e2-b6c1-04a923fd1064', '2019-07-14 03:06:08', '2019-07-14 03:06:08');
 /*!40000 ALTER TABLE `messages` ENABLE KEYS */;
 
 -- Dumping structure for table mainflux.migrations
@@ -628,7 +664,8 @@ CREATE TABLE IF NOT EXISTS `model_has_roles` (
 REPLACE INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 	(1, 'App\\User', 1),
 	(2, 'App\\User', 2),
-	(2, 'App\\User', 3);
+	(2, 'App\\User', 3),
+	(2, 'App\\User', 4);
 /*!40000 ALTER TABLE `model_has_roles` ENABLE KEYS */;
 
 -- Dumping structure for table mainflux.notifications
@@ -645,10 +682,12 @@ CREATE TABLE IF NOT EXISTS `notifications` (
   KEY `notifications_notifiable_type_notifiable_id_index` (`notifiable_type`,`notifiable_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mainflux.notifications: ~0 rows (approximately)
+-- Dumping data for table mainflux.notifications: ~3 rows (approximately)
 /*!40000 ALTER TABLE `notifications` DISABLE KEYS */;
 REPLACE INTO `notifications` (`id`, `type`, `notifiable_type`, `notifiable_id`, `data`, `read_at`, `created_at`, `updated_at`) VALUES
-	('3d2f04ab-b474-4413-9931-4ffca46fd49c', 'App\\Notifications\\TaskAssignation', 'App\\User', 1, '{"unid":"8a6e3e53-b644-43d2-8d93-12c16c9b8d90","user":"USU: Rodrigo Butta","taskId":1,"link":"#customLink","linkTarget":"_self","text":"Asignacion de tarea Tarea 1 2"}', '2019-07-13 14:37:42', '2019-07-13 14:20:08', '2019-07-13 14:37:42');
+	('3d2f04ab-b474-4413-9931-4ffca46fd49c', 'App\\Notifications\\TaskAssignation', 'App\\User', 1, '{"unid":"8a6e3e53-b644-43d2-8d93-12c16c9b8d90","user":"USU: Rodrigo Butta","taskId":1,"link":"#customLink","linkTarget":"_self","text":"Asignacion de tarea Tarea 1 2"}', '2019-07-13 20:52:03', '2019-07-13 14:20:08', '2019-07-13 20:52:03'),
+	('5f8991fc-1228-4f32-bab9-46a9f41720ea', 'App\\Notifications\\TaskAssignation', 'App\\User', 1, '{"unid":"bbdf835f-69f2-4563-ac48-dd91e26d783f","user":"USU: Rodrigo Butta","taskId":1,"link":"#customLink","linkTarget":"_self","text":"Asignacion de tarea Tarea 1 2"}', '2019-07-21 20:11:37', '2019-07-13 20:32:51', '2019-07-21 20:11:37'),
+	('b490ba39-2711-4c0c-b17e-ac29ca79fce1', 'App\\Notifications\\TaskAssignation', 'App\\User', 1, '{"unid":"ec47cb8d-54c5-4aef-982c-6226c0c79480","user":"USU: Rodrigo Butta","taskId":1,"link":"#customLink","linkTarget":"_self","text":"Asignacion de tarea Tarea 1 2"}', NULL, '2019-07-23 16:08:10', '2019-07-23 16:08:10');
 /*!40000 ALTER TABLE `notifications` ENABLE KEYS */;
 
 -- Dumping structure for table mainflux.password_resets
@@ -754,14 +793,15 @@ CREATE TABLE IF NOT EXISTS `profiles` (
   CONSTRAINT `profiles_designation_id_foreign` FOREIGN KEY (`designation_id`) REFERENCES `designations` (`id`) ON DELETE CASCADE,
   CONSTRAINT `profiles_location_id_foreign` FOREIGN KEY (`location_id`) REFERENCES `locations` (`id`) ON DELETE CASCADE,
   CONSTRAINT `profiles_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table mainflux.profiles: ~3 rows (approximately)
 /*!40000 ALTER TABLE `profiles` DISABLE KEYS */;
 REPLACE INTO `profiles` (`id`, `user_id`, `designation_id`, `location_id`, `first_name`, `last_name`, `provider`, `provider_unique_id`, `gender`, `avatar`, `phone`, `date_of_birth`, `date_of_anniversary`, `address_line_1`, `address_line_2`, `city`, `state`, `zipcode`, `country_id`, `facebook_profile`, `twitter_profile`, `google_plus_profile`, `linkedin_profile`, `created_at`, `updated_at`) VALUES
 	(1, 1, 1, 1, 'Rodrigo', 'Butta', NULL, NULL, 'male', 'uploads/avatar/5d24e767b11ae.jpg', '+5491141722423', '1983-12-08', NULL, 'Humboldt 895', '2do Piso C', 'Capital Federal', 'Buenos Aires', '1414', '11', NULL, NULL, NULL, NULL, '2019-07-08 12:49:45', '2019-07-09 16:16:05'),
 	(2, 2, 2, 4, 'Andrés', 'Petrillo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Calle 1', '2do Piso', 'Capital Federal', 'Buenos Aires', '1414', '11', NULL, NULL, NULL, NULL, '2019-07-09 16:22:32', '2019-07-09 16:22:32'),
-	(3, 3, NULL, NULL, 'Test', 'User 1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2019-07-09 19:13:35', '2019-07-09 19:13:35');
+	(3, 3, NULL, NULL, 'Test', 'User 1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2019-07-09 19:13:35', '2019-07-09 19:13:35'),
+	(4, 4, NULL, NULL, '', 'Doe', 'password', '4ZRaYsZmH9hjkkBjuibLBQIXmfv1', NULL, '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2019-07-23 12:36:54', '2019-07-23 12:36:54');
 /*!40000 ALTER TABLE `profiles` ENABLE KEYS */;
 
 -- Dumping structure for table mainflux.questions
@@ -1177,10 +1217,12 @@ CREATE TABLE IF NOT EXISTS `uploads` (
   PRIMARY KEY (`id`),
   KEY `uploads_user_id_foreign` (`user_id`),
   CONSTRAINT `uploads_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table mainflux.uploads: ~0 rows (approximately)
 /*!40000 ALTER TABLE `uploads` DISABLE KEYS */;
+REPLACE INTO `uploads` (`id`, `uuid`, `user_id`, `module`, `module_id`, `upload_token`, `user_filename`, `filename`, `is_temp_delete`, `status`, `created_at`, `updated_at`) VALUES
+	(1, '0098c319-debf-4679-bed2-8efd08f067a6', 3, 'message', 6, 'c390cd42-168a-41c6-a777-d5660cf65729', 'AFIP _ Formulario 184.pdf', 'uploads/message/gcCNX2mOfDWv6nnCrTgq8lblqfrGM1CtEirXBek1.pdf', 0, 1, '2019-07-13 22:45:31', '2019-07-14 02:35:49');
 /*!40000 ALTER TABLE `uploads` ENABLE KEYS */;
 
 -- Dumping structure for table mainflux.users
@@ -1196,14 +1238,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table mainflux.users: ~2 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 REPLACE INTO `users` (`id`, `uuid`, `email`, `password`, `activation_token`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
 	(1, 'eb768679-1503-4d5f-aa59-9ecd5b3d0342', 'rbutta@gmail.com', '$2y$10$IqoDBBU7eptdjABYR08w6.ERDDnEjIk9j//NUqyPa/Q3tBX1UKbAK', 'd2b2a990-8cfb-4ee6-8230-831ad6c99607', 'activated', NULL, '2019-07-08 12:49:45', '2019-07-08 12:49:45'),
 	(2, '33e09e60-06f3-4be5-a19c-8e411bf41116', 'andrespetrillo@mindbot.com.ar', '$2y$10$nWg8BHakPQ6FGfqNDSsGquVctyjGKNSM8PvExOHFT2K4cXEwQVaj6', 'b03f7cf3-3862-4d9c-bea1-5fdc54d5a80a', 'activated', NULL, '2019-07-09 16:22:32', '2019-07-09 16:22:32'),
-	(3, '7288de9c-bf54-4d62-8de3-9608e440b9d5', 'test1@gmail.com', '$2y$10$V4h.ryiTQxvQyeDwJkZdBe/wkWuy5rr3E.LXdCqiumURT14Wiw6iS', 'd702c1c5-1c31-44df-9fd6-0c120cbcd875', 'activated', NULL, '2019-07-09 19:13:35', '2019-07-09 19:15:12');
+	(3, '7288de9c-bf54-4d62-8de3-9608e440b9d5', 'test1@gmail.com', '$2y$10$V4h.ryiTQxvQyeDwJkZdBe/wkWuy5rr3E.LXdCqiumURT14Wiw6iS', 'd702c1c5-1c31-44df-9fd6-0c120cbcd875', 'activated', NULL, '2019-07-09 19:13:35', '2019-07-09 19:15:12'),
+	(4, NULL, 'test2@gmail.com', NULL, 'b299a5c3-3610-4f49-9172-7c0fe3cc589c', 'activated', NULL, '2019-07-23 12:36:53', '2019-07-23 12:36:53');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 -- Dumping structure for table mainflux.user_preferences
@@ -1218,14 +1261,15 @@ CREATE TABLE IF NOT EXISTS `user_preferences` (
   PRIMARY KEY (`id`),
   KEY `user_preferences_user_id_foreign` (`user_id`),
   CONSTRAINT `user_preferences_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table mainflux.user_preferences: ~2 rows (approximately)
 /*!40000 ALTER TABLE `user_preferences` DISABLE KEYS */;
 REPLACE INTO `user_preferences` (`id`, `user_id`, `locale`, `direction`, `color_theme`, `created_at`, `updated_at`) VALUES
 	(1, 1, NULL, NULL, NULL, '2019-07-08 12:49:45', '2019-07-08 12:49:45'),
 	(2, 2, NULL, NULL, NULL, '2019-07-09 16:22:32', '2019-07-09 16:22:32'),
-	(3, 3, NULL, NULL, NULL, '2019-07-09 19:13:35', '2019-07-09 19:13:35');
+	(3, 3, NULL, NULL, NULL, '2019-07-09 19:13:35', '2019-07-09 19:13:35'),
+	(4, 4, NULL, NULL, NULL, '2019-07-23 12:36:54', '2019-07-23 12:36:54');
 /*!40000 ALTER TABLE `user_preferences` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

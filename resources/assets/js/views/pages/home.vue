@@ -269,7 +269,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="message-scroll">
-                            <h4 class="card-title">TESTS</h4>
+                            <h4 class="card-title">TEST Notification</h4>
                             <div class="">
 
                                 <input type="text" v-model="notificationText"><br />
