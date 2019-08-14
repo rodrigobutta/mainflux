@@ -21,12 +21,12 @@ use App\User;
 class AuthController extends Controller
 {
 
-    private $guard;
+    // private $guard;
 
-    public function __construct()
-    {
-        $this->guard = Auth::guard('api');        
-    }
+    // public function __construct()
+    // {
+    //     $this->guard = Auth::guard('api');        
+    // }
 
 
     
