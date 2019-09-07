@@ -445,7 +445,7 @@ class UserRepository
 
         $this->updateProfile($user->Profile, $params);
 
-        if ($user->hasRole(config('system.default_role.admin')) && isset($params['role_id'])) {
+        if (isset($params['role_id'])) {
             $this->assignRole($user, $params['role_id'], 'sync');
         }
 
