@@ -220,6 +220,22 @@ let routes = [
                 component: require('./views/department/edit')
             },
             {
+                path: '/client',
+                component: require('./views/client/index')
+            },
+            {
+                path: '/client/:id/edit',
+                component: require('./views/client/edit')
+            },
+            {
+                path: '/contractor',
+                component: require('./views/contractor/index')
+            },
+            {
+                path: '/contractor/:id/edit',
+                component: require('./views/contractor/edit')
+            },
+            {
                 path: '/designation',
                 component: require('./views/designation/index')
             },

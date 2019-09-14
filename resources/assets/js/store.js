@@ -123,6 +123,12 @@ const store = new Vuex.Store({
             return state.config[name];
         },
         hasPermission: (state) => (name) => {
+
+            // si el rol es admin, no reviso permisos, lo dejo hacer lo que quiera (OJO QUE NO FUNCIONA EN BACKEND User->can())
+            if(state.auth.roles.indexOf('admin') > -1){
+                return true
+            }
+
             return (state.permissions.indexOf(name) > -1) ? true : false;
         },
         getTwoFactorCode: (state) => {

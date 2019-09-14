@@ -16,6 +16,8 @@ class AuthServiceProvider extends ServiceProvider
         'App\Todo'         => 'App\Policies\TodoPolicy',
         'App\User'         => 'App\Policies\UserPolicy',
         'App\Department'   => 'App\Policies\DepartmentPolicy',
+        'App\Client'   => 'App\Policies\ClientPolicy',
+        'App\Contractor'   => 'App\Policies\ContractorPolicy',        
         'App\Designation'  => 'App\Policies\DesignationPolicy',
         'App\Location'     => 'App\Policies\LocationPolicy',
         'App\Task'         => 'App\Policies\TaskPolicy',

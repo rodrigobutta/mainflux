@@ -42,6 +42,18 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
+                                                    <td>{{trans('configuration.show_menu',{menu: trans('client.client')})}}</td>
+                                                    <td>
+                                                        <switches v-model="configForm.show_client_menu" theme="bootstrap" color="success"></switches>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>{{trans('configuration.show_menu',{menu: trans('contractor.contractor')})}}</td>
+                                                    <td>
+                                                        <switches v-model="configForm.show_contractor_menu" theme="bootstrap" color="success"></switches>
+                                                    </td>
+                                                </tr>
+                                                <tr>
                                                     <td>{{trans('configuration.show_menu',{menu: trans('designation.designation')})}}</td>
                                                     <td>
                                                         <switches v-model="configForm.show_designation_menu" theme="bootstrap" color="success"></switches>
@@ -152,6 +164,8 @@
                     show_email_log_menu: 0,
                     show_activity_log_menu: 0,
                     show_department_menu: 0,
+                    show_client_menu: 0,
+                    show_contractor_menu: 0,
                     show_designation_menu: 0,
                     show_location_menu: 0,
                     show_announcement_menu: 0,
@@ -174,6 +188,8 @@
             this.configForm.show_email_log_menu = helper.getConfig('show_email_log_menu');
             this.configForm.show_activity_log_menu = helper.getConfig('show_activity_log_menu');
             this.configForm.show_department_menu = helper.getConfig('show_department_menu');
+            this.configForm.show_client_menu = helper.getConfig('show_client_menu');
+            this.configForm.show_contractor_menu = helper.getConfig('show_contractor_menu');
             this.configForm.show_designation_menu = helper.getConfig('show_designation_menu');
             this.configForm.show_location_menu = helper.getConfig('show_location_menu');
             this.configForm.show_announcement_menu = helper.getConfig('show_announcement_menu');
@@ -191,6 +207,8 @@
                 this.configForm.show_email_log_menu = (this.configForm.show_email_log_menu) ? 1 : 0;
                 this.configForm.show_activity_log_menu = (this.configForm.show_activity_log_menu) ? 1 : 0;
                 this.configForm.show_department_menu = (this.configForm.show_department_menu) ? 1 : 0;
+                this.configForm.show_client_menu = (this.configForm.show_client_menu) ? 1 : 0;
+                this.configForm.show_contractor_menu = (this.configForm.show_contractor_menu) ? 1 : 0;
                 this.configForm.show_designation_menu = (this.configForm.show_designation_menu) ? 1 : 0;
                 this.configForm.show_location_menu = (this.configForm.show_location_menu) ? 1 : 0;
                 this.configForm.show_announcement_menu = (this.configForm.show_announcement_menu) ? 1 : 0;

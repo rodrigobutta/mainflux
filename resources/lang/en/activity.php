@@ -45,6 +45,8 @@
   'user_agent' => 'User Agent',
   'announcement' => 'Announcement',
   'department' => 'Department',
+  'client' => 'Client',
+  'contractor' => 'Contractor',
   'designation' => 'Designation',
   'location' => 'Location',
   'email_log' => 'Email log',

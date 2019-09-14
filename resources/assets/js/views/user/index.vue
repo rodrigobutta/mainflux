@@ -40,7 +40,7 @@
                                         <label for="">{{trans('role.role')}}</label>
                                         <select v-model="filterUserForm.role_id" class="custom-select col-12">
                                           <option value="">{{trans('general.select_one')}}</option>
-                                          <option v-for="role in roles" v-bind:value="role.id">
+                                          <option v-for="role in roles" v-bind:value="role.id" v-bind:key="role">
                                             {{ role.name }}
                                           </option>
                                         </select>
@@ -51,7 +51,7 @@
                                         <label for="">{{trans('designation.designation')}}</label>
                                         <select v-model="filterUserForm.designation_id" class="custom-select col-12">
                                           <option value="">{{trans('general.select_one')}}</option>
-                                          <option v-for="designation in designations" v-bind:value="designation.id">
+                                          <option v-for="designation in designations" v-bind:value="designation.id" v-bind:key="designation">
                                             {{ designation.name }}
                                           </option>
                                         </select>
@@ -61,10 +61,10 @@
                                     <div class="form-group">
                                         <label for="">{{trans('location.location')}}</label>
                                         <select v-model="filterUserForm.location_id" class="custom-select col-12">
-                                          <option value="">{{trans('general.select_one')}}</option>
-                                          <option v-for="location in locations" v-bind:value="location.id">
+                                            <option value="">{{trans('general.select_one')}}</option>
+                                            <option v-for="location in locations" v-bind:value="location.id" v-bind:key="location">
                                             {{ location.name }}
-                                          </option>
+                                            </option>
                                         </select>
                                     </div>
                                 </div>
@@ -72,12 +72,12 @@
                                     <div class="form-group">
                                         <label for="">{{trans('user.status')}}</label>
                                         <select v-model="filterUserForm.status" class="custom-select col-12">
-                                          <option value="">{{trans('general.select_one')}}</option>
-                                          <option value="activated">{{trans('user.status_activated')}}</option>
-                                          <option value="pending_activation">{{trans('user.status_pending_activation')}}</option>
-                                          <option value="pending_approval">{{trans('user.status_pending_approval')}}</option>
-                                          <option value="banned">{{trans('user.status_banned')}}</option>
-                                          <option value="disapproved">{{trans('user.status_disapproved')}}</option>
+                                            <option value="">{{trans('general.select_one')}}</option>
+                                            <option value="activated">{{trans('user.status_activated')}}</option>
+                                            <option value="pending_activation">{{trans('user.status_pending_activation')}}</option>
+                                            <option value="pending_approval">{{trans('user.status_pending_approval')}}</option>
+                                            <option value="banned">{{trans('user.status_banned')}}</option>
+                                            <option value="disapproved">{{trans('user.status_disapproved')}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -225,7 +225,7 @@
                                                     <label for="">{{trans('user.country')}}</label>
                                                     <select class="form-control" name="country_id" v-model="userForm.country_id">
                                                         <option value="">{{trans('user.country')}}</option>
-                                                        <option v-for="country in countries" :value="country.value">{{country.text}}</option>
+                                                        <option v-for="country in countries" :value="country.value" v-bind:key="country">{{country.text}}</option>
                                                     </select>
                                                     <show-error :form-name="userForm" prop-name="country_id"></show-error>
                                                 </div>
@@ -261,26 +261,26 @@
                                         <th>{{trans('designation.designation')}}</th>
                                         <th>{{trans('location.location')}}</th>
                                         <th>{{trans('user.status')}}</th>
-                                        <th>{{trans('user.created_at')}}</th>
+                                        <!-- <th>{{trans('user.created_at')}}</th> -->
                                         <th class="table-option">{{trans('general.action')}}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="user in users.data">
+                                    <tr v-for="user in users.data" v-bind:key="user">
                                         <td><img :src="getAvatar(user)" class="img-circle" width="55" /></td>
                                         <td v-text="user.profile.first_name+' '+user.profile.last_name"></td>
                                         <td v-text="user.email"></td>
                                         <td>
                                             <ul style="list-style: none; padding:0;">
-                                                <li v-for="role in user.roles">{{role.name}}</li>
+                                                <li v-for="role in user.roles" v-bind:key="role">{{role.name}}</li>
                                             </ul>
                                         </td>
                                         <td v-text="user.profile.designation_id ? user.profile.designation.name : ''"></td>
                                         <td v-text="user.profile.location_id ? user.profile.location.name : ''"></td>
                                         <td>
-                                            <span v-for="status in getUserStatus(user)" :class="['label','label-'+status.color,'m-r-5']">{{status.label}}</span>
+                                            <span v-for="status in getUserStatus(user)" :class="['label','label-'+status.color,'m-r-5']" v-bind:key="status">{{status.label}}</span>
                                         </td>
-                                        <td>{{user.created_at | moment}}</td>
+                                        <!-- <td>{{user.created_at | moment}}</td> -->
                                         <td class="table-option">
                                             <div class="btn-group">
 

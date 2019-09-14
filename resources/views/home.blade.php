@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" @if(config('config.direction') == 'rtl') dir="rtl" @endif>
     <head>
+
         <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-74G5NYG2BN"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{env('GOOGLE_TAG_MANAGER_GTM_ID')}}"></script>
         <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        gtag('config', 'G-74G5NYG2BN');
+        gtag('config', '{{env('GOOGLE_TAG_MANAGER_GTM_ID')}}');
         </script>
 
         <meta charset="utf-8">
@@ -32,6 +33,11 @@
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+
+        {{-- Fix para los console log errors de seguridad https://stackoverflow.com/questions/31211359/refused-to-load-the-script-because-it-violates-the-following-content-security-po --}}
+        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />
+
+
     </head>
     <body class="fix-header fix-sidebar card-no-border mini-sidebar">
         <div class="preloader">

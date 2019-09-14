@@ -69,8 +69,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="department in departments.data">
-                                        <td v-text="department.namedepartments"></td>
+                                    <tr v-for="department in departments.data" v-bind:key="department">
+                                        <td v-text="department.name"></td>
                                         <td v-text="department.description"></td>
                                         <td class="table-option">
                                             <div class="btn-group">

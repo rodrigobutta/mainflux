@@ -20,6 +20,8 @@
                 <ul id="sidebarnav">
                     <li><router-link to="/home" exact><i class="fas fa-home fa-fw"></i> <span class="hide-menu">{{trans('general.home')}}</span></router-link></li>
                     <li v-if="hasPermission('list-department') && getConfig('show_department_menu')"><router-link to="/department" exact><i class="fas fa-university fa-fw"></i> <span class="hide-menu">{{trans('department.department')}}</span></router-link></li>
+                    <li v-if="hasPermission('list-client') && getConfig('show_client_menu')"><router-link to="/client" exact><i class="fas fa-building fa-fw"></i> <span class="hide-menu">{{trans('client.client')}}</span></router-link></li>
+                    <li v-if="hasPermission('list-contractor') && getConfig('show_contractor_menu')"><router-link to="/contractor" exact><i class="fas fa-truck fa-fw"></i> <span class="hide-menu">{{trans('contractor.contractor')}}</span></router-link></li>
                     <li v-if="hasPermission('list-designation') && getConfig('show_designation_menu')"><router-link to="/designation" exact><i class="fas fa-sitemap fa-fw"></i> <span class="hide-menu">{{trans('designation.designation')}}</span></router-link></li>
                     <li v-if="hasPermission('list-location') && getConfig('show_location_menu')"><router-link to="/location" exact><i class="fas fa-code-branch fa-fw"></i> <span class="hide-menu">{{trans('location.location')}}</span></router-link></li>
                     <li v-if="hasPermission('list-user') && getConfig('show_user_menu')"><router-link to="/user" exact><i class="fas fa-users fa-fw"></i> <span class="hide-menu">{{trans('user.user')}}</span></router-link></li>
@@ -46,6 +48,10 @@
 <script>
     export default {
         mounted() {
+
+            // console.log(this.$store.state.auth.roles)
+
+
         },
         methods : {
             logout(){
