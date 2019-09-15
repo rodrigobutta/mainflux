@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Log;
 use App\Repositories\RoleRepository;
 use App\Repositories\EmailLogRepository;
 use App\Repositories\LocationRepository;
+use App\Repositories\ClientRepository;
+use App\Repositories\ContractorRepository;
 use App\Repositories\DesignationRepository;
 use Illuminate\Validation\ValidationException;
 
@@ -21,6 +23,8 @@ class UserRepository
     protected $email;
     protected $designation;
     protected $location;
+    protected $client;
+    protected $contractor;
 
     /**
      * Instantiate a new instance.
@@ -32,13 +36,17 @@ class UserRepository
         RoleRepository $role,
         EmailLogRepository $email,
         DesignationRepository $designation,
-        LocationRepository $location
+        LocationRepository $location,
+        ClientRepository $client,
+        ContractorRepository $contractor
     ) {
         $this->user  = $user;
         $this->role  = $role;
         $this->email = $email;
         $this->designation = $designation;
         $this->location = $location;
+        $this->client = $client;
+        $this->contractor = $contractor;
     }
 
     /**
@@ -93,7 +101,7 @@ class UserRepository
 
     public function findOrFail($id = null)
     {
-        $user = $this->user->with('profile', 'roles', 'profile.designation', 'profile.designation.department', 'profile.location')->find($id);
+        $user = $this->user->with('profile', 'roles', 'profile.designation', 'profile.designation.department', 'profile.location', 'profile.client', 'profile.contractor')->find($id);
 
         if (! $user) {
             throw ValidationException::withMessages(['message' => trans('user.could_not_find')]);
@@ -111,7 +119,7 @@ class UserRepository
 
     public function findByEmail($email = null)
     {
-        return $this->user->with('profile', 'roles', 'profile.designation', 'profile.designation.department', 'profile.location')->filterByEmail($email)->first();
+        return $this->user->with('profile', 'roles', 'profile.designation', 'profile.designation.department', 'profile.location', 'profile.client', 'profile.contractor')->filterByEmail($email)->first();
     }
 
     /**
@@ -123,7 +131,7 @@ class UserRepository
 
     public function findByActivationToken($token = null)
     {
-        return $this->user->with('profile', 'roles', 'profile.designation', 'profile.designation.department', 'profile.location')->whereActivationToken($token)->first();
+        return $this->user->with('profile', 'roles', 'profile.designation', 'profile.designation.department', 'profile.location', 'profile.client', 'profile.contractor')->whereActivationToken($token)->first();
     }
 
     /**
@@ -161,12 +169,14 @@ class UserRepository
         $role_id               = isset($params['role_id']) ? $params['role_id'] : null;
         $designation_id        = isset($params['designation_id']) ? $params['designation_id'] : null;
         $location_id           = isset($params['location_id']) ? $params['location_id'] : null;
+        $client_id           = isset($params['client_id']) ? $params['client_id'] : null;
+        $contractor_id           = isset($params['contractor_id']) ? $params['contractor_id'] : null;        
         $status                = isset($params['status']) ? $params['status'] : null;
         $created_at_start_date = isset($params['created_at_start_date']) ? $params['created_at_start_date'] : null;
         $created_at_end_date   = isset($params['created_at_end_date']) ? $params['created_at_end_date'] : null;
 
         $accessible_users = $this->getAccessibleUserId();
-        $query = $this->user->with('profile', 'roles', 'profile.designation', 'profile.designation.department', 'profile.location')->whereIn('id', $accessible_users)->filterByFirstName($first_name)->filterByLastName($last_name)->filterByEmail($email)->filterByDesignationId($designation_id)->filterByLocationId($location_id)->filterByRoleId($role_id)->filterByStatus($status)->createdAtDateBetween([
+        $query = $this->user->with('profile', 'roles', 'profile.designation', 'profile.designation.department', 'profile.location', 'profile.client', 'profile.contractor')->whereIn('id', $accessible_users)->filterByFirstName($first_name)->filterByLastName($last_name)->filterByEmail($email)->filterByDesignationId($designation_id)->filterByLocationId($location_id)->filterByClientId($client_id)->filterByContractorId($contractor_id)->filterByRoleId($role_id)->filterByStatus($status)->createdAtDateBetween([
             'start_date' => $created_at_start_date,
             'end_date' => $created_at_end_date
         ]);
@@ -260,7 +270,7 @@ class UserRepository
 
         if ($register) {
             $designation = ($this->count() <= 1) ? $this->designation->getHidden() : $this->designation->getDefault();
-            $location = $this->location->getDefault();
+            $location = $this->location->getDefault();            
             $profile->designation_id = $designation ? $designation->id : null;
             $profile->location_id = $location ? $location->id : null;
             $profile->save();
@@ -298,10 +308,14 @@ class UserRepository
     {
         $designation_ids = $this->designation->listId();
         $location_ids = $this->location->listId();
+        $client_ids = $this->client->listId();
+        $contractor_ids = $this->contractor->listId();
         $role_ids = $this->role->listId();
 
         $designation_id = isset($params['designation_id']) ? $params['designation_id'] : null;
         $location_id = isset($params['location_id']) ? $params['location_id'] : null;
+        $client_id = isset($params['client_id']) ? $params['client_id'] : null;
+        $contractor_id = isset($params['contractor_id']) ? $params['contractor_id'] : null;
         $role_id = isset($params['role_id']) ? $params['role_id'] : [];
 
         if ($designation_id && ! in_array($designation_id, $designation_ids)) {
@@ -310,6 +324,14 @@ class UserRepository
 
         if ($location_id && ! in_array($location_id, $location_ids)) {
             throw ValidationException::withMessages(['message' => trans('location.could_not_find')]);
+        }
+
+        if ($client_id && ! in_array($client_id, $client_ids)) {
+            throw ValidationException::withMessages(['message' => trans('client.could_not_find')]);
+        }
+
+        if ($contractor_id && ! in_array($contractor_id, $contractor_ids)) {
+            throw ValidationException::withMessages(['message' => trans('contractor.could_not_find')]);
         }
 
         if ($role_id && (! is_array($role_id) || count(array_diff($role_id, $role_ids)))) {
@@ -421,6 +443,8 @@ class UserRepository
     {
         $profile->designation_id = isset($params['designation_id']) ? $params['designation_id'] : null;
         $profile->location_id = (isset($params['location_id']) && $params['location_id']) ? $params['location_id'] : null;
+        $profile->client_id = (isset($params['client_id']) && $params['client_id']) ? $params['client_id'] : null;
+        $profile->contractor_id = (isset($params['contractor_id']) && $params['contractor_id']) ? $params['contractor_id'] : null;
 
         $profile->save();
 

@@ -137,6 +137,28 @@ class User extends Authenticatable
         });
     }
 
+    public function scopeFilterByClientId($q, $client_id = null)
+    {
+        if (! $client_id) {
+            return $q;
+        }
+
+        return $q->whereHas('profile', function ($q) use ($client_id) {
+            $q->where('client_id', '=', $client_id);
+        });
+    }
+
+    public function scopeFilterByContractorId($q, $contractor_id = null)
+    {
+        if (! $contractor_id) {
+            return $q;
+        }
+
+        return $q->whereHas('profile', function ($q) use ($contractor_id) {
+            $q->where('contractor_id', '=', $contractor_id);
+        });
+    }
+
     public function scopeFilterByStatus($q, $status = null)
     {
         if (! $status) {

@@ -23,4 +23,15 @@ class Profile extends Eloquent
     {
         return $this->belongsTo('App\Location');
     }
+
+    public function client()
+    {
+        return $this->belongsTo('App\Client');
+    }
+
+    public function contractor()
+    {
+        return $this->belongsTo('App\Contractor');
+    }
+
 }

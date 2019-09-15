@@ -49,6 +49,16 @@ class ContractorRepository
         return $this->contractor->all()->pluck('name', 'id')->all();
     }
 
+      /**
+     * List all contractors by contractor name & id
+     *
+     * @return array
+     */
+    public function listAllFilterById($contractor_ids)
+    {
+        return $this->contractor->whereIn('id', $contractor_ids)->get()->pluck('name', 'id')->all();
+    }
+
     /**
      * List all contractors by id
      *

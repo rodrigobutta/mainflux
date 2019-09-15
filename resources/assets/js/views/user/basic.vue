@@ -76,6 +76,20 @@
                                                             <show-error :form-name="userForm" prop-name="location_id"></show-error>
                                                         </div>
                                                     </div>
+                                                    <div class="col-12 col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="">{{trans('client.client')}}</label>
+                                                            <v-select label="name" v-model="selected_client" name="client_id" id="client_id" :options="clients" :placeholder="trans('client.select_client')" @select="onClientSelect" @close="userForm.errors.clear('client_id')" @remove="userForm.client_id = ''"></v-select>
+                                                            <show-error :form-name="userForm" prop-name="client_id"></show-error>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="">{{trans('contractor.contractor')}}</label>
+                                                            <v-select label="name" v-model="selected_contractor" name="contractor_id" id="contractor_id" :options="contractors" :placeholder="trans('contractor.select_contractor')" @select="onContractorSelect" @close="userForm.errors.clear('contractor_id')" @remove="userForm.contractor_id = ''"></v-select>
+                                                            <show-error :form-name="userForm" prop-name="contractor_id"></show-error>
+                                                        </div>
+                                                    </div>
                                                 </template>
                                                 <div class="col-12 col-md-6">
                                                     <div class="form-group">
@@ -127,15 +141,21 @@
                     date_of_anniversary: '',
                     role_id: [],
                     designation_id: '',
-                    location_id: ''
+                    location_id: '',
+                    client_id: '',
+                    contractor_id: ''
                 },false),
                 user: '',
                 genders: [],
                 roles: [],
                 designations: [],
                 locations: [],
+                clients: [],
+                contractors: [],
                 selected_designation: null,
                 selected_location: null,
+                selected_client: null,
+                selected_contractor: null,
                 selected_roles: ''
             };
         },
@@ -164,8 +184,12 @@
                         this.selected_roles = response.selected_roles;
                         this.userForm.designation_id = response.user.profile.designation_id;
                         this.userForm.location_id = response.user.profile.location_id;
+                        this.userForm.client_id = response.user.profile.client_id;
+                        this.userForm.contractor_id = response.user.profile.contractor_id;
                         this.selected_designation = response.selected_designation;
                         this.selected_location = response.selected_location;
+                        this.selected_client = response.selected_client;
+                        this.selected_contractor = response.selected_contractor;
                     })
                     .catch(error => {
                         helper.showDataErrorMsg(error);
@@ -181,6 +205,8 @@
                         this.roles = response.roles;
                         this.designations = response.designations;
                         this.locations = response.locations;
+                        this.clients = response.clients;
+                        this.contractors = response.contractors;
                     })
                     .catch(error => {
                         helper.showDataErrorMsg(error)
@@ -213,6 +239,12 @@
             },
             onLocationSelect(selectedOption){
                 this.userForm.location_id = selectedOption.id;
+            },
+            onClientSelect(selectedOption){
+                this.userForm.client_id = selectedOption.id;
+            },
+            onContractorSelect(selectedOption){
+                this.userForm.contractor_id = selectedOption.id;
             }
         }
     }

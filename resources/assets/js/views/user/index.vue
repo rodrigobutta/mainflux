@@ -40,7 +40,7 @@
                                         <label for="">{{trans('role.role')}}</label>
                                         <select v-model="filterUserForm.role_id" class="custom-select col-12">
                                           <option value="">{{trans('general.select_one')}}</option>
-                                          <option v-for="role in roles" v-bind:value="role.id" v-bind:key="role">
+                                          <option v-for="role in roles" v-bind:value="role.id" v-bind:key="role.id">
                                             {{ role.name }}
                                           </option>
                                         </select>
@@ -51,7 +51,7 @@
                                         <label for="">{{trans('designation.designation')}}</label>
                                         <select v-model="filterUserForm.designation_id" class="custom-select col-12">
                                           <option value="">{{trans('general.select_one')}}</option>
-                                          <option v-for="designation in designations" v-bind:value="designation.id" v-bind:key="designation">
+                                          <option v-for="designation in designations" v-bind:value="designation.id" v-bind:key="designation.id">
                                             {{ designation.name }}
                                           </option>
                                         </select>
@@ -62,8 +62,30 @@
                                         <label for="">{{trans('location.location')}}</label>
                                         <select v-model="filterUserForm.location_id" class="custom-select col-12">
                                             <option value="">{{trans('general.select_one')}}</option>
-                                            <option v-for="location in locations" v-bind:value="location.id" v-bind:key="location">
+                                            <option v-for="location in locations" v-bind:value="location.id" v-bind:key="location.id">
                                             {{ location.name }}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div class="form-group">
+                                        <label for="">{{trans('client.client')}}</label>
+                                        <select v-model="filterUserForm.client_id" class="custom-select col-12">
+                                            <option value="">{{trans('general.select_one')}}</option>
+                                            <option v-for="client in clients" v-bind:value="client.id" v-bind:key="client.id">
+                                            {{ client.name }}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div class="form-group">
+                                        <label for="">{{trans('contractor.contractor')}}</label>
+                                        <select v-model="filterUserForm.contractor_id" class="custom-select col-12">
+                                            <option value="">{{trans('general.select_one')}}</option>
+                                            <option v-for="contractor in contractors" v-bind:value="contractor.id" v-bind:key="contractor.id">
+                                            {{ contractor.name }}
                                             </option>
                                         </select>
                                     </div>
@@ -180,6 +202,22 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-12 col-md-6">
+                                                <div class="form-group">
+                                                    <label for="">{{trans('client.client')}}</label>
+                                                    <v-select label="name" v-model="selected_client" name="client_id" id="client_id" :options="clients" :placeholder="trans('client.select_client')" @select="onClientSelect" @close="userForm.errors.clear('client_id')" @remove="userForm.client_id = ''"></v-select>
+                                                    <show-error :form-name="userForm" prop-name="client_id"></show-error>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="form-group">
+                                                    <label for="">{{trans('contractor.contractor')}}</label>
+                                                    <v-select label="name" v-model="selected_contractor" name="contractor_id" id="contractor_id" :options="contractors" :placeholder="trans('contractor.select_contractor')" @select="onContractorSelect" @close="userForm.errors.clear('contractor_id')" @remove="userForm.contractor_id = ''"></v-select>
+                                                    <show-error :form-name="userForm" prop-name="contractor_id"></show-error>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="row">
@@ -260,25 +298,29 @@
                                         <th>{{trans('role.role')}}</th>
                                         <th>{{trans('designation.designation')}}</th>
                                         <th>{{trans('location.location')}}</th>
+                                        <th>{{trans('client.client')}}</th>
+                                        <th>{{trans('contractor.contractor')}}</th>
                                         <th>{{trans('user.status')}}</th>
                                         <!-- <th>{{trans('user.created_at')}}</th> -->
                                         <th class="table-option">{{trans('general.action')}}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="user in users.data" v-bind:key="user">
+                                    <tr v-for="user in users.data" v-bind:key="user.id">
                                         <td><img :src="getAvatar(user)" class="img-circle" width="55" /></td>
                                         <td v-text="user.profile.first_name+' '+user.profile.last_name"></td>
                                         <td v-text="user.email"></td>
                                         <td>
                                             <ul style="list-style: none; padding:0;">
-                                                <li v-for="role in user.roles" v-bind:key="role">{{role.name}}</li>
+                                                <li v-for="role in user.roles" v-bind:key="role.id">{{role.name}}</li>
                                             </ul>
                                         </td>
                                         <td v-text="user.profile.designation_id ? user.profile.designation.name : ''"></td>
                                         <td v-text="user.profile.location_id ? user.profile.location.name : ''"></td>
+                                        <td v-text="user.profile.client_id ? user.profile.client.name : ''"></td>
+                                        <td v-text="user.profile.contractor_id ? user.profile.contractor.name : ''"></td>
                                         <td>
-                                            <span v-for="status in getUserStatus(user)" :class="['label','label-'+status.color,'m-r-5']" v-bind:key="status">{{status.label}}</span>
+                                            <span v-for="status in getUserStatus(user)" :class="['label','label-'+status.color,'m-r-5']" v-bind:key="status.label">{{status.label}}</span>
                                         </td>
                                         <!-- <td>{{user.created_at | moment}}</td> -->
                                         <td class="table-option">
@@ -327,6 +369,8 @@
                     role_id: '',
                     designation_id: '',
                     location_id: '',
+                    client_id: '',
+                    contractor_id: '',
                     status: '',
                     created_at_start_date: '',
                     created_at_end_date: '',
@@ -343,6 +387,8 @@
                     role_id: [],
                     designation_id: '',
                     location_id: '',
+                    client_id: '',
+                    contractor_id: '',
                     address_line_1: '',
                     address_line_2: '',
                     city: '',
@@ -356,8 +402,12 @@
                 selected_roles: '',
                 designations: [],
                 locations: [],
+                clients: [],
+                contractors: [],
                 selected_designation: null,
                 selected_location: null,
+                selected_client: null,
+                selected_contractor: null,
                 showFilterPanel: false
             };
         },
@@ -382,6 +432,8 @@
                         this.roles = response.roles;
                         this.designations = response.designations;
                         this.locations = response.locations;
+                        this.clients = response.clients;
+                        this.contractors = response.contractorons;
                     })
                     .catch(error => {
                         helper.showDataErrorMsg(error)
@@ -402,6 +454,8 @@
                         this.userForm.role_id = [];
                         this.selected_designation = null;
                         this.selected_location = null;
+                        this.selected_client = null;
+                        this.selected_contractor = null;
                         this.getUsers();
                     })
                     .catch(error => {
@@ -444,6 +498,12 @@
             },
             onLocationSelect(selectedOption){
                 this.userForm.location_id = selectedOption.id;
+            },
+            onClienmtSelect(selectedOption){
+                this.userForm.client_id = selectedOption.id;
+            },
+            onContractorSelect(selectedOption){
+                this.userForm.contractor_id = selectedOption.id;
             }
         },
         watch: {

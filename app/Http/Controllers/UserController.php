@@ -9,6 +9,8 @@ use App\Repositories\UserRepository;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\UserEmailRequest;
 use App\Repositories\LocationRepository;
+use App\Repositories\ClientRepository;
+use App\Repositories\ContractorRepository;
 use App\Http\Requests\UserProfileRequest;
 use App\Repositories\ActivityLogRepository;
 use App\Repositories\DesignationRepository;
@@ -22,6 +24,8 @@ class UserController extends Controller
     protected $role;
     protected $designation;
     protected $location;
+    protected $client;
+    protected $contractor;
     protected $module = 'user';
 
     /**
@@ -35,7 +39,9 @@ class UserController extends Controller
         ActivityLogRepository $activity,
         RoleRepository $role,
         DesignationRepository $designation,
-        LocationRepository $location
+        LocationRepository $location,
+        ClientRepository $client,
+        ContractorRepository $contractor
     ) {
         $this->request = $request;
         $this->repo = $repo;
@@ -45,6 +51,8 @@ class UserController extends Controller
         $this->middleware('prohibited.test.mode')->only(['forceResetPassword','destroy','uploadAvatar','removeAvatar']);
         $this->designation = $designation;
         $this->location = $location;
+        $this->client = $client;
+        $this->contractor = $contractor;
     }
 
     /**
@@ -61,8 +69,10 @@ class UserController extends Controller
         $roles = generateSelectOption($this->role->listExceptName([config('system.default_role.admin')]));
         $designations = generateSelectOption($this->designation->listAllFilterById($this->designation->getSubordinate()));
         $locations = generateSelectOption($this->location->listAllFilterById($this->location->getSubordinate()));
+        $clients = generateSelectOption($this->client->listAll());
+        $contractors = generateSelectOption($this->contractor->listAll());
 
-        return $this->success(compact('countries', 'roles', 'genders', 'designations', 'locations'));
+        return $this->success(compact('countries', 'roles', 'genders', 'designations', 'locations', 'clients', 'contractors'));
     }
 
     /**
@@ -140,10 +150,11 @@ class UserController extends Controller
         $roles = $user->roles()->pluck('id')->all();
 
         $selected_designation = ($user->Profile->designation_id) ? ['id' => $user->Profile->designation_id, 'name' => $user->Profile->Designation->designation_with_department] : [];
-
         $selected_location = ($user->Profile->location_id) ? ['id' => $user->Profile->location_id, 'name' => $user->Profile->Location->name] : [];
+        $selected_client = ($user->Profile->client_id) ? ['id' => $user->Profile->client_id, 'name' => $user->Profile->Client->name] : [];
+        $selected_contractor = ($user->Profile->contractor_id) ? ['id' => $user->Profile->contractor_id, 'name' => $user->Profile->Contractor->name] : [];
 
-        return $this->success(compact('user', 'selected_roles', 'roles', 'selected_designation', 'selected_location'));
+        return $this->success(compact('user', 'selected_roles', 'roles', 'selected_designation', 'selected_location', 'selected_client', 'selected_contractor'));
     }
 
     /**

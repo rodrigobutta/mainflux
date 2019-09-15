@@ -49,6 +49,16 @@ class ClientRepository
         return $this->client->all()->pluck('name', 'id')->all();
     }
 
+      /**
+     * List all clients by client name & id
+     *
+     * @return array
+     */
+    public function listAllFilterById($client_ids)
+    {
+        return $this->client->whereIn('id', $client_ids)->get()->pluck('name', 'id')->all();
+    }
+
     /**
      * List all clients by id
      *
