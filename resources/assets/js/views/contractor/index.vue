@@ -69,7 +69,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="contractor in contractors.data" v-bind:key="contractor">
+                                    <tr v-for="contractor in contractors.data" v-bind:key="contractor.id">
                                         <td v-text="contractor.name"></td>
                                         <td v-text="contractor.description"></td>
                                         <td class="table-option">

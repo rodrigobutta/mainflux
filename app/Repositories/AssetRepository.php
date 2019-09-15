@@ -3,12 +3,14 @@ namespace App\Repositories;
 
 use App\Asset;
 use App\Repositories\DepartmentRepository;
+use App\Repositories\ClientRepository;
 use Illuminate\Validation\ValidationException;
 
 class AssetRepository
 {
     protected $asset;
     protected $department;
+    protected $client;
 
     /**
      * Instantiate a new instance.
@@ -17,10 +19,12 @@ class AssetRepository
      */
     public function __construct(
         Asset $asset,
-        DepartmentRepository $department
+        DepartmentRepository $department,
+        ClientRepository $client
     ) {
         $this->asset = $asset;
         $this->department = $department;
+        $this->client = $client;
     }
 
     /**
@@ -168,12 +172,15 @@ class AssetRepository
         $page_length = isset($params['page_length']) ? $params['page_length'] : config('config.page_length');
         $name = isset($params['name']) ? $params['name'] : '';
         $department_id = isset($params['department_id']) ? $params['department_id'] : '';
+        $client_id = isset($params['client_id']) ? $params['client_id'] : '';
         $top_asset_id = isset($params['top_asset_id']) ? $params['top_asset_id'] : '';
 
-        $query = $this->asset->with('department', 'parent')->filterByName($name)->filterByDepartmentId($department_id)->filterByTopAssetId($top_asset_id);
+        $query = $this->asset->with('department', 'client', 'parent')->filterByName($name)->filterByDepartmentId($department_id)->filterByClientId($client_id)->filterByTopAssetId($top_asset_id);
 
         if ($sort_by === 'department_id') {
             $query->select('assets.*', \DB::raw('(select name from departments where assets.department_id = departments.id) as department_name'))->orderBy('department_name', $order);
+        } else if ($sort_by === 'client_id') {
+            $query->select('assets.*', \DB::raw('(select name from clients where assets.client_id = clients.id) as client_name'))->orderBy('client_name', $order);
         } else {
             $query->orderBy($sort_by, $order);
         }
@@ -283,13 +290,19 @@ class AssetRepository
     public function validateInputId($params)
     {
         $department_ids = $this->department->listId();
+        $client_ids = $this->client->listId();
         $asset_ids = $this->listId();
 
         $department_id = isset($params['department_id']) ? $params['department_id'] : null;
+        $client_id = isset($params['client_id']) ? $params['client_id'] : null;
         $top_asset_id = isset($params['top_asset_id']) ? $params['top_asset_id'] : null;
 
         if (! in_array($department_id, $department_ids)) {
             throw ValidationException::withMessages(['message' => trans('department.could_not_find')]);
+        }
+
+        if (! in_array($client_id, $client_ids)) {
+            throw ValidationException::withMessages(['message' => trans('client.could_not_find')]);
         }
 
         if ($top_asset_id && ! in_array($top_asset_id, $asset_ids)) {
@@ -315,6 +328,10 @@ class AssetRepository
         if ($query->filterByDepartmentId($params['department_id'])->filterByExactName($params['name'])->count()) {
             throw ValidationException::withMessages(['name' => trans('asset.asset_exists')]);
         }
+
+        if ($query->filterByClientId($params['client_id'])->filterByExactName($params['name'])->count()) {
+            throw ValidationException::withMessages(['name' => trans('asset.asset_exists')]);
+        }
     }
 
     /**
@@ -337,6 +354,7 @@ class AssetRepository
         $formatted = [
             'name'               => isset($params['name']) ? $params['name'] : null,
             'department_id'      => isset($params['department_id']) ? $params['department_id'] : null,
+            'client_id'      => isset($params['client_id']) ? $params['client_id'] : null,
             'top_asset_id' => (isset($params['top_asset_id']) && $params['top_asset_id']) ? $params['top_asset_id'] : ($system_admin_asset ? $system_admin_asset->id : null),
             'description'        => isset($params['description']) ? $params['description'] : null,
             'is_default'         => $is_default

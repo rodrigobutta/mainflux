@@ -25,6 +25,11 @@ class Asset extends Model
         return $this->belongsTo('App\Department');
     }
 
+    public function client()
+    {
+        return $this->belongsTo('App\Client');
+    }
+
     public function profiles()
     {
         return $this->hasMany('App\Profile');
@@ -61,6 +66,15 @@ class Asset extends Model
         }
 
         return $q->where('department_id', '=', $department_id);
+    }
+
+    public function scopeFilterByClientId($q, $client_id)
+    {
+        if (! $client_id) {
+            return $q;
+        }
+
+        return $q->where('client_id', '=', $client_id);
     }
 
     public function scopeFilterByTopAssetId($q, $top_asset_id)

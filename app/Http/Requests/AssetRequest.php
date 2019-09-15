@@ -25,7 +25,8 @@ class AssetRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'department_id' => 'required'
+            'department_id' => 'required',
+            'client_id' => 'required'
         ];
     }
 
@@ -38,7 +39,8 @@ class AssetRequest extends FormRequest
     {
         return [
             'name' => trans('asset.name'),
-            'department_id' => trans('department.department')
+            'department_id' => trans('department.department'),
+            'client_id' => trans('client.client')
         ];
     }
 }

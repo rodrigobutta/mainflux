@@ -252,6 +252,14 @@ let routes = [
                 component: require('./views/asset/edit')
             },
             {
+                path: '/project',
+                component: require('./views/project/index')
+            },
+            {
+                path: '/project/:id/edit',
+                component: require('./views/project/edit')
+            },
+            {
                 path: '/location',
                 component: require('./views/location/index')
             },

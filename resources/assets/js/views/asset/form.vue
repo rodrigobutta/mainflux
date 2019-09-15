@@ -11,6 +11,11 @@
             <show-error :form-name="assetForm" prop-name="department_id"></show-error>
         </div>
         <div class="form-group">
+            <label for="">{{trans('client.client')}}</label>
+            <v-select label="name" v-model="selected_client" name="client_id" id="client_id" :options="clients" :placeholder="trans('client.select_client')" @select="onClientSelect" @close="assetForm.errors.clear('client_id')" @remove="assetForm.client_id = ''"></v-select>
+            <show-error :form-name="assetForm" prop-name="client_id"></show-error>
+        </div>
+        <div class="form-group">
             <label for="">{{trans('asset.top_asset')}} <show-tip module="asset" tip="tip_top_asset" type="field"></show-tip> </label>
             <v-select label="name" v-model="selected_top_asset" name="top_asset_id" id="top_asset_id" :options="top_assets" :placeholder="trans('asset.select_top_asset')" @select="onTopAssetSelect" @close="assetForm.errors.clear('top_asset_id')" @remove="assetForm.top_asset_id = ''"></v-select>
             <show-error :form-name="assetForm" prop-name="top_asset_id"></show-error>
@@ -43,13 +48,16 @@
                 assetForm: new Form({
                     name : '',
                     department_id : '',
+                    client_id : '',
                     top_asset_id: '',
                     description: '',
                     is_default:  false
                 }),
                 departments: [],
+                clients: [],
                 top_assets: [],
                 selected_department: null,
+                selected_client: null,
                 selected_top_asset: null
             };
         },
@@ -62,6 +70,7 @@
                 .then(response => response.data)
                 .then(response => {
                     this.departments = response.departments;
+                    this.clients = response.clients;
                     if(!this.id)
                         this.top_assets = response.top_assets;
                 })
@@ -83,6 +92,7 @@
                         this.top_assets.push(response.new_asset);
                         this.$emit('completed');
                         this.selected_department = null;
+                        this.selected_client = null;
                         this.selected_top_asset = null;
                     })
                     .catch(error => {
@@ -95,9 +105,11 @@
                     .then(response => {
                         this.assetForm.name = response.asset.name;
                         this.assetForm.department_id = response.asset.department_id;
+                        this.assetForm.client_id = response.asset.client_id;
                         this.assetForm.top_asset_id = response.asset.top_asset_id;
                         this.assetForm.is_default = response.asset.is_default;
                         this.selected_department = response.selected_department;
+                        this.selected_client = response.selected_client;
                         this.selected_top_asset = response.selected_top_asset;
                         this.top_assets = response.top_assets;
                     })
@@ -121,6 +133,9 @@
             },
             onDepartmentSelect(selectedOption){
                 this.assetForm.department_id = selectedOption.id;
+            },
+            onClientSelect(selectedOption){
+                this.assetForm.client_id = selectedOption.id;
             }
         }
     }

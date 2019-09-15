@@ -13,6 +13,8 @@
                     </div>
                 </div>
             </div> -->
+
+            
             
             <nav class="sidebar-nav m-t-20">
                 <div class="text-center" v-if="getConfig('maintenance_mode')"><span class="badge badge-danger m-b-10">{{trans('configuration.under_maintenance')}}</span></div>
@@ -24,6 +26,7 @@
                     <li v-if="hasPermission('list-contractor') && getConfig('show_contractor_menu')"><router-link to="/contractor" exact><i class="fas fa-truck fa-fw"></i> <span class="hide-menu">{{trans('contractor.contractor')}}</span></router-link></li>
                     <li v-if="hasPermission('list-designation') && getConfig('show_designation_menu')"><router-link to="/designation" exact><i class="fas fa-sitemap fa-fw"></i> <span class="hide-menu">{{trans('designation.designation')}}</span></router-link></li>
                     <li v-if="hasPermission('list-asset') && getConfig('show_asset_menu')"><router-link to="/asset" exact><i class="fas fa-sitemap fa-fw"></i> <span class="hide-menu">{{trans('asset.asset')}}</span></router-link></li>
+                    <li v-if="hasPermission('list-project') && getConfig('show_project_menu')"><router-link to="/project" exact><i class="fas fa-sitemap fa-fw"></i> <span class="hide-menu">{{trans('project.project')}}</span></router-link></li>
                     <li v-if="hasPermission('list-location') && getConfig('show_location_menu')"><router-link to="/location" exact><i class="fas fa-code-branch fa-fw"></i> <span class="hide-menu">{{trans('location.location')}}</span></router-link></li>
                     <li v-if="hasPermission('list-user') && getConfig('show_user_menu')"><router-link to="/user" exact><i class="fas fa-users fa-fw"></i> <span class="hide-menu">{{trans('user.user')}}</span></router-link></li>
                     <li v-if="hasPermission('list-user') && getConfig('show_announcement_menu')"><router-link to="/announcement" exact><i class="fas fa-bullhorn fa-fw"></i> <span class="hide-menu">{{trans('announcement.announcement')}}</span></router-link></li>

@@ -6,6 +6,7 @@ use App\Asset;
 use Illuminate\Http\Request;
 use App\Http\Requests\AssetRequest;
 use App\Repositories\DepartmentRepository;
+use App\Repositories\ClientRepository;
 use App\Repositories\ActivityLogRepository;
 use App\Repositories\AssetRepository;
 
@@ -15,6 +16,7 @@ class AssetController extends Controller
     protected $repo;
     protected $activity;
     protected $department;
+    protected $client;
     protected $module = 'asset';
 
     /**
@@ -26,12 +28,14 @@ class AssetController extends Controller
         Request $request,
         AssetRepository $repo,
         ActivityLogRepository $activity,
-        DepartmentRepository $department
+        DepartmentRepository $department,
+        ClientRepository $client
     ) {
         $this->request    = $request;
         $this->repo       = $repo;
         $this->activity   = $activity;
         $this->department = $department;
+        $this->client = $client;
 
         $this->middleware('permission:access-configuration');
     }
@@ -46,9 +50,10 @@ class AssetController extends Controller
         $this->authorize('preRequisite', Asset::class);
 
         $departments      = generateSelectOption($this->department->listAll());
+        $clients      = generateSelectOption($this->client->listAll());
         $top_assets = generateSelectOption($this->repo->listTopAssets());
 
-        return $this->success(compact('departments', 'top_assets'));
+        return $this->success(compact('departments', 'clients', 'top_assets'));
     }
 
     /**
@@ -62,9 +67,10 @@ class AssetController extends Controller
 
         $assets     = $this->repo->paginate($this->request->all());
         $departments      = $this->department->getAll();
+        $clients      = $this->client->getAll();
         $top_assets = $this->repo->getAll();
 
-        return $this->success(compact('assets', 'departments', 'top_assets'));
+        return $this->success(compact('assets', 'departments','clients', 'top_assets'));
     }
 
     /**
@@ -73,6 +79,7 @@ class AssetController extends Controller
      * @param ({
      *      @Parameter("name", type="string", required="true", description="Name of Asset"),
      *      @Parameter("department_id", type="integer", required="true", description="Id of Department"),
+     *      @Parameter("client_id", type="integer", required="true", description="Id of Client"),
      *      @Parameter("description", type="text", required="optional", description="Asset description")
      * })
      * @return Response
@@ -113,8 +120,9 @@ class AssetController extends Controller
         $selected_top_asset = ($asset->top_asset_id) ? ['id' => $asset->top_asset_id,'name' => $asset->Parent->asset_with_department] : [];
 
         $selected_department = ['name' => $asset->Department->name, 'id' => $asset->department_id];
+        $selected_client = ['name' => $asset->Client->name, 'id' => $asset->client_id];
 
-        return $this->success(compact('asset', 'selected_department', 'selected_top_asset', 'top_assets'));
+        return $this->success(compact('asset', 'selected_department', 'selected_client', 'selected_top_asset', 'top_assets'));
     }
 
     /**
@@ -124,6 +132,7 @@ class AssetController extends Controller
      *      @Parameter("id", type="integer", required="true", description="Id of Asset"),
      *      @Parameter("name", type="string", required="true", description="Name of Asset"),
      *      @Parameter("department_id", type="integer", required="true", description="Id of Department"),
+     * *      @Parameter("client_id", type="integer", required="true", description="Id of Client"),
      *      @Parameter("description", type="text", required="optional", description="Asset description")
      * })
      * @return Response

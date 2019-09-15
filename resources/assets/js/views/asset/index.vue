@@ -43,6 +43,17 @@
                                     </div>
                                 </div>
                                 <div class="col-6 col-md-4">
+                                    <div class="form-group" v-show="clients">
+                                        <label for="">{{trans('client.client')}}</label>
+                                        <select v-model="filterAssetForm.client_id" class="custom-select col-12">
+                                          <option value="">{{trans('general.select_one')}}</option>
+                                          <option v-for="client in clients" v-bind:value="client.id">
+                                            {{ client.name }}
+                                          </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-4">
                                     <div class="form-group" v-show="assets">
                                         <label for="">{{trans('asset.top_asset')}}</label>
                                         <select v-model="filterAssetForm.top_asset_id" class="custom-select col-12">
@@ -59,6 +70,7 @@
                                         <select name="order" class="form-control" v-model="filterAssetForm.sortBy">
                                             <option value="name">{{trans('asset.name')}}</option>
                                             <option value="department_id">{{trans('department.department')}}</option>
+                                            <option value="client_id">{{trans('client.client')}}</option>
                                             <option value="top_asset_id">{{trans('asset.top_asset')}}</option>
                                         </select>
                                     </div>
@@ -88,6 +100,7 @@
                                     <tr>
                                         <th>{{trans('asset.name')}}</th>
                                         <th>{{trans('department.department')}}</th>
+                                        <th>{{trans('client.client')}}</th>
                                         <th>{{trans('asset.top_asset')}}</th>
                                         <th>{{trans('asset.default')}}</th>
                                         <th class="table-option">{{trans('general.action')}}</th>
@@ -97,6 +110,7 @@
                                     <tr v-for="asset in assets.data">
                                         <td v-text="asset.name"></td>
                                         <td v-text="asset.department.name"></td>
+                                        <td v-text="asset.client.name"></td>
                                         <td v-text="asset.top_asset_id ? asset.parent.name : ''"></td>
                                         <td>
                                             <span v-if="asset.is_default"><i class="fas fa-check"></i></span>
@@ -134,12 +148,14 @@
                 filterAssetForm: {
                     name: '',
                     department_id: '',
+                    client_id: '',
                     top_asset_id: '',
                     sortBy : 'name',
                     order: 'asc',
                     page_length: helper.getConfig('page_length')
                 },
                 departments: {},
+                clients: {},
                 top_assets: {},
                 showFilterPanel: false
             };
@@ -166,6 +182,7 @@
                         this.assets = response.assets;
                         this.top_assets = response.top_assets;
                         this.departments = response.departments;
+                        this.clients = response.clients;
                     })
                     .catch(error => {
                         helper.showDataErrorMsg(error);
