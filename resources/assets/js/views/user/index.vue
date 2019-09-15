@@ -298,8 +298,7 @@
                                         <th>{{trans('role.role')}}</th>
                                         <th>{{trans('designation.designation')}}</th>
                                         <th>{{trans('location.location')}}</th>
-                                        <th>{{trans('client.client')}}</th>
-                                        <th>{{trans('contractor.contractor')}}</th>
+                                        <th>{{trans('client.client')}} / {{trans('contractor.contractor')}}</th>
                                         <th>{{trans('user.status')}}</th>
                                         <!-- <th>{{trans('user.created_at')}}</th> -->
                                         <th class="table-option">{{trans('general.action')}}</th>
@@ -317,8 +316,7 @@
                                         </td>
                                         <td v-text="user.profile.designation_id ? user.profile.designation.name : ''"></td>
                                         <td v-text="user.profile.location_id ? user.profile.location.name : ''"></td>
-                                        <td v-text="user.profile.client_id ? user.profile.client.name : ''"></td>
-                                        <td v-text="user.profile.contractor_id ? user.profile.contractor.name : ''"></td>
+                                        <td v-text="(user.profile.client_id ? user.profile.client.name : '') + (user.profile.contractor_id ? user.profile.contractor.name : '')"></td>
                                         <td>
                                             <span v-for="status in getUserStatus(user)" :class="['label','label-'+status.color,'m-r-5']" v-bind:key="status.label">{{status.label}}</span>
                                         </td>
