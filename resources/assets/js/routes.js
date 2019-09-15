@@ -244,6 +244,14 @@ let routes = [
                 component: require('./views/designation/edit')
             },
             {
+                path: '/asset',
+                component: require('./views/asset/index')
+            },
+            {
+                path: '/asset/:id/edit',
+                component: require('./views/asset/edit')
+            },
+            {
                 path: '/location',
                 component: require('./views/location/index')
             },
