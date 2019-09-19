@@ -38,6 +38,21 @@ class Task extends Model
         return $this->belongsTo('App\User', 'user_id');
     }
 
+    public function client()
+    {
+        return $this->belongsTo('App\Client', 'client_id');
+    }
+
+    public function contractor()
+    {
+        return $this->belongsTo('App\Contractor', 'contractor_id');
+    }
+
+    public function project()
+    {
+        return $this->belongsTo('App\Project', 'project_id');
+    }
+
     public function questionSet()
     {
         return $this->belongsTo('App\QuestionSet','question_set_id');
@@ -129,6 +144,33 @@ class Task extends Model
         }
 
         return $q->whereIn('task_category_id', explode(',', $task_category_id));
+    }
+
+    public function scopeFilterByClientId($q, $tclient_id)
+    {
+        if (! $tclient_id) {
+            return $q;
+        }
+
+        return $q->whereIn('tclient_id', explode(',', $tclient_id));
+    }
+
+    public function scopeFilterByContractorId($q, $contractor_id)
+    {
+        if (! $contractor_id) {
+            return $q;
+        }
+
+        return $q->whereIn('contractor_id', explode(',', $contractor_id));
+    }
+
+    public function scopeFilterByProjectId($q, $project_id)
+    {
+        if (! $project_id) {
+            return $q;
+        }
+
+        return $q->whereIn('project_id', explode(',', $project_id));
     }
 
     public function scopeFilterByTaskPriorityId($q, $task_priority_id)

@@ -53,6 +53,27 @@
                                         </v-select>
                                     </div>
                                 </div>
+                                <div class="col-6 col-md-3">
+                                    <div class="form-group">
+                                        <label for="">{{trans('task.client')}}</label>
+                                        <v-select label="name" track-by="id" v-model="selected_client" name="client_id" id="client_id" :options="clients" :placeholder="trans('task.select_client')" @select="onClientSelect" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" @remove="onClientRemove">
+                                        </v-select>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div class="form-group">
+                                        <label for="">{{trans('task.contractor')}}</label>
+                                        <v-select label="name" track-by="id" v-model="selected_contractor" name="contractor_id" id="contractor_id" :options="contractors" :placeholder="trans('task.select_contractor')" @select="onContractorSelect" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" @remove="onContractorRemove">
+                                        </v-select>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div class="form-group">
+                                        <label for="">{{trans('task.project')}}</label>
+                                        <v-select label="name" track-by="id" v-model="selected_project" name="project_id" id="project_id" :options="projects" :placeholder="trans('task.select_project')" @select="onProjectSelect" :multiple="true" :close-on-select="false" :clear-on-select="false" :hide-selected="true" @remove="onProjectRemove">
+                                        </v-select>
+                                    </div>
+                                </div>
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label for="">{{trans('task.assigned_user')}}</label>
@@ -184,7 +205,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="task in tasks.data">
+                                    <tr v-for="task in tasks.data" v-bind:key="task.id">
                                         <td v-text="getTaskNumber(task)"></td>
                                         <td v-text="task.title"></td>
                                         <td v-text="task.task_category.name"></td>
@@ -198,7 +219,7 @@
                                             {{ getTaskProgress(task) }} %
                                         </td>
                                         <td>
-                                            <span v-for="status in getTaskStatus(task)" :class="['label','label-'+status.color]" style="margin-right:5px;">{{status.label}}</span>
+                                            <span v-for="status in getTaskStatus(task)" :class="['label','label-'+status.color]" style="margin-right:5px;" v-bind:key="status.label">{{status.label}}</span>
                                         </td>
                                         <td v-if="filterTaskForm.user_id.length == 1" v-html="getRating(task)"></td>
                                         <td>{{ task.user_added.profile.first_name+' '+task.user_added.profile.last_name}}</td>
@@ -246,6 +267,9 @@
                     title: '',
                     task_category_id: [],
                     task_priority_id: [],
+                    client_id: [],
+                    contractor_id: [],
+                    project_id: [],
                     user_id: [],
                     type: '',
                     starred: '',
@@ -266,7 +290,13 @@
                 showFilterPanel: false,
                 task_categories: [],
                 selected_task_category: '',
+                selected_client: '',
+                selected_contractor: '',
+                selected_project: '',
                 task_priorities: [],
+                clients: [],
+                contractors: [],
+                projects: [],
                 selected_task_priority: '',
                 users: [],
                 selected_user: '',
@@ -283,6 +313,9 @@
                 .then(response => {
                     this.task_categories = response.task_categories;
                     this.task_priorities = response.task_priorities;
+                    this.clients = response.clients;
+                    this.contractors = response.contractors;
+                    this.projects = response.projects;
                     this.users = response.users;
                 })
                 .catch(error => {
@@ -378,7 +411,25 @@
             getRating(task){
                 let user = task.user.filter(user => user.id == this.filterTaskForm.user_id[0]);
                 return helper.getTaskUserRating(user[0],task);
-            }
+            },
+            onClientSelect(selectedOption){
+                this.filterTaskForm.client_id.push(selectedOption.id);
+            },
+            onClientRemove(removedOption){
+                this.filterTaskForm.client_id.splice(this.filterTaskForm.client_id.indexOf(removedOption.id), 1);
+            },
+            onContractorSelect(selectedOption){
+                this.filterTaskForm.contractor_id.push(selectedOption.id);
+            },
+            onContractorRemove(removedOption){
+                this.filterTaskForm.contractor_id.splice(this.filterTaskForm.contractor_id.indexOf(removedOption.id), 1);
+            },
+            onProjectSelect(selectedOption){
+                this.filterTaskForm.project_id.push(selectedOption.id);
+            },
+            onProjectRemove(removedOption){
+                this.filterTaskForm.project_id.splice(this.filterTaskForm.project_id.indexOf(removedOption.id), 1);
+            },
         },
         computed:{
             getRatingUser(){

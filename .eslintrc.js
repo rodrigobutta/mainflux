@@ -11,5 +11,8 @@ module.exports = {
       'plugin:vue/recommended',
       'prettier',
       'prettier/vue'
-    ]
+    ],
+    rules: {
+      'vue/no-use-v-if-with-v-for': 'off"¡'
+    }
   };

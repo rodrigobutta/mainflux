@@ -39,6 +39,8 @@ class TaskRequest extends FormRequest
             'due_date' => 'required|date|after_or_equal:start_date',
             'task_category_id' => 'required',
             'task_priority_id' => 'required',
+            'client_id' => 'required',
+            'contractor_id' => 'required',
             'upload_token' => 'required'
         ];
 
@@ -72,6 +74,8 @@ class TaskRequest extends FormRequest
             'task_priority_id' => trans('task.task_priority'),
             'question_set_id' => trans('task.question_set'),
             'upload_token' => trans('general.upload_token'),
+            'client_id' => trans('client.client'),
+            'contractor_id' => trans('contractor.contractor')
         ];
     }
 }

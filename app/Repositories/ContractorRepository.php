@@ -49,6 +49,17 @@ class ContractorRepository
         return $this->contractor->all()->pluck('name', 'id')->all();
     }
 
+
+    /**
+     * List all contractor by name & id for select option
+     *
+     * @return array
+     */
+    public function selectAll()
+    {
+        return $this->contractor->all(['name', 'id']);
+    }
+
       /**
      * List all contractors by contractor name & id
      *

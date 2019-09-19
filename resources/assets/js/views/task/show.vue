@@ -72,7 +72,7 @@
                                 </template>
                             </div>
                             <div class="col-md-3 col-xs-6">
-                                <div class="ribbon-wrapper card" style="margin-right: -15px;padding-top: 10px;" v-for="status in getTaskStatus(task)">
+                                <div class="ribbon-wrapper card" style="margin-right: -15px;padding-top: 10px;" v-for="status in getTaskStatus(task)" v-bind:key="status.label">
                                     <div :class="['ribbon','ribbon-'+status.color,'ribbon-right']">{{status.label}}</div>
                                 </div>
                                 <div class="ribbon-wrapper card" v-if="task.is_recurring" style="margin-right: -15px;padding-top: 10px;">
@@ -110,7 +110,7 @@
                         <h6 class="card-subtitle" v-if="task.user.length">{{trans('general.total_result_found',{'count' : task.user.length})}}</h6>
                         <h6 class="card-subtitle" v-else>{{trans('general.no_result_found')}}</h6>
                         <br />
-                        <div class="d-flex flex-row m-b-20" v-if="task.user" v-for="user in task.user">
+                        <div class="d-flex flex-row m-b-20" v-if="task.user" v-for="user in task.user" v-bind:key="user.id">
                             <div class=""><img :src="getAvatar(user)" alt="user" class="img-circle" width="70"></div>
                             <div class="p-l-20">
                                 <h4 class="font-medium">{{user.profile.first_name+' '+user.profile.last_name}}</h4>
@@ -141,7 +141,7 @@
                                 <div v-html="task.description"></div>
                                 <div v-if="attachments.length">
                                     <ul style="list-style: none;padding: 0;" class="m-t-10">
-                                        <li v-for="attachment in attachments">
+                                        <li v-for="attachment in attachments" v-bind:key="attachment.id">
                                             <a :href="`/task/${task.uuid}/attachment/${attachment.uuid}/download?token=${authToken}`"><i class="fas fa-paperclip"></i> {{attachment.user_filename}}</a>
                                         </li>
                                     </ul>
@@ -154,8 +154,8 @@
                                 <h4 class="card-title">{{trans('task.answer_to_questions')}}</h4>
                                 <template v-if="!is_locked">
                                     <form @submit.prevent="submit" @keydown="questionForm.errors.clear($event.target.name)">
-                                        <template v-for="answer in questionForm.answers">
-                                            <div class="row">
+                                        <template v-for="answer in questionForm.answers" >
+                                            <div class="row" v-bind:key="answer.id">
                                                 <div class="col-12 col-sm-4">
                                                     <div class="form-group">
                                                         <label for="">{{answer.question}}</label>
@@ -181,7 +181,7 @@
                                     </form>
                                 </template>
                                 <template v-else>
-                                    <div v-for="answer in questionForm.answers">
+                                    <div v-for="answer in questionForm.answers" v-bind:key="answer.id">
                                         <h6>
                                             <span v-if="answer.answer == 'yes'" class="text-success m-r-20"><i class="fas fa-check-circle"></i></span>
                                             <span v-else class="text-danger"><i class="fas fa-times-circle m-r-20"></i></span>

@@ -48,6 +48,17 @@ class ClientRepository
     {
         return $this->client->all()->pluck('name', 'id')->all();
     }
+    
+
+    /**
+     * List all client by name & id for select option
+     *
+     * @return array
+     */
+    public function selectAll()
+    {
+        return $this->client->all(['name', 'id']);
+    }
 
       /**
      * List all clients by client name & id

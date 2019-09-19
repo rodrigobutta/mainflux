@@ -15,6 +15,9 @@ use App\Repositories\QuestionSetRepository;
 use App\Repositories\TaskCategoryRepository;
 use App\Repositories\TaskPriorityRepository;
 use Illuminate\Validation\ValidationException;
+use App\Repositories\ClientRepository;
+use App\Repositories\ContractorRepository;
+use App\Repositories\ProjectRepository;
 
 // use App\Notifications\TaskAssignation;
 use App\Events\TaskAssigned;
@@ -30,6 +33,9 @@ class TaskRepository
     protected $answer;
     protected $task_category;
     protected $task_priority;
+    protected $client;
+    protected $contractor;
+    protected $project;
     protected $module = 'task';
 
     /**
@@ -46,7 +52,10 @@ class TaskRepository
         QuestionSetRepository $question_set,
         Answer $answer,
         TaskCategoryRepository $task_category,
-        TaskPriorityRepository $task_priority
+        TaskPriorityRepository $task_priority,
+        ClientRepository $client,
+        ContractorRepository $contractor,
+        ProjectRepository $project
     ) {
         $this->task = $task;
         $this->user = $user;
@@ -57,6 +66,9 @@ class TaskRepository
         $this->answer = $answer;
         $this->task_category = $task_category;
         $this->task_priority = $task_priority;
+        $this->client = $client;
+        $this->contractor = $contractor;
+        $this->project = $project;
     }
 
     /**
@@ -128,7 +140,7 @@ class TaskRepository
      */
     public function findOrFail($id)
     {
-        $task = $this->task->with('userAdded', 'userAdded.profile', 'user', 'user.profile', 'user.profile.designation', 'user.profile.designation.department', 'taskPriority', 'taskCategory', 'subTask', 'subTask.subTaskRating','answers')->find($id);
+        $task = $this->task->with('userAdded', 'userAdded.profile', 'user', 'user.profile', 'user.profile.designation', 'user.profile.designation.department', 'taskPriority', 'taskCategory', 'subTask', 'subTask.subTaskRating','answers', 'client', 'contractor', 'project')->find($id);
 
         if (! $task) {
             throw ValidationException::withMessages(['message' => trans('task.could_not_find_task')]);
@@ -145,7 +157,7 @@ class TaskRepository
      */
     public function findByUuidOrFail($uuid)
     {
-        $task = $this->task->with('userAdded', 'userAdded.profile', 'user', 'user.profile', 'user.profile.designation', 'user.profile.designation.department', 'taskPriority', 'taskCategory', 'subTask', 'subTask.subTaskRating', 'answers','questionSet','questionSet.questions')->whereUuid($uuid)->first();
+        $task = $this->task->with('userAdded', 'userAdded.profile', 'user', 'user.profile', 'user.profile.designation', 'user.profile.designation.department', 'taskPriority', 'taskCategory', 'subTask', 'subTask.subTaskRating', 'answers','questionSet','questionSet.questions', 'client', 'contractor', 'project')->whereUuid($uuid)->first();
 
         if (! $task) {
             throw ValidationException::withMessages(['message' => trans('task.could_not_find_task')]);
@@ -161,7 +173,7 @@ class TaskRepository
      */
     public function fetchTasks()
     {
-        $query = $this->task->with('userAdded', 'userAdded.profile', 'user', 'user.profile', 'user.profile.designation', 'user.profile.designation.department', 'taskPriority', 'taskCategory', 'subTask', 'subTask.subTaskRating', 'answers');
+        $query = $this->task->with('userAdded', 'userAdded.profile', 'user', 'user.profile', 'user.profile.designation', 'user.profile.designation.department', 'taskPriority', 'taskCategory', 'subTask', 'subTask.subTaskRating', 'answers', 'client', 'contractor', 'project');
 
         // Accessible if logged in user has permission to access all the task
         // Accessible if logged in user has role of admin
@@ -202,6 +214,9 @@ class TaskRepository
         $title              = isset($params['title']) ? $params['title'] : null;
         $task_category_id   = isset($params['task_category_id']) ? $params['task_category_id'] : [];
         $task_priority_id   = isset($params['task_priority_id']) ? $params['task_priority_id'] : [];
+        $client_id   = isset($params['client_id']) ? $params['client_id'] : [];
+        $contractor_id   = isset($params['contractor_id']) ? $params['contractor_id'] : [];
+        $project_id   = isset($params['project_id']) ? $params['project_id'] : [];
         $user_id            = isset($params['user_id']) ? $params['user_id'] : [];
         $type               = isset($params['type']) ? $params['type'] : null;
         $starred            = isset($params['starred']) ? $params['starred'] : null;
@@ -216,7 +231,7 @@ class TaskRepository
         $status             = isset($params['status']) ? $params['status'] : null;
         $recurring_task_id  = isset($params['recurring_task_id']) ? $params['recurring_task_id'] : null;
 
-        $query = $this->fetchTasks()->filterByStarred($starred)->filterByNumber($number)->filterByTitle($title)->filterByIsArchived($is_archived)->filterByTaskCategoryId($task_category_id)->filterByTaskPriorityId($task_priority_id)->filterByIsRecurring($is_recurring)->filterByUserId($user_id)->filterByType($type)->filterByStatus($status)->filterByRecurringTaskId($recurring_task_id)->startDateBetween([
+        $query = $this->fetchTasks()->filterByStarred($starred)->filterByNumber($number)->filterByTitle($title)->filterByIsArchived($is_archived)->filterByTaskCategoryId($task_category_id)->filterByClientId($client_id)->filterByContractorId($contractor_id)->filterByProjectId($project_id)->filterByTaskPriorityId($task_priority_id)->filterByIsRecurring($is_recurring)->filterByUserId($user_id)->filterByType($type)->filterByStatus($status)->filterByRecurringTaskId($recurring_task_id)->startDateBetween([
             'start_date' => $start_date_start,
             'end_date' => $start_date_end
         ])->dueDateBetween([
@@ -430,10 +445,16 @@ class TaskRepository
         $task_category_ids = $this->task_category->listId();
         $task_priority_ids = $this->task_priority->listId();
         $question_set_ids  = $this->question_set->listId();
+        $client_ids = $this->client->listId();
+        $contractor_ids  = $this->contractor->listId();
+        $project_ids  = $this->project->listId();
 
         $task_category_id = isset($params['task_category_id']) ? $params['task_category_id'] : null;
         $task_priority_id = isset($params['task_priority_id']) ? $params['task_priority_id'] : null;
         $question_set_id  = isset($params['question_set_id']) ? $params['question_set_id'] : [];
+        $client_id = isset($params['client_id']) ? $params['client_id'] : null;
+        $contractor_id = isset($params['contractor_id']) ? $params['contractor_id'] : null;
+        $project_id = isset($params['project_id']) ? $params['project_id'] : null;
 
         if (! in_array($task_category_id, $task_category_ids)) {
             throw ValidationException::withMessages(['message' => trans('task.could_not_find_task_category')]);
@@ -445,6 +466,18 @@ class TaskRepository
 
         if ($question_set_id && ! in_array($question_set_id, $question_set_ids)) {
             throw ValidationException::withMessages(['message' => trans('task.could_not_find_question_set')]);
+        }
+
+        if ($client_id && ! in_array($client_id, $client_ids)) {
+            throw ValidationException::withMessages(['message' => trans('task.could_not_find_client')]);
+        }
+
+        if ($contractor_id && ! in_array($contractor_id, $contractor_ids)) {
+            throw ValidationException::withMessages(['message' => trans('task.could_not_find_contractor')]);
+        }
+
+        if ($project_id && ! in_array($project_id, $project_ids)) {
+            throw ValidationException::withMessages(['message' => trans('task.could_not_find_project')]);
         }
     }
 
@@ -536,7 +569,10 @@ class TaskRepository
             'title'            => isset($params['title']) ? $params['title'] : null,
             'start_date'       => isset($params['start_date']) ? toDate($params['start_date']) : null,
             'due_date'         => isset($params['due_date']) ? toDate($params['due_date']) : null,
-            'description'      => isset($params['description']) ? $params['description'] : null
+            'description'      => isset($params['description']) ? $params['description'] : null,
+            'client_id' => isset($params['client_id']) ? $params['client_id'] : null,
+            'contractor_id' => isset($params['contractor_id']) ? $params['contractor_id'] : null,
+            'project_id' => isset($params['project_id']) ? $params['project_id'] : null
         ];
 
         if ($action === 'create') {

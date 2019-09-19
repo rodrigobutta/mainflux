@@ -15,6 +15,9 @@ use App\Http\Requests\TaskRecurrenceRequest;
 use App\Repositories\TaskCategoryRepository;
 use App\Repositories\TaskPriorityRepository;
 use App\Http\Requests\TaskConfigurationRequest;
+use App\Repositories\ClientRepository;
+use App\Repositories\ContractorRepository;
+use App\Repositories\ProjectRepository;
 
 class TaskController extends Controller
 {
@@ -26,6 +29,11 @@ class TaskController extends Controller
     protected $user;
     protected $upload;
     protected $question_set;
+    protected $client;
+    protected $contractor;
+    protected $project;
+
+
     protected $module = 'task';
 
     /**
@@ -41,7 +49,10 @@ class TaskController extends Controller
         TaskPriorityRepository $task_priority,
         UserRepository $user,
         UploadRepository $upload,
-        QuestionSetRepository $question_set
+        QuestionSetRepository $question_set,
+        ClientRepository $client,
+        ContractorRepository $contractor,
+        ProjectRepository $project
     ) {
         $this->request = $request;
         $this->repo = $repo;
@@ -51,6 +62,9 @@ class TaskController extends Controller
         $this->user = $user;
         $this->upload = $upload;
         $this->question_set = $question_set;
+        $this->client = $client;
+        $this->contractor = $contractor;
+        $this->project = $project;
 
         $this->middleware('prohibited.test.mode')->only(['destroy']);
     }
@@ -67,9 +81,13 @@ class TaskController extends Controller
         $task_categories = $this->task_category->selectAll();
         $task_priorities = $this->task_priority->selectAll();
         $question_sets = $this->question_set->selectAll();
+        $clients = $this->client->selectAll();
+        $contractors = $this->contractor->selectAll();
+        $projects = $this->project->selectAll();
+
         $users = generateSelectOption($this->user->getAccessibleUser(\Auth::user()->id, 1)->get()->pluck('name_with_designation_and_department', 'id')->all());
 
-        return $this->success(compact('task_categories', 'task_priorities', 'users','question_sets'));
+        return $this->success(compact('task_categories', 'task_priorities', 'users','question_sets', 'clients', 'contractors', 'projects'));
     }
 
     /**
@@ -94,6 +112,9 @@ class TaskController extends Controller
      *      @Parameter("due_date", type="date", required="true", description="Due Date of Task"),
      *      @Parameter("task_category_id", type="integer", required="true", description="Category of Task"),
      *      @Parameter("task_priority_id", type="integer", required="true", description="Priority of Task"),
+     * *      @Parameter("client_id", type="integer", required="true", description="Client"),
+     * *      @Parameter("contractor_id", type="integer", required="true", description="Contractor"),
+     * *      @Parameter("project_id", type="integer", required="false", description="Project"),
      * })
      * @return Response
      */
@@ -139,9 +160,13 @@ class TaskController extends Controller
         $question_set = ($task->question_set_id) ? $this->question_set->findOrFail($task->question_set_id) : null;
         $is_locked = in_array($task->sign_off_status, ['requested','approved']) ? 1 : 0;
 
+        $selected_client = ($task->client_id) ? ['id' => $task->client_id,'name' => $task->client->name] : [];
+        $selected_contractor = ($task->contractor_id) ? ['id' => $task->contractor_id,'name' => $task->contractor->name] : [];
+        $selected_project = ($task->project_id) ? ['id' => $task->project_id,'name' => $task->project->name] : [];
+
         $is_editable = $this->repo->editable($task, 1);
 
-        return $this->success(compact('task', 'selected_task_category', 'selected_task_priority', 'selected_question_set', 'selected_users', 'user_id', 'is_editable', 'attachments', 'starred_tasks','question_set','is_locked'));
+        return $this->success(compact('task', 'selected_task_category', 'selected_task_priority', 'selected_question_set', 'selected_users', 'user_id', 'is_editable', 'attachments', 'starred_tasks','question_set','is_locked', 'selected_client', 'selected_contractor', 'selected_project'));
     }
 
     /**
@@ -155,6 +180,9 @@ class TaskController extends Controller
      *      @Parameter("due_date", type="date", required="true", description="Due Date of Task"),
      *      @Parameter("task_category_id", type="integer", required="true", description="Category of Task"),
      *      @Parameter("task_priority_id", type="integer", required="true", description="Priority of Task"),
+     * *      @Parameter("client_id", type="integer", required="true", description="Client"),
+     * *      @Parameter("contractor:id", type="integer", required="true", description="Contractor"),
+     * *      @Parameter("project_id", type="integer", required="false", description="Project"),
      * })
      * @return Response
      */

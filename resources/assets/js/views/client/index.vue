@@ -69,7 +69,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="client in clients.data" v-bind:key="client">
+                                    <tr v-for="client in clients.data" v-bind:key="client.id">
                                         <td v-text="client.name"></td>
                                         <td v-text="client.description"></td>
                                         <td class="table-option">

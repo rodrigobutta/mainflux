@@ -61,6 +61,17 @@ class ProjectRepository
         return $this->project->all()->pluck('project_with_department', 'id')->all();
     }
 
+
+    /**
+     * List all project by name & id for select option
+     *
+     * @return array
+     */
+    public function selectAll()
+    {
+        return $this->project->all(['name', 'id']);
+    }
+
     /**
      * List all projects by id
      *

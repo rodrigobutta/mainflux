@@ -23,6 +23,31 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <label for="">{{trans('task.client')}}</label>
+                            <v-select label="name" v-model="selected_client" name="client_id" id="client_id" :options="clients" :placeholder="trans('task.select_client')" @select="onClientSelect" @close="taskForm.errors.clear('client_id')" @remove="taskForm.client_id = ''"></v-select>
+                            <show-error :form-name="taskForm" prop-name="client_id"></show-error>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <label for="">{{trans('task.contractor')}}</label>
+                            <v-select label="name" v-model="selected_contractor" name="contractor_id" id="contractor_id" :options="contractors" :placeholder="trans('task.select_contractor')" @select="onContractorSelect" @close="taskForm.errors.clear('contractor_id')" @remove="taskForm.contractor_id = ''"></v-select>
+                            <show-error :form-name="taskForm" prop-name="contractor_id"></show-error>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-12">
+                        <div class="form-group">
+                            <label for="">{{trans('task.project')}}</label>
+                            <v-select label="name" v-model="selected_project" name="project_id" id="project_id" :options="projects" :placeholder="trans('task.select_project')" @select="onProjectSelect" @close="taskForm.errors.clear('project_id')" @remove="taskForm.project_id = ''"></v-select>
+                            <show-error :form-name="taskForm" prop-name="project_id"></show-error>
+                        </div>
+                    </div>                   
+                </div>
                 <div class="form-group">
                     <label for="">{{trans('task.question_set')}}</label>
                     <v-select label="name" v-model="selected_question_set" name="question_set_id" id="question_set_id" :options="question_sets" :placeholder="trans('task.select_question_set')" @select="onQuestionSetSelect" @close="taskForm.errors.clear('question_set_id')" @remove="taskForm.question_set_id = ''"></v-select>
@@ -88,6 +113,9 @@
                     description : '',
                     task_category_id: '',
                     task_priority_id: '',
+                    client_id: '',
+                    contractor_id: '',
+                    project_id: '',
                     question_set_id: '',
                     start_date: '',
                     due_date: '',
@@ -97,11 +125,17 @@
                 }),
                 module_id: '',
                 users: [],
+                clients: [],
+                contractors: [],
+                projects: [],
                 selected_users: '',
                 task_categories: [],
                 question_sets: [],
                 selected_task_category: null,
                 selected_question_set: null,
+                selected_client: null,
+                selected_contractor: null,
+                selected_project: null,
                 task_priorities: [],
                 selected_task_priority: null,
                 clearTaskAttachment: false
@@ -120,6 +154,9 @@
                     this.task_categories = response.task_categories;
                     this.task_priorities = response.task_priorities;
                     this.question_sets = response.question_sets;
+                    this.clients = response.clients;
+                    this.contractors = response.contractors;
+                    this.projects = response.projects;
                 })
                 .catch(error => {
                     helper.showDataErrorMsg(error);
@@ -144,6 +181,9 @@
                         this.selected_task_priority = null;
                         this.selected_task_category = null;
                         this.selected_question_set = null;
+                        this.selected_client = null;
+                        this.selected_contractor = null;
+                        this.selected_project = null;
                         this.selected_users = null;
                         this.taskForm.user_id = [];
                         this.$emit('completed');
@@ -164,10 +204,16 @@
                         this.taskForm.task_category_id = response.task.task_category_id;
                         this.taskForm.task_priority_id = response.task.task_priority_id;
                         this.taskForm.question_set_id = response.task.question_set_id;
+                        this.taskForm.client_id = response.task.client_id;
+                        this.taskForm.contractor_id = response.task.contractor_id;
+                        this.taskForm.project_id = response.task.project_id;
                         this.taskForm.user_id = response.user_id;
                         this.selected_users = response.selected_users;
                         this.selected_task_priority = response.selected_task_priority;
                         this.selected_task_category = response.selected_task_category;
+                        this.selected_client = response.selected_client;
+                        this.selected_contractor = response.selected_contractor;
+                        this.selected_project = response.selected_project;
                         this.selected_question_set = response.selected_question_set;
                         this.module_id = response.task.id;
                     })
@@ -202,6 +248,15 @@
             },
             onQuestionSetSelect(selectedOption){
                 this.taskForm.question_set_id = selectedOption.id;
+            },
+            onClientSelect(selectedOption){
+                this.taskForm.client_id = selectedOption.id;
+            },
+            onContractorSelect(selectedOption){
+                this.taskForm.contractor_id = selectedOption.id;
+            },
+            onProjectSelect(selectedOption){
+                this.taskForm.project_id = selectedOption.id;
             }
         }
     }

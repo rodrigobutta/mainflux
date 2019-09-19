@@ -35,10 +35,10 @@
                                     <div class="form-group" v-show="departments">
                                         <label for="">{{trans('department.department')}}</label>
                                         <select v-model="filterAssetForm.department_id" class="custom-select col-12">
-                                          <option value="">{{trans('general.select_one')}}</option>
-                                          <option v-for="department in departments" v-bind:value="department.id">
+                                            <option value="">{{trans('general.select_one')}}</option>
+                                            <option v-for="department in departments" v-bind:value="department.id" v-bind:key="department.id">
                                             {{ department.name }}
-                                          </option>
+                                            </option>
                                         </select>
                                     </div>
                                 </div>
@@ -46,10 +46,10 @@
                                     <div class="form-group" v-show="clients">
                                         <label for="">{{trans('client.client')}}</label>
                                         <select v-model="filterAssetForm.client_id" class="custom-select col-12">
-                                          <option value="">{{trans('general.select_one')}}</option>
-                                          <option v-for="client in clients" v-bind:value="client.id">
+                                            <option value="">{{trans('general.select_one')}}</option>
+                                            <option v-for="client in clients" v-bind:value="client.id" v-bind:key="client.id">
                                             {{ client.name }}
-                                          </option>
+                                            </option>
                                         </select>
                                     </div>
                                 </div>
@@ -57,10 +57,10 @@
                                     <div class="form-group" v-show="assets">
                                         <label for="">{{trans('asset.top_asset')}}</label>
                                         <select v-model="filterAssetForm.top_asset_id" class="custom-select col-12">
-                                          <option value="">{{trans('general.select_one')}}</option>
-                                          <option v-for="asset in top_assets" v-bind:value="asset.id">
+                                            <option value="">{{trans('general.select_one')}}</option>
+                                            <option v-for="asset in top_assets" v-bind:value="asset.id" v-bind:key="asset.id">
                                             {{ asset.name }}
-                                          </option>
+                                            </option>
                                         </select>
                                     </div>
                                 </div>
@@ -107,7 +107,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="asset in assets.data">
+                                    <tr v-for="asset in assets.data" v-bind:key="asset.id">
                                         <td v-text="asset.name"></td>
                                         <td v-text="asset.department.name"></td>
                                         <td v-text="asset.client.name"></td>
