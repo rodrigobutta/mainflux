@@ -295,7 +295,7 @@ class TaskRepository
      *
      * @param Task $task
      * @param array $params
-     * @return void
+     * @return Task
      */
     private function copyTask(Task $task, $params = array())
     {
