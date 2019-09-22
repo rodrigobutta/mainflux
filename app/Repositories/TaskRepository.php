@@ -562,6 +562,8 @@ class TaskRepository
      */
     private function formatParams($params, $action = 'create')
     {
+
+
         $formatted = [
             'task_category_id' => isset($params['task_category_id']) ? $params['task_category_id'] : null,
             'task_priority_id' => isset($params['task_priority_id']) ? $params['task_priority_id'] : null,
@@ -572,8 +574,11 @@ class TaskRepository
             'description'      => isset($params['description']) ? $params['description'] : null,
             'client_id' => isset($params['client_id']) ? $params['client_id'] : null,
             'contractor_id' => isset($params['contractor_id']) ? $params['contractor_id'] : null,
-            'project_id' => isset($params['project_id']) ? $params['project_id'] : null
+            'project_id' => isset($params['project_id']) && $params['project_id'] != '' ? $params['project_id'] : null
         ];
+
+
+        // dd($formatted);
 
         if ($action === 'create') {
             $formatted['user_id']       = \Auth::user()->id;

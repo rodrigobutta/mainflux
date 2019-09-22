@@ -192,6 +192,7 @@
                                 <thead>
                                     <tr>
                                         <th>{{trans('task.number')}}</th>
+                                        <th>{{trans('task.project')}}</th>
                                         <th>{{trans('task.title')}}</th>
                                         <th>{{trans('task.category')}}</th>
                                         <th>{{trans('task.priority')}}</th>
@@ -207,6 +208,7 @@
                                 <tbody>
                                     <tr v-for="task in tasks.data" v-bind:key="task.id">
                                         <td v-text="getTaskNumber(task)"></td>
+                                        <td><span v-if="task.project">{{ task.project.name }}</span></td>
                                         <td v-text="task.title"></td>
                                         <td v-text="task.task_category.name"></td>
                                         <td v-text="task.task_priority.name"></td>

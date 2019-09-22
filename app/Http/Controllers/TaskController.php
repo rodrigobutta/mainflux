@@ -196,6 +196,10 @@ class TaskController extends Controller
 
         $this->repo->statusLocked($task);
 
+
+// dd($this->request->all());
+// dd($this->request->get('project_id'));
+
         $task = $this->repo->update($task, $this->request->all());
 
         $this->activity->record([
