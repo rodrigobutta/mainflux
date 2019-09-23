@@ -21,16 +21,21 @@
                 <div class="text-center" v-if="!getConfig('mode')"><span class="badge badge-danger m-b-10">{{trans('configuration.test_mode')}}</span></div>
                 <ul id="sidebarnav">
                     <li><router-link to="/home" exact><i class="fas fa-home fa-fw"></i> <span class="hide-menu">{{trans('general.home')}}</span></router-link></li>
-                    <li v-if="hasPermission('list-department') && getConfig('show_department_menu')"><router-link to="/department" exact><i class="fas fa-university fa-fw"></i> <span class="hide-menu">{{trans('department.department')}}</span></router-link></li>
+                    <li v-if="hasPermission('list-user') && getConfig('show_user_menu')"><router-link to="/user" exact><i class="fas fa-users fa-fw"></i> <span class="hide-menu">{{trans('user.user')}}</span></router-link></li>                    
                     <li v-if="hasPermission('list-client') && getConfig('show_client_menu')"><router-link to="/client" exact><i class="fas fa-building fa-fw"></i> <span class="hide-menu">{{trans('client.client')}}</span></router-link></li>
                     <li v-if="hasPermission('list-contractor') && getConfig('show_contractor_menu')"><router-link to="/contractor" exact><i class="fas fa-truck fa-fw"></i> <span class="hide-menu">{{trans('contractor.contractor')}}</span></router-link></li>
-                    <li v-if="hasPermission('list-designation') && getConfig('show_designation_menu')"><router-link to="/designation" exact><i class="fas fa-sitemap fa-fw"></i> <span class="hide-menu">{{trans('designation.designation')}}</span></router-link></li>
                     <li v-if="hasPermission('list-asset') && getConfig('show_asset_menu')"><router-link to="/asset" exact><i class="fas fa-sitemap fa-fw"></i> <span class="hide-menu">{{trans('asset.asset')}}</span></router-link></li>
                     <li v-if="hasPermission('list-project') && getConfig('show_project_menu')"><router-link to="/project" exact><i class="fas fa-sitemap fa-fw"></i> <span class="hide-menu">{{trans('project.project')}}</span></router-link></li>
-                    <li v-if="hasPermission('list-location') && getConfig('show_location_menu')"><router-link to="/location" exact><i class="fas fa-code-branch fa-fw"></i> <span class="hide-menu">{{trans('location.location')}}</span></router-link></li>
-                    <li v-if="hasPermission('list-user') && getConfig('show_user_menu')"><router-link to="/user" exact><i class="fas fa-users fa-fw"></i> <span class="hide-menu">{{trans('user.user')}}</span></router-link></li>
-                    <li v-if="hasPermission('list-user') && getConfig('show_announcement_menu')"><router-link to="/announcement" exact><i class="fas fa-bullhorn fa-fw"></i> <span class="hide-menu">{{trans('announcement.announcement')}}</span></router-link></li>
                     <li v-if="hasPermission('list-task') && getConfig('show_task_menu')"><router-link to="/task" exact><i class="fas fa-tasks fa-fw"></i> <span class="hide-menu">{{trans('task.task')}}</span></router-link></li>
+                    <li>
+                        <a class="has-arrow" href="#" aria-expanded="false"><i class="fas fa-file fa-fw"></i> <span class="hide-menu">****</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li v-if="hasPermission('list-department') && getConfig('show_department_menu')"><router-link to="/department" exact><i class="fas fa-university fa-fw"></i> {{trans('department.department')}}</router-link></li>
+                            <li v-if="hasPermission('list-designation') && getConfig('show_designation_menu')"><router-link to="/designation" exact><i class="fas fa-sitemap fa-fw"></i> {{trans('designation.designation')}}</router-link></li>
+                            <li v-if="hasPermission('list-location') && getConfig('show_location_menu')"><router-link to="/location" exact><i class="fas fa-code-branch fa-fw"></i> {{trans('location.location')}}</router-link></li>
+                            <li v-if="hasPermission('list-user') && getConfig('show_announcement_menu')"><router-link to="/announcement" exact><i class="fas fa-bullhorn fa-fw"></i> <span class="hide-menu">{{trans('announcement.announcement')}}</span></router-link></li>                    
+                        </ul>
+                    </li>
                     <li>
                         <a class="has-arrow" href="#" aria-expanded="false"><i class="fas fa-file fa-fw"></i> <span class="hide-menu">{{trans('general.report')}}</span></a>
                         <ul aria-expanded="false" class="collapse">
