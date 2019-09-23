@@ -83,7 +83,7 @@ class TaskController extends Controller
         $question_sets = $this->question_set->selectAll();
         $clients = $this->client->selectAll();
         $contractors = $this->contractor->selectAll();
-        $projects = $this->project->selectAll();
+        $projects = $this->project->selectForCouple(); // $this->project->selectAll();
 
         $users = generateSelectOption($this->user->getAccessibleUser(\Auth::user()->id, 1)->get()->pluck('name_with_designation_and_department', 'id')->all());
 
@@ -102,7 +102,7 @@ class TaskController extends Controller
         return $this->ok($this->repo->paginate($this->request->all()));
     }
 
-    /**
+    /**rtyui
      * Used to store Task
      * @post ("/api/task")
      * @param ({
