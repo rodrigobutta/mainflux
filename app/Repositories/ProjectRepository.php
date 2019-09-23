@@ -79,7 +79,7 @@ class ProjectRepository
      */
     public function selectForCouple($client_id, $contractor_id)
     {
-        return $this->project->select(['name', 'id'])->where('client_id', $client_id)->get();
+        return $this->project->select(['name', 'id'])->where('client_id', $client_id)->where('contractor_id', $contractor_id)->get();
     }
 
 

@@ -43,6 +43,7 @@ export default {
                     last_name: response.user.profile.last_name,
                     email: response.user.email,
                     avatar:response.user.profile.avatar,
+                    company_name: response.company.name,                    
                     roles:response.user_roles
                 });
                 store.dispatch('setPermission',response.permissions);

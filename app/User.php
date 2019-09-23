@@ -183,7 +183,9 @@ class User extends Authenticatable
         $res = [
             'name' => $this->profile->first_name,
             'avatar' => url($this->profile->avatar),
-            'email' => $this->email          
+            'email' => $this->email,
+            'client222' => $this->profile->client->name,
+            'contractor222' => $this->profile->contractor->name
         ];
 
         return $res;

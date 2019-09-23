@@ -1,4 +1,5 @@
 <?php return array (
+  'admin_only' => '(Admin Only)',
   'action' => 'Action',
   'add' => 'Add',
   'add_new' => 'Add New',

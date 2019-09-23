@@ -165,10 +165,14 @@ class AuthRepository
         $default_role                   = config('system.default_role');
         $configuration['l']             = config('config.l');
 
+
+        $company                      = $auth_user->profile->company;
+
         return [
             'authenticated' => $authenticated,
             'config'        => $configuration,
             'user'          => $auth_user,
+            'company'          => $company,
             'social_auth'   => $social_auth,
             'user_roles'    => $user_roles,
             'permissions'   => $permissions,

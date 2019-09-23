@@ -34,4 +34,20 @@ class Profile extends Eloquent
         return $this->belongsTo('App\Contractor');
     }
 
+
+    public function getCompanyAttribute()
+    {
+        $res = null;
+
+        if($this->contractor_id && $this->contractor_id != 0){
+            $res = $this->contractor;
+        }
+
+        if($this->client_id && $this->client_id != 0){
+            $res = $this->client;
+        }
+
+        return $res;
+    }
+
 }

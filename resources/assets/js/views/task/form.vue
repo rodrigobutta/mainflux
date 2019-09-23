@@ -26,14 +26,14 @@
                 <div class="row">
                     <div class="col-12 col-md-6">
                         <div class="form-group">
-                            <label for="">{{trans('task.client')}}</label>
+                            <label for="">{{trans('task.client')}} <sup>{{trans('general.admin_only')}}</sup></label>
                             <v-select label="name" v-model="selected_client" name="client_id" id="client_id" :options="clients" :placeholder="trans('task.select_client')" @select="onClientSelect" @close="taskForm.errors.clear('client_id')" @remove="taskForm.client_id = ''"></v-select>
                             <show-error :form-name="taskForm" prop-name="client_id"></show-error>
                         </div>
                     </div>
                     <div class="col-12 col-md-6">
                         <div class="form-group">
-                            <label for="">{{trans('task.contractor')}}</label>
+                            <label for="">{{trans('task.contractor')}} <sup>{{trans('general.admin_only')}}</sup></label>
                             <v-select label="name" v-model="selected_contractor" name="contractor_id" id="contractor_id" :options="contractors" :placeholder="trans('task.select_contractor')" @select="onContractorSelect" @close="taskForm.errors.clear('contractor_id')" @remove="taskForm.contractor_id = ''"></v-select>
                             <show-error :form-name="taskForm" prop-name="contractor_id"></show-error>
                         </div>

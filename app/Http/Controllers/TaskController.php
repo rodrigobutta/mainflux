@@ -83,7 +83,11 @@ class TaskController extends Controller
         $question_sets = $this->question_set->selectAll();
         $clients = $this->client->selectAll();
         $contractors = $this->contractor->selectAll();
-        $projects = $this->project->selectForCouple(); // $this->project->selectAll();
+
+        $auth_user = \Auth::user();
+
+
+        $projects = $this->project->selectForCouple($auth_user->profile->client_id, $auth_user->profile->contractor_id); // $this->project->selectAll();
 
         $users = generateSelectOption($this->user->getAccessibleUser(\Auth::user()->id, 1)->get()->pluck('name_with_designation_and_department', 'id')->all());
 
