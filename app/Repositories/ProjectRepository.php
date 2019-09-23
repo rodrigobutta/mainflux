@@ -71,6 +71,17 @@ class ProjectRepository
     {
         return $this->project->all(['name', 'id']);
     }
+ 
+    /**
+     * List projects by name & id for select option, just the ones that belong for the Contractor and Client couple
+     *
+     * @return array
+     */
+    public function selectForCouple($client_id, $contractor_id)
+    {
+        return $this->project->select(['name', 'id'])->where('client_id', $client_id)->get();
+    }
+
 
     /**
      * List all projects by id
