@@ -26,7 +26,7 @@
                         <div class="row" v-if="getConfig('social_login')">
                             <div class="col-xs-12 col-sm-12 col-md-12 m-t-10 text-center">
                                 <div class="social">
-                                    <a v-for="provider in social_login_providers" v-if="getConfig(provider+'_login')" :href="`/auth/social/${provider}`" :class="['btn','btn-'+provider,'m-r-5','no-hover']" v-tooltip="trans('auth.login_with',{type:provider})"> <i :class="['fab','fa-'+provider]"></i></a>
+                                    <a v-for="provider in social_login_providers" v-if="getConfig(provider+'_login')" :href="`/auth/social/${provider}`" :class="['btn','btn-'+provider,'m-r-5','no-hover']" v-tooltip="trans('auth.login_with',{type:provider})" v-bind:key="provider"> <i :class="['fab','fa-'+provider]"></i></a>
                                 </div>
                             </div>
                         </div>
