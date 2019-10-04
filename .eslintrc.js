@@ -13,6 +13,6 @@ module.exports = {
       'prettier/vue'
     ],
     rules: {
-      'vue/no-use-v-if-with-v-for': 'off'
+      "vue/no-use-v-if-with-v-for": "off"
     }
   };
