@@ -75,7 +75,7 @@ class QuestionSetRepository
         $question_set = $this->question_set->with('questions')->find($id);
 
         if (! $question_set) {
-            throw ValidationException::withMessages(['message' => trans('task.could_not_find_question_set')]);
+            throw ValidationException::withMessages(['message' => trans('job.could_not_find_question_set')]);
         }
 
         return $question_set;
@@ -134,14 +134,14 @@ class QuestionSetRepository
         $questions = isset($params['questions']) ? $params['questions'] : [];
 
         if (! $questions) {
-            throw ValidationException::withMessages(['message' => trans('validation.required',['attribute' => trans('task.question')])]);
+            throw ValidationException::withMessages(['message' => trans('validation.required',['attribute' => trans('job.question')])]);
         }
 
         foreach ($questions as $index => $question) {
             $name = isset($question['question']) ? $question['question'] : null;
 
             if (! $name) {
-                throw ValidationException::withMessages(['question_'.$index => trans('validation.required',['attribute' => trans('task.question')])]);
+                throw ValidationException::withMessages(['question_'.$index => trans('validation.required',['attribute' => trans('job.question')])]);
             }
         }
     }
@@ -156,8 +156,8 @@ class QuestionSetRepository
     {
         $question_set = $this->findOrFail($id);
 
-        if ($question_set->Tasks->count()) {
-            throw ValidationException::withMessages(['message' => trans('task.question_set_has_many_tasks')]);
+        if ($question_set->Jobs->count()) {
+            throw ValidationException::withMessages(['message' => trans('job.question_set_has_many_jobs')]);
         }
         
         return $question_set;

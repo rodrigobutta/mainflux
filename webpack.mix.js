@@ -45,7 +45,7 @@ mix.js('resources/assets/js/app.js', 'public/js/app.js')
     .sass('resources/assets/sass/colors/purple-dark.scss', 'public/css/colors')
     .sass('resources/assets/sass/colors/red.scss', 'public/css/colors')
     .sass('resources/assets/sass/colors/red-dark.scss', 'public/css/colors')
-    .browserSync('task')                     // this is the alias/virtual host which will be called to load http://localhost:3000
+    .browserSync('job')                     // this is the alias/virtual host which will be called to load http://localhost:3000
     .webpackConfig({
         devtool: "cheap-module-source-map",     // "eval-source-map" or "inline-source-map" or "cheap-module-source-map" or "eval"
         plugins: [

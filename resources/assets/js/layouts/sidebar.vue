@@ -26,7 +26,7 @@
                     <li v-if="hasPermission('list-contractor') && getConfig('show_contractor_menu')"><router-link to="/contractor" exact><i class="fas fa-truck fa-fw"></i> <span class="hide-menu">{{trans('contractor.contractor')}}</span></router-link></li>
                     <li v-if="hasPermission('list-asset') && getConfig('show_asset_menu')"><router-link to="/asset" exact><i class="fas fa-sitemap fa-fw"></i> <span class="hide-menu">{{trans('asset.asset')}}</span></router-link></li>
                     <li v-if="hasPermission('list-project') && getConfig('show_project_menu')"><router-link to="/project" exact><i class="fas fa-sitemap fa-fw"></i> <span class="hide-menu">{{trans('project.project')}}</span></router-link></li>
-                    <li v-if="hasPermission('list-task') && getConfig('show_task_menu')"><router-link to="/task" exact><i class="fas fa-tasks fa-fw"></i> <span class="hide-menu">{{trans('task.task')}}</span></router-link></li>
+                    <li v-if="hasPermission('list-job') && getConfig('show_job_menu')"><router-link to="/job" exact><i class="fas fa-jobs fa-fw"></i> <span class="hide-menu">{{trans('job.job')}}</span></router-link></li>
                     <li>
                         <a class="has-arrow" href="#" aria-expanded="false"><i class="fas fa-file fa-fw"></i> <span class="hide-menu">****</span></a>
                         <ul aria-expanded="false" class="collapse">
@@ -39,7 +39,7 @@
                     <li>
                         <a class="has-arrow" href="#" aria-expanded="false"><i class="fas fa-file fa-fw"></i> <span class="hide-menu">{{trans('general.report')}}</span></a>
                         <ul aria-expanded="false" class="collapse">
-                            <li><router-link to="/report/task/summary"><i class="fas fa-angle-double-right"></i> {{trans('task.task_summary')}}</router-link></li>
+                            <li><router-link to="/report/job/summary"><i class="fas fa-angle-double-right"></i> {{trans('job.job_summary')}}</router-link></li>
                         </ul>
                     </li>
                     <li v-if="hasPermission('access-message') && getConfig('show_message_menu')"><router-link to="/message" exact><i class="fas fa-envelope-open fa-fw"></i> <span class="hide-menu">{{trans('message.message')}}</span></router-link></li>

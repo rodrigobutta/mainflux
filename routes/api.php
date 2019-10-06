@@ -194,67 +194,67 @@ Route::group(['middleware' => ['jwt.auth']], function () {
     Route::post('/question-set','QuestionSetController@store');
     Route::delete('/question-set/{id}','QuestionSetController@destroy');
 
-    Route::get('/task-category','TaskCategoryController@index');
-    Route::get('/task-category/{id}','TaskCategoryController@show');
-    Route::post('/task-category','TaskCategoryController@store');
-    Route::patch('/task-category/{id}','TaskCategoryController@update');
-    Route::delete('/task-category/{id}','TaskCategoryController@destroy');
+    Route::get('/job-category','JobCategoryController@index');
+    Route::get('/job-category/{id}','JobCategoryController@show');
+    Route::post('/job-category','JobCategoryController@store');
+    Route::patch('/job-category/{id}','JobCategoryController@update');
+    Route::delete('/job-category/{id}','JobCategoryController@destroy');
 
-    Route::get('/task-priority','TaskPriorityController@index');
-    Route::get('/task-priority/{id}','TaskPriorityController@show');
-    Route::post('/task-priority','TaskPriorityController@store');
-    Route::patch('/task-priority/{id}','TaskPriorityController@update');
-    Route::delete('/task-priority/{id}','TaskPriorityController@destroy');
+    Route::get('/job-priority','JobPriorityController@index');
+    Route::get('/job-priority/{id}','JobPriorityController@show');
+    Route::post('/job-priority','JobPriorityController@store');
+    Route::patch('/job-priority/{id}','JobPriorityController@update');
+    Route::delete('/job-priority/{id}','JobPriorityController@destroy');
 
-    Route::post('/task/{uuid}/config','TaskController@configuration');
-    Route::get('/task/pre-requisite','TaskController@preRequisite');
-    Route::post('/task/graph','TaskController@graph');
-    Route::get('/task','TaskController@index');
-    Route::get('/task/{uuid}','TaskController@show');
-    Route::post('/task','TaskController@store');
-    Route::patch('/task/{uuid}','TaskController@update');
-    Route::delete('/task/{uuid}','TaskController@destroy');
-    Route::post('/task/{uuid}/progress','TaskController@updateProgress');
-    Route::post('/task/{uuid}/star','TaskController@toggleStar');
-    Route::post('/task/{uuid}/archive','TaskController@toggleArchive');
-    Route::post('/task/{uuid}/rating','TaskController@taskRating');
-    Route::post('/task/{uuid}/answer','TaskController@answer');
-    Route::post('/task/{uuid}/rating/sub-task','TaskController@subTaskRating');
-    Route::post('/task/rating/chart','TaskController@ratingChart');
+    Route::post('/job/{uuid}/config','JobController@configuration');
+    Route::get('/job/pre-requisite','JobController@preRequisite');
+    Route::post('/job/graph','JobController@graph');
+    Route::get('/job','JobController@index');
+    Route::get('/job/{uuid}','JobController@show');
+    Route::post('/job','JobController@store');
+    Route::patch('/job/{uuid}','JobController@update');
+    Route::delete('/job/{uuid}','JobController@destroy');
+    Route::post('/job/{uuid}/progress','JobController@updateProgress');
+    Route::post('/job/{uuid}/star','JobController@toggleStar');
+    Route::post('/job/{uuid}/archive','JobController@toggleArchive');
+    Route::post('/job/{uuid}/rating','JobController@jobRating');
+    Route::post('/job/{uuid}/answer','JobController@answer');
+    Route::post('/job/{uuid}/rating/sub-job','JobController@subJobRating');
+    Route::post('/job/rating/chart','JobController@ratingChart');
 
-    Route::get('/report/task/summary','TaskController@summary');
+    Route::get('/report/job/summary','JobController@summary');
 
-    Route::get('/task/{uuid}/sign-off','TaskSignOffLogController@index');
-    Route::post('/task/{uuid}/sign-off','TaskSignOffLogController@store');
-    Route::post('/task/{uuid}/sign-off-action','TaskSignOffLogController@storeAction');
+    Route::get('/job/{uuid}/sign-off','JobSignOffLogController@index');
+    Route::post('/job/{uuid}/sign-off','JobSignOffLogController@store');
+    Route::post('/job/{uuid}/sign-off-action','JobSignOffLogController@storeAction');
 
-    Route::post('/task/{uuid}/copy','TaskController@copy');
+    Route::post('/job/{uuid}/copy','JobController@copy');
 
-    Route::post('/task/{uuid}/recurrence','TaskController@Recurrence');
-    Route::get('/task/{uuid}/recurring','TaskController@listRecurring');
+    Route::post('/job/{uuid}/recurrence','JobController@Recurrence');
+    Route::get('/job/{uuid}/recurring','JobController@listRecurring');
 
-    Route::get('/task/{uuid}/sub-task','SubTaskController@index');
-    Route::post('/task/{uuid}/sub-task','SubTaskController@store');
-    Route::get('/task/{uuid}/sub-task/{suuid}','SubTaskController@show');
-    Route::patch('/task/{uuid}/sub-task/{suuid}','SubTaskController@update');
-    Route::delete('/task/{uuid}/sub-task/{suuid}','SubTaskController@destroy');
-    Route::post('/task/{uuid}/sub-task/{suuid}/toggle-status','SubTaskController@toggleStatus');
+    Route::get('/job/{uuid}/sub-job','SubJobController@index');
+    Route::post('/job/{uuid}/sub-job','SubJobController@store');
+    Route::get('/job/{uuid}/sub-job/{suuid}','SubJobController@show');
+    Route::patch('/job/{uuid}/sub-job/{suuid}','SubJobController@update');
+    Route::delete('/job/{uuid}/sub-job/{suuid}','SubJobController@destroy');
+    Route::post('/job/{uuid}/sub-job/{suuid}/toggle-status','SubJobController@toggleStatus');
 
-    Route::get('/task/{uuid}/comment','TaskCommentController@index');
-    Route::post('/task/{uuid}/comment','TaskCommentController@store');
-    Route::delete('/task/{uuid}/comment/{id}','TaskCommentController@destroy');
+    Route::get('/job/{uuid}/comment','JobCommentController@index');
+    Route::post('/job/{uuid}/comment','JobCommentController@store');
+    Route::delete('/job/{uuid}/comment/{id}','JobCommentController@destroy');
 
-    Route::get('/task/{uuid}/note','TaskNoteController@index');
-    Route::post('/task/{uuid}/note','TaskNoteController@store');
-    Route::get('/task/{uuid}/note/{suuid}','TaskNoteController@show');
-    Route::patch('/task/{uuid}/note/{suuid}','TaskNoteController@update');
-    Route::delete('/task/{uuid}/note/{suuid}','TaskNoteController@destroy');
+    Route::get('/job/{uuid}/note','JobNoteController@index');
+    Route::post('/job/{uuid}/note','JobNoteController@store');
+    Route::get('/job/{uuid}/note/{suuid}','JobNoteController@show');
+    Route::patch('/job/{uuid}/note/{suuid}','JobNoteController@update');
+    Route::delete('/job/{uuid}/note/{suuid}','JobNoteController@destroy');
 
-    Route::get('/task/{uuid}/attachment','TaskAttachmentController@index');
-    Route::post('/task/{uuid}/attachment','TaskAttachmentController@store');
-    Route::get('/task/{uuid}/attachment/{auuid}','TaskAttachmentController@show');
-    Route::patch('/task/{uuid}/attachment/{auuid}','TaskAttachmentController@update');
-    Route::delete('/task/{uuid}/attachment/{auuid}','TaskAttachmentController@destroy');
+    Route::get('/job/{uuid}/attachment','JobAttachmentController@index');
+    Route::post('/job/{uuid}/attachment','JobAttachmentController@store');
+    Route::get('/job/{uuid}/attachment/{auuid}','JobAttachmentController@show');
+    Route::patch('/job/{uuid}/attachment/{auuid}','JobAttachmentController@update');
+    Route::delete('/job/{uuid}/attachment/{auuid}','JobAttachmentController@destroy');
 
     Route::get('/notification/fetch/inbox','NotificationController@fetchInbox');
     Route::get('/notification/{origin}/{id}/read', ['as' => 'api.notification.read', 'uses' => 'NotificationController@markAsRead']);    
@@ -295,10 +295,10 @@ Route::group([
           
     Route::group([
         // 'middleware' => 'auth:api',
-        'prefix'    => 'task',
+        'prefix'    => 'job',
     ], function() {
 
-        Route::post('list', 'TaskController@list');
+        Route::post('list', 'JobController@list');
     
     });
 

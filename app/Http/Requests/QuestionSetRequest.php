@@ -44,7 +44,7 @@ class QuestionSetRequest extends FormRequest
     public function attributes()
     {
         return [
-            'name' => trans('task.question_set_name')
+            'name' => trans('job.question_set_name')
         ];
     }
 }

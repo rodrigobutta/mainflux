@@ -16,7 +16,7 @@ class CreateAnswersTable extends Migration
         Schema::create('answers', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->integer('task_id')->unsigned()->nullable();
+            $table->integer('job_id')->unsigned()->nullable();
             $table->integer('question_id')->unsigned()->nullable();
             $table->boolean('answer')->default(0);
             $table->text('description')->nullable();

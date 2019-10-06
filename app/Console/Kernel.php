@@ -24,7 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('recurring-task')->dailyAt('00:00');
+        $schedule->command('recurring-job')->dailyAt('00:00');
         $schedule->command('backup-database')->dailyAt('01:00');
         $schedule->command('delete-temp-upload')->dailyAt('02:00');
         $schedule->command('send-wish')->dailyAt('09:00');

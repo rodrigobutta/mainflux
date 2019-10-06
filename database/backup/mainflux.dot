@@ -98,7 +98,7 @@ digraph "Database Structure" {
 			<TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
 			<TR><TD COLSPAN="3" BGCOLOR="#DDDDDD">answers</TD></TR>
 			<TR><TD COLSPAN="3" PORT="id">id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
-			<TR><TD COLSPAN="3" PORT="task_id">task_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
+			<TR><TD COLSPAN="3" PORT="job_id">job_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="question_id">question_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="answer">answer:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">TINYINT</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="description">description:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">TEXT</FONT></TD></TR>
@@ -436,24 +436,24 @@ digraph "Database Structure" {
 			</TABLE>>
 		];
 	}
-	subgraph "table_starred_tasks" {
+	subgraph "table_starred_jobs" {
 		node [ shape = "plaintext" ];
-		"starred_tasks" [ label=<
+		"starred_jobs" [ label=<
 			<TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
-			<TR><TD COLSPAN="3" BGCOLOR="#DDDDDD">starred_tasks</TD></TR>
+			<TR><TD COLSPAN="3" BGCOLOR="#DDDDDD">starred_jobs</TD></TR>
 			<TR><TD COLSPAN="3" PORT="id">id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
-			<TR><TD COLSPAN="3" PORT="task_id">task_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
+			<TR><TD COLSPAN="3" PORT="job_id">job_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="user_id">user_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
 			</TABLE>>
 		];
 	}
-	subgraph "table_sub_task_ratings" {
+	subgraph "table_sub_job_ratings" {
 		node [ shape = "plaintext" ];
-		"sub_task_ratings" [ label=<
+		"sub_job_ratings" [ label=<
 			<TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
-			<TR><TD COLSPAN="3" BGCOLOR="#DDDDDD">sub_task_ratings</TD></TR>
+			<TR><TD COLSPAN="3" BGCOLOR="#DDDDDD">sub_job_ratings</TD></TR>
 			<TR><TD COLSPAN="3" PORT="id">id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
-			<TR><TD COLSPAN="3" PORT="sub_task_id">sub_task_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
+			<TR><TD COLSPAN="3" PORT="sub_job_id">sub_job_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="user_id">user_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="rating">rating:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="remarks">remarks:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">TEXT</FONT></TD></TR>
@@ -462,14 +462,14 @@ digraph "Database Structure" {
 			</TABLE>>
 		];
 	}
-	subgraph "table_sub_tasks" {
+	subgraph "table_sub_jobs" {
 		node [ shape = "plaintext" ];
-		"sub_tasks" [ label=<
+		"sub_jobs" [ label=<
 			<TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
-			<TR><TD COLSPAN="3" BGCOLOR="#DDDDDD">sub_tasks</TD></TR>
+			<TR><TD COLSPAN="3" BGCOLOR="#DDDDDD">sub_jobs</TD></TR>
 			<TR><TD COLSPAN="3" PORT="id">id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="uuid">uuid:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">CHAR</FONT></TD></TR>
-			<TR><TD COLSPAN="3" PORT="task_id">task_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
+			<TR><TD COLSPAN="3" PORT="job_id">job_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="title">title:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">VARCHAR</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="description">description:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">TEXT</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="status">status:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">TINYINT</FONT></TD></TR>
@@ -481,14 +481,14 @@ digraph "Database Structure" {
 			</TABLE>>
 		];
 	}
-	subgraph "table_task_attachments" {
+	subgraph "table_job_attachments" {
 		node [ shape = "plaintext" ];
-		"task_attachments" [ label=<
+		"job_attachments" [ label=<
 			<TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
-			<TR><TD COLSPAN="3" BGCOLOR="#DDDDDD">task_attachments</TD></TR>
+			<TR><TD COLSPAN="3" BGCOLOR="#DDDDDD">job_attachments</TD></TR>
 			<TR><TD COLSPAN="3" PORT="id">id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="uuid">uuid:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">CHAR</FONT></TD></TR>
-			<TR><TD COLSPAN="3" PORT="task_id">task_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
+			<TR><TD COLSPAN="3" PORT="job_id">job_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="user_id">user_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="title">title:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">VARCHAR</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="description">description:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">TEXT</FONT></TD></TR>
@@ -498,11 +498,11 @@ digraph "Database Structure" {
 			</TABLE>>
 		];
 	}
-	subgraph "table_task_categories" {
+	subgraph "table_job_categories" {
 		node [ shape = "plaintext" ];
-		"task_categories" [ label=<
+		"job_categories" [ label=<
 			<TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
-			<TR><TD COLSPAN="3" BGCOLOR="#DDDDDD">task_categories</TD></TR>
+			<TR><TD COLSPAN="3" BGCOLOR="#DDDDDD">job_categories</TD></TR>
 			<TR><TD COLSPAN="3" PORT="id">id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="name">name:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">VARCHAR</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="description">description:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">TEXT</FONT></TD></TR>
@@ -511,13 +511,13 @@ digraph "Database Structure" {
 			</TABLE>>
 		];
 	}
-	subgraph "table_task_comments" {
+	subgraph "table_job_comments" {
 		node [ shape = "plaintext" ];
-		"task_comments" [ label=<
+		"job_comments" [ label=<
 			<TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
-			<TR><TD COLSPAN="3" BGCOLOR="#DDDDDD">task_comments</TD></TR>
+			<TR><TD COLSPAN="3" BGCOLOR="#DDDDDD">job_comments</TD></TR>
 			<TR><TD COLSPAN="3" PORT="id">id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
-			<TR><TD COLSPAN="3" PORT="task_id">task_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
+			<TR><TD COLSPAN="3" PORT="job_id">job_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="user_id">user_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="comment">comment:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">TEXT</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="reply_id">reply_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
@@ -526,14 +526,14 @@ digraph "Database Structure" {
 			</TABLE>>
 		];
 	}
-	subgraph "table_task_notes" {
+	subgraph "table_job_notes" {
 		node [ shape = "plaintext" ];
-		"task_notes" [ label=<
+		"job_notes" [ label=<
 			<TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
-			<TR><TD COLSPAN="3" BGCOLOR="#DDDDDD">task_notes</TD></TR>
+			<TR><TD COLSPAN="3" BGCOLOR="#DDDDDD">job_notes</TD></TR>
 			<TR><TD COLSPAN="3" PORT="id">id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="uuid">uuid:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">CHAR</FONT></TD></TR>
-			<TR><TD COLSPAN="3" PORT="task_id">task_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
+			<TR><TD COLSPAN="3" PORT="job_id">job_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="user_id">user_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="title">title:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">TEXT</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="description">description:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">TEXT</FONT></TD></TR>
@@ -544,11 +544,11 @@ digraph "Database Structure" {
 			</TABLE>>
 		];
 	}
-	subgraph "table_task_priorities" {
+	subgraph "table_job_priorities" {
 		node [ shape = "plaintext" ];
-		"task_priorities" [ label=<
+		"job_priorities" [ label=<
 			<TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
-			<TR><TD COLSPAN="3" BGCOLOR="#DDDDDD">task_priorities</TD></TR>
+			<TR><TD COLSPAN="3" BGCOLOR="#DDDDDD">job_priorities</TD></TR>
 			<TR><TD COLSPAN="3" PORT="id">id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="name">name:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">VARCHAR</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="description">description:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">TEXT</FONT></TD></TR>
@@ -557,13 +557,13 @@ digraph "Database Structure" {
 			</TABLE>>
 		];
 	}
-	subgraph "table_task_signoff_logs" {
+	subgraph "table_job_signoff_logs" {
 		node [ shape = "plaintext" ];
-		"task_signoff_logs" [ label=<
+		"job_signoff_logs" [ label=<
 			<TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
-			<TR><TD COLSPAN="3" BGCOLOR="#DDDDDD">task_signoff_logs</TD></TR>
+			<TR><TD COLSPAN="3" BGCOLOR="#DDDDDD">job_signoff_logs</TD></TR>
 			<TR><TD COLSPAN="3" PORT="id">id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
-			<TR><TD COLSPAN="3" PORT="task_id">task_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
+			<TR><TD COLSPAN="3" PORT="job_id">job_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="user_id">user_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="status">status:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">VARCHAR</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="remarks">remarks:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">TEXT</FONT></TD></TR>
@@ -572,13 +572,13 @@ digraph "Database Structure" {
 			</TABLE>>
 		];
 	}
-	subgraph "table_task_user" {
+	subgraph "table_job_user" {
 		node [ shape = "plaintext" ];
-		"task_user" [ label=<
+		"job_user" [ label=<
 			<TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
-			<TR><TD COLSPAN="3" BGCOLOR="#DDDDDD">task_user</TD></TR>
+			<TR><TD COLSPAN="3" BGCOLOR="#DDDDDD">job_user</TD></TR>
 			<TR><TD COLSPAN="3" PORT="id">id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
-			<TR><TD COLSPAN="3" PORT="task_id">task_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
+			<TR><TD COLSPAN="3" PORT="job_id">job_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="user_id">user_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="rating">rating:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="remarks">remarks:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">TEXT</FONT></TD></TR>
@@ -587,16 +587,16 @@ digraph "Database Structure" {
 			</TABLE>>
 		];
 	}
-	subgraph "table_tasks" {
+	subgraph "table_jobs" {
 		node [ shape = "plaintext" ];
-		"tasks" [ label=<
+		"jobs" [ label=<
 			<TABLE BORDER="0" CELLSPACING="0" CELLBORDER="1">
-			<TR><TD COLSPAN="3" BGCOLOR="#DDDDDD">tasks</TD></TR>
+			<TR><TD COLSPAN="3" BGCOLOR="#DDDDDD">jobs</TD></TR>
 			<TR><TD COLSPAN="3" PORT="id">id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="uuid">uuid:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">CHAR</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="question_set_id">question_set_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
-			<TR><TD COLSPAN="3" PORT="task_category_id">task_category_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
-			<TR><TD COLSPAN="3" PORT="task_priority_id">task_priority_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
+			<TR><TD COLSPAN="3" PORT="job_category_id">job_category_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
+			<TR><TD COLSPAN="3" PORT="job_priority_id">job_priority_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="title">title:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">VARCHAR</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="description">description:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">TEXT</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="start_date">start_date:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">DATE</FONT></TD></TR>
@@ -614,7 +614,7 @@ digraph "Database Structure" {
 			<TR><TD COLSPAN="3" PORT="recurrence_end_date">recurrence_end_date:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">DATE</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="recurring_frequency">recurring_frequency:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="next_recurring_date">next_recurring_date:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">DATE</FONT></TD></TR>
-			<TR><TD COLSPAN="3" PORT="recurring_task_id">recurring_task_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
+			<TR><TD COLSPAN="3" PORT="recurring_job_id">recurring_job_id:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">INT</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="upload_token">upload_token:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">VARCHAR</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="created_at">created_at:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">TIMESTAMP</FONT></TD></TR>
 			<TR><TD COLSPAN="3" PORT="updated_at">updated_at:<FONT FACE="Helvetica-Oblique" POINT-SIZE="10">TIMESTAMP</FONT></TD></TR>
@@ -701,7 +701,7 @@ announcement_user:announcement_id -> announcements:id ;
 announcement_user:user_id -> users:id ;
 announcements:user_id -> users:id ;
 answers:question_id -> questions:id ;
-answers:task_id -> tasks:id ;
+answers:job_id -> jobs:id ;
 backups:user_id -> users:id ;
 designations:department_id -> departments:id ;
 designations:top_designation_id -> designations:id ;
@@ -717,28 +717,28 @@ profiles:user_id -> users:id ;
 questions:question_set_id -> question_sets:id ;
 role_has_permissions:permission_id -> permissions:id ;
 role_has_permissions:role_id -> roles:id ;
-starred_tasks:task_id -> tasks:id ;
-starred_tasks:user_id -> users:id ;
-sub_task_ratings:sub_task_id -> sub_tasks:id ;
-sub_task_ratings:user_id -> users:id ;
-sub_tasks:task_id -> tasks:id ;
-sub_tasks:user_id -> users:id ;
-task_attachments:task_id -> tasks:id ;
-task_attachments:user_id -> users:id ;
-task_comments:reply_id -> task_comments:id ;
-task_comments:task_id -> tasks:id ;
-task_comments:user_id -> users:id ;
-task_notes:task_id -> tasks:id ;
-task_notes:user_id -> users:id ;
-task_signoff_logs:task_id -> tasks:id ;
-task_signoff_logs:user_id -> users:id ;
-task_user:task_id -> tasks:id ;
-task_user:user_id -> users:id ;
-tasks:question_set_id -> question_sets:id ;
-tasks:recurring_task_id -> tasks:id ;
-tasks:task_category_id -> task_categories:id ;
-tasks:task_priority_id -> task_priorities:id ;
-tasks:user_id -> users:id ;
+starred_jobs:job_id -> jobs:id ;
+starred_jobs:user_id -> users:id ;
+sub_job_ratings:sub_job_id -> sub_jobs:id ;
+sub_job_ratings:user_id -> users:id ;
+sub_jobs:job_id -> jobs:id ;
+sub_jobs:user_id -> users:id ;
+job_attachments:job_id -> jobs:id ;
+job_attachments:user_id -> users:id ;
+job_comments:reply_id -> job_comments:id ;
+job_comments:job_id -> jobs:id ;
+job_comments:user_id -> users:id ;
+job_notes:job_id -> jobs:id ;
+job_notes:user_id -> users:id ;
+job_signoff_logs:job_id -> jobs:id ;
+job_signoff_logs:user_id -> users:id ;
+job_user:job_id -> jobs:id ;
+job_user:user_id -> users:id ;
+jobs:question_set_id -> question_sets:id ;
+jobs:recurring_job_id -> jobs:id ;
+jobs:job_category_id -> job_categories:id ;
+jobs:job_priority_id -> job_priorities:id ;
+jobs:user_id -> users:id ;
 todos:user_id -> users:id ;
 uploads:user_id -> users:id ;
 user_preferences:user_id -> users:id ;

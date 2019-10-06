@@ -10,9 +10,9 @@ class QuestionSet extends Model
     protected $primaryKey = 'id';
     protected $table = 'question_sets';
 
-    public function tasks()
+    public function jobs()
     {
-        return $this->hasMany('App\Task');
+        return $this->hasMany('App\Job');
     }
 
     public function questions()

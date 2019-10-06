@@ -16,8 +16,8 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\UserLogin' => [
             'App\Listeners\UserLoginListener',
         ],
-        'App\Events\TaskAssigned' => [
-            'App\Listeners\TaskAssignedListener',
+        'App\Events\JobAssigned' => [
+            'App\Listeners\JobAssignedListener',
         ],
     ];
 

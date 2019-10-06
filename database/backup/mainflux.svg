@@ -304,7 +304,7 @@
 <text text-anchor="start" x="2039.2704" y="-130.8" font-family="Times,serif" font-size="14.00" fill="#000000">id:</text>
 <text text-anchor="start" x="2054.0497" y="-130.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">INT</text>
 <polygon fill="none" stroke="#000000" points="1990.7143,-104 1990.7143,-124 2118.7143,-124 2118.7143,-104 1990.7143,-104"/>
-<text text-anchor="start" x="2024.4946" y="-110.8" font-family="Times,serif" font-size="14.00" fill="#000000">task_id:</text>
+<text text-anchor="start" x="2024.4946" y="-110.8" font-family="Times,serif" font-size="14.00" fill="#000000">job_id:</text>
 <text text-anchor="start" x="2068.8256" y="-110.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">INT</text>
 <polygon fill="none" stroke="#000000" points="1990.7143,-84 1990.7143,-104 2118.7143,-104 2118.7143,-84 1990.7143,-84"/>
 <text text-anchor="start" x="2012.0497" y="-90.8" font-family="Times,serif" font-size="14.00" fill="#000000">question_id:</text>
@@ -350,12 +350,12 @@
 <path fill="none" stroke="#444444" stroke-dasharray="5,2" d="M2118.7143,-94C2828.2298,-94 3006.1151,-174.2306 3710.5687,-174.9945"/>
 <polygon fill="#444444" stroke="#444444" points="3720.7124,-178.5 3710.7143,-174.9945 3720.7162,-171.5 3720.7124,-178.5"/>
 </g>
-<!-- tasks -->
+<!-- jobs -->
 <g id="node39" class="node">
-<title>tasks</title>
+<title>jobs</title>
 <polygon fill="#dddddd" stroke="transparent" points="3706.7143,-962 3706.7143,-982 3862.7143,-982 3862.7143,-962 3706.7143,-962"/>
 <polygon fill="none" stroke="#000000" points="3706.7143,-962 3706.7143,-982 3862.7143,-982 3862.7143,-962 3706.7143,-962"/>
-<text text-anchor="start" x="3770.7143" y="-967.8" font-family="Times,serif" font-size="14.00" fill="#000000">tasks</text>
+<text text-anchor="start" x="3770.7143" y="-967.8" font-family="Times,serif" font-size="14.00" fill="#000000">jobs</text>
 <polygon fill="none" stroke="#000000" points="3706.7143,-942 3706.7143,-962 3862.7143,-962 3862.7143,-942 3706.7143,-942"/>
 <text text-anchor="start" x="3769.2704" y="-948.8" font-family="Times,serif" font-size="14.00" fill="#000000">id:</text>
 <text text-anchor="start" x="3784.0497" y="-948.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">INT</text>
@@ -366,10 +366,10 @@
 <text text-anchor="start" x="3730.7739" y="-908.8" font-family="Times,serif" font-size="14.00" fill="#000000">question_set_id:</text>
 <text text-anchor="start" x="3822.5463" y="-908.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">INT</text>
 <polygon fill="none" stroke="#000000" points="3706.7143,-882 3706.7143,-902 3862.7143,-902 3862.7143,-882 3706.7143,-882"/>
-<text text-anchor="start" x="3726.8979" y="-888.8" font-family="Times,serif" font-size="14.00" fill="#000000">task_category_id:</text>
+<text text-anchor="start" x="3726.8979" y="-888.8" font-family="Times,serif" font-size="14.00" fill="#000000">job_category_id:</text>
 <text text-anchor="start" x="3826.4223" y="-888.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">INT</text>
 <polygon fill="none" stroke="#000000" points="3706.7143,-862 3706.7143,-882 3862.7143,-882 3862.7143,-862 3706.7143,-862"/>
-<text text-anchor="start" x="3729.998" y="-868.8" font-family="Times,serif" font-size="14.00" fill="#000000">task_priority_id:</text>
+<text text-anchor="start" x="3729.998" y="-868.8" font-family="Times,serif" font-size="14.00" fill="#000000">job_priority_id:</text>
 <text text-anchor="start" x="3823.3222" y="-868.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">INT</text>
 <polygon fill="none" stroke="#000000" points="3706.7143,-842 3706.7143,-862 3862.7143,-862 3862.7143,-842 3706.7143,-842"/>
 <text text-anchor="start" x="3747.8036" y="-848.8" font-family="Times,serif" font-size="14.00" fill="#000000">title:</text>
@@ -423,7 +423,7 @@
 <text text-anchor="start" x="3713.4408" y="-528.8" font-family="Times,serif" font-size="14.00" fill="#000000">next_recurring_date:</text>
 <text text-anchor="start" x="3830.0551" y="-528.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">DATE</text>
 <polygon fill="none" stroke="#000000" points="3706.7143,-502 3706.7143,-522 3862.7143,-522 3862.7143,-502 3706.7143,-502"/>
-<text text-anchor="start" x="3725.3427" y="-508.8" font-family="Times,serif" font-size="14.00" fill="#000000">recurring_task_id:</text>
+<text text-anchor="start" x="3725.3427" y="-508.8" font-family="Times,serif" font-size="14.00" fill="#000000">recurring_job_id:</text>
 <text text-anchor="start" x="3827.9775" y="-508.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">INT</text>
 <polygon fill="none" stroke="#000000" points="3706.7143,-482 3706.7143,-502 3862.7143,-502 3862.7143,-482 3706.7143,-482"/>
 <text text-anchor="start" x="3720.5864" y="-488.8" font-family="Times,serif" font-size="14.00" fill="#000000">upload_token:</text>
@@ -435,9 +435,9 @@
 <text text-anchor="start" x="3723.2602" y="-448.8" font-family="Times,serif" font-size="14.00" fill="#000000">updated_at:</text>
 <text text-anchor="start" x="3788.5707" y="-448.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">TIMESTAMP</text>
 </g>
-<!-- answers&#45;&gt;tasks -->
+<!-- answers&#45;&gt;jobs -->
 <g id="edge11" class="edge">
-<title>answers:task_id&#45;&gt;tasks:id</title>
+<title>answers:job_id&#45;&gt;jobs:id</title>
 <path fill="none" stroke="#444444" stroke-dasharray="5,2" d="M2118.7143,-114C2913.3255,-114 2908.7475,-944.8547 3696.5298,-951.9542"/>
 <polygon fill="#444444" stroke="#444444" points="3706.6985,-955.5 3696.7144,-951.955 3706.73,-948.5 3706.6985,-955.5"/>
 </g>
@@ -1060,45 +1060,45 @@
 <path fill="none" stroke="#444444" stroke-dasharray="5,2" d="M539.7143,-3704C1181.5835,-3704 1343.6427,-3650.5785 1980.3576,-3650.0047"/>
 <polygon fill="#444444" stroke="#444444" points="1990.7159,-3653.5 1980.7143,-3650.0046 1990.7127,-3646.5 1990.7159,-3653.5"/>
 </g>
-<!-- starred_tasks -->
+<!-- starred_jobs -->
 <g id="node29" class="node">
-<title>starred_tasks</title>
+<title>starred_jobs</title>
 <polygon fill="#dddddd" stroke="transparent" points="2015.7143,-1360 2015.7143,-1380 2094.7143,-1380 2094.7143,-1360 2015.7143,-1360"/>
 <polygon fill="none" stroke="#000000" points="2015.7143,-1360 2015.7143,-1380 2094.7143,-1380 2094.7143,-1360 2015.7143,-1360"/>
-<text text-anchor="start" x="2018.6694" y="-1365.8" font-family="Times,serif" font-size="14.00" fill="#000000">starred_tasks</text>
+<text text-anchor="start" x="2018.6694" y="-1365.8" font-family="Times,serif" font-size="14.00" fill="#000000">starred_jobs</text>
 <polygon fill="none" stroke="#000000" points="2015.7143,-1340 2015.7143,-1360 2094.7143,-1360 2094.7143,-1340 2015.7143,-1340"/>
 <text text-anchor="start" x="2039.7704" y="-1346.8" font-family="Times,serif" font-size="14.00" fill="#000000">id:</text>
 <text text-anchor="start" x="2054.5497" y="-1346.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">INT</text>
 <polygon fill="none" stroke="#000000" points="2015.7143,-1320 2015.7143,-1340 2094.7143,-1340 2094.7143,-1320 2015.7143,-1320"/>
-<text text-anchor="start" x="2024.9946" y="-1326.8" font-family="Times,serif" font-size="14.00" fill="#000000">task_id:</text>
+<text text-anchor="start" x="2024.9946" y="-1326.8" font-family="Times,serif" font-size="14.00" fill="#000000">job_id:</text>
 <text text-anchor="start" x="2069.3256" y="-1326.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">INT</text>
 <polygon fill="none" stroke="#000000" points="2015.7143,-1300 2015.7143,-1320 2094.7143,-1320 2094.7143,-1300 2015.7143,-1300"/>
 <text text-anchor="start" x="2024.6083" y="-1306.8" font-family="Times,serif" font-size="14.00" fill="#000000">user_id:</text>
 <text text-anchor="start" x="2069.7118" y="-1306.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">INT</text>
 </g>
-<!-- starred_tasks&#45;&gt;tasks -->
+<!-- starred_jobs&#45;&gt;jobs -->
 <g id="edge27" class="edge">
-<title>starred_tasks:task_id&#45;&gt;tasks:id</title>
+<title>starred_jobs:job_id&#45;&gt;jobs:id</title>
 <path fill="none" stroke="#444444" stroke-dasharray="5,2" d="M2094.7143,-1330C2827.1789,-1330 2969.5222,-955.4987 3696.5121,-952.0243"/>
 <polygon fill="#444444" stroke="#444444" points="3706.7227,-955.5 3696.7143,-952.0239 3706.7059,-948.5 3706.7227,-955.5"/>
 </g>
-<!-- starred_tasks&#45;&gt;users -->
+<!-- starred_jobs&#45;&gt;users -->
 <g id="edge28" class="edge">
-<title>starred_tasks:user_id&#45;&gt;users:id</title>
+<title>starred_jobs:user_id&#45;&gt;users:id</title>
 <path fill="none" stroke="#444444" stroke-dasharray="5,2" d="M2094.7143,-1310C2894.6837,-1310 3096.541,-1052.5885 3888.7143,-1164 4569.8951,-1259.8015 4691.2767,-1589.7563 5373.6292,-1592.9763"/>
 <polygon fill="#444444" stroke="#444444" points="5383.706,-1596.5 5373.7143,-1592.9764 5383.7226,-1589.5 5383.706,-1596.5"/>
 </g>
-<!-- sub_task_ratings -->
+<!-- sub_job_ratings -->
 <g id="node30" class="node">
-<title>sub_task_ratings</title>
+<title>sub_job_ratings</title>
 <polygon fill="#dddddd" stroke="transparent" points="411.7143,-1278 411.7143,-1298 539.7143,-1298 539.7143,-1278 411.7143,-1278"/>
 <polygon fill="none" stroke="#000000" points="411.7143,-1278 411.7143,-1298 539.7143,-1298 539.7143,-1278 411.7143,-1278"/>
-<text text-anchor="start" x="428.6625" y="-1283.8" font-family="Times,serif" font-size="14.00" fill="#000000">sub_task_ratings</text>
+<text text-anchor="start" x="428.6625" y="-1283.8" font-family="Times,serif" font-size="14.00" fill="#000000">sub_job_ratings</text>
 <polygon fill="none" stroke="#000000" points="411.7143,-1258 411.7143,-1278 539.7143,-1278 539.7143,-1258 411.7143,-1258"/>
 <text text-anchor="start" x="460.2704" y="-1264.8" font-family="Times,serif" font-size="14.00" fill="#000000">id:</text>
 <text text-anchor="start" x="475.0497" y="-1264.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">INT</text>
 <polygon fill="none" stroke="#000000" points="411.7143,-1238 411.7143,-1258 539.7143,-1258 539.7143,-1238 411.7143,-1238"/>
-<text text-anchor="start" x="432.2704" y="-1244.8" font-family="Times,serif" font-size="14.00" fill="#000000">sub_task_id:</text>
+<text text-anchor="start" x="432.2704" y="-1244.8" font-family="Times,serif" font-size="14.00" fill="#000000">sub_job_id:</text>
 <text text-anchor="start" x="503.0497" y="-1244.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">INT</text>
 <polygon fill="none" stroke="#000000" points="411.7143,-1218 411.7143,-1238 539.7143,-1238 539.7143,-1218 411.7143,-1218"/>
 <text text-anchor="start" x="445.1083" y="-1224.8" font-family="Times,serif" font-size="14.00" fill="#000000">user_id:</text>
@@ -1116,12 +1116,12 @@
 <text text-anchor="start" x="414.2602" y="-1144.8" font-family="Times,serif" font-size="14.00" fill="#000000">updated_at:</text>
 <text text-anchor="start" x="479.5707" y="-1144.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">TIMESTAMP</text>
 </g>
-<!-- sub_tasks -->
+<!-- sub_jobs -->
 <g id="node31" class="node">
-<title>sub_tasks</title>
+<title>sub_jobs</title>
 <polygon fill="#dddddd" stroke="transparent" points="1987.7143,-1254 1987.7143,-1274 2122.7143,-1274 2122.7143,-1254 1987.7143,-1254"/>
 <polygon fill="none" stroke="#000000" points="1987.7143,-1254 1987.7143,-1274 2122.7143,-1274 2122.7143,-1254 1987.7143,-1254"/>
-<text text-anchor="start" x="2027.9902" y="-1259.8" font-family="Times,serif" font-size="14.00" fill="#000000">sub_tasks</text>
+<text text-anchor="start" x="2027.9902" y="-1259.8" font-family="Times,serif" font-size="14.00" fill="#000000">sub_jobs</text>
 <polygon fill="none" stroke="#000000" points="1987.7143,-1234 1987.7143,-1254 2122.7143,-1254 2122.7143,-1234 1987.7143,-1234"/>
 <text text-anchor="start" x="2039.7704" y="-1240.8" font-family="Times,serif" font-size="14.00" fill="#000000">id:</text>
 <text text-anchor="start" x="2054.5497" y="-1240.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">INT</text>
@@ -1129,7 +1129,7 @@
 <text text-anchor="start" x="2026.6572" y="-1220.8" font-family="Times,serif" font-size="14.00" fill="#000000">uuid:</text>
 <text text-anchor="start" x="2055.4365" y="-1220.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">CHAR</text>
 <polygon fill="none" stroke="#000000" points="1987.7143,-1194 1987.7143,-1214 2122.7143,-1214 2122.7143,-1194 1987.7143,-1194"/>
-<text text-anchor="start" x="2024.9946" y="-1200.8" font-family="Times,serif" font-size="14.00" fill="#000000">task_id:</text>
+<text text-anchor="start" x="2024.9946" y="-1200.8" font-family="Times,serif" font-size="14.00" fill="#000000">job_id:</text>
 <text text-anchor="start" x="2069.3256" y="-1200.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">INT</text>
 <polygon fill="none" stroke="#000000" points="1987.7143,-1174 1987.7143,-1194 2122.7143,-1194 2122.7143,-1174 1987.7143,-1174"/>
 <text text-anchor="start" x="2018.3036" y="-1180.8" font-family="Times,serif" font-size="14.00" fill="#000000">title:</text>
@@ -1156,36 +1156,36 @@
 <text text-anchor="start" x="1993.7602" y="-1040.8" font-family="Times,serif" font-size="14.00" fill="#000000">updated_at:</text>
 <text text-anchor="start" x="2059.0707" y="-1040.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">TIMESTAMP</text>
 </g>
-<!-- sub_task_ratings&#45;&gt;sub_tasks -->
+<!-- sub_job_ratings&#45;&gt;sub_jobs -->
 <g id="edge29" class="edge">
-<title>sub_task_ratings:sub_task_id&#45;&gt;sub_tasks:id</title>
+<title>sub_job_ratings:sub_job_id&#45;&gt;sub_jobs:id</title>
 <path fill="none" stroke="#444444" stroke-dasharray="5,2" d="M539.7143,-1248C1179.8157,-1248 1342.4141,-1244.0429 1977.3861,-1244.0003"/>
 <polygon fill="#444444" stroke="#444444" points="1987.7144,-1247.5 1977.7143,-1244.0004 1987.7141,-1240.5 1987.7144,-1247.5"/>
 </g>
-<!-- sub_task_ratings&#45;&gt;users -->
+<!-- sub_job_ratings&#45;&gt;users -->
 <g id="edge30" class="edge">
-<title>sub_task_ratings:user_id&#45;&gt;users:id</title>
+<title>sub_job_ratings:user_id&#45;&gt;users:id</title>
 <path fill="none" stroke="#444444" stroke-dasharray="5,2" d="M539.7143,-1228C1190.6828,-1228 1315.5053,-1500.4255 1961.7143,-1579 2828.4409,-1684.3879 3022.9113,-1084.2755 3888.7143,-1197 4566.9924,-1285.3094 4695.1112,-1590.0047 5373.6856,-1592.9781"/>
 <polygon fill="#444444" stroke="#444444" points="5383.7066,-1596.5 5373.7143,-1592.978 5383.722,-1589.5 5383.7066,-1596.5"/>
 </g>
-<!-- sub_tasks&#45;&gt;tasks -->
+<!-- sub_jobs&#45;&gt;jobs -->
 <g id="edge31" class="edge">
-<title>sub_tasks:task_id&#45;&gt;tasks:id</title>
+<title>sub_jobs:job_id&#45;&gt;jobs:id</title>
 <path fill="none" stroke="#444444" stroke-dasharray="5,2" d="M2122.7143,-1204C2832.174,-1204 2992.3411,-954.3937 3696.5707,-952.0171"/>
 <polygon fill="#444444" stroke="#444444" points="3706.7202,-955.5 3696.7143,-952.0169 3706.7084,-948.5 3706.7202,-955.5"/>
 </g>
-<!-- sub_tasks&#45;&gt;users -->
+<!-- sub_jobs&#45;&gt;users -->
 <g id="edge32" class="edge">
-<title>sub_tasks:user_id&#45;&gt;users:id</title>
+<title>sub_jobs:user_id&#45;&gt;users:id</title>
 <path fill="none" stroke="#444444" stroke-dasharray="5,2" d="M2122.7143,-1104C2907.7754,-1104 3113.3427,-1018.0373 3888.7143,-1141 4570.9482,-1249.1924 4688.4261,-1589.6533 5373.5874,-1592.9755"/>
 <polygon fill="#444444" stroke="#444444" points="5383.7058,-1596.5 5373.7143,-1592.9757 5383.7228,-1589.5 5383.7058,-1596.5"/>
 </g>
-<!-- task_attachments -->
+<!-- job_attachments -->
 <g id="node32" class="node">
-<title>task_attachments</title>
+<title>job_attachments</title>
 <polygon fill="#dddddd" stroke="transparent" points="1987.7143,-988 1987.7143,-1008 2121.7143,-1008 2121.7143,-988 1987.7143,-988"/>
 <polygon fill="none" stroke="#000000" points="1987.7143,-988 1987.7143,-1008 2121.7143,-1008 2121.7143,-988 1987.7143,-988"/>
-<text text-anchor="start" x="2006.5073" y="-993.8" font-family="Times,serif" font-size="14.00" fill="#000000">task_attachments</text>
+<text text-anchor="start" x="2006.5073" y="-993.8" font-family="Times,serif" font-size="14.00" fill="#000000">job_attachments</text>
 <polygon fill="none" stroke="#000000" points="1987.7143,-968 1987.7143,-988 2121.7143,-988 2121.7143,-968 1987.7143,-968"/>
 <text text-anchor="start" x="2039.2704" y="-974.8" font-family="Times,serif" font-size="14.00" fill="#000000">id:</text>
 <text text-anchor="start" x="2054.0497" y="-974.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">INT</text>
@@ -1193,7 +1193,7 @@
 <text text-anchor="start" x="2026.1572" y="-954.8" font-family="Times,serif" font-size="14.00" fill="#000000">uuid:</text>
 <text text-anchor="start" x="2054.9365" y="-954.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">CHAR</text>
 <polygon fill="none" stroke="#000000" points="1987.7143,-928 1987.7143,-948 2121.7143,-948 2121.7143,-928 1987.7143,-928"/>
-<text text-anchor="start" x="2024.4946" y="-934.8" font-family="Times,serif" font-size="14.00" fill="#000000">task_id:</text>
+<text text-anchor="start" x="2024.4946" y="-934.8" font-family="Times,serif" font-size="14.00" fill="#000000">job_id:</text>
 <text text-anchor="start" x="2068.8256" y="-934.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">INT</text>
 <polygon fill="none" stroke="#000000" points="1987.7143,-908 1987.7143,-928 2121.7143,-928 2121.7143,-908 1987.7143,-908"/>
 <text text-anchor="start" x="2024.1083" y="-914.8" font-family="Times,serif" font-size="14.00" fill="#000000">user_id:</text>
@@ -1214,24 +1214,24 @@
 <text text-anchor="start" x="1993.2602" y="-814.8" font-family="Times,serif" font-size="14.00" fill="#000000">updated_at:</text>
 <text text-anchor="start" x="2058.5707" y="-814.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">TIMESTAMP</text>
 </g>
-<!-- task_attachments&#45;&gt;tasks -->
+<!-- job_attachments&#45;&gt;jobs -->
 <g id="edge33" class="edge">
-<title>task_attachments:task_id&#45;&gt;tasks:id</title>
+<title>job_attachments:job_id&#45;&gt;jobs:id</title>
 <path fill="none" stroke="#444444" stroke-dasharray="5,2" d="M2121.7143,-938C2822.8324,-938 3000.5541,-951.867 3696.6887,-951.9991"/>
 <polygon fill="#444444" stroke="#444444" points="3706.7139,-955.5 3696.7143,-951.999 3706.7147,-948.5 3706.7139,-955.5"/>
 </g>
-<!-- task_attachments&#45;&gt;users -->
+<!-- job_attachments&#45;&gt;users -->
 <g id="edge34" class="edge">
-<title>task_attachments:user_id&#45;&gt;users:id</title>
+<title>job_attachments:user_id&#45;&gt;users:id</title>
 <path fill="none" stroke="#444444" stroke-dasharray="5,2" d="M2121.7143,-918C2911.7666,-918 3116.0708,-947.0615 3888.7143,-1112 4567.9891,-1257.0068 4684.5954,-1589.7303 5373.5315,-1592.9761"/>
 <polygon fill="#444444" stroke="#444444" points="5383.706,-1596.5 5373.7143,-1592.9764 5383.7225,-1589.5 5383.706,-1596.5"/>
 </g>
-<!-- task_categories -->
+<!-- job_categories -->
 <g id="node33" class="node">
-<title>task_categories</title>
+<title>job_categories</title>
 <polygon fill="#dddddd" stroke="transparent" points="5395.7143,-839 5395.7143,-859 5523.7143,-859 5523.7143,-839 5395.7143,-839"/>
 <polygon fill="none" stroke="#000000" points="5395.7143,-839 5395.7143,-859 5523.7143,-859 5523.7143,-839 5395.7143,-839"/>
-<text text-anchor="start" x="5416.5658" y="-844.8" font-family="Times,serif" font-size="14.00" fill="#000000">task_categories</text>
+<text text-anchor="start" x="5416.5658" y="-844.8" font-family="Times,serif" font-size="14.00" fill="#000000">job_categories</text>
 <polygon fill="none" stroke="#000000" points="5395.7143,-819 5395.7143,-839 5523.7143,-839 5523.7143,-819 5395.7143,-819"/>
 <text text-anchor="start" x="5444.2704" y="-825.8" font-family="Times,serif" font-size="14.00" fill="#000000">id:</text>
 <text text-anchor="start" x="5459.0497" y="-825.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">INT</text>
@@ -1248,17 +1248,17 @@
 <text text-anchor="start" x="5398.2602" y="-745.8" font-family="Times,serif" font-size="14.00" fill="#000000">updated_at:</text>
 <text text-anchor="start" x="5463.5707" y="-745.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">TIMESTAMP</text>
 </g>
-<!-- task_comments -->
+<!-- job_comments -->
 <g id="node34" class="node">
-<title>task_comments</title>
+<title>job_comments</title>
 <polygon fill="#dddddd" stroke="transparent" points="1990.7143,-762 1990.7143,-782 2118.7143,-782 2118.7143,-762 1990.7143,-762"/>
 <polygon fill="none" stroke="#000000" points="1990.7143,-762 1990.7143,-782 2118.7143,-782 2118.7143,-762 1990.7143,-762"/>
-<text text-anchor="start" x="2011.1659" y="-767.8" font-family="Times,serif" font-size="14.00" fill="#000000">task_comments</text>
+<text text-anchor="start" x="2011.1659" y="-767.8" font-family="Times,serif" font-size="14.00" fill="#000000">job_comments</text>
 <polygon fill="none" stroke="#000000" points="1990.7143,-742 1990.7143,-762 2118.7143,-762 2118.7143,-742 1990.7143,-742"/>
 <text text-anchor="start" x="2039.2704" y="-748.8" font-family="Times,serif" font-size="14.00" fill="#000000">id:</text>
 <text text-anchor="start" x="2054.0497" y="-748.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">INT</text>
 <polygon fill="none" stroke="#000000" points="1990.7143,-722 1990.7143,-742 2118.7143,-742 2118.7143,-722 1990.7143,-722"/>
-<text text-anchor="start" x="2024.4946" y="-728.8" font-family="Times,serif" font-size="14.00" fill="#000000">task_id:</text>
+<text text-anchor="start" x="2024.4946" y="-728.8" font-family="Times,serif" font-size="14.00" fill="#000000">job_id:</text>
 <text text-anchor="start" x="2068.8256" y="-728.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">INT</text>
 <polygon fill="none" stroke="#000000" points="1990.7143,-702 1990.7143,-722 2118.7143,-722 2118.7143,-702 1990.7143,-702"/>
 <text text-anchor="start" x="2024.1083" y="-708.8" font-family="Times,serif" font-size="14.00" fill="#000000">user_id:</text>
@@ -1276,30 +1276,30 @@
 <text text-anchor="start" x="1993.2602" y="-628.8" font-family="Times,serif" font-size="14.00" fill="#000000">updated_at:</text>
 <text text-anchor="start" x="2058.5707" y="-628.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">TIMESTAMP</text>
 </g>
-<!-- task_comments&#45;&gt;task_comments -->
+<!-- job_comments&#45;&gt;job_comments -->
 <g id="edge35" class="edge">
-<title>task_comments:reply_id&#45;&gt;task_comments:id</title>
+<title>job_comments:reply_id&#45;&gt;job_comments:id</title>
 <path fill="none" stroke="#444444" stroke-dasharray="5,2" d="M1990.691,-670.26C1690.3546,-663.2389 1193.7143,-666.4214 1193.7143,-712 1193.7143,-757.0667 1679.2622,-760.6843 1980.4989,-753.9726"/>
 <polygon fill="#444444" stroke="#444444" points="1990.7709,-757.2391 1980.6936,-753.9683 1990.6111,-750.2409 1990.7709,-757.2391"/>
 </g>
-<!-- task_comments&#45;&gt;tasks -->
+<!-- job_comments&#45;&gt;jobs -->
 <g id="edge36" class="edge">
-<title>task_comments:task_id&#45;&gt;tasks:id</title>
+<title>job_comments:job_id&#45;&gt;jobs:id</title>
 <path fill="none" stroke="#444444" stroke-dasharray="5,2" d="M2118.7143,-732C2827.8408,-732 2992.6316,-949.9103 3696.5752,-951.9851"/>
 <polygon fill="#444444" stroke="#444444" points="3706.7091,-955.5 3696.7143,-951.9852 3706.7195,-948.5 3706.7091,-955.5"/>
 </g>
-<!-- task_comments&#45;&gt;users -->
+<!-- job_comments&#45;&gt;users -->
 <g id="edge37" class="edge">
-<title>task_comments:user_id&#45;&gt;users:id</title>
+<title>job_comments:user_id&#45;&gt;users:id</title>
 <path fill="none" stroke="#444444" stroke-dasharray="5,2" d="M2118.7143,-712C2921.3988,-712 3114.6879,-858.4309 3888.7143,-1071 4564.1392,-1256.4904 4678.8468,-1589.8078 5373.7028,-1592.9772"/>
 <polygon fill="#444444" stroke="#444444" points="5383.7063,-1596.5 5373.7143,-1592.9772 5383.7223,-1589.5 5383.7063,-1596.5"/>
 </g>
-<!-- task_notes -->
+<!-- job_notes -->
 <g id="node35" class="node">
-<title>task_notes</title>
+<title>job_notes</title>
 <polygon fill="#dddddd" stroke="transparent" points="1987.7143,-576 1987.7143,-596 2121.7143,-596 2121.7143,-576 1987.7143,-576"/>
 <polygon fill="none" stroke="#000000" points="1987.7143,-576 1987.7143,-596 2121.7143,-596 2121.7143,-576 1987.7143,-576"/>
-<text text-anchor="start" x="2025.1625" y="-581.8" font-family="Times,serif" font-size="14.00" fill="#000000">task_notes</text>
+<text text-anchor="start" x="2025.1625" y="-581.8" font-family="Times,serif" font-size="14.00" fill="#000000">job_notes</text>
 <polygon fill="none" stroke="#000000" points="1987.7143,-556 1987.7143,-576 2121.7143,-576 2121.7143,-556 1987.7143,-556"/>
 <text text-anchor="start" x="2039.2704" y="-562.8" font-family="Times,serif" font-size="14.00" fill="#000000">id:</text>
 <text text-anchor="start" x="2054.0497" y="-562.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">INT</text>
@@ -1307,7 +1307,7 @@
 <text text-anchor="start" x="2026.1572" y="-542.8" font-family="Times,serif" font-size="14.00" fill="#000000">uuid:</text>
 <text text-anchor="start" x="2054.9365" y="-542.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">CHAR</text>
 <polygon fill="none" stroke="#000000" points="1987.7143,-516 1987.7143,-536 2121.7143,-536 2121.7143,-516 1987.7143,-516"/>
-<text text-anchor="start" x="2024.4946" y="-522.8" font-family="Times,serif" font-size="14.00" fill="#000000">task_id:</text>
+<text text-anchor="start" x="2024.4946" y="-522.8" font-family="Times,serif" font-size="14.00" fill="#000000">job_id:</text>
 <text text-anchor="start" x="2068.8256" y="-522.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">INT</text>
 <polygon fill="none" stroke="#000000" points="1987.7143,-496 1987.7143,-516 2121.7143,-516 2121.7143,-496 1987.7143,-496"/>
 <text text-anchor="start" x="2024.1083" y="-502.8" font-family="Times,serif" font-size="14.00" fill="#000000">user_id:</text>
@@ -1331,24 +1331,24 @@
 <text text-anchor="start" x="1993.2602" y="-382.8" font-family="Times,serif" font-size="14.00" fill="#000000">updated_at:</text>
 <text text-anchor="start" x="2058.5707" y="-382.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">TIMESTAMP</text>
 </g>
-<!-- task_notes&#45;&gt;tasks -->
+<!-- job_notes&#45;&gt;jobs -->
 <g id="edge38" class="edge">
-<title>task_notes:task_id&#45;&gt;tasks:id</title>
+<title>job_notes:job_id&#45;&gt;jobs:id</title>
 <path fill="none" stroke="#444444" stroke-dasharray="5,2" d="M2121.7143,-526C2847.775,-526 2976.087,-948.057 3696.6022,-951.9726"/>
 <polygon fill="#444444" stroke="#444444" points="3706.7048,-955.5 3696.7143,-951.9728 3706.7238,-948.5 3706.7048,-955.5"/>
 </g>
-<!-- task_notes&#45;&gt;users -->
+<!-- job_notes&#45;&gt;users -->
 <g id="edge39" class="edge">
-<title>task_notes:user_id&#45;&gt;users:id</title>
+<title>job_notes:user_id&#45;&gt;users:id</title>
 <path fill="none" stroke="#444444" stroke-dasharray="5,2" d="M2121.7143,-506C2907.7929,-506 3145.2486,-173.6996 3888.7143,-429 4681.9493,-701.3908 4542.7627,-1585.8355 5373.5855,-1592.9567"/>
 <polygon fill="#444444" stroke="#444444" points="5383.6993,-1596.5 5373.7144,-1592.9572 5383.7293,-1589.5 5383.6993,-1596.5"/>
 </g>
-<!-- task_priorities -->
+<!-- job_priorities -->
 <g id="node36" class="node">
-<title>task_priorities</title>
+<title>job_priorities</title>
 <polygon fill="#dddddd" stroke="transparent" points="5395.7143,-693 5395.7143,-713 5523.7143,-713 5523.7143,-693 5395.7143,-693"/>
 <polygon fill="none" stroke="#000000" points="5395.7143,-693 5395.7143,-713 5523.7143,-713 5523.7143,-693 5395.7143,-693"/>
-<text text-anchor="start" x="5419.6659" y="-698.8" font-family="Times,serif" font-size="14.00" fill="#000000">task_priorities</text>
+<text text-anchor="start" x="5419.6659" y="-698.8" font-family="Times,serif" font-size="14.00" fill="#000000">job_priorities</text>
 <polygon fill="none" stroke="#000000" points="5395.7143,-673 5395.7143,-693 5523.7143,-693 5523.7143,-673 5395.7143,-673"/>
 <text text-anchor="start" x="5444.2704" y="-679.8" font-family="Times,serif" font-size="14.00" fill="#000000">id:</text>
 <text text-anchor="start" x="5459.0497" y="-679.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">INT</text>
@@ -1365,17 +1365,17 @@
 <text text-anchor="start" x="5398.2602" y="-599.8" font-family="Times,serif" font-size="14.00" fill="#000000">updated_at:</text>
 <text text-anchor="start" x="5463.5707" y="-599.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">TIMESTAMP</text>
 </g>
-<!-- task_signoff_logs -->
+<!-- job_signoff_logs -->
 <g id="node37" class="node">
-<title>task_signoff_logs</title>
+<title>job_signoff_logs</title>
 <polygon fill="#dddddd" stroke="transparent" points="1990.7143,-330 1990.7143,-350 2118.7143,-350 2118.7143,-330 1990.7143,-330"/>
 <polygon fill="none" stroke="#000000" points="1990.7143,-330 1990.7143,-350 2118.7143,-350 2118.7143,-330 1990.7143,-330"/>
-<text text-anchor="start" x="2005.0615" y="-335.8" font-family="Times,serif" font-size="14.00" fill="#000000">task_signoff_logs</text>
+<text text-anchor="start" x="2005.0615" y="-335.8" font-family="Times,serif" font-size="14.00" fill="#000000">job_signoff_logs</text>
 <polygon fill="none" stroke="#000000" points="1990.7143,-310 1990.7143,-330 2118.7143,-330 2118.7143,-310 1990.7143,-310"/>
 <text text-anchor="start" x="2039.2704" y="-316.8" font-family="Times,serif" font-size="14.00" fill="#000000">id:</text>
 <text text-anchor="start" x="2054.0497" y="-316.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">INT</text>
 <polygon fill="none" stroke="#000000" points="1990.7143,-290 1990.7143,-310 2118.7143,-310 2118.7143,-290 1990.7143,-290"/>
-<text text-anchor="start" x="2024.4946" y="-296.8" font-family="Times,serif" font-size="14.00" fill="#000000">task_id:</text>
+<text text-anchor="start" x="2024.4946" y="-296.8" font-family="Times,serif" font-size="14.00" fill="#000000">job_id:</text>
 <text text-anchor="start" x="2068.8256" y="-296.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">INT</text>
 <polygon fill="none" stroke="#000000" points="1990.7143,-270 1990.7143,-290 2118.7143,-290 2118.7143,-270 1990.7143,-270"/>
 <text text-anchor="start" x="2024.1083" y="-276.8" font-family="Times,serif" font-size="14.00" fill="#000000">user_id:</text>
@@ -1393,29 +1393,29 @@
 <text text-anchor="start" x="1993.2602" y="-196.8" font-family="Times,serif" font-size="14.00" fill="#000000">updated_at:</text>
 <text text-anchor="start" x="2058.5707" y="-196.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">TIMESTAMP</text>
 </g>
-<!-- task_signoff_logs&#45;&gt;tasks -->
+<!-- job_signoff_logs&#45;&gt;jobs -->
 <g id="edge40" class="edge">
-<title>task_signoff_logs:task_id&#45;&gt;tasks:id</title>
+<title>job_signoff_logs:job_id&#45;&gt;jobs:id</title>
 <path fill="none" stroke="#444444" stroke-dasharray="5,2" d="M2118.7143,-300C2878.312,-300 2943.2045,-946.2821 3696.6963,-951.9623"/>
 <polygon fill="#444444" stroke="#444444" points="3706.7011,-955.5 3696.7144,-951.9623 3706.7275,-948.5 3706.7011,-955.5"/>
 </g>
-<!-- task_signoff_logs&#45;&gt;users -->
+<!-- job_signoff_logs&#45;&gt;users -->
 <g id="edge41" class="edge">
-<title>task_signoff_logs:user_id&#45;&gt;users:id</title>
+<title>job_signoff_logs:user_id&#45;&gt;users:id</title>
 <path fill="none" stroke="#444444" stroke-dasharray="5,2" d="M2118.7143,-280C2906.5132,-280 3153.8397,-91.1224 3888.7143,-375 4684.9636,-682.5863 4527.9538,-1585.6849 5373.4064,-1592.9558"/>
 <polygon fill="#444444" stroke="#444444" points="5383.6993,-1596.5 5373.7144,-1592.9571 5383.7293,-1589.5 5383.6993,-1596.5"/>
 </g>
-<!-- task_user -->
+<!-- job_user -->
 <g id="node38" class="node">
-<title>task_user</title>
+<title>job_user</title>
 <polygon fill="#dddddd" stroke="transparent" points="1990.7143,-1546 1990.7143,-1566 2118.7143,-1566 2118.7143,-1546 1990.7143,-1546"/>
 <polygon fill="none" stroke="#000000" points="1990.7143,-1546 1990.7143,-1566 2118.7143,-1566 2118.7143,-1546 1990.7143,-1546"/>
-<text text-anchor="start" x="2028.2763" y="-1551.8" font-family="Times,serif" font-size="14.00" fill="#000000">task_user</text>
+<text text-anchor="start" x="2028.2763" y="-1551.8" font-family="Times,serif" font-size="14.00" fill="#000000">job_user</text>
 <polygon fill="none" stroke="#000000" points="1990.7143,-1526 1990.7143,-1546 2118.7143,-1546 2118.7143,-1526 1990.7143,-1526"/>
 <text text-anchor="start" x="2039.2704" y="-1532.8" font-family="Times,serif" font-size="14.00" fill="#000000">id:</text>
 <text text-anchor="start" x="2054.0497" y="-1532.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">INT</text>
 <polygon fill="none" stroke="#000000" points="1990.7143,-1506 1990.7143,-1526 2118.7143,-1526 2118.7143,-1506 1990.7143,-1506"/>
-<text text-anchor="start" x="2024.4946" y="-1512.8" font-family="Times,serif" font-size="14.00" fill="#000000">task_id:</text>
+<text text-anchor="start" x="2024.4946" y="-1512.8" font-family="Times,serif" font-size="14.00" fill="#000000">job_id:</text>
 <text text-anchor="start" x="2068.8256" y="-1512.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">INT</text>
 <polygon fill="none" stroke="#000000" points="1990.7143,-1486 1990.7143,-1506 2118.7143,-1506 2118.7143,-1486 1990.7143,-1486"/>
 <text text-anchor="start" x="2024.1083" y="-1492.8" font-family="Times,serif" font-size="14.00" fill="#000000">user_id:</text>
@@ -1433,45 +1433,45 @@
 <text text-anchor="start" x="1993.2602" y="-1412.8" font-family="Times,serif" font-size="14.00" fill="#000000">updated_at:</text>
 <text text-anchor="start" x="2058.5707" y="-1412.8" font-family="Helvetica,sans-Serif" font-style="oblique" font-size="10.00" fill="#000000">TIMESTAMP</text>
 </g>
-<!-- task_user&#45;&gt;tasks -->
+<!-- job_user&#45;&gt;jobs -->
 <g id="edge42" class="edge">
-<title>task_user:task_id&#45;&gt;tasks:id</title>
+<title>job_user:job_id&#45;&gt;jobs:id</title>
 <path fill="none" stroke="#444444" stroke-dasharray="5,2" d="M2118.7143,-1516C2864.3015,-1516 2956.9173,-957.0832 3696.6061,-952.0344"/>
 <polygon fill="#444444" stroke="#444444" points="3706.7262,-955.5 3696.7143,-952.0341 3706.7023,-948.5 3706.7262,-955.5"/>
 </g>
-<!-- task_user&#45;&gt;users -->
+<!-- job_user&#45;&gt;users -->
 <g id="edge43" class="edge">
-<title>task_user:user_id&#45;&gt;users:id</title>
+<title>job_user:user_id&#45;&gt;users:id</title>
 <path fill="none" stroke="#444444" stroke-dasharray="5,2" d="M2118.7143,-1496C2821.984,-1496 2979.7101,-1692.5961 3680.7143,-1749 4434.9018,-1809.6831 4621.9706,-1594.9542 5373.4507,-1593.0132"/>
 <polygon fill="#444444" stroke="#444444" points="5383.7188,-1596.5 5373.7143,-1593.013 5383.7097,-1589.5 5383.7188,-1596.5"/>
 </g>
-<!-- tasks&#45;&gt;question_sets -->
+<!-- jobs&#45;&gt;question_sets -->
 <g id="edge44" class="edge">
-<title>tasks:question_set_id&#45;&gt;question_sets:id</title>
+<title>jobs:question_set_id&#45;&gt;question_sets:id</title>
 <path fill="none" stroke="#444444" stroke-dasharray="5,2" d="M3862.7143,-912C4541.1266,-912 4712.0576,-974.3557 5385.2662,-974.995"/>
 <polygon fill="#444444" stroke="#444444" points="5395.7126,-978.5 5385.7143,-974.9952 5395.716,-971.5 5395.7126,-978.5"/>
 </g>
-<!-- tasks&#45;&gt;task_categories -->
+<!-- jobs&#45;&gt;job_categories -->
 <g id="edge46" class="edge">
-<title>tasks:task_category_id&#45;&gt;task_categories:id</title>
+<title>jobs:job_category_id&#45;&gt;job_categories:id</title>
 <path fill="none" stroke="#444444" stroke-dasharray="5,2" d="M3862.7143,-892C4541.1266,-892 4712.0576,-829.6443 5385.2662,-829.005"/>
 <polygon fill="#444444" stroke="#444444" points="5395.716,-832.5 5385.7143,-829.0048 5395.7126,-825.5 5395.716,-832.5"/>
 </g>
-<!-- tasks&#45;&gt;task_priorities -->
+<!-- jobs&#45;&gt;job_priorities -->
 <g id="edge47" class="edge">
-<title>tasks:task_priority_id&#45;&gt;task_priorities:id</title>
+<title>jobs:job_priority_id&#45;&gt;job_priorities:id</title>
 <path fill="none" stroke="#444444" stroke-dasharray="5,2" d="M3862.7143,-872C4545.8542,-872 4707.6472,-684.8412 5385.6958,-683.0135"/>
 <polygon fill="#444444" stroke="#444444" points="5395.719,-686.5 5385.7143,-683.0135 5395.7095,-679.5 5395.719,-686.5"/>
 </g>
-<!-- tasks&#45;&gt;tasks -->
+<!-- jobs&#45;&gt;jobs -->
 <g id="edge45" class="edge">
-<title>tasks:recurring_task_id&#45;&gt;tasks:id</title>
+<title>jobs:recurring_job_id&#45;&gt;jobs:id</title>
 <path fill="none" stroke="#444444" stroke-dasharray="5,2" d="M3706.6418,-510.1466C3383.8269,-504.424 2861.7143,-521.0583 2861.7143,-732 2861.7143,-940.6757 3372.6699,-959.1962 3696.1705,-954.0298"/>
 <polygon fill="#444444" stroke="#444444" points="3706.7008,-957.3529 3696.6433,-954.022 3706.5828,-950.3539 3706.7008,-957.3529"/>
 </g>
-<!-- tasks&#45;&gt;users -->
+<!-- jobs&#45;&gt;users -->
 <g id="edge48" class="edge">
-<title>tasks:user_id&#45;&gt;users:id</title>
+<title>jobs:user_id&#45;&gt;users:id</title>
 <path fill="none" stroke="#444444" stroke-dasharray="5,2" d="M3862.7143,-672C4649.6098,-672 4593.9356,-1585.1469 5373.6315,-1592.9497"/>
 <polygon fill="#444444" stroke="#444444" points="5383.6968,-1596.5 5373.7144,-1592.95 5383.7318,-1589.5 5383.6968,-1596.5"/>
 </g>

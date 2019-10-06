@@ -72,9 +72,9 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>{{trans('configuration.show_menu',{menu: trans('task.task')})}}</td>
+                                                    <td>{{trans('configuration.show_menu',{menu: trans('job.job')})}}</td>
                                                     <td>
-                                                        <switches v-model="configForm.show_task_menu" theme="bootstrap" color="success"></switches>
+                                                        <switches v-model="configForm.show_job_menu" theme="bootstrap" color="success"></switches>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -169,7 +169,7 @@
                     show_designation_menu: 0,
                     show_location_menu: 0,
                     show_announcement_menu: 0,
-                    show_task_menu: 0,                    
+                    show_job_menu: 0,                    
                     config_type: 'menu'
                 },false)
             }
@@ -193,7 +193,7 @@
             this.configForm.show_designation_menu = helper.getConfig('show_designation_menu');
             this.configForm.show_location_menu = helper.getConfig('show_location_menu');
             this.configForm.show_announcement_menu = helper.getConfig('show_announcement_menu');
-            this.configForm.show_task_menu = helper.getConfig('show_task_menu');            
+            this.configForm.show_job_menu = helper.getConfig('show_job_menu');            
         },
         methods: {
             submit(){
@@ -212,7 +212,7 @@
                 this.configForm.show_designation_menu = (this.configForm.show_designation_menu) ? 1 : 0;
                 this.configForm.show_location_menu = (this.configForm.show_location_menu) ? 1 : 0;
                 this.configForm.show_announcement_menu = (this.configForm.show_announcement_menu) ? 1 : 0;
-                this.configForm.show_task_menu = (this.configForm.show_task_menu) ? 1 : 0;                
+                this.configForm.show_job_menu = (this.configForm.show_job_menu) ? 1 : 0;                
                 this.configForm.post('/api/configuration')
                     .then(response => {
                         this.$store.dispatch('setConfig',this.configForm);

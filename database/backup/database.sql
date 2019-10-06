@@ -36,12 +36,12 @@ CREATE TABLE IF NOT EXISTS `activity_logs` (
 /*!40000 ALTER TABLE `activity_logs` DISABLE KEYS */;
 REPLACE INTO `activity_logs` (`id`, `user_id`, `login_as_user_id`, `user_agent`, `module`, `module_id`, `sub_module`, `sub_module_id`, `activity`, `ip`, `created_at`, `updated_at`) VALUES
 	(1, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'user', '1', NULL, NULL, 'logged_in', '::1', '2019-07-08 19:08:46', '2019-07-08 19:08:46'),
-	(2, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'task_category', '1', NULL, NULL, 'added', '::1', '2019-07-08 19:56:00', '2019-07-08 19:56:00'),
-	(3, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'task_category', '2', NULL, NULL, 'added', '::1', '2019-07-08 19:56:09', '2019-07-08 19:56:09'),
-	(4, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'task_category', '3', NULL, NULL, 'added', '::1', '2019-07-08 19:56:21', '2019-07-08 19:56:21'),
-	(5, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'task_priority', '1', NULL, NULL, 'added', '::1', '2019-07-08 19:56:37', '2019-07-08 19:56:37'),
-	(6, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'task_priority', '2', NULL, NULL, 'added', '::1', '2019-07-08 19:56:46', '2019-07-08 19:56:46'),
-	(7, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'configuration', NULL, 'task', NULL, 'saved', '::1', '2019-07-08 19:57:16', '2019-07-08 19:57:16'),
+	(2, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'job_category', '1', NULL, NULL, 'added', '::1', '2019-07-08 19:56:00', '2019-07-08 19:56:00'),
+	(3, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'job_category', '2', NULL, NULL, 'added', '::1', '2019-07-08 19:56:09', '2019-07-08 19:56:09'),
+	(4, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'job_category', '3', NULL, NULL, 'added', '::1', '2019-07-08 19:56:21', '2019-07-08 19:56:21'),
+	(5, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'job_priority', '1', NULL, NULL, 'added', '::1', '2019-07-08 19:56:37', '2019-07-08 19:56:37'),
+	(6, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'job_priority', '2', NULL, NULL, 'added', '::1', '2019-07-08 19:56:46', '2019-07-08 19:56:46'),
+	(7, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'configuration', NULL, 'job', NULL, 'saved', '::1', '2019-07-08 19:57:16', '2019-07-08 19:57:16'),
 	(18, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'configuration', NULL, 'system', NULL, 'saved', '::1', '2019-07-09 11:22:45', '2019-07-09 11:22:45'),
 	(19, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'configuration', NULL, 'authentication', NULL, 'saved', '::1', '2019-07-09 12:34:19', '2019-07-09 12:34:19'),
 	(20, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'configuration', NULL, 'company_logo', NULL, 'uploaded', '::1', '2019-07-09 12:55:59', '2019-07-09 12:55:59'),
@@ -69,18 +69,18 @@ REPLACE INTO `activity_logs` (`id`, `user_id`, `login_as_user_id`, `user_agent`,
 	(42, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'user', '1', NULL, NULL, 'updated', '::1', '2019-07-09 16:16:05', '2019-07-09 16:16:05'),
 	(43, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'designation', '2', NULL, NULL, 'added', '::1', '2019-07-09 16:21:29', '2019-07-09 16:21:29'),
 	(44, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'user', '2', NULL, NULL, 'created', '::1', '2019-07-09 16:22:32', '2019-07-09 16:22:32'),
-	(45, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'task', '1', NULL, NULL, 'added', '::1', '2019-07-09 16:24:40', '2019-07-09 16:24:40'),
+	(45, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'job', '1', NULL, NULL, 'added', '::1', '2019-07-09 16:24:40', '2019-07-09 16:24:40'),
 	(46, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'question_set', '1', NULL, NULL, 'added', '::1', '2019-07-09 16:25:46', '2019-07-09 16:25:46'),
 	(47, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'question_set', '2', NULL, NULL, 'added', '::1', '2019-07-09 16:26:44', '2019-07-09 16:26:44'),
 	(48, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'question_set', '2', NULL, NULL, 'deleted', '::1', '2019-07-09 16:27:05', '2019-07-09 16:27:05'),
 	(49, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'question_set', '3', NULL, NULL, 'added', '::1', '2019-07-09 16:27:21', '2019-07-09 16:27:21'),
-	(50, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'task', '1', NULL, NULL, 'updated', '::1', '2019-07-09 16:27:31', '2019-07-09 16:27:31'),
-	(51, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'task', '1', NULL, NULL, 'updated', '::1', '2019-07-09 16:28:23', '2019-07-09 16:28:23'),
-	(52, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'task_comment', '1', NULL, NULL, 'commented', '::1', '2019-07-09 16:29:21', '2019-07-09 16:29:21'),
-	(53, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'task', '1', 'progress', NULL, 'updated', '::1', '2019-07-09 16:29:35', '2019-07-09 16:29:35'),
-	(54, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'task', '1', NULL, NULL, 'updated', '::1', '2019-07-09 16:29:47', '2019-07-09 16:29:47'),
-	(55, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'task', '1', 'answer', NULL, 'updated', '::1', '2019-07-09 16:30:03', '2019-07-09 16:30:03'),
-	(56, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'task', '1', 'answer', NULL, 'updated', '::1', '2019-07-09 16:30:20', '2019-07-09 16:30:20'),
+	(50, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'job', '1', NULL, NULL, 'updated', '::1', '2019-07-09 16:27:31', '2019-07-09 16:27:31'),
+	(51, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'job', '1', NULL, NULL, 'updated', '::1', '2019-07-09 16:28:23', '2019-07-09 16:28:23'),
+	(52, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'job_comment', '1', NULL, NULL, 'commented', '::1', '2019-07-09 16:29:21', '2019-07-09 16:29:21'),
+	(53, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'job', '1', 'progress', NULL, 'updated', '::1', '2019-07-09 16:29:35', '2019-07-09 16:29:35'),
+	(54, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'job', '1', NULL, NULL, 'updated', '::1', '2019-07-09 16:29:47', '2019-07-09 16:29:47'),
+	(55, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'job', '1', 'answer', NULL, 'updated', '::1', '2019-07-09 16:30:03', '2019-07-09 16:30:03'),
+	(56, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'job', '1', 'answer', NULL, 'updated', '::1', '2019-07-09 16:30:20', '2019-07-09 16:30:20'),
 	(57, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'backup', '1', NULL, NULL, 'generated', '::1', '2019-07-09 16:32:47', '2019-07-09 16:32:47'),
 	(58, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'user', '1', NULL, NULL, 'logged_in', '::1', '2019-07-09 19:15:53', '2019-07-09 19:15:53'),
 	(59, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'permission', NULL, NULL, NULL, 'assigned', '::1', '2019-07-09 19:17:42', '2019-07-09 19:17:42'),
@@ -105,20 +105,20 @@ REPLACE INTO `activity_logs` (`id`, `user_id`, `login_as_user_id`, `user_agent`,
 	(78, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'user', '1', NULL, NULL, 'logged_in', '::1', '2019-07-12 11:01:01', '2019-07-12 11:01:01'),
 	(79, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'configuration', NULL, 'authentication', NULL, 'saved', '::1', '2019-07-12 11:03:02', '2019-07-12 11:03:02'),
 	(80, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'user', '1', NULL, NULL, 'logged_out', '::1', '2019-07-12 11:03:08', '2019-07-12 11:03:08'),
-	(81, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'task', '1', NULL, NULL, 'updated', '::1', '2019-07-12 15:06:47', '2019-07-12 15:06:47'),
-	(82, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'task', '1', NULL, NULL, 'updated', '::1', '2019-07-12 15:19:14', '2019-07-12 15:19:14'),
-	(83, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'task', '1', NULL, NULL, 'updated', '::1', '2019-07-12 15:55:40', '2019-07-12 15:55:40'),
-	(84, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'task', '1', NULL, NULL, 'updated', '::1', '2019-07-12 16:21:27', '2019-07-12 16:21:27'),
-	(85, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'task', '1', NULL, NULL, 'updated', '::1', '2019-07-12 17:45:02', '2019-07-12 17:45:02'),
-	(86, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'task', '1', NULL, NULL, 'updated', '::1', '2019-07-12 18:05:12', '2019-07-12 18:05:12'),
-	(87, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'task', '1', NULL, NULL, 'updated', '::1', '2019-07-13 12:38:43', '2019-07-13 12:38:43'),
-	(88, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'task', '1', NULL, NULL, 'updated', '::1', '2019-07-13 13:32:05', '2019-07-13 13:32:05'),
-	(89, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'task', '1', NULL, NULL, 'updated', '::1', '2019-07-13 13:42:08', '2019-07-13 13:42:08'),
-	(90, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'task', '1', NULL, NULL, 'updated', '::1', '2019-07-13 14:20:08', '2019-07-13 14:20:08'),
+	(81, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'job', '1', NULL, NULL, 'updated', '::1', '2019-07-12 15:06:47', '2019-07-12 15:06:47'),
+	(82, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'job', '1', NULL, NULL, 'updated', '::1', '2019-07-12 15:19:14', '2019-07-12 15:19:14'),
+	(83, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'job', '1', NULL, NULL, 'updated', '::1', '2019-07-12 15:55:40', '2019-07-12 15:55:40'),
+	(84, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'job', '1', NULL, NULL, 'updated', '::1', '2019-07-12 16:21:27', '2019-07-12 16:21:27'),
+	(85, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'job', '1', NULL, NULL, 'updated', '::1', '2019-07-12 17:45:02', '2019-07-12 17:45:02'),
+	(86, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'job', '1', NULL, NULL, 'updated', '::1', '2019-07-12 18:05:12', '2019-07-12 18:05:12'),
+	(87, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'job', '1', NULL, NULL, 'updated', '::1', '2019-07-13 12:38:43', '2019-07-13 12:38:43'),
+	(88, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'job', '1', NULL, NULL, 'updated', '::1', '2019-07-13 13:32:05', '2019-07-13 13:32:05'),
+	(89, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'job', '1', NULL, NULL, 'updated', '::1', '2019-07-13 13:42:08', '2019-07-13 13:42:08'),
+	(90, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'job', '1', NULL, NULL, 'updated', '::1', '2019-07-13 14:20:08', '2019-07-13 14:20:08'),
 	(91, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'user', '1', NULL, NULL, 'logged_out', '::1', '2019-07-13 15:27:46', '2019-07-13 15:27:46'),
-	(92, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'task', '1', NULL, NULL, 'updated', '::1', '2019-07-13 17:06:27', '2019-07-13 17:06:27'),
+	(92, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'job', '1', NULL, NULL, 'updated', '::1', '2019-07-13 17:06:27', '2019-07-13 17:06:27'),
 	(93, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'user', '1', NULL, NULL, 'logged_in', '::1', '2019-07-13 19:50:36', '2019-07-13 19:50:36'),
-	(94, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'task', '1', NULL, NULL, 'updated', '::1', '2019-07-13 20:32:52', '2019-07-13 20:32:52'),
+	(94, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'job', '1', NULL, NULL, 'updated', '::1', '2019-07-13 20:32:52', '2019-07-13 20:32:52'),
 	(95, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'message', '1', NULL, NULL, 'sent', '::1', '2019-07-13 20:54:47', '2019-07-13 20:54:47'),
 	(96, 3, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'user', '3', NULL, NULL, 'logged_in', '::1', '2019-07-13 20:55:07', '2019-07-13 20:55:07'),
 	(97, 3, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'message', '2', NULL, NULL, 'replied', '::1', '2019-07-13 20:55:31', '2019-07-13 20:55:31'),
@@ -131,13 +131,13 @@ REPLACE INTO `activity_logs` (`id`, `user_id`, `login_as_user_id`, `user_agent`,
 	(104, 3, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'user', '3', NULL, NULL, 'logged_in', '::1', '2019-07-14 02:52:14', '2019-07-14 02:52:14'),
 	(105, 3, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'message', '7', NULL, NULL, 'replied', '::1', '2019-07-14 02:52:36', '2019-07-14 02:52:36'),
 	(106, 3, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36', 'message', '8', NULL, NULL, 'sent', '::1', '2019-07-14 03:06:08', '2019-07-14 03:06:08'),
-	(107, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36', 'task', '1', NULL, NULL, 'updated', '::1', '2019-07-21 20:13:54', '2019-07-21 20:13:54'),
-	(108, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36', 'task', '1', NULL, NULL, 'updated', '::1', '2019-07-21 20:19:54', '2019-07-21 20:19:54'),
+	(107, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36', 'job', '1', NULL, NULL, 'updated', '::1', '2019-07-21 20:13:54', '2019-07-21 20:13:54'),
+	(108, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36', 'job', '1', NULL, NULL, 'updated', '::1', '2019-07-21 20:19:54', '2019-07-21 20:19:54'),
 	(109, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36', 'user', '1', NULL, NULL, 'logged_in', '::1', '2019-07-22 14:37:55', '2019-07-22 14:37:55'),
 	(110, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36', 'announcement', '1', NULL, NULL, 'added', '::1', '2019-07-22 15:08:43', '2019-07-22 15:08:43'),
 	(111, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36', 'location', '2', NULL, NULL, 'updated', '::1', '2019-07-22 15:30:48', '2019-07-22 15:30:48'),
 	(112, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36', 'user', '1', NULL, NULL, 'logged_in', '::1', '2019-07-22 16:39:04', '2019-07-22 16:39:04'),
-	(113, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36', 'task', '1', NULL, NULL, 'updated', '::1', '2019-07-23 16:08:10', '2019-07-23 16:08:10'),
+	(113, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36', 'job', '1', NULL, NULL, 'updated', '::1', '2019-07-23 16:08:10', '2019-07-23 16:08:10'),
 	(114, 1, NULL, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36', 'user', '1', NULL, NULL, 'logged_in', '::1', '2019-08-05 11:57:29', '2019-08-05 11:57:29');
 /*!40000 ALTER TABLE `activity_logs` ENABLE KEYS */;
 
@@ -217,22 +217,22 @@ CREATE TABLE IF NOT EXISTS `announcement_user` (
 -- Dumping structure for table mainflux.answers
 CREATE TABLE IF NOT EXISTS `answers` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `task_id` int(10) unsigned DEFAULT NULL,
+  `job_id` int(10) unsigned DEFAULT NULL,
   `question_id` int(10) unsigned DEFAULT NULL,
   `answer` tinyint(1) NOT NULL DEFAULT '0',
   `description` text COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `answers_task_id_foreign` (`task_id`),
+  KEY `answers_job_id_foreign` (`job_id`),
   KEY `answers_question_id_foreign` (`question_id`),
   CONSTRAINT `answers_question_id_foreign` FOREIGN KEY (`question_id`) REFERENCES `questions` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `answers_task_id_foreign` FOREIGN KEY (`task_id`) REFERENCES `tasks` (`id`) ON DELETE CASCADE
+  CONSTRAINT `answers_job_id_foreign` FOREIGN KEY (`job_id`) REFERENCES `jobs` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table mainflux.answers: ~2 rows (approximately)
 /*!40000 ALTER TABLE `answers` DISABLE KEYS */;
-REPLACE INTO `answers` (`id`, `task_id`, `question_id`, `answer`, `description`, `created_at`, `updated_at`) VALUES
+REPLACE INTO `answers` (`id`, `job_id`, `question_id`, `answer`, `description`, `created_at`, `updated_at`) VALUES
 	(1, 1, 1, 1, 'Ya hice el paso 1 1', '2019-07-09 16:30:03', '2019-07-09 16:30:03'),
 	(2, 1, 2, 0, '', '2019-07-09 16:30:03', '2019-07-09 16:30:03'),
 	(3, 1, 3, 0, '', '2019-07-09 16:30:03', '2019-07-09 16:30:03');
@@ -295,10 +295,10 @@ REPLACE INTO `config` (`id`, `name`, `numeric_value`, `text_value`, `is_private`
 	(24, 'message', 1, NULL, 0),
 	(25, 'backup', 1, NULL, 0),
 	(26, 'todo', 1, NULL, 0),
-	(27, 'task_progress_type', NULL, 'manual', 0),
-	(28, 'task_rating_type', NULL, 'task_based', 0),
-	(29, 'task_number_prefix', NULL, 'TSK', 0),
-	(30, 'task_number_digit', 5, NULL, 0),
+	(27, 'job_progress_type', NULL, 'manual', 0),
+	(28, 'job_rating_type', NULL, 'job_based', 0),
+	(29, 'job_number_prefix', NULL, 'TSK', 0),
+	(30, 'job_number_digit', 5, NULL, 0),
 	(31, 'designation_subordinate_level', 1, NULL, 0),
 	(32, 'location_subordinate_level', 1, NULL, 0),
 	(33, 'show_user_menu', 1, NULL, 0),
@@ -313,7 +313,7 @@ REPLACE INTO `config` (`id`, `name`, `numeric_value`, `text_value`, `is_private`
 	(42, 'show_designation_menu', 1, NULL, 0),
 	(43, 'show_location_menu', 1, NULL, 0),
 	(44, 'show_announcement_menu', 1, NULL, 0),
-	(45, 'show_task_menu', 1, NULL, 0),
+	(45, 'show_job_menu', 1, NULL, 0),
 	(46, 'show_about_menu', 1, NULL, 0),
 	(47, 'show_support_menu', 1, NULL, 0),
 	(48, 'https', 0, NULL, 0),
@@ -461,11 +461,11 @@ REPLACE INTO `email_templates` (`id`, `is_default`, `name`, `slug`, `category`, 
 	(1, 1, 'Welcome Email User', 'welcome-email-user', 'user', 'Welcome Email User | [COMPANY_NAME]', '<div style="margin:0px; background: #f8f8f8; ">\r\n  <div width="100%" style="background: #f8f8f8; padding: 0px 0px; font-family:arial; line-height:28px; height:100%;  width: 100%; color: #514d6a;">\r\n    <div style="max-width: 700px; padding:50px 0;  margin: 0px auto; font-size: 14px">\r\n      <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; margin-bottom: 20px">\r\n        <tbody>\r\n          <tr>\r\n            <td style="vertical-align: top; padding-bottom:30px;" align="center">[COMPANY_LOGO]</td>\r\n          </tr>\r\n          <tr>\r\n            <td><h5 style="text-align:center;">Account Created</h5></td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n      <div style="padding: 40px; background: #fff;">\r\n        <table border="0" cellpadding="0" cellspacing="0" style="width: 100%;">\r\n          <tbody>\r\n            <tr>\r\n              <td style="border-bottom:1px solid #f6f6f6;"><h1 style="font-size:14px; font-family:arial; margin:0px; font-weight:bold;">Dear [NAME],</h1>\r\n                <p style="margin-top:0px; color:#bbbbbb;">Welcome to our company. Your account has been created. Please use below credentials to log into your account:</p><table class="table table-bordered"><tbody><tr><td>Email</td><td>[EMAIL]</td></tr><tr><td>Password</td><td>[PASSWORD]</td></tr></tbody></table><p style="margin-top:0px; color:#bbbbbb;"><br></p></td>\r\n            </tr>\r\n            <tr>\r\n              <td style="padding:10px 0 30px 0;"><p>Have a Good Day!</p>\r\n                <b>- Best Wishes ([COMPANY_NAME])</b> </td>\r\n            </tr>\r\n          </tbody>\r\n        </table>\r\n      </div>\r\n      <div style="text-align: center; font-size: 12px; color: #b2b2b5; margin-top: 20px">\r\n        <p> [COMPANY_NAME] <br>\r\n        [COMPANY_EMAIL] | [COMPANY_PHONE] | [COMPANY_WEBSITE]</p>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n', NULL, NULL),
 	(2, 1, 'Anniversary Email User', 'anniversary-email-user', 'user', 'Wish You a Very Happy Anniversary [NAME] | [COMPANY_NAME]', '<div style="margin:0px; background: #f8f8f8; ">\r\n  <div width="100%" style="background: #f8f8f8; padding: 0px 0px; font-family:arial; line-height:28px; height:100%;  width: 100%; color: #514d6a;">\r\n    <div style="max-width: 700px; padding:50px 0;  margin: 0px auto; font-size: 14px">\r\n      <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; margin-bottom: 20px">\r\n        <tbody>\r\n          <tr>\r\n            <td style="vertical-align: top; padding-bottom:30px;" align="center">[COMPANY_LOGO]</td>\r\n          </tr>\r\n          <tr>\r\n            <td><h5 style="text-align:center;">Happy Anniversary</h5></td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n      <div style="padding: 40px; background: #fff;">\r\n        <table border="0" cellpadding="0" cellspacing="0" style="width: 100%;">\r\n          <tbody>\r\n            <tr>\r\n              <td style="border-bottom:1px solid #f6f6f6;"><h1 style="font-size:14px; font-family:arial; margin:0px; font-weight:bold;">Dear [NAME],</h1>\r\n                <p style="margin-top:0px; color:#bbbbbb;">We wish you a Very Happy Anniversary.</p></td>\r\n            </tr>\r\n            <tr>\r\n              <td style="padding:10px 0 30px 0;"><p>Have a Good Day!</p>\r\n                <b>- Best Wishes ([COMPANY_NAME])</b> </td>\r\n            </tr>\r\n          </tbody>\r\n        </table>\r\n      </div>\r\n      <div style="text-align: center; font-size: 12px; color: #b2b2b5; margin-top: 20px">\r\n        <p> [COMPANY_NAME] <br>\r\n        [COMPANY_EMAIL] | [COMPANY_PHONE] | [COMPANY_WEBSITE]</p>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n', NULL, NULL),
 	(3, 1, 'Birthday Email User', 'birthday-email-user', 'user', 'Happy Birthday [NAME] | [COMPANY_NAME]', '<div style="margin:0px; background: #f8f8f8; ">\r\n  <div width="100%" style="background: #f8f8f8; padding: 0px 0px; font-family:arial; line-height:28px; height:100%;  width: 100%; color: #514d6a;">\r\n    <div style="max-width: 700px; padding:50px 0;  margin: 0px auto; font-size: 14px">\r\n      <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; margin-bottom: 20px">\r\n        <tbody>\r\n          <tr>\r\n            <td style="vertical-align: top; padding-bottom:30px;" align="center">[COMPANY_LOGO]</td>\r\n          </tr>\r\n          <tr>\r\n            <td><h5 style="text-align:center;">Happy Birthday</h5></td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n      <div style="padding: 40px; background: #fff;">\r\n        <table border="0" cellpadding="0" cellspacing="0" style="width: 100%;">\r\n          <tbody>\r\n            <tr>\r\n              <td style="border-bottom:1px solid #f6f6f6;"><h1 style="font-size:14px; font-family:arial; margin:0px; font-weight:bold;">Dear [NAME],</h1>\r\n                <p style="margin-top:0px; color:#bbbbbb;">We wish you a Very Happy Birthday.</p></td>\r\n            </tr>\r\n            <tr>\r\n              <td style="padding:10px 0 30px 0;"><p>Have a Good Day!</p>\r\n                <b>- Best Wishes ([COMPANY_NAME])</b> </td>\r\n            </tr>\r\n          </tbody>\r\n        </table>\r\n      </div>\r\n      <div style="text-align: center; font-size: 12px; color: #b2b2b5; margin-top: 20px">\r\n        <p> [COMPANY_NAME] <br>\r\n        [COMPANY_EMAIL] | [COMPANY_PHONE] | [COMPANY_WEBSITE]</p>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n', NULL, NULL),
-	(4, 1, 'Task Assign Email', 'task-assign-email', 'task', 'Task #[TASK_NUMBER] - [TASK_TITLE] Assigned | [COMPANY_NAME]', '<div style="margin:0px; background: #f8f8f8; ">\r\n  <div width="100%" style="background: #f8f8f8; padding: 0px 0px; font-family:arial; line-height:28px; height:100%;  width: 100%; color: #514d6a;">\r\n    <div style="max-width: 700px; padding:50px 0;  margin: 0px auto; font-size: 14px">\r\n      <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; margin-bottom: 20px">\r\n        <tbody>\r\n          <tr>\r\n            <td style="vertical-align: top; padding-bottom:30px;" align="center">[COMPANY_LOGO]</td>\r\n          </tr>\r\n          <tr>\r\n            <td><h5 style="text-align:center;">Task #[TASK_NUMBER] - [TASK_TITLE] Assigned</h5></td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n      <div style="padding: 40px; background: #fff;">\r\n        <table border="0" cellpadding="0" cellspacing="0" style="width: 100%;">\r\n          <tbody>\r\n            <tr>\r\n              <td style="border-bottom:1px solid #f6f6f6;"><h1 style="font-size:14px; font-family:arial; margin:0px; font-weight:bold;">Dear [NAME],</h1>\r\n                <p style="margin-top:0px; color:#bbbbbb;">You have been assigned with a task <b><u>[TASK_TITLE]</u></b> with start date [TASK_START_DATE] and due date [TASK_DUE_DATE] by [TASK_OWNER_NAME]. Please visit the task at [TASK_URL].</p>\r\n                <p>[TASK_OWNER_NAME]<br />[TASK_OWNER_EMAIL]</p>\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n              <td style="padding:10px 0 30px 0;"><p>Have a Good Day!</p>\r\n                <b>- Best Wishes ([COMPANY_NAME])</b> </td>\r\n            </tr>\r\n          </tbody>\r\n        </table>\r\n      </div>\r\n      <div style="text-align: center; font-size: 12px; color: #b2b2b5; margin-top: 20px">\r\n        <p> [COMPANY_NAME] <br>\r\n        [COMPANY_EMAIL] | [COMPANY_PHONE] | [COMPANY_WEBSITE]</p>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n', NULL, NULL),
-	(5, 1, 'Task Sign Off Request', 'task-sign-off-request', 'task', 'Task #[TASK_NUMBER] - [TASK_TITLE] Sign Off Request Received | [COMPANY_NAME]', '<div style="margin:0px; background: #f8f8f8; ">\r\n  <div width="100%" style="background: #f8f8f8; padding: 0px 0px; font-family:arial; line-height:28px; height:100%;  width: 100%; color: #514d6a;">\r\n    <div style="max-width: 700px; padding:50px 0;  margin: 0px auto; font-size: 14px">\r\n      <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; margin-bottom: 20px">\r\n        <tbody>\r\n          <tr>\r\n            <td style="vertical-align: top; padding-bottom:30px;" align="center">[COMPANY_LOGO]</td>\r\n          </tr>\r\n          <tr>\r\n            <td><h5 style="text-align:center;">Task #[TASK_NUMBER] - [TASK_TITLE] Sign Off Request Received</h5></td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n      <div style="padding: 40px; background: #fff;">\r\n        <table border="0" cellpadding="0" cellspacing="0" style="width: 100%;">\r\n          <tbody>\r\n            <tr>\r\n              <td style="border-bottom:1px solid #f6f6f6;"><h1 style="font-size:14px; font-family:arial; margin:0px; font-weight:bold;">Dear [TASK_OWNER_NAME],</h1>\r\n                <p style="margin-top:0px; color:#bbbbbb;">Task Sign Off request is received for your task [TASK_TITLE] on [CURRENT_DATE]. Please review the sign off request at [TASK_URL].</p></td>\r\n            </tr>\r\n            <tr>\r\n              <td style="padding:10px 0 30px 0;"><p>Have a Good Day!</p>\r\n                <b>- Best Wishes ([COMPANY_NAME])</b> </td>\r\n            </tr>\r\n          </tbody>\r\n        </table>\r\n      </div>\r\n      <div style="text-align: center; font-size: 12px; color: #b2b2b5; margin-top: 20px">\r\n        <p> [COMPANY_NAME] <br>\r\n        [COMPANY_EMAIL] | [COMPANY_PHONE] | [COMPANY_WEBSITE]</p>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n', NULL, NULL),
-	(6, 1, 'Task Sign Off Approve', 'task-sign-off-approve', 'task', 'Task #[TASK_NUMBER] - [TASK_TITLE] Sign Off Approved | [COMPANY_NAME]', '<div style="margin:0px; background: #f8f8f8; ">\r\n  <div width="100%" style="background: #f8f8f8; padding: 0px 0px; font-family:arial; line-height:28px; height:100%;  width: 100%; color: #514d6a;">\r\n    <div style="max-width: 700px; padding:50px 0;  margin: 0px auto; font-size: 14px">\r\n      <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; margin-bottom: 20px">\r\n        <tbody>\r\n          <tr>\r\n            <td style="vertical-align: top; padding-bottom:30px;" align="center">[COMPANY_LOGO]</td>\r\n          </tr>\r\n          <tr>\r\n            <td><h5 style="text-align:center;">Task #[TASK_NUMBER] - [TASK_TITLE] Sign Off Approved</h5></td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n      <div style="padding: 40px; background: #fff;">\r\n        <table border="0" cellpadding="0" cellspacing="0" style="width: 100%;">\r\n          <tbody>\r\n            <tr>\r\n              <td style="border-bottom:1px solid #f6f6f6;"><h1 style="font-size:14px; font-family:arial; margin:0px; font-weight:bold;">Dear [NAME],</h1>\r\n                <p style="margin-top:0px; color:#bbbbbb;">Task sign off is approved for your task [TASK_TITLE] on [CURRENT_DATE]. Please visit the task at [TASK_URL].</p></td>\r\n            </tr>\r\n            <tr>\r\n              <td style="padding:10px 0 30px 0;"><p>Have a Good Day!</p>\r\n                <b>- Best Wishes ([COMPANY_NAME])</b> </td>\r\n            </tr>\r\n          </tbody>\r\n        </table>\r\n      </div>\r\n      <div style="text-align: center; font-size: 12px; color: #b2b2b5; margin-top: 20px">\r\n        <p> [COMPANY_NAME] <br>\r\n        [COMPANY_EMAIL] | [COMPANY_PHONE] | [COMPANY_WEBSITE]</p>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n', NULL, NULL),
-	(7, 1, 'Task Sign Off Reject', 'task-sign-off-reject', 'task', 'Task #[TASK_NUMBER] - [TASK_TITLE] Sign Off Rejected | [COMPANY_NAME]', '<div style="margin:0px; background: #f8f8f8; ">\r\n  <div width="100%" style="background: #f8f8f8; padding: 0px 0px; font-family:arial; line-height:28px; height:100%;  width: 100%; color: #514d6a;">\r\n    <div style="max-width: 700px; padding:50px 0;  margin: 0px auto; font-size: 14px">\r\n      <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; margin-bottom: 20px">\r\n        <tbody>\r\n          <tr>\r\n            <td style="vertical-align: top; padding-bottom:30px;" align="center">[COMPANY_LOGO]</td>\r\n          </tr>\r\n          <tr>\r\n            <td><h5 style="text-align:center;">Task #[TASK_NUMBER] - [TASK_TITLE] Sign Off Rejected</h5></td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n      <div style="padding: 40px; background: #fff;">\r\n        <table border="0" cellpadding="0" cellspacing="0" style="width: 100%;">\r\n          <tbody>\r\n            <tr>\r\n              <td style="border-bottom:1px solid #f6f6f6;"><h1 style="font-size:14px; font-family:arial; margin:0px; font-weight:bold;">Dear [NAME],</h1>\r\n                <p style="margin-top:0px; color:#bbbbbb;">Task sign off is rejected for your task [TASK_TITLE] on [CURRENT_DATE]. Please review the task at [TASK_URL].</p></td>\r\n            </tr>\r\n            <tr>\r\n              <td style="padding:10px 0 30px 0;"><p>Have a Good Day!</p>\r\n                <b>- Best Wishes ([COMPANY_NAME])</b> </td>\r\n            </tr>\r\n          </tbody>\r\n        </table>\r\n      </div>\r\n      <div style="text-align: center; font-size: 12px; color: #b2b2b5; margin-top: 20px">\r\n        <p> [COMPANY_NAME] <br>\r\n        [COMPANY_EMAIL] | [COMPANY_PHONE] | [COMPANY_WEBSITE]</p>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n', NULL, NULL),
-	(8, 1, 'Task Sign Off Request Cancel', 'task-sign-off-request-cancel', 'task', 'Task #[TASK_NUMBER] - [TASK_TITLE] Sign Off Request Cancelled | [COMPANY_NAME]', '<div style="margin:0px; background: #f8f8f8; ">\r\n  <div width="100%" style="background: #f8f8f8; padding: 0px 0px; font-family:arial; line-height:28px; height:100%;  width: 100%; color: #514d6a;">\r\n    <div style="max-width: 700px; padding:50px 0;  margin: 0px auto; font-size: 14px">\r\n      <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; margin-bottom: 20px">\r\n        <tbody>\r\n          <tr>\r\n            <td style="vertical-align: top; padding-bottom:30px;" align="center">[COMPANY_LOGO]</td>\r\n          </tr>\r\n          <tr>\r\n            <td><h5 style="text-align:center;">Task #[TASK_NUMBER] - [TASK_TITLE] Sign Off Cancelled</h5></td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n      <div style="padding: 40px; background: #fff;">\r\n        <table border="0" cellpadding="0" cellspacing="0" style="width: 100%;">\r\n          <tbody>\r\n            <tr>\r\n              <td style="border-bottom:1px solid #f6f6f6;"><h1 style="font-size:14px; font-family:arial; margin:0px; font-weight:bold;">Dear [TASK_OWNER_NAME],</h1>\r\n                <p style="margin-top:0px; color:#bbbbbb;">Task Sign Off request is cancelled for your task [TASK_TITLE] on [CURRENT_DATE]. Please visit the task at [TASK_URL].</p></td>\r\n            </tr>\r\n            <tr>\r\n              <td style="padding:10px 0 30px 0;"><p>Have a Good Day!</p>\r\n                <b>- Best Wishes ([COMPANY_NAME])</b> </td>\r\n            </tr>\r\n          </tbody>\r\n        </table>\r\n      </div>\r\n      <div style="text-align: center; font-size: 12px; color: #b2b2b5; margin-top: 20px">\r\n        <p> [COMPANY_NAME] <br>\r\n        [COMPANY_EMAIL] | [COMPANY_PHONE] | [COMPANY_WEBSITE]</p>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n', NULL, NULL);
+	(4, 1, 'Job Assign Email', 'job-assign-email', 'job', 'Job #[JOB_NUMBER] - [JOB_TITLE] Assigned | [COMPANY_NAME]', '<div style="margin:0px; background: #f8f8f8; ">\r\n  <div width="100%" style="background: #f8f8f8; padding: 0px 0px; font-family:arial; line-height:28px; height:100%;  width: 100%; color: #514d6a;">\r\n    <div style="max-width: 700px; padding:50px 0;  margin: 0px auto; font-size: 14px">\r\n      <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; margin-bottom: 20px">\r\n        <tbody>\r\n          <tr>\r\n            <td style="vertical-align: top; padding-bottom:30px;" align="center">[COMPANY_LOGO]</td>\r\n          </tr>\r\n          <tr>\r\n            <td><h5 style="text-align:center;">Job #[JOB_NUMBER] - [JOB_TITLE] Assigned</h5></td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n      <div style="padding: 40px; background: #fff;">\r\n        <table border="0" cellpadding="0" cellspacing="0" style="width: 100%;">\r\n          <tbody>\r\n            <tr>\r\n              <td style="border-bottom:1px solid #f6f6f6;"><h1 style="font-size:14px; font-family:arial; margin:0px; font-weight:bold;">Dear [NAME],</h1>\r\n                <p style="margin-top:0px; color:#bbbbbb;">You have been assigned with a job <b><u>[JOB_TITLE]</u></b> with start date [JOB_START_DATE] and due date [JOB_DUE_DATE] by [JOB_OWNER_NAME]. Please visit the job at [JOB_URL].</p>\r\n                <p>[JOB_OWNER_NAME]<br />[JOB_OWNER_EMAIL]</p>\r\n              </td>\r\n            </tr>\r\n            <tr>\r\n              <td style="padding:10px 0 30px 0;"><p>Have a Good Day!</p>\r\n                <b>- Best Wishes ([COMPANY_NAME])</b> </td>\r\n            </tr>\r\n          </tbody>\r\n        </table>\r\n      </div>\r\n      <div style="text-align: center; font-size: 12px; color: #b2b2b5; margin-top: 20px">\r\n        <p> [COMPANY_NAME] <br>\r\n        [COMPANY_EMAIL] | [COMPANY_PHONE] | [COMPANY_WEBSITE]</p>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n', NULL, NULL),
+	(5, 1, 'Job Sign Off Request', 'job-sign-off-request', 'job', 'Job #[JOB_NUMBER] - [JOB_TITLE] Sign Off Request Received | [COMPANY_NAME]', '<div style="margin:0px; background: #f8f8f8; ">\r\n  <div width="100%" style="background: #f8f8f8; padding: 0px 0px; font-family:arial; line-height:28px; height:100%;  width: 100%; color: #514d6a;">\r\n    <div style="max-width: 700px; padding:50px 0;  margin: 0px auto; font-size: 14px">\r\n      <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; margin-bottom: 20px">\r\n        <tbody>\r\n          <tr>\r\n            <td style="vertical-align: top; padding-bottom:30px;" align="center">[COMPANY_LOGO]</td>\r\n          </tr>\r\n          <tr>\r\n            <td><h5 style="text-align:center;">Job #[JOB_NUMBER] - [JOB_TITLE] Sign Off Request Received</h5></td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n      <div style="padding: 40px; background: #fff;">\r\n        <table border="0" cellpadding="0" cellspacing="0" style="width: 100%;">\r\n          <tbody>\r\n            <tr>\r\n              <td style="border-bottom:1px solid #f6f6f6;"><h1 style="font-size:14px; font-family:arial; margin:0px; font-weight:bold;">Dear [JOB_OWNER_NAME],</h1>\r\n                <p style="margin-top:0px; color:#bbbbbb;">Job Sign Off request is received for your job [JOB_TITLE] on [CURRENT_DATE]. Please review the sign off request at [JOB_URL].</p></td>\r\n            </tr>\r\n            <tr>\r\n              <td style="padding:10px 0 30px 0;"><p>Have a Good Day!</p>\r\n                <b>- Best Wishes ([COMPANY_NAME])</b> </td>\r\n            </tr>\r\n          </tbody>\r\n        </table>\r\n      </div>\r\n      <div style="text-align: center; font-size: 12px; color: #b2b2b5; margin-top: 20px">\r\n        <p> [COMPANY_NAME] <br>\r\n        [COMPANY_EMAIL] | [COMPANY_PHONE] | [COMPANY_WEBSITE]</p>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n', NULL, NULL),
+	(6, 1, 'Job Sign Off Approve', 'job-sign-off-approve', 'job', 'Job #[JOB_NUMBER] - [JOB_TITLE] Sign Off Approved | [COMPANY_NAME]', '<div style="margin:0px; background: #f8f8f8; ">\r\n  <div width="100%" style="background: #f8f8f8; padding: 0px 0px; font-family:arial; line-height:28px; height:100%;  width: 100%; color: #514d6a;">\r\n    <div style="max-width: 700px; padding:50px 0;  margin: 0px auto; font-size: 14px">\r\n      <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; margin-bottom: 20px">\r\n        <tbody>\r\n          <tr>\r\n            <td style="vertical-align: top; padding-bottom:30px;" align="center">[COMPANY_LOGO]</td>\r\n          </tr>\r\n          <tr>\r\n            <td><h5 style="text-align:center;">Job #[JOB_NUMBER] - [JOB_TITLE] Sign Off Approved</h5></td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n      <div style="padding: 40px; background: #fff;">\r\n        <table border="0" cellpadding="0" cellspacing="0" style="width: 100%;">\r\n          <tbody>\r\n            <tr>\r\n              <td style="border-bottom:1px solid #f6f6f6;"><h1 style="font-size:14px; font-family:arial; margin:0px; font-weight:bold;">Dear [NAME],</h1>\r\n                <p style="margin-top:0px; color:#bbbbbb;">Job sign off is approved for your job [JOB_TITLE] on [CURRENT_DATE]. Please visit the job at [JOB_URL].</p></td>\r\n            </tr>\r\n            <tr>\r\n              <td style="padding:10px 0 30px 0;"><p>Have a Good Day!</p>\r\n                <b>- Best Wishes ([COMPANY_NAME])</b> </td>\r\n            </tr>\r\n          </tbody>\r\n        </table>\r\n      </div>\r\n      <div style="text-align: center; font-size: 12px; color: #b2b2b5; margin-top: 20px">\r\n        <p> [COMPANY_NAME] <br>\r\n        [COMPANY_EMAIL] | [COMPANY_PHONE] | [COMPANY_WEBSITE]</p>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n', NULL, NULL),
+	(7, 1, 'Job Sign Off Reject', 'job-sign-off-reject', 'job', 'Job #[JOB_NUMBER] - [JOB_TITLE] Sign Off Rejected | [COMPANY_NAME]', '<div style="margin:0px; background: #f8f8f8; ">\r\n  <div width="100%" style="background: #f8f8f8; padding: 0px 0px; font-family:arial; line-height:28px; height:100%;  width: 100%; color: #514d6a;">\r\n    <div style="max-width: 700px; padding:50px 0;  margin: 0px auto; font-size: 14px">\r\n      <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; margin-bottom: 20px">\r\n        <tbody>\r\n          <tr>\r\n            <td style="vertical-align: top; padding-bottom:30px;" align="center">[COMPANY_LOGO]</td>\r\n          </tr>\r\n          <tr>\r\n            <td><h5 style="text-align:center;">Job #[JOB_NUMBER] - [JOB_TITLE] Sign Off Rejected</h5></td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n      <div style="padding: 40px; background: #fff;">\r\n        <table border="0" cellpadding="0" cellspacing="0" style="width: 100%;">\r\n          <tbody>\r\n            <tr>\r\n              <td style="border-bottom:1px solid #f6f6f6;"><h1 style="font-size:14px; font-family:arial; margin:0px; font-weight:bold;">Dear [NAME],</h1>\r\n                <p style="margin-top:0px; color:#bbbbbb;">Job sign off is rejected for your job [JOB_TITLE] on [CURRENT_DATE]. Please review the job at [JOB_URL].</p></td>\r\n            </tr>\r\n            <tr>\r\n              <td style="padding:10px 0 30px 0;"><p>Have a Good Day!</p>\r\n                <b>- Best Wishes ([COMPANY_NAME])</b> </td>\r\n            </tr>\r\n          </tbody>\r\n        </table>\r\n      </div>\r\n      <div style="text-align: center; font-size: 12px; color: #b2b2b5; margin-top: 20px">\r\n        <p> [COMPANY_NAME] <br>\r\n        [COMPANY_EMAIL] | [COMPANY_PHONE] | [COMPANY_WEBSITE]</p>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n', NULL, NULL),
+	(8, 1, 'Job Sign Off Request Cancel', 'job-sign-off-request-cancel', 'job', 'Job #[JOB_NUMBER] - [JOB_TITLE] Sign Off Request Cancelled | [COMPANY_NAME]', '<div style="margin:0px; background: #f8f8f8; ">\r\n  <div width="100%" style="background: #f8f8f8; padding: 0px 0px; font-family:arial; line-height:28px; height:100%;  width: 100%; color: #514d6a;">\r\n    <div style="max-width: 700px; padding:50px 0;  margin: 0px auto; font-size: 14px">\r\n      <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; margin-bottom: 20px">\r\n        <tbody>\r\n          <tr>\r\n            <td style="vertical-align: top; padding-bottom:30px;" align="center">[COMPANY_LOGO]</td>\r\n          </tr>\r\n          <tr>\r\n            <td><h5 style="text-align:center;">Job #[JOB_NUMBER] - [JOB_TITLE] Sign Off Cancelled</h5></td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n      <div style="padding: 40px; background: #fff;">\r\n        <table border="0" cellpadding="0" cellspacing="0" style="width: 100%;">\r\n          <tbody>\r\n            <tr>\r\n              <td style="border-bottom:1px solid #f6f6f6;"><h1 style="font-size:14px; font-family:arial; margin:0px; font-weight:bold;">Dear [JOB_OWNER_NAME],</h1>\r\n                <p style="margin-top:0px; color:#bbbbbb;">Job Sign Off request is cancelled for your job [JOB_TITLE] on [CURRENT_DATE]. Please visit the job at [JOB_URL].</p></td>\r\n            </tr>\r\n            <tr>\r\n              <td style="padding:10px 0 30px 0;"><p>Have a Good Day!</p>\r\n                <b>- Best Wishes ([COMPANY_NAME])</b> </td>\r\n            </tr>\r\n          </tbody>\r\n        </table>\r\n      </div>\r\n      <div style="text-align: center; font-size: 12px; color: #b2b2b5; margin-top: 20px">\r\n        <p> [COMPANY_NAME] <br>\r\n        [COMPANY_EMAIL] | [COMPANY_PHONE] | [COMPANY_WEBSITE]</p>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n', NULL, NULL);
 /*!40000 ALTER TABLE `email_templates` ENABLE KEYS */;
 
 -- Dumping structure for table mainflux.ip_filters
@@ -613,21 +613,21 @@ REPLACE INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(17, '2017_12_26_032513_create_departments_table', 1),
 	(18, '2017_12_26_032521_create_designations_table', 1),
 	(19, '2017_12_26_032527_create_locations_table', 1),
-	(20, '2017_12_26_032537_create_task_categories_table', 1),
-	(21, '2017_12_26_032544_create_task_priorities_table', 1),
-	(22, '2017_12_26_032549_create_tasks_table', 1),
-	(23, '2017_12_26_032557_create_sub_tasks_table', 1),
-	(24, '2017_12_26_145154_create_task_user_table', 1),
-	(25, '2017_12_26_145404_create_starred_tasks_table', 1),
-	(26, '2017_12_27_064242_create_task_signoff_logs_table', 1),
+	(20, '2017_12_26_032537_create_job_categories_table', 1),
+	(21, '2017_12_26_032544_create_job_priorities_table', 1),
+	(22, '2017_12_26_032549_create_jobs_table', 1),
+	(23, '2017_12_26_032557_create_sub_jobs_table', 1),
+	(24, '2017_12_26_145154_create_job_user_table', 1),
+	(25, '2017_12_26_145404_create_starred_jobs_table', 1),
+	(26, '2017_12_27_064242_create_job_signoff_logs_table', 1),
 	(27, '2017_12_27_095429_create_announcements_table', 1),
 	(28, '2017_12_27_095510_create_announcement_designation_table', 1),
 	(29, '2017_12_27_095511_create_announcement_location_table', 1),
 	(30, '2017_12_27_095512_create_announcement_user_table', 1),
-	(31, '2017_12_27_113713_create_task_comments_table', 1),
-	(32, '2017_12_27_113726_create_task_notes_table', 1),
-	(33, '2017_12_27_113742_create_task_attachments_table', 1),
-	(34, '2017_12_27_170336_create_sub_task_ratings_table', 1),
+	(31, '2017_12_27_113713_create_job_comments_table', 1),
+	(32, '2017_12_27_113726_create_job_notes_table', 1),
+	(33, '2017_12_27_113742_create_job_attachments_table', 1),
+	(34, '2017_12_27_170336_create_sub_job_ratings_table', 1),
 	(35, '2018_01_24_065103_create_notifications_table', 1),
 	(36, '2018_05_03_131216_create_question_sets_table', 1),
 	(37, '2018_05_03_131226_create_answers_table', 1),
@@ -685,9 +685,9 @@ CREATE TABLE IF NOT EXISTS `notifications` (
 -- Dumping data for table mainflux.notifications: ~3 rows (approximately)
 /*!40000 ALTER TABLE `notifications` DISABLE KEYS */;
 REPLACE INTO `notifications` (`id`, `type`, `notifiable_type`, `notifiable_id`, `data`, `read_at`, `created_at`, `updated_at`) VALUES
-	('3d2f04ab-b474-4413-9931-4ffca46fd49c', 'App\\Notifications\\TaskAssignation', 'App\\User', 1, '{"unid":"8a6e3e53-b644-43d2-8d93-12c16c9b8d90","user":"USU: Rodrigo Butta","taskId":1,"link":"#customLink","linkTarget":"_self","text":"Asignacion de tarea Tarea 1 2"}', '2019-07-13 20:52:03', '2019-07-13 14:20:08', '2019-07-13 20:52:03'),
-	('5f8991fc-1228-4f32-bab9-46a9f41720ea', 'App\\Notifications\\TaskAssignation', 'App\\User', 1, '{"unid":"bbdf835f-69f2-4563-ac48-dd91e26d783f","user":"USU: Rodrigo Butta","taskId":1,"link":"#customLink","linkTarget":"_self","text":"Asignacion de tarea Tarea 1 2"}', '2019-07-21 20:11:37', '2019-07-13 20:32:51', '2019-07-21 20:11:37'),
-	('b490ba39-2711-4c0c-b17e-ac29ca79fce1', 'App\\Notifications\\TaskAssignation', 'App\\User', 1, '{"unid":"ec47cb8d-54c5-4aef-982c-6226c0c79480","user":"USU: Rodrigo Butta","taskId":1,"link":"#customLink","linkTarget":"_self","text":"Asignacion de tarea Tarea 1 2"}', NULL, '2019-07-23 16:08:10', '2019-07-23 16:08:10');
+	('3d2f04ab-b474-4413-9931-4ffca46fd49c', 'App\\Notifications\\JobAssignation', 'App\\User', 1, '{"unid":"8a6e3e53-b644-43d2-8d93-12c16c9b8d90","user":"USU: Rodrigo Butta","jobId":1,"link":"#customLink","linkTarget":"_self","text":"Asignacion de tarea Tarea 1 2"}', '2019-07-13 20:52:03', '2019-07-13 14:20:08', '2019-07-13 20:52:03'),
+	('5f8991fc-1228-4f32-bab9-46a9f41720ea', 'App\\Notifications\\JobAssignation', 'App\\User', 1, '{"unid":"bbdf835f-69f2-4563-ac48-dd91e26d783f","user":"USU: Rodrigo Butta","jobId":1,"link":"#customLink","linkTarget":"_self","text":"Asignacion de tarea Tarea 1 2"}', '2019-07-21 20:11:37', '2019-07-13 20:32:51', '2019-07-21 20:11:37'),
+	('b490ba39-2711-4c0c-b17e-ac29ca79fce1', 'App\\Notifications\\JobAssignation', 'App\\User', 1, '{"unid":"ec47cb8d-54c5-4aef-982c-6226c0c79480","user":"USU: Rodrigo Butta","jobId":1,"link":"#customLink","linkTarget":"_self","text":"Asignacion de tarea Tarea 1 2"}', NULL, '2019-07-23 16:08:10', '2019-07-23 16:08:10');
 /*!40000 ALTER TABLE `notifications` ENABLE KEYS */;
 
 -- Dumping structure for table mainflux.password_resets
@@ -748,15 +748,15 @@ REPLACE INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_a
 	(29, 'create-announcement', 'web', '2019-07-08 12:49:44', '2019-07-08 12:49:44'),
 	(30, 'edit-announcement', 'web', '2019-07-08 12:49:44', '2019-07-08 12:49:44'),
 	(31, 'delete-announcement', 'web', '2019-07-08 12:49:44', '2019-07-08 12:49:44'),
-	(32, 'list-task', 'web', '2019-07-08 12:49:44', '2019-07-08 12:49:44'),
-	(33, 'create-task', 'web', '2019-07-08 12:49:44', '2019-07-08 12:49:44'),
-	(34, 'edit-task', 'web', '2019-07-08 12:49:44', '2019-07-08 12:49:44'),
-	(35, 'delete-task', 'web', '2019-07-08 12:49:44', '2019-07-08 12:49:44'),
-	(36, 'access-all-task', 'web', '2019-07-08 12:49:44', '2019-07-08 12:49:44'),
-	(37, 'access-subordinate-task', 'web', '2019-07-08 12:49:44', '2019-07-08 12:49:44'),
-	(38, 'create-sub-task', 'web', '2019-07-08 12:49:44', '2019-07-08 12:49:44'),
-	(39, 'edit-sub-task', 'web', '2019-07-08 12:49:44', '2019-07-08 12:49:44'),
-	(40, 'delete-sub-task', 'web', '2019-07-08 12:49:44', '2019-07-08 12:49:44');
+	(32, 'list-job', 'web', '2019-07-08 12:49:44', '2019-07-08 12:49:44'),
+	(33, 'create-job', 'web', '2019-07-08 12:49:44', '2019-07-08 12:49:44'),
+	(34, 'edit-job', 'web', '2019-07-08 12:49:44', '2019-07-08 12:49:44'),
+	(35, 'delete-job', 'web', '2019-07-08 12:49:44', '2019-07-08 12:49:44'),
+	(36, 'access-all-job', 'web', '2019-07-08 12:49:44', '2019-07-08 12:49:44'),
+	(37, 'access-subordinate-job', 'web', '2019-07-08 12:49:44', '2019-07-08 12:49:44'),
+	(38, 'create-sub-job', 'web', '2019-07-08 12:49:44', '2019-07-08 12:49:44'),
+	(39, 'edit-sub-job', 'web', '2019-07-08 12:49:44', '2019-07-08 12:49:44'),
+	(40, 'delete-sub-job', 'web', '2019-07-08 12:49:44', '2019-07-08 12:49:44');
 /*!40000 ALTER TABLE `permissions` ENABLE KEYS */;
 
 -- Dumping structure for table mainflux.profiles
@@ -924,27 +924,27 @@ REPLACE INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 	(38, 2);
 /*!40000 ALTER TABLE `role_has_permissions` ENABLE KEYS */;
 
--- Dumping structure for table mainflux.starred_tasks
-CREATE TABLE IF NOT EXISTS `starred_tasks` (
+-- Dumping structure for table mainflux.starred_jobs
+CREATE TABLE IF NOT EXISTS `starred_jobs` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `task_id` int(10) unsigned NOT NULL,
+  `job_id` int(10) unsigned NOT NULL,
   `user_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `starred_tasks_task_id_foreign` (`task_id`),
-  KEY `starred_tasks_user_id_foreign` (`user_id`),
-  CONSTRAINT `starred_tasks_task_id_foreign` FOREIGN KEY (`task_id`) REFERENCES `tasks` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `starred_tasks_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+  KEY `starred_jobs_job_id_foreign` (`job_id`),
+  KEY `starred_jobs_user_id_foreign` (`user_id`),
+  CONSTRAINT `starred_jobs_job_id_foreign` FOREIGN KEY (`job_id`) REFERENCES `jobs` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `starred_jobs_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mainflux.starred_tasks: ~0 rows (approximately)
-/*!40000 ALTER TABLE `starred_tasks` DISABLE KEYS */;
-/*!40000 ALTER TABLE `starred_tasks` ENABLE KEYS */;
+-- Dumping data for table mainflux.starred_jobs: ~0 rows (approximately)
+/*!40000 ALTER TABLE `starred_jobs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `starred_jobs` ENABLE KEYS */;
 
--- Dumping structure for table mainflux.sub_tasks
-CREATE TABLE IF NOT EXISTS `sub_tasks` (
+-- Dumping structure for table mainflux.sub_jobs
+CREATE TABLE IF NOT EXISTS `sub_jobs` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `uuid` char(36) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `task_id` int(10) unsigned DEFAULT NULL,
+  `job_id` int(10) unsigned DEFAULT NULL,
   `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description` text COLLATE utf8mb4_unicode_ci,
   `status` tinyint(1) NOT NULL DEFAULT '0',
@@ -954,43 +954,43 @@ CREATE TABLE IF NOT EXISTS `sub_tasks` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `sub_tasks_task_id_foreign` (`task_id`),
-  KEY `sub_tasks_user_id_foreign` (`user_id`),
-  CONSTRAINT `sub_tasks_task_id_foreign` FOREIGN KEY (`task_id`) REFERENCES `tasks` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `sub_tasks_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+  KEY `sub_jobs_job_id_foreign` (`job_id`),
+  KEY `sub_jobs_user_id_foreign` (`user_id`),
+  CONSTRAINT `sub_jobs_job_id_foreign` FOREIGN KEY (`job_id`) REFERENCES `jobs` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `sub_jobs_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mainflux.sub_tasks: ~0 rows (approximately)
-/*!40000 ALTER TABLE `sub_tasks` DISABLE KEYS */;
-/*!40000 ALTER TABLE `sub_tasks` ENABLE KEYS */;
+-- Dumping data for table mainflux.sub_jobs: ~0 rows (approximately)
+/*!40000 ALTER TABLE `sub_jobs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sub_jobs` ENABLE KEYS */;
 
--- Dumping structure for table mainflux.sub_task_ratings
-CREATE TABLE IF NOT EXISTS `sub_task_ratings` (
+-- Dumping structure for table mainflux.sub_job_ratings
+CREATE TABLE IF NOT EXISTS `sub_job_ratings` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `sub_task_id` int(10) unsigned DEFAULT NULL,
+  `sub_job_id` int(10) unsigned DEFAULT NULL,
   `user_id` int(10) unsigned DEFAULT NULL,
   `rating` int(11) DEFAULT NULL,
   `remarks` text COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `sub_task_ratings_sub_task_id_foreign` (`sub_task_id`),
-  KEY `sub_task_ratings_user_id_foreign` (`user_id`),
-  CONSTRAINT `sub_task_ratings_sub_task_id_foreign` FOREIGN KEY (`sub_task_id`) REFERENCES `sub_tasks` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `sub_task_ratings_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+  KEY `sub_job_ratings_sub_job_id_foreign` (`sub_job_id`),
+  KEY `sub_job_ratings_user_id_foreign` (`user_id`),
+  CONSTRAINT `sub_job_ratings_sub_job_id_foreign` FOREIGN KEY (`sub_job_id`) REFERENCES `sub_jobs` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `sub_job_ratings_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mainflux.sub_task_ratings: ~0 rows (approximately)
-/*!40000 ALTER TABLE `sub_task_ratings` DISABLE KEYS */;
-/*!40000 ALTER TABLE `sub_task_ratings` ENABLE KEYS */;
+-- Dumping data for table mainflux.sub_job_ratings: ~0 rows (approximately)
+/*!40000 ALTER TABLE `sub_job_ratings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sub_job_ratings` ENABLE KEYS */;
 
--- Dumping structure for table mainflux.tasks
-CREATE TABLE IF NOT EXISTS `tasks` (
+-- Dumping structure for table mainflux.jobs
+CREATE TABLE IF NOT EXISTS `jobs` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `uuid` char(36) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `question_set_id` int(10) unsigned DEFAULT NULL,
-  `task_category_id` int(10) unsigned DEFAULT NULL,
-  `task_priority_id` int(10) unsigned DEFAULT NULL,
+  `job_category_id` int(10) unsigned DEFAULT NULL,
+  `job_priority_id` int(10) unsigned DEFAULT NULL,
   `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description` text COLLATE utf8mb4_unicode_ci,
   `start_date` date DEFAULT NULL,
@@ -1008,34 +1008,34 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   `recurrence_end_date` date DEFAULT NULL,
   `recurring_frequency` int(11) NOT NULL DEFAULT '0',
   `next_recurring_date` date DEFAULT NULL,
-  `recurring_task_id` int(10) unsigned DEFAULT NULL,
+  `recurring_job_id` int(10) unsigned DEFAULT NULL,
   `upload_token` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `tasks_task_category_id_foreign` (`task_category_id`),
-  KEY `tasks_task_priority_id_foreign` (`task_priority_id`),
-  KEY `tasks_user_id_foreign` (`user_id`),
-  KEY `tasks_recurring_task_id_foreign` (`recurring_task_id`),
-  KEY `tasks_question_set_id_foreign` (`question_set_id`),
-  CONSTRAINT `tasks_question_set_id_foreign` FOREIGN KEY (`question_set_id`) REFERENCES `question_sets` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `tasks_recurring_task_id_foreign` FOREIGN KEY (`recurring_task_id`) REFERENCES `tasks` (`id`) ON DELETE SET NULL,
-  CONSTRAINT `tasks_task_category_id_foreign` FOREIGN KEY (`task_category_id`) REFERENCES `task_categories` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `tasks_task_priority_id_foreign` FOREIGN KEY (`task_priority_id`) REFERENCES `task_priorities` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `tasks_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+  KEY `jobs_job_category_id_foreign` (`job_category_id`),
+  KEY `jobs_job_priority_id_foreign` (`job_priority_id`),
+  KEY `jobs_user_id_foreign` (`user_id`),
+  KEY `jobs_recurring_job_id_foreign` (`recurring_job_id`),
+  KEY `jobs_question_set_id_foreign` (`question_set_id`),
+  CONSTRAINT `jobs_question_set_id_foreign` FOREIGN KEY (`question_set_id`) REFERENCES `question_sets` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `jobs_recurring_job_id_foreign` FOREIGN KEY (`recurring_job_id`) REFERENCES `jobs` (`id`) ON DELETE SET NULL,
+  CONSTRAINT `jobs_job_category_id_foreign` FOREIGN KEY (`job_category_id`) REFERENCES `job_categories` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `jobs_job_priority_id_foreign` FOREIGN KEY (`job_priority_id`) REFERENCES `job_priorities` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `jobs_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mainflux.tasks: ~1 rows (approximately)
-/*!40000 ALTER TABLE `tasks` DISABLE KEYS */;
-REPLACE INTO `tasks` (`id`, `uuid`, `question_set_id`, `task_category_id`, `task_priority_id`, `title`, `description`, `start_date`, `due_date`, `completed_at`, `progress`, `progress_type`, `rating_type`, `sign_off_status`, `user_id`, `is_cancelled`, `is_archived`, `is_recurring`, `recurrence_start_date`, `recurrence_end_date`, `recurring_frequency`, `next_recurring_date`, `recurring_task_id`, `upload_token`, `created_at`, `updated_at`) VALUES
-	(1, 'ab5123ce-de79-41d4-95bf-586f1c604434', 1, 1, 1, 'Tarea 1 2', '<h3 style="margin: 15px 0px; padding: 0px; font-weight: 700; font-size: 14px; color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif;">The standard Lorem Ipsum passage, used since the 1500s</h3><p style="margin-right: 0px; margin-bottom: 15px; margin-left: 0px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px;">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p><h3 style="margin: 15px 0px; padding: 0px; font-weight: 700; font-size: 14px; color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif;">Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC</h3><p style="margin-right: 0px; margin-bottom: 15px; margin-left: 0px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px;">"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>', '2019-07-10', '2019-07-13', NULL, 0, 'question', 'task_based', NULL, 1, 0, 0, 0, NULL, NULL, 0, NULL, NULL, '3db6eeff-619e-4ecd-ba64-8bade3d135a0', '2019-07-09 16:24:40', '2019-07-12 15:06:47');
-/*!40000 ALTER TABLE `tasks` ENABLE KEYS */;
+-- Dumping data for table mainflux.jobs: ~1 rows (approximately)
+/*!40000 ALTER TABLE `jobs` DISABLE KEYS */;
+REPLACE INTO `jobs` (`id`, `uuid`, `question_set_id`, `job_category_id`, `job_priority_id`, `title`, `description`, `start_date`, `due_date`, `completed_at`, `progress`, `progress_type`, `rating_type`, `sign_off_status`, `user_id`, `is_cancelled`, `is_archived`, `is_recurring`, `recurrence_start_date`, `recurrence_end_date`, `recurring_frequency`, `next_recurring_date`, `recurring_job_id`, `upload_token`, `created_at`, `updated_at`) VALUES
+	(1, 'ab5123ce-de79-41d4-95bf-586f1c604434', 1, 1, 1, 'Tarea 1 2', '<h3 style="margin: 15px 0px; padding: 0px; font-weight: 700; font-size: 14px; color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif;">The standard Lorem Ipsum passage, used since the 1500s</h3><p style="margin-right: 0px; margin-bottom: 15px; margin-left: 0px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px;">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p><h3 style="margin: 15px 0px; padding: 0px; font-weight: 700; font-size: 14px; color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif;">Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC</h3><p style="margin-right: 0px; margin-bottom: 15px; margin-left: 0px; padding: 0px; text-align: justify; font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px;">"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>', '2019-07-10', '2019-07-13', NULL, 0, 'question', 'job_based', NULL, 1, 0, 0, 0, NULL, NULL, 0, NULL, NULL, '3db6eeff-619e-4ecd-ba64-8bade3d135a0', '2019-07-09 16:24:40', '2019-07-12 15:06:47');
+/*!40000 ALTER TABLE `jobs` ENABLE KEYS */;
 
--- Dumping structure for table mainflux.task_attachments
-CREATE TABLE IF NOT EXISTS `task_attachments` (
+-- Dumping structure for table mainflux.job_attachments
+CREATE TABLE IF NOT EXISTS `job_attachments` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `uuid` char(36) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `task_id` int(10) unsigned DEFAULT NULL,
+  `job_id` int(10) unsigned DEFAULT NULL,
   `user_id` int(10) unsigned DEFAULT NULL,
   `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description` text COLLATE utf8mb4_unicode_ci,
@@ -1043,18 +1043,18 @@ CREATE TABLE IF NOT EXISTS `task_attachments` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `task_attachments_task_id_foreign` (`task_id`),
-  KEY `task_attachments_user_id_foreign` (`user_id`),
-  CONSTRAINT `task_attachments_task_id_foreign` FOREIGN KEY (`task_id`) REFERENCES `tasks` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `task_attachments_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+  KEY `job_attachments_job_id_foreign` (`job_id`),
+  KEY `job_attachments_user_id_foreign` (`user_id`),
+  CONSTRAINT `job_attachments_job_id_foreign` FOREIGN KEY (`job_id`) REFERENCES `jobs` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `job_attachments_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mainflux.task_attachments: ~0 rows (approximately)
-/*!40000 ALTER TABLE `task_attachments` DISABLE KEYS */;
-/*!40000 ALTER TABLE `task_attachments` ENABLE KEYS */;
+-- Dumping data for table mainflux.job_attachments: ~0 rows (approximately)
+/*!40000 ALTER TABLE `job_attachments` DISABLE KEYS */;
+/*!40000 ALTER TABLE `job_attachments` ENABLE KEYS */;
 
--- Dumping structure for table mainflux.task_categories
-CREATE TABLE IF NOT EXISTS `task_categories` (
+-- Dumping structure for table mainflux.job_categories
+CREATE TABLE IF NOT EXISTS `job_categories` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description` text COLLATE utf8mb4_unicode_ci,
@@ -1063,43 +1063,43 @@ CREATE TABLE IF NOT EXISTS `task_categories` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mainflux.task_categories: ~2 rows (approximately)
-/*!40000 ALTER TABLE `task_categories` DISABLE KEYS */;
-REPLACE INTO `task_categories` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
+-- Dumping data for table mainflux.job_categories: ~2 rows (approximately)
+/*!40000 ALTER TABLE `job_categories` DISABLE KEYS */;
+REPLACE INTO `job_categories` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
 	(1, 'Categoría 1', 'Descripción de la categoría 1', '2019-07-08 19:56:00', '2019-07-08 19:56:00'),
 	(2, 'Categoría 2', 'Descripción de la categoría 2', '2019-07-08 19:56:09', '2019-07-08 19:56:09'),
 	(3, 'Categoría 3', 'Descripción de la categoría 3', '2019-07-08 19:56:21', '2019-07-08 19:56:21');
-/*!40000 ALTER TABLE `task_categories` ENABLE KEYS */;
+/*!40000 ALTER TABLE `job_categories` ENABLE KEYS */;
 
--- Dumping structure for table mainflux.task_comments
-CREATE TABLE IF NOT EXISTS `task_comments` (
+-- Dumping structure for table mainflux.job_comments
+CREATE TABLE IF NOT EXISTS `job_comments` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `task_id` int(10) unsigned NOT NULL,
+  `job_id` int(10) unsigned NOT NULL,
   `user_id` int(10) unsigned NOT NULL,
   `comment` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `reply_id` int(10) unsigned DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `task_comments_task_id_foreign` (`task_id`),
-  KEY `task_comments_user_id_foreign` (`user_id`),
-  KEY `task_comments_reply_id_foreign` (`reply_id`),
-  CONSTRAINT `task_comments_reply_id_foreign` FOREIGN KEY (`reply_id`) REFERENCES `task_comments` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `task_comments_task_id_foreign` FOREIGN KEY (`task_id`) REFERENCES `tasks` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `task_comments_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+  KEY `job_comments_job_id_foreign` (`job_id`),
+  KEY `job_comments_user_id_foreign` (`user_id`),
+  KEY `job_comments_reply_id_foreign` (`reply_id`),
+  CONSTRAINT `job_comments_reply_id_foreign` FOREIGN KEY (`reply_id`) REFERENCES `job_comments` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `job_comments_job_id_foreign` FOREIGN KEY (`job_id`) REFERENCES `jobs` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `job_comments_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mainflux.task_comments: ~0 rows (approximately)
-/*!40000 ALTER TABLE `task_comments` DISABLE KEYS */;
-REPLACE INTO `task_comments` (`id`, `task_id`, `user_id`, `comment`, `reply_id`, `created_at`, `updated_at`) VALUES
+-- Dumping data for table mainflux.job_comments: ~0 rows (approximately)
+/*!40000 ALTER TABLE `job_comments` DISABLE KEYS */;
+REPLACE INTO `job_comments` (`id`, `job_id`, `user_id`, `comment`, `reply_id`, `created_at`, `updated_at`) VALUES
 	(1, 1, 1, 'Comentario 1', NULL, '2019-07-09 16:29:21', '2019-07-09 16:29:21');
-/*!40000 ALTER TABLE `task_comments` ENABLE KEYS */;
+/*!40000 ALTER TABLE `job_comments` ENABLE KEYS */;
 
--- Dumping structure for table mainflux.task_notes
-CREATE TABLE IF NOT EXISTS `task_notes` (
+-- Dumping structure for table mainflux.job_notes
+CREATE TABLE IF NOT EXISTS `job_notes` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `uuid` char(36) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `task_id` int(10) unsigned NOT NULL,
+  `job_id` int(10) unsigned NOT NULL,
   `user_id` int(10) unsigned NOT NULL,
   `title` text COLLATE utf8mb4_unicode_ci,
   `description` text COLLATE utf8mb4_unicode_ci,
@@ -1108,18 +1108,18 @@ CREATE TABLE IF NOT EXISTS `task_notes` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `task_notes_task_id_foreign` (`task_id`),
-  KEY `task_notes_user_id_foreign` (`user_id`),
-  CONSTRAINT `task_notes_task_id_foreign` FOREIGN KEY (`task_id`) REFERENCES `tasks` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `task_notes_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+  KEY `job_notes_job_id_foreign` (`job_id`),
+  KEY `job_notes_user_id_foreign` (`user_id`),
+  CONSTRAINT `job_notes_job_id_foreign` FOREIGN KEY (`job_id`) REFERENCES `jobs` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `job_notes_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mainflux.task_notes: ~0 rows (approximately)
-/*!40000 ALTER TABLE `task_notes` DISABLE KEYS */;
-/*!40000 ALTER TABLE `task_notes` ENABLE KEYS */;
+-- Dumping data for table mainflux.job_notes: ~0 rows (approximately)
+/*!40000 ALTER TABLE `job_notes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `job_notes` ENABLE KEYS */;
 
--- Dumping structure for table mainflux.task_priorities
-CREATE TABLE IF NOT EXISTS `task_priorities` (
+-- Dumping structure for table mainflux.job_priorities
+CREATE TABLE IF NOT EXISTS `job_priorities` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description` text COLLATE utf8mb4_unicode_ci,
@@ -1128,54 +1128,54 @@ CREATE TABLE IF NOT EXISTS `task_priorities` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mainflux.task_priorities: ~2 rows (approximately)
-/*!40000 ALTER TABLE `task_priorities` DISABLE KEYS */;
-REPLACE INTO `task_priorities` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
+-- Dumping data for table mainflux.job_priorities: ~2 rows (approximately)
+/*!40000 ALTER TABLE `job_priorities` DISABLE KEYS */;
+REPLACE INTO `job_priorities` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
 	(1, 'Prioridad 1', 'Descripciób de la prioridad 1', '2019-07-08 19:56:37', '2019-07-08 19:56:37'),
 	(2, 'Prioridad 2', 'Descripción de la prioridad 2', '2019-07-08 19:56:46', '2019-07-08 19:56:46');
-/*!40000 ALTER TABLE `task_priorities` ENABLE KEYS */;
+/*!40000 ALTER TABLE `job_priorities` ENABLE KEYS */;
 
--- Dumping structure for table mainflux.task_signoff_logs
-CREATE TABLE IF NOT EXISTS `task_signoff_logs` (
+-- Dumping structure for table mainflux.job_signoff_logs
+CREATE TABLE IF NOT EXISTS `job_signoff_logs` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `task_id` int(10) unsigned DEFAULT NULL,
+  `job_id` int(10) unsigned DEFAULT NULL,
   `user_id` int(10) unsigned DEFAULT NULL,
   `status` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `remarks` text COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `task_signoff_logs_task_id_foreign` (`task_id`),
-  KEY `task_signoff_logs_user_id_foreign` (`user_id`),
-  CONSTRAINT `task_signoff_logs_task_id_foreign` FOREIGN KEY (`task_id`) REFERENCES `tasks` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `task_signoff_logs_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+  KEY `job_signoff_logs_job_id_foreign` (`job_id`),
+  KEY `job_signoff_logs_user_id_foreign` (`user_id`),
+  CONSTRAINT `job_signoff_logs_job_id_foreign` FOREIGN KEY (`job_id`) REFERENCES `jobs` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `job_signoff_logs_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mainflux.task_signoff_logs: ~0 rows (approximately)
-/*!40000 ALTER TABLE `task_signoff_logs` DISABLE KEYS */;
-/*!40000 ALTER TABLE `task_signoff_logs` ENABLE KEYS */;
+-- Dumping data for table mainflux.job_signoff_logs: ~0 rows (approximately)
+/*!40000 ALTER TABLE `job_signoff_logs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `job_signoff_logs` ENABLE KEYS */;
 
--- Dumping structure for table mainflux.task_user
-CREATE TABLE IF NOT EXISTS `task_user` (
+-- Dumping structure for table mainflux.job_user
+CREATE TABLE IF NOT EXISTS `job_user` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `task_id` int(10) unsigned NOT NULL,
+  `job_id` int(10) unsigned NOT NULL,
   `user_id` int(10) unsigned NOT NULL,
   `rating` int(11) DEFAULT NULL,
   `remarks` text COLLATE utf8mb4_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `task_user_task_id_foreign` (`task_id`),
-  KEY `task_user_user_id_foreign` (`user_id`),
-  CONSTRAINT `task_user_task_id_foreign` FOREIGN KEY (`task_id`) REFERENCES `tasks` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `task_user_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+  KEY `job_user_job_id_foreign` (`job_id`),
+  KEY `job_user_user_id_foreign` (`user_id`),
+  CONSTRAINT `job_user_job_id_foreign` FOREIGN KEY (`job_id`) REFERENCES `jobs` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `job_user_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table mainflux.task_user: ~0 rows (approximately)
-/*!40000 ALTER TABLE `task_user` DISABLE KEYS */;
-REPLACE INTO `task_user` (`id`, `task_id`, `user_id`, `rating`, `remarks`, `created_at`, `updated_at`) VALUES
+-- Dumping data for table mainflux.job_user: ~0 rows (approximately)
+/*!40000 ALTER TABLE `job_user` DISABLE KEYS */;
+REPLACE INTO `job_user` (`id`, `job_id`, `user_id`, `rating`, `remarks`, `created_at`, `updated_at`) VALUES
 	(1, 1, 1, NULL, NULL, '2019-07-12 15:55:40', '2019-07-12 15:55:40');
-/*!40000 ALTER TABLE `task_user` ENABLE KEYS */;
+/*!40000 ALTER TABLE `job_user` ENABLE KEYS */;
 
 -- Dumping structure for table mainflux.todos
 CREATE TABLE IF NOT EXISTS `todos` (

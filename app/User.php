@@ -36,9 +36,9 @@ class User extends Authenticatable
         return $this->hasOne('App\UserPreference');
     }
 
-    public function task()
+    public function job()
     {
-        return $this->belongsToMany('App\Task', 'task_user', 'user_id', 'task_id')->withPivot('rating', 'remarks', 'updated_at', 'created_at');
+        return $this->belongsToMany('App\Job', 'job_user', 'user_id', 'job_id')->withPivot('rating', 'remarks', 'updated_at', 'created_at');
     }
 
     public function getNameAttribute()

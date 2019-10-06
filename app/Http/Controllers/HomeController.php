@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\Repositories\TaskRepository;
+use App\Repositories\JobRepository;
 use App\Repositories\TodoRepository;
 use App\Repositories\UserRepository;
 use App\Repositories\ActivityLogRepository;
@@ -12,7 +12,7 @@ use App\Repositories\AnnouncementRepository;
 
 class HomeController extends Controller
 {
-    protected $task;
+    protected $job;
     protected $user;
     protected $activity;
     protected $todo;
@@ -24,13 +24,13 @@ class HomeController extends Controller
      * @return void
      */
     public function __construct(
-        TaskRepository $task,
+        JobRepository $job,
         UserRepository $user,
         ActivityLogRepository $activity,
         TodoRepository $todo,
         AnnouncementRepository $announcement
     ) {
-        $this->task = $task;
+        $this->job = $job;
         $this->user = $user;
         $this->activity = $activity;
         $this->todo = $todo;
@@ -49,22 +49,22 @@ class HomeController extends Controller
      */
     public function dashboard()
     {
-        $tasks = $this->task->fetchTasks()->get();
+        $jobs = $this->job->fetchJobs()->get();
 
-        $task_stats = [
-            'total' => $tasks->count(),
-            'owned' => $this->task->fetchTasks()->whereUserId(\Auth::user()->id)->count(),
-            'unassigned' => $this->task->fetchTasks()->doesntHave('user')->count(),
-            'pending' => $tasks->where('due_date', '>=', date('Y-m-d'))->where('sign_off_status', '!=', 'approved')->count(),
-            'overdue' => $tasks->where('due_date', '<', date('Y-m-d'))->where('sign_off_status', '!=', 'approved')->count(),
-            'completed' => $this->task->fetchTasks()->where('sign_off_status', '=', 'approved')->count()
+        $job_stats = [
+            'total' => $jobs->count(),
+            'owned' => $this->job->fetchJobs()->whereUserId(\Auth::user()->id)->count(),
+            'unassigned' => $this->job->fetchJobs()->doesntHave('user')->count(),
+            'pending' => $jobs->where('due_date', '>=', date('Y-m-d'))->where('sign_off_status', '!=', 'approved')->count(),
+            'overdue' => $jobs->where('due_date', '<', date('Y-m-d'))->where('sign_off_status', '!=', 'approved')->count(),
+            'completed' => $this->job->fetchJobs()->where('sign_off_status', '=', 'approved')->count()
         ];
 
         $activity_logs = (config('config.activity_log')) ? $this->activity->getAccessibleUserActivityLog() : [];
 
         $announcements = (config('config.announcement')) ? $this->announcement->getUserAnnouncement() : [];
 
-        return $this->success(compact('task_stats', 'activity_logs', 'announcements'));
+        return $this->success(compact('job_stats', 'activity_logs', 'announcements'));
     }
 
     /**

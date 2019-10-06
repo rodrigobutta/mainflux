@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Answer extends Model
 {
     protected $fillable = [
-        'task_id','question_id'
+        'job_id','question_id'
     ];
     protected $primaryKey = 'id';
     protected $table = 'answers';
@@ -17,8 +17,8 @@ class Answer extends Model
         return $this->belongsTo('App\QuestionSet');
     }
 
-    public function task()
+    public function job()
     {
-        return $this->belongsTo('App\Task');
+        return $this->belongsTo('App\Job');
     }
 }

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Repositories\TaskRepository;
+use App\Repositories\JobRepository;
 use App\Repositories\UserRepository;
 use App\Http\Requests\EmailTemplateRequest;
 use App\Repositories\ActivityLogRepository;
@@ -15,7 +15,7 @@ class EmailTemplateController extends Controller
     protected $repo;
     protected $activity;
     protected $user;
-    protected $task;
+    protected $job;
 
     protected $module = 'email_template';
 
@@ -24,13 +24,13 @@ class EmailTemplateController extends Controller
      *
      * @return void
      */
-    public function __construct(Request $request, EmailTemplateRepository $repo, ActivityLogRepository $activity, UserRepository $user, TaskRepository $task)
+    public function __construct(Request $request, EmailTemplateRepository $repo, ActivityLogRepository $activity, UserRepository $user, JobRepository $job)
     {
         $this->repo     = $repo;
         $this->activity = $activity;
         $this->request  = $request;
         $this->user     = $user;
-        $this->task = $task;
+        $this->job = $job;
 
         $this->middleware('permission:access-configuration')->except('getContent');
         $this->middleware('feature.available:email_template');
@@ -159,11 +159,11 @@ class EmailTemplateController extends Controller
             $user = $this->user->findOrFail(request('user_id'));
         }
 
-        if ($template->category === 'task' && !$task) {
-            $task = $this->task->findOrFail(request('task_id'));
+        if ($template->category === 'job' && !$job) {
+            $job = $this->job->findOrFail(request('job_id'));
         }
 
-        $mail_data = $this->repo->getContent(compact('template', 'user', 'task'));
+        $mail_data = $this->repo->getContent(compact('template', 'user', 'job'));
 
         return $this->success(compact('mail_data'));
     }

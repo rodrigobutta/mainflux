@@ -48,7 +48,7 @@ class NotificationController extends Controller
             $notification->read = $notification->read()?true:false;
             $notification->unid = $notification->data['unid'];
             $notification->text = $notification->data['text'];
-            $notification->taskId = $notification->data['taskId'];
+            $notification->jobId = $notification->data['jobId'];
             $notification->user = $notification->data['user'];
             $notification->link = $notification->data['link'];
             $notification->linkTarget = $notification->data['linkTarget'];

@@ -28,7 +28,7 @@ class AddRelations extends Migration
             $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');            
         });
         
-        Schema::table('tasks', function(Blueprint $table)
+        Schema::table('jobs', function(Blueprint $table)
         {
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
             $table->foreign('contractor_id')->references('id')->on('contractors')->onDelete('cascade');
@@ -44,11 +44,11 @@ class AddRelations extends Migration
     public function down()
     {
         
-        Schema::table('tasks', function(Blueprint $table)
+        Schema::table('jobs', function(Blueprint $table)
         {
-            $table->dropForeign('tasks_client_id_foreign');
-            $table->dropForeign('tasks_contractor_id_foreign');
-            $table->dropForeign('tasks_project_id_foreign');
+            $table->dropForeign('jobs_client_id_foreign');
+            $table->dropForeign('jobs_contractor_id_foreign');
+            $table->dropForeign('jobs_project_id_foreign');
         });
 
         Schema::table('assets', function(Blueprint $table)

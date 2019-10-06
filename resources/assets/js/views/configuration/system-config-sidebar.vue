@@ -12,8 +12,8 @@
             <router-link to="/configuration/sms" :class="[menu === 'sms' ? 'active' : '', 'list-group-item']"><span class="hidden-sm-up"><i class="fas fa-comment"></i></span> <span class="hidden-xs-down">{{trans('general.sms')}}</span> </router-link>
             <router-link to="/configuration/authentication" :class="[menu === 'authentication' ? 'active' : '', 'list-group-item']"><span class="hidden-sm-up"><i class="fas fa-sign-in"></i></span> <span class="hidden-xs-down">{{trans('auth.authentication')}}</span> </router-link>
             <router-link v-if="getConfig('ip_filter')" to="/configuration/ip-filter" :class="[menu === 'ip-filter' ? 'active' : '', 'list-group-item']"><span class="hidden-sm-up"><i class="fas fa-ellipsis-v"></i></span> <span class="hidden-xs-down">{{trans('ip_filter.ip_filter')}}</span> </router-link>
-            <router-link to="/configuration/task" :class="[menu === 'task' ? 'active' : '', 'list-group-item']"><span class="hidden-sm-up"><i class="fas fa-tasks"></i></span> <span class="hidden-xs-down">{{trans('task.task')}}</span> </router-link>
-            <router-link to="/configuration/question" :class="[menu === 'question' ? 'active' : '', 'list-group-item']"><span class="hidden-sm-up"><i class="fas fa-question"></i></span> <span class="hidden-xs-down">{{trans('task.question')}}</span> </router-link>
+            <router-link to="/configuration/job" :class="[menu === 'job' ? 'active' : '', 'list-group-item']"><span class="hidden-sm-up"><i class="fas fa-jobs"></i></span> <span class="hidden-xs-down">{{trans('job.job')}}</span> </router-link>
+            <router-link to="/configuration/question" :class="[menu === 'question' ? 'active' : '', 'list-group-item']"><span class="hidden-sm-up"><i class="fas fa-question"></i></span> <span class="hidden-xs-down">{{trans('job.question')}}</span> </router-link>
             <router-link to="/configuration/scheduled-job" :class="[menu === 'scheduled-job' ? 'active' : '', 'list-group-item']"><span class="hidden-sm-up"><i class="far fa-clock"></i></span> <span class="hidden-xs-down">{{trans('general.scheduled_job')}}</span> </router-link>
         </div>
     </div>

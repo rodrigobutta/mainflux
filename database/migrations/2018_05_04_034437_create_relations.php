@@ -69,36 +69,36 @@ class CreateRelations extends Migration
             $table->foreign('question_set_id')->references('id')->on('question_sets')->onDelete('cascade');
         });
 
-        Schema::table('tasks', function(Blueprint $table)
+        Schema::table('jobs', function(Blueprint $table)
         {
-            $table->foreign('task_category_id')->references('id')->on('task_categories')->onDelete('cascade');
-            $table->foreign('task_priority_id')->references('id')->on('task_priorities')->onDelete('cascade');
+            $table->foreign('job_category_id')->references('id')->on('job_categories')->onDelete('cascade');
+            $table->foreign('job_priority_id')->references('id')->on('job_priorities')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('recurring_task_id')->references('id')->on('tasks')->onDelete('set null');
+            $table->foreign('recurring_job_id')->references('id')->on('jobs')->onDelete('set null');
             $table->foreign('question_set_id')->references('id')->on('question_sets')->onDelete('cascade');
         });
 
         Schema::table('answers', function(Blueprint $table)
         {
-            $table->foreign('task_id')->references('id')->on('tasks')->onDelete('cascade');
+            $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');
             $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
         });
 
-        Schema::table('sub_tasks', function(Blueprint $table)
+        Schema::table('sub_jobs', function(Blueprint $table)
         {
-            $table->foreign('task_id')->references('id')->on('tasks')->onDelete('cascade');
+            $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
 
-        Schema::table('task_user', function(Blueprint $table)
+        Schema::table('job_user', function(Blueprint $table)
         {
-            $table->foreign('task_id')->references('id')->on('tasks')->onDelete('cascade');
+            $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
 
-        Schema::table('starred_tasks', function(Blueprint $table)
+        Schema::table('starred_jobs', function(Blueprint $table)
         {
-            $table->foreign('task_id')->references('id')->on('tasks')->onDelete('cascade');
+            $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
 
@@ -125,34 +125,34 @@ class CreateRelations extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
 
-        Schema::table('task_comments', function(Blueprint $table)
+        Schema::table('job_comments', function(Blueprint $table)
         {
-            $table->foreign('task_id')->references('id')->on('tasks')->onDelete('cascade');
+            $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('reply_id')->references('id')->on('task_comments')->onDelete('cascade');
+            $table->foreign('reply_id')->references('id')->on('job_comments')->onDelete('cascade');
         });
 
-        Schema::table('task_notes', function(Blueprint $table)
+        Schema::table('job_notes', function(Blueprint $table)
         {
-            $table->foreign('task_id')->references('id')->on('tasks')->onDelete('cascade');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-        });
-
-        Schema::table('task_attachments', function(Blueprint $table)
-        {
-            $table->foreign('task_id')->references('id')->on('tasks')->onDelete('cascade');
+            $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
 
-        Schema::table('task_signoff_logs', function(Blueprint $table)
+        Schema::table('job_attachments', function(Blueprint $table)
         {
-            $table->foreign('task_id')->references('id')->on('tasks')->onDelete('cascade');
+            $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
 
-        Schema::table('sub_task_ratings', function(Blueprint $table)
+        Schema::table('job_signoff_logs', function(Blueprint $table)
         {
-            $table->foreign('sub_task_id')->references('id')->on('sub_tasks')->onDelete('cascade');
+            $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+        });
+
+        Schema::table('sub_job_ratings', function(Blueprint $table)
+        {
+            $table->foreign('sub_job_id')->references('id')->on('sub_jobs')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
@@ -220,37 +220,37 @@ class CreateRelations extends Migration
             $table->dropForeign('questions_question_set_id_foreign');
         });
 
-        Schema::table('tasks', function(Blueprint $table)
+        Schema::table('jobs', function(Blueprint $table)
         {
-            $table->dropForeign('tasks_task_category_id_foreign');
-            $table->dropForeign('tasks_task_priority_id_foreign');
-            $table->dropForeign('tasks_user_id_foreign');
-            $table->dropForeign('tasks_recurring_task_id_foreign');
-            $table->dropForeign('tasks_question_set_id_foreign');
+            $table->dropForeign('jobs_job_category_id_foreign');
+            $table->dropForeign('jobs_job_priority_id_foreign');
+            $table->dropForeign('jobs_user_id_foreign');
+            $table->dropForeign('jobs_recurring_job_id_foreign');
+            $table->dropForeign('jobs_question_set_id_foreign');
         });
 
         Schema::table('answers', function(Blueprint $table)
         {
-            $table->dropForeign('answers_task_id_foreign');
+            $table->dropForeign('answers_job_id_foreign');
             $table->dropForeign('answers_question_id_foreign');
         });
 
-        Schema::table('sub_tasks', function(Blueprint $table)
+        Schema::table('sub_jobs', function(Blueprint $table)
         {
-            $table->dropForeign('sub_tasks_task_id_foreign');
-            $table->dropForeign('sub_tasks_user_id_foreign');
+            $table->dropForeign('sub_jobs_job_id_foreign');
+            $table->dropForeign('sub_jobs_user_id_foreign');
         });
 
-        Schema::table('task_user', function(Blueprint $table)
+        Schema::table('job_user', function(Blueprint $table)
         {
-            $table->dropForeign('task_user_task_id_foreign');
-            $table->dropForeign('task_user_user_id_foreign');
+            $table->dropForeign('job_user_job_id_foreign');
+            $table->dropForeign('job_user_user_id_foreign');
         });
 
-        Schema::table('starred_tasks', function(Blueprint $table)
+        Schema::table('starred_jobs', function(Blueprint $table)
         {
-            $table->dropForeign('starred_task_task_id_foreign');
-            $table->dropForeign('starred_task_user_id_foreign');
+            $table->dropForeign('starred_job_job_id_foreign');
+            $table->dropForeign('starred_job_user_id_foreign');
         });
 
         Schema::table('announcements', function(Blueprint $table)
@@ -276,35 +276,35 @@ class CreateRelations extends Migration
             $table->dropForeign('announcement_user_user_id_foreign');
         });
 
-        Schema::table('task_comments', function(Blueprint $table)
+        Schema::table('job_comments', function(Blueprint $table)
         {
-            $table->dropForeign('task_comments_task_id_foreign');
-            $table->dropForeign('task_comments_user_id');
-            $table->dropForeign('task_comments_reply_id');
+            $table->dropForeign('job_comments_job_id_foreign');
+            $table->dropForeign('job_comments_user_id');
+            $table->dropForeign('job_comments_reply_id');
         });
 
-        Schema::table('task_notes', function(Blueprint $table)
+        Schema::table('job_notes', function(Blueprint $table)
         {
-            $table->dropForeign('task_notes_task_id_foreign');
-            $table->dropForeign('task_notes_user_id_foreign');
+            $table->dropForeign('job_notes_job_id_foreign');
+            $table->dropForeign('job_notes_user_id_foreign');
         });
 
-        Schema::table('task_attachments', function(Blueprint $table)
+        Schema::table('job_attachments', function(Blueprint $table)
         {
-            $table->dropForeign('task_attachments_task_id_foreign');
-            $table->dropForeign('task_attachments_user_id_foreign');
+            $table->dropForeign('job_attachments_job_id_foreign');
+            $table->dropForeign('job_attachments_user_id_foreign');
         });
 
-        Schema::table('task_signoff_logs', function(Blueprint $table)
+        Schema::table('job_signoff_logs', function(Blueprint $table)
         {
-            $table->dropForeign('task_signoff_logs_task_id_foreign');
-            $table->dropForeign('task_signoff_logs_user_id_foreign');
+            $table->dropForeign('job_signoff_logs_job_id_foreign');
+            $table->dropForeign('job_signoff_logs_user_id_foreign');
         });
 
-        Schema::table('sub_task_ratings', function(Blueprint $table)
+        Schema::table('sub_job_ratings', function(Blueprint $table)
         {
-            $table->dropForeign('sub_task_ratings_sub_task_id_foreign');
-            $table->dropForeign('sub_task_ratings_user_id_foreign');
+            $table->dropForeign('sub_job_ratings_sub_job_id_foreign');
+            $table->dropForeign('sub_job_ratings_user_id_foreign');
         });
     }
 }

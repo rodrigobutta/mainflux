@@ -39,7 +39,7 @@ class SendMail implements ShouldQueue
         $template = $emailTemplate->findBySlug($this->config['slug']);
 
         $user      = isset($this->config['user']) ? $this->config['user'] : null;
-        $task      = isset($this->config['task']) ? $this->config['task'] : null;
+        $job      = isset($this->config['job']) ? $this->config['job'] : null;
         $password  = isset($this->config['password']) ? $this->config['password'] : null;
         $module    = isset($this->config['module']) ? $this->config['module'] : null;
         $module_id = isset($this->config['module_id']) ? $this->config['module_id'] : null;
@@ -48,7 +48,7 @@ class SendMail implements ShouldQueue
             return;
         }
 
-        $mail_data = $emailTemplate->getContent(['template' => $template, 'user' => $user, 'password' => $password, 'task' => $task]);
+        $mail_data = $emailTemplate->getContent(['template' => $template, 'user' => $user, 'password' => $password, 'job' => $job]);
 
         $mail['email']   = $this->to;
         $mail['subject'] = $mail_data['subject'];

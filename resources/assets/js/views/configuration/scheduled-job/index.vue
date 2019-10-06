@@ -33,7 +33,7 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>Recurring Task</td>
+                                                <td>Recurring Job</td>
                                                 <td>Once per day at 00:00 AM</td>
                                             </tr>
                                             <tr>

@@ -57,7 +57,7 @@ class QuestionSetController extends Controller
             'activity' => 'added'
         ]);
 
-        return $this->success(['message' => trans('task.question_set_added')]);
+        return $this->success(['message' => trans('job.question_set_added')]);
     }
 
     /**
@@ -93,6 +93,6 @@ class QuestionSetController extends Controller
 
         $this->repo->delete($question_set);
 
-        return $this->success(['message' => trans('task.question_set_deleted')]);
+        return $this->success(['message' => trans('job.question_set_deleted')]);
     }
 }

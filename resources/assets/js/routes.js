@@ -200,16 +200,16 @@ let routes = [
                 component: require('./views/configuration/question/index')
             },
             {
-                path: '/configuration/task',
-                component: require('./views/configuration/task/index')
+                path: '/configuration/job',
+                component: require('./views/configuration/job/index')
             },
             {
-                path: '/configuration/task-category/:id/edit',
-                component: require('./views/configuration/task/edit-task-category')
+                path: '/configuration/job-category/:id/edit',
+                component: require('./views/configuration/job/edit-job-category')
             },
             {
-                path: '/configuration/task-priority/:id/edit',
-                component: require('./views/configuration/task/edit-task-priority')
+                path: '/configuration/job-priority/:id/edit',
+                component: require('./views/configuration/job/edit-job-priority')
             },
             {
                 path: '/department',
@@ -276,24 +276,24 @@ let routes = [
                 component: require('./views/announcement/edit')
             },
             {
-                path: '/task',
-                component: require('./views/task/index')
+                path: '/job',
+                component: require('./views/job/index')
             },
             {
-                path: '/task/create',
-                component: require('./views/task/index')
+                path: '/job/create',
+                component: require('./views/job/index')
             },
             {
-                path: '/task/:uuid/edit',
-                component: require('./views/task/edit')
+                path: '/job/:uuid/edit',
+                component: require('./views/job/edit')
             },
             {
-                path: '/task/:uuid',
-                component: require('./views/task/show')
+                path: '/job/:uuid',
+                component: require('./views/job/show')
             },
             {
-                path: '/report/task/summary',
-                component: require('./views/task/task-summary')
+                path: '/report/job/summary',
+                component: require('./views/job/job-summary')
             }
         ]
     },  

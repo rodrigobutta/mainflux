@@ -58,5 +58,5 @@
   'zipcode' => 'Zipcode',
   'module_info_title' => 'Add some users here!',
   'module_info_description' => 'Add new user with different roles, update profile, avatar.',
-  'has_many_tasks' => 'Cannot delete as user is associated with multiple tasks.'
+  'has_many_jobs' => 'Cannot delete as user is associated with multiple jobs.'
 );

@@ -6,7 +6,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><router-link to="/home">{{trans('general.home')}}</router-link></li>
                     <li class="breadcrumb-item"><router-link to="/configuration/basic">{{trans('configuration.configuration')}}</router-link></li>
-                    <li class="breadcrumb-item active">{{trans('task.question')}}</li>
+                    <li class="breadcrumb-item active">{{trans('job.question')}}</li>
                 </ol>
             </div>
         </div>
@@ -19,25 +19,25 @@
                             <div class="col-10 col-lg-10 col-md-10">
                                 <div class="row">
                                     <div class="col-12 col-sm-6 col-md-6">
-                                        <h4 class="card-title">{{trans('task.add_new_question_set')}}</h4>
+                                        <h4 class="card-title">{{trans('job.add_new_question_set')}}</h4>
                                         <form @submit.prevent="submit" @keydown="questionForm.errors.clear($event.target.name)">
                                             <div class="form-group">
-                                                <label for="">{{trans('task.question_set_name')}}</label>
-                                                <input class="form-control" type="text" value="" v-model="questionForm.name" name="name" :placeholder="trans('task.question_set_name')">
+                                                <label for="">{{trans('job.question_set_name')}}</label>
+                                                <input class="form-control" type="text" value="" v-model="questionForm.name" name="name" :placeholder="trans('job.question_set_name')">
                                                 <show-error :form-name="questionForm" prop-name="name"></show-error>
                                             </div>
                                             <div class="form-group">
-                                                <label for="">{{trans('task.question_set_description')}}</label>
-                                                <textarea class="form-control" type="text" value="" v-model="questionForm.description" rows="2" name="description" :placeholder="trans('task.question_set_description')"></textarea>
+                                                <label for="">{{trans('job.question_set_description')}}</label>
+                                                <textarea class="form-control" type="text" value="" v-model="questionForm.description" rows="2" name="description" :placeholder="trans('job.question_set_description')"></textarea>
                                                 <show-error :form-name="questionForm" prop-name="description"></show-error>
                                             </div>
                                             <template>
-                                                <button type="button" class="btn btn-info waves-effect waves-light pull-right btn-sm" @click="addQuestion" v-tooltip="trans('task.add_new_question')"><i class="fas fa-plus"></i></button>
-                                                <h4 class="card-title">{{trans('task.add_new_question')}}</h4>
+                                                <button type="button" class="btn btn-info waves-effect waves-light pull-right btn-sm" @click="addQuestion" v-tooltip="trans('job.add_new_question')"><i class="fas fa-plus"></i></button>
+                                                <h4 class="card-title">{{trans('job.add_new_question')}}</h4>
                                                 <div class="form-group" v-for="(question,index) in questionForm.questions">
-                                                    <label for="">{{trans('task.question')}} {{index + 1}}</label>
-                                                    <button type="button" class="btn btn-danger waves-effect waves-light pull-right btn-sm" :key="index" v-confirm="{ok: confirmRemoveQuestion(question)}" v-tooltip="trans('task.remove_question')"><i class="fas fa-trash"></i></button>
-                                                    <input class="form-control" type="text" value="" v-model="question.question" :name="`question_${index}`" :placeholder="trans('task.question')">
+                                                    <label for="">{{trans('job.question')}} {{index + 1}}</label>
+                                                    <button type="button" class="btn btn-danger waves-effect waves-light pull-right btn-sm" :key="index" v-confirm="{ok: confirmRemoveQuestion(question)}" v-tooltip="trans('job.remove_question')"><i class="fas fa-trash"></i></button>
+                                                    <input class="form-control" type="text" value="" v-model="question.question" :name="`question_${index}`" :placeholder="trans('job.question')">
                                                     <show-error :form-name="questionForm" :prop-name="`question_${index}`"></show-error>
                                                 </div>
                                             </template>
@@ -47,14 +47,14 @@
                                         </form>
                                     </div>
                                     <div class="col-12 col-sm-6 col-md-6">
-                                        <h4 class="card-title">{{trans('task.question_set_list')}}</h4>
+                                        <h4 class="card-title">{{trans('job.question_set_list')}}</h4>
                                         <h6 class="card-subtitle" v-if="question_sets">{{trans('general.total_result_found',{'count' : question_sets.total})}}</h6>
                                         <h6 class="card-subtitle" v-else>{{trans('general.no_result_found')}}</h6>
                                         <div class="table-responsive" v-if="question_sets.total">
                                             <table class="table">
                                                 <thead>
                                                     <tr>
-                                                        <th>{{trans('task.question_set_name')}}</th>
+                                                        <th>{{trans('job.question_set_name')}}</th>
                                                         <th class="table-option">Action</th>
                                                     </tr>
                                                 </thead>
@@ -63,7 +63,7 @@
                                                         <td v-text="question_set.name"></td>
                                                         <td class="table-option">
                                                             <div class="btn-group">
-                                                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target=".question-set-detail" @click="fetchQuestionSet(question_set)" v-tooltip="trans('task.view_question_set')"><i class="fas fa-arrow-circle-right"></i></button>
+                                                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target=".question-set-detail" @click="fetchQuestionSet(question_set)" v-tooltip="trans('job.view_question_set')"><i class="fas fa-arrow-circle-right"></i></button>
                                                                 <button class="btn btn-danger btn-sm" :key="question_set.id" v-confirm="{ok: confirmDelete(question_set)}" v-tooltip="trans('question_set.delete_role')"><i class="fas fa-trash"></i></button>
                                                             </div>
                                                         </td>
@@ -84,15 +84,15 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title" id="questionSetDetail">{{trans('task.question_set')}}</h4>
+                        <h4 class="modal-title" id="questionSetDetail">{{trans('job.question_set')}}</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <div class="modal-body" v-if="question_set">
                         <h4>{{question_set.name}}
-                            <span class="pull-right">{{trans('task.created_at')}} {{question_set.created_at | moment}}</span>
+                            <span class="pull-right">{{trans('job.created_at')}} {{question_set.created_at | moment}}</span>
                         </h4>
                         <p>{{question_set.description}}</p>
-                        <h4>{{trans('task.questions')}}</h4>
+                        <h4>{{trans('job.questions')}}</h4>
 
                         <ol>
                             <li v-for="question in question_set.questions" v-text="question.question"></li>

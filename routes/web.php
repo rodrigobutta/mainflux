@@ -14,10 +14,10 @@ Route::group(['middleware' => ['jwt.auth']], function () {
     Route::get('/backup/{id}/download','BackupController@download');
     Route::get('/message/{message_uuid}/attachment/{attachment_uuid}/download','MessageController@download');
     Route::get('/announcement/{id}/attachment/{attachment_uuid}/download','AnnouncementController@download');
-    Route::get('/task/{uuid}/attachment/{attachment_uuid}/download','TaskController@download');
-    Route::get('/task/{uuid}/sub-task/{suuid}/attachment/{attachment_uuid}/download','SubTaskController@download');
-    Route::get('/task/{uuid}/note/{nuuid}/attachment/{attachment_uuid}/download','TaskNoteController@download');
-    Route::get('/task/{uuid}/attachment/{auuid}/attachment/{attachment_uuid}/download','TaskAttachmentController@download');
+    Route::get('/job/{uuid}/attachment/{attachment_uuid}/download','JobController@download');
+    Route::get('/job/{uuid}/sub-job/{suuid}/attachment/{attachment_uuid}/download','SubJobController@download');
+    Route::get('/job/{uuid}/note/{nuuid}/attachment/{attachment_uuid}/download','JobNoteController@download');
+    Route::get('/job/{uuid}/attachment/{auuid}/attachment/{attachment_uuid}/download','JobAttachmentController@download');
 
     Route::post('/notification', 'NotificationController@post');
 

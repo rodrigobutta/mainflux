@@ -8510,8 +8510,8 @@ $(function () {
     // ==============================================================
     // To do list
     // ==============================================================
-    $(".list-task li label").click(function () {
-        $(this).toggleClass("task-done");
+    $(".list-job li label").click(function () {
+        $(this).toggleClass("job-done");
     });
 
      // ==============================================================

@@ -12,9 +12,9 @@
             <div class="col-6 col-md-2">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">{{trans('task.dashboard_task_count',{type: trans('task.total')})}}</h4>
+                        <h4 class="card-title">{{trans('job.dashboard_job_count',{type: trans('job.total')})}}</h4>
                         <div class="text-right">
-                            <h2 class="font-light m-b-0"><i class="fas fa-tasks fa-lg pull-right text-info"></i> <span class="pull-left">{{task_stats.total}}</span></h2>
+                            <h2 class="font-light m-b-0"><i class="fas fa-jobs fa-lg pull-right text-info"></i> <span class="pull-left">{{job_stats.total}}</span></h2>
                         </div>
                     </div>
                 </div>
@@ -22,9 +22,9 @@
             <div class="col-6 col-md-2">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">{{trans('task.dashboard_task_count',{type: trans('task.owned')})}}</h4>
+                        <h4 class="card-title">{{trans('job.dashboard_job_count',{type: trans('job.owned')})}}</h4>
                         <div class="text-right">
-                            <h2 class="font-light m-b-0"><i class="fas fa-user fa-lg pull-right text-success"></i> <span class="pull-left">{{task_stats.owned}}</span></h2>
+                            <h2 class="font-light m-b-0"><i class="fas fa-user fa-lg pull-right text-success"></i> <span class="pull-left">{{job_stats.owned}}</span></h2>
                         </div>
                     </div>
                 </div>
@@ -32,9 +32,9 @@
             <div class="col-6 col-md-2">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title"><small>{{trans('task.dashboard_task_count',{type: trans('task.unassigned')})}}</small></h4>
+                        <h4 class="card-title"><small>{{trans('job.dashboard_job_count',{type: trans('job.unassigned')})}}</small></h4>
                         <div class="text-right">
-                            <h2 class="font-light m-b-0"><i class="fas fa-user-times fa-lg pull-right text-warning"></i> <span class="pull-left">{{task_stats.unassigned}}</span></h2>
+                            <h2 class="font-light m-b-0"><i class="fas fa-user-times fa-lg pull-right text-warning"></i> <span class="pull-left">{{job_stats.unassigned}}</span></h2>
                         </div>
                     </div>
                 </div>
@@ -42,9 +42,9 @@
             <div class="col-6 col-md-2">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">{{trans('task.dashboard_task_count',{type: trans('task.pending')})}}</h4>
+                        <h4 class="card-title">{{trans('job.dashboard_job_count',{type: trans('job.pending')})}}</h4>
                         <div class="text-right">
-                            <h2 class="font-light m-b-0"><i class="fas fa-spinner fa-lg pull-right text-danger"></i> <span class="pull-left">{{task_stats.pending}}</span></h2>
+                            <h2 class="font-light m-b-0"><i class="fas fa-spinner fa-lg pull-right text-danger"></i> <span class="pull-left">{{job_stats.pending}}</span></h2>
                         </div>
                     </div>
                 </div>
@@ -52,9 +52,9 @@
             <div class="col-6 col-md-2">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">{{trans('task.dashboard_task_count',{type: trans('task.overdue')})}}</h4>
+                        <h4 class="card-title">{{trans('job.dashboard_job_count',{type: trans('job.overdue')})}}</h4>
                         <div class="text-right">
-                            <h2 class="font-light m-b-0"><i class="fas fa-fire fa-lg pull-right text-danger"></i> <span class="pull-left">{{task_stats.overdue}}</span></h2>
+                            <h2 class="font-light m-b-0"><i class="fas fa-fire fa-lg pull-right text-danger"></i> <span class="pull-left">{{job_stats.overdue}}</span></h2>
                         </div>
                     </div>
                 </div>
@@ -62,9 +62,9 @@
             <div class="col-6 col-md-2">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">{{trans('task.dashboard_task_count',{type: trans('task.completed')})}}</h4>
+                        <h4 class="card-title">{{trans('job.dashboard_job_count',{type: trans('job.completed')})}}</h4>
                         <div class="text-right">
-                            <h2 class="font-light m-b-0"><i class="fas fa-battery-full fa-lg pull-right text-success"></i> <span class="pull-left">{{task_stats.completed}}</span></h2>
+                            <h2 class="font-light m-b-0"><i class="fas fa-battery-full fa-lg pull-right text-success"></i> <span class="pull-left">{{job_stats.completed}}</span></h2>
                         </div>
                     </div>
                 </div>
@@ -74,27 +74,27 @@
             <div class="col-12 col-md-4">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">{{trans('task.task_category')}}</h4>
-                        <doughnut-graph :graph="graph.task_category" v-show="graph.task_category.labels.length"></doughnut-graph>
-                        <h6 class="card-subtitle" v-if="!graph.task_category.labels.length">{{trans('general.no_result_found')}}</h6>
+                        <h4 class="card-title">{{trans('job.job_category')}}</h4>
+                        <doughnut-graph :graph="graph.job_category" v-show="graph.job_category.labels.length"></doughnut-graph>
+                        <h6 class="card-subtitle" v-if="!graph.job_category.labels.length">{{trans('general.no_result_found')}}</h6>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-4">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">{{trans('task.task_priority')}}</h4>
-                        <doughnut-graph :graph="graph.task_priority" v-show="graph.task_priority.labels.length"></doughnut-graph>
-                        <h6 class="card-subtitle" v-if="!graph.task_priority.labels.length">{{trans('general.no_result_found')}}</h6>
+                        <h4 class="card-title">{{trans('job.job_priority')}}</h4>
+                        <doughnut-graph :graph="graph.job_priority" v-show="graph.job_priority.labels.length"></doughnut-graph>
+                        <h6 class="card-subtitle" v-if="!graph.job_priority.labels.length">{{trans('general.no_result_found')}}</h6>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-4">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">{{trans('task.status')}}</h4>
-                        <doughnut-graph :graph="graph.task_status" v-show="graph.task_status.labels.length"></doughnut-graph>
-                        <h6 class="card-subtitle" v-if="!graph.task_status.labels.length">{{trans('general.no_result_found')}}</h6>
+                        <h4 class="card-title">{{trans('job.status')}}</h4>
+                        <doughnut-graph :graph="graph.job_status" v-show="graph.job_status.labels.length"></doughnut-graph>
+                        <h6 class="card-subtitle" v-if="!graph.job_status.labels.length">{{trans('general.no_result_found')}}</h6>
                     </div>
                 </div>
             </div>
@@ -103,36 +103,36 @@
             <div class="col-12">
                 <div class="card">
                     <ul class="nav nav-tabs profile-tab" role="tablist">
-                        <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#starred" role="tab" @click="showHideTabs('showStarredTab')">{{trans('task.starred')}}</a> </li>
-                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#pending" role="tab" @click="showHideTabs('showPendingTab')">{{trans('task.pending')}}</a> </li>
-                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#overdue" role="tab" @click="showHideTabs('showOverdueTab')">{{trans('task.overdue')}}</a> </li>
-                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#owned" role="tab" @click="showHideTabs('showOwnedTab')">{{trans('task.owned')}}</a> </li>
-                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#unassigned" role="tab" @click="showHideTabs('showUnassignedTab')">{{trans('task.unassigned')}}</a> </li>
+                        <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#starred" role="tab" @click="showHideTabs('showStarredTab')">{{trans('job.starred')}}</a> </li>
+                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#pending" role="tab" @click="showHideTabs('showPendingTab')">{{trans('job.pending')}}</a> </li>
+                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#overdue" role="tab" @click="showHideTabs('showOverdueTab')">{{trans('job.overdue')}}</a> </li>
+                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#owned" role="tab" @click="showHideTabs('showOwnedTab')">{{trans('job.owned')}}</a> </li>
+                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#unassigned" role="tab" @click="showHideTabs('showUnassignedTab')">{{trans('job.unassigned')}}</a> </li>
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="starred" role="tabpanel">
                             <div class="card-body" v-if="tabs.showStarredTab">
-                                <task-list option="starred"></task-list>
+                                <job-list option="starred"></job-list>
                             </div>
                         </div>
                         <div class="tab-pane" id="pending" role="tabpanel">
                             <div class="card-body" v-if="tabs.showPendingTab">
-                                <task-list option="pending"></task-list>
+                                <job-list option="pending"></job-list>
                             </div>
                         </div>
                         <div class="tab-pane" id="overdue" role="tabpanel">
                             <div class="card-body" v-if="tabs.showOverdueTab">
-                                <task-list option="overdue"></task-list>
+                                <job-list option="overdue"></job-list>
                             </div>
                         </div>
                         <div class="tab-pane" id="owned" role="tabpanel">
                             <div class="card-body" v-if="tabs.showOwnedTab">
-                                <task-list option="owned"></task-list>
+                                <job-list option="owned"></job-list>
                             </div>
                         </div>
                         <div class="tab-pane" id="unassigned" role="tabpanel">
                             <div class="card-body" v-if="tabs.showUnassignedTab">
-                                <task-list option="unassigned"></task-list>
+                                <job-list option="unassigned"></job-list>
                             </div>
                         </div>
                     </div>
@@ -195,13 +195,13 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="message-scroll">
-                            <h4 class="card-title">{{trans('task.user_rating_top_chart')}}</h4>
+                            <h4 class="card-title">{{trans('job.user_rating_top_chart')}}</h4>
                             <div class="comment-widgets">
                                 <div class="d-flex flex-row comment-row" v-for="top_chart in top_charts" style="padding: 0 15px;">
                                     <div class="p-2"><span class="round"><img :src="getAvatar(top_chart.user)" alt="user" width="50"></span></div>
                                     <div class="comment-text w-100">
                                         <h5>{{top_chart.user.profile.first_name+' '+top_chart.user.profile.last_name+' ('+top_chart.user.profile.designation.name+' '+top_chart.user.profile.designation.department.name+')'}}</h5>
-                                        <span class="m-b-5" v-html="generateRatingStar(top_chart.rating)"></span> (<span>{{top_chart.task_count+' '+trans('task.task')}}</span>)
+                                        <span class="m-b-5" v-html="generateRatingStar(top_chart.rating)"></span> (<span>{{top_chart.job_count+' '+trans('job.job')}}</span>)
                                     </div>
                                 </div>
                                 <h6 class="card-subtitle" v-if="!top_charts.length">{{trans('general.no_result_found')}}</h6>
@@ -316,13 +316,13 @@
 <script>
     import announcementDetail from '../announcement/detail'
     import doughnutGraph from '../graph/doughnut-graph'
-    import taskList from '../task/task-list'
+    import jobList from '../job/job-list'
 
     export default {
-        components: {announcementDetail,doughnutGraph,taskList},
+        components: {announcementDetail,doughnutGraph,jobList},
         data() {
             return {
-                task_stats: {},
+                job_stats: {},
                 activity_logs: {},
                 pending_todos: [],
                 completed_todos: [],
@@ -330,13 +330,13 @@
                 announcement_id: '',
                 top_charts: [],
                 graph: {
-                    task_category: {
+                    job_category: {
                         labels: []
                     },
-                    task_priority: {
+                    job_priority: {
                         labels: []
                     },
-                    task_status: {
+                    job_status: {
                         labels: []
                     },
                 },
@@ -354,7 +354,7 @@
             axios.get('/api/dashboard')
                 .then(response => response.data)
                 .then(response => {
-                    this.task_stats = response.task_stats;
+                    this.job_stats = response.job_stats;
                     this.activity_logs = response.activity_logs;
                     this.announcements = response.announcements;
                 })
@@ -398,7 +398,7 @@
                     });
             },
             getGraphData(){
-                axios.post('/api/task/graph')
+                axios.post('/api/job/graph')
                     .then(response => response.data)
                     .then(response => {
                         this.graph = response;
@@ -423,7 +423,7 @@
                 return helper.getConfig(name);
             },
             getUserRatingTopChart(){
-                axios.post('/api/task/rating/chart')
+                axios.post('/api/job/rating/chart')
                     .then(response => response.data)
                     .then(response => this.top_charts = response)
                     .catch(error => {

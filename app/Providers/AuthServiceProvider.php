@@ -22,8 +22,8 @@ class AuthServiceProvider extends ServiceProvider
         'App\Asset'         => 'App\Policies\AssetPolicy',
         'App\Project'         => 'App\Policies\ProjectPolicy',
         'App\Location'     => 'App\Policies\LocationPolicy',
-        'App\Task'         => 'App\Policies\TaskPolicy',
-        'App\SubTask'      => 'App\Policies\SubTaskPolicy',
+        'App\Job'         => 'App\Policies\JobPolicy',
+        'App\SubJob'      => 'App\Policies\SubJobPolicy',
         'App\Announcement' => 'App\Policies\AnnouncementPolicy'
     ];
 

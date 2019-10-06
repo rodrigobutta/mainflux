@@ -6233,7 +6233,7 @@ readers do not read off random characters that represent icons */
 .fa-tape:before {
   content: "\F4DB"; }
 
-.fa-tasks:before {
+.fa-jobs:before {
   content: "\F0AE"; }
 
 .fa-taxi:before {
@@ -6730,7 +6730,7 @@ readers do not read off random characters that represent icons */
   font-style: normal;
   font-weight: 900;
   src: url(/fonts/fa-solid-900.eot?0d38abcb91b2dd56e8babd915233caca);
-  src: url(/fonts/fa-solid-900.eot?0d38abcb91b2dd56e8babd915233caca?#iefix) format("embedded-opentype"), url(/fonts/fa-solid-900.woff2?62e224193aeed0b428e83d1cccfd6d91) format("woff2"), url(/fonts/fa-solid-900.woff?68b7c2849c46507aef459d047d5e7696) format("woff"), url(/fonts/fa-solid-900.ttf?ba67efc77a5fe272922aebf9d42ad1da) format("truetype"), url(/fonts/fa-solid-900.svg?7bc0b08bd858d78a561191a308e0bcd4#fontawesome) format("svg"); }
+  src: url(/fonts/fa-solid-900.eot?0d38abcb91b2dd56e8babd915233caca?#iefix) format("embedded-opentype"), url(/fonts/fa-solid-900.woff2?62e224193aeed0b428e83d1cccfd6d91) format("woff2"), url(/fonts/fa-solid-900.woff?68b7c2849c46507aef459d047d5e7696) format("woff"), url(/fonts/fa-solid-900.ttf?ba67efc77a5fe272922aebf9d42ad1da) format("truetype"), url(/fonts/fa-solid-900.svg?ebc5fc36bbed1675e7691c9380d39083#fontawesome) format("svg"); }
 
 .fa,
 .fas {
@@ -25717,7 +25717,7 @@ When click on sidebar toggler and also for tablet
   display: inline-block;
 }
 
-.list-task .task-done span {
+.list-job .job-done span {
   text-decoration: line-through;
 }
 

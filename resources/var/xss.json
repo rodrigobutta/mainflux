@@ -2,8 +2,8 @@
 	"api/message/compose": ["body"],
 	"api/message/reply": ["body"],
 	"api/email-template/*": ["body"],
-	"api/task": ["description"],
-	"api/task/*": ["description"],
+	"api/job": ["description"],
+	"api/job/*": ["description"],
 	"api/announcement": ["description"],
 	"api/announcement/*": ["description"]
 }

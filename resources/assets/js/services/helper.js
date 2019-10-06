@@ -214,71 +214,71 @@ export default {
             return user.profile.first_name+' '+user.profile.last_name;
     },
 
-    // returns task number
-    getTaskNumber(task){
-        return this.getConfig('task_number_prefix')+this.formatWithPadding(task.id,this.getConfig('task_number_digit'));
+    // returns job number
+    getJobNumber(job){
+        return this.getConfig('job_number_prefix')+this.formatWithPadding(job.id,this.getConfig('job_number_digit'));
     },
 
-    // returns task status
-    getTaskStatus(task){
+    // returns job status
+    getJobStatus(job){
         let status = [];
 
-        if(!task.user.length)
-            status.push({'color': 'danger','label': i18n.task.unassigned});
+        if(!job.user.length)
+            status.push({'color': 'danger','label': i18n.job.unassigned});
 
-        if(task.sign_off_status === 'approved')
-            status.push({'color': 'success','label': i18n.task.completed});
-        else if(task.sign_off_status === 'requested')
-            status.push({'color': 'warning','label': i18n.task.requested});
+        if(job.sign_off_status === 'approved')
+            status.push({'color': 'success','label': i18n.job.completed});
+        else if(job.sign_off_status === 'requested')
+            status.push({'color': 'warning','label': i18n.job.requested});
         else
-            status.push({'color': 'info','label': i18n.task.pending});
+            status.push({'color': 'info','label': i18n.job.pending});
 
-        if(task.sign_off_status === 'rejected')
-            status.push({'color': 'danger','label': i18n.task.rejected});
+        if(job.sign_off_status === 'rejected')
+            status.push({'color': 'danger','label': i18n.job.rejected});
 
-        if(task.sign_off_status !== 'approved' && moment(task.due_date).format('YYYY-MM-DD') < moment().format('YYYY-MM-DD')){
+        if(job.sign_off_status !== 'approved' && moment(job.due_date).format('YYYY-MM-DD') < moment().format('YYYY-MM-DD')){
             let today = moment(new Date(),'YYYY-MM-DD');
-            let due_date = moment(task.due_date,'YYYY-MM-DD');
+            let due_date = moment(job.due_date,'YYYY-MM-DD');
             let overdue = today.diff(due_date,'days');
-            status.push({'color': 'danger','label': i18n.task.overdue_by+' '+overdue+' '+i18n.task.day});
-        } else if(task.sign_off_status === 'approved' && moment(task.completed_at).format('YYYY-MM-DD') > moment(task.due_date).format('YYYY-MM-DD')){
-            let completed_at = moment(task.completed_at,'YYYY-MM-DD');
-            let due_date = moment(task.due_date,'YYYY-MM-DD');
+            status.push({'color': 'danger','label': i18n.job.overdue_by+' '+overdue+' '+i18n.job.day});
+        } else if(job.sign_off_status === 'approved' && moment(job.completed_at).format('YYYY-MM-DD') > moment(job.due_date).format('YYYY-MM-DD')){
+            let completed_at = moment(job.completed_at,'YYYY-MM-DD');
+            let due_date = moment(job.due_date,'YYYY-MM-DD');
             let late = completed_at.diff(due_date,'days');
-            status.push({'color': 'danger','label': i18n.task.late_by+' '+late+' '+i18n.task.day});
+            status.push({'color': 'danger','label': i18n.job.late_by+' '+late+' '+i18n.job.day});
         }
 
         return status;
     },
 
     // returns user status
-    getSubTaskStatus(subTask){
-        if(subTask.status)
-            return {'color': 'success','label': i18n.task.complete};
+    getSubJobStatus(subJob){
+        if(subJob.status)
+            return {'color': 'success','label': i18n.job.complete};
         else
-            return {'color': 'danger','label': i18n.task.incomeplete};
+            return {'color': 'danger','label': i18n.job.incomeplete};
     },
 
-    // returns task progress
-    getTaskProgress(task){
+    // returns job progress
+    getJobProgress(job){
         let progress = 0
-        if(task.progress_type === 'manual')
-            progress = task.progress;
-        else if (task.progress_type === 'question')
-            progress = (task.answers && task.answers.length) ? 100 : 0;
+        if(job.progress_type === 'manual')
+            progress = job.progress;
+        else if (job.progress_type === 'question')
+            progress = (job.answers && job.answers.length) ? 100 : 0;
         else {
-            let completed_sub_task = 0;
-            task.sub_task.forEach(function(element){
-                completed_sub_task += (element.status) ? 1 : 0;
+            let completed_sub_job = 0;
+            job.sub_job.forEach(function(element){
+                completed_sub_job += (element.status) ? 1 : 0;
             });
-            progress = (task.sub_task.length) ? this.formatNumber((completed_sub_task/task.sub_task.length)*100) : 0;
+            progress = (job.sub_job.length) ? this.formatNumber((completed_sub_job/job.sub_job.length)*100) : 0;
         }
         return progress;
     },
 
-    // returns task progress color
-    getTaskProgressColor(task){
-        let progress = this.getTaskProgress(task);
+    // returns job progress color
+    getJobProgressColor(job){
+        let progress = this.getJobProgress(job);
 
         let classes = ['progress-bar','progress-bar-striped'];
         if(progress <= 25)
@@ -438,26 +438,26 @@ export default {
         return result;
     },
 
-    // get task user rating
-    getTaskUserRating(user,task){
-        if(task.sign_off_status !== 'approved')
+    // get job user rating
+    getJobUserRating(user,job){
+        if(job.sign_off_status !== 'approved')
             return;
 
-        if(task.rating_type === 'task_based'){
+        if(job.rating_type === 'job_based'){
             if(user.pivot.rating)
                 return this.generateRatingStar(user.pivot.rating);
             return;
-        } else if(task.rating_type === 'sub_task_based'){
+        } else if(job.rating_type === 'sub_job_based'){
             let rating = 0;
-            let sub_task_count = 0;
-            task.sub_task.forEach(function(sub_task){
-                let sub_task_rating = sub_task.sub_task_rating.filter(sub_task_rating => sub_task_rating.user_id == user.id);
-                if(sub_task_rating.length){
-                    rating = rating + sub_task_rating[0].rating;
-                    sub_task_count = sub_task_count + 1;
+            let sub_job_count = 0;
+            job.sub_job.forEach(function(sub_job){
+                let sub_job_rating = sub_job.sub_job_rating.filter(sub_job_rating => sub_job_rating.user_id == user.id);
+                if(sub_job_rating.length){
+                    rating = rating + sub_job_rating[0].rating;
+                    sub_job_count = sub_job_count + 1;
                 }
             });
-            let average_rating = (sub_task_count) ? rating/sub_task_count : 0;
+            let average_rating = (sub_job_count) ? rating/sub_job_count : 0;
             return this.generateRatingStar(average_rating);
         }
     },

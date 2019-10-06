@@ -167,7 +167,7 @@ class EmailTemplateRepository
     {
         $template = $params['template'];
         $user     = isset($params['user']) ? $params['user']  : null;
-        $task     = isset($params['task']) ? $params['task']  : null;
+        $job     = isset($params['job']) ? $params['job']  : null;
         $password = isset($params['password']) ? $params['password'] : '';
 
         $body    = $template->body;
@@ -199,7 +199,7 @@ class EmailTemplateRepository
         $body    = str_replace('[CURRENT_DATE_TIME]', showDateTime(date('Y-m-d H:i:s')), $body);
         $subject = str_replace('[CURRENT_DATE_TIME]', showDateTime(date('Y-m-d H:i:s')), $subject);
 
-        if ($template->category === 'user' || $template->category === 'task') {
+        if ($template->category === 'user' || $template->category === 'job') {
             $body    = str_replace('[NAME]', ($user->name) ? : '-', $body);
             $subject = str_replace('[NAME]', ($user->name) ? : '-', $subject);
 
@@ -224,41 +224,41 @@ class EmailTemplateRepository
             $subject = str_replace('[DATE_OF_ANNIVERSARY]', ($user->Profile->date_of_anniversary) ? showDate($user->Profile->date_of_anniversary) : '-', $subject);
         }
 
-        if ($template->category == 'task') {
-            $body = str_replace('[TASK_NUMBER]', $task->task_number, $body);
-            $subject = str_replace('[TASK_NUMBER]', $task->task_number, $subject);
+        if ($template->category == 'job') {
+            $body = str_replace('[JOB_NUMBER]', $job->job_number, $body);
+            $subject = str_replace('[JOB_NUMBER]', $job->job_number, $subject);
 
-            $body = str_replace('[TASK_TITLE]', $task->title, $body);
-            $subject = str_replace('[TASK_TITLE]', $task->title, $subject);
+            $body = str_replace('[JOB_TITLE]', $job->title, $body);
+            $subject = str_replace('[JOB_TITLE]', $job->title, $subject);
 
-            $body = str_replace('[TASK_CATEGORY]', $task->TaskCategory->name, $body);
-            $subject = str_replace('[TASK_CATEGORY]', $task->TaskCategory->name, $subject);
+            $body = str_replace('[JOB_CATEGORY]', $job->JobCategory->name, $body);
+            $subject = str_replace('[JOB_CATEGORY]', $job->JobCategory->name, $subject);
 
-            $body = str_replace('[TASK_PRIORITY]', $task->TaskPriority->name, $body);
-            $subject = str_replace('[TASK_PRIORITY]', $task->TaskPriority->name, $subject);
+            $body = str_replace('[JOB_PRIORITY]', $job->JobPriority->name, $body);
+            $subject = str_replace('[JOB_PRIORITY]', $job->JobPriority->name, $subject);
 
-            $body = str_replace('[TASK_START_DATE]', showDate($task->start_date), $body);
-            $subject = str_replace('[TASK_START_DATE]', showDate($task->start_date), $subject);
+            $body = str_replace('[JOB_START_DATE]', showDate($job->start_date), $body);
+            $subject = str_replace('[JOB_START_DATE]', showDate($job->start_date), $subject);
 
-            $body = str_replace('[TASK_DUE_DATE]', showDate($task->due_date), $body);
-            $subject = str_replace('[TASK_DUE_DATE]', showDate($task->due_date), $subject);
+            $body = str_replace('[JOB_DUE_DATE]', showDate($job->due_date), $body);
+            $subject = str_replace('[JOB_DUE_DATE]', showDate($job->due_date), $subject);
 
-            $task_url = '<a href="'.url('/task/'.$task->uuid).'">here</a>';
+            $job_url = '<a href="'.url('/job/'.$job->uuid).'">here</a>';
 
-            $body = str_replace('[TASK_URL]', $task_url, $body);
-            $subject = str_replace('[TASK_URL]', $task_url, $subject);
+            $body = str_replace('[JOB_URL]', $job_url, $body);
+            $subject = str_replace('[JOB_URL]', $job_url, $subject);
 
-            $body = str_replace('[TASK_OWNER_NAME]', $task->UserAdded->name, $body);
-            $subject = str_replace('[TASK_OWNER_NAME]', $task->UserAdded->name, $subject);
+            $body = str_replace('[JOB_OWNER_NAME]', $job->UserAdded->name, $body);
+            $subject = str_replace('[JOB_OWNER_NAME]', $job->UserAdded->name, $subject);
 
-            $body = str_replace('[TASK_OWNER_EMAIL]', $task->UserAdded->email, $body);
-            $subject = str_replace('[TASK_OWNER_EMAIL]', $task->UserAdded->email, $subject);
+            $body = str_replace('[JOB_OWNER_EMAIL]', $job->UserAdded->email, $body);
+            $subject = str_replace('[JOB_OWNER_EMAIL]', $job->UserAdded->email, $subject);
 
-            $body = str_replace('[TASK_OWNER_DESIGNATION]', $task->UserAdded->designation_name, $body);
-            $subject = str_replace('[TASK_OWNER_DESIGNATION]', $task->UserAdded->designation_name, $subject);
+            $body = str_replace('[JOB_OWNER_DESIGNATION]', $job->UserAdded->designation_name, $body);
+            $subject = str_replace('[JOB_OWNER_DESIGNATION]', $job->UserAdded->designation_name, $subject);
 
-            $body = str_replace('[TASK_OWNER_DEPARTMENT]', $task->UserAdded->department_name, $body);
-            $subject = str_replace('[TASK_OWNER_DEPARTMENT]', $task->UserAdded->department_name, $subject);
+            $body = str_replace('[JOB_OWNER_DEPARTMENT]', $job->UserAdded->department_name, $body);
+            $subject = str_replace('[JOB_OWNER_DEPARTMENT]', $job->UserAdded->department_name, $subject);
         }
 
         $mail_data['body']    = $body;

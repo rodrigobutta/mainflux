@@ -549,8 +549,8 @@ class UserRepository
     {
         $user = $this->findOrFail($id);
 
-        if ($user->Task->count()) {
-            throw ValidationException::withMessages(['message' => trans('user.has_many_tasks')]);
+        if ($user->Job->count()) {
+            throw ValidationException::withMessages(['message' => trans('user.has_many_jobs')]);
         }
         
         return $user;
