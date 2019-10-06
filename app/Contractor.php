@@ -10,11 +10,6 @@ class Contractor extends Model
     protected $primaryKey = 'id';
     protected $table = 'contractors';
 
-    public function designations()
-    {
-        return $this->hasMany('App\Designation');
-    }
-
     public function scopeFilterById($q, $id)
     {
         if (! $id) {

@@ -24,6 +24,12 @@
                     <li v-if="hasPermission('list-user') && getConfig('show_user_menu')"><router-link to="/user" exact><i class="fas fa-users fa-fw"></i> <span class="hide-menu">{{trans('user.user')}}</span></router-link></li>                    
                     <li v-if="hasPermission('list-client') && getConfig('show_client_menu')"><router-link to="/client" exact><i class="fas fa-building fa-fw"></i> <span class="hide-menu">{{trans('client.client')}}</span></router-link></li>
                     <li v-if="hasPermission('list-contractor') && getConfig('show_contractor_menu')"><router-link to="/contractor" exact><i class="fas fa-truck fa-fw"></i> <span class="hide-menu">{{trans('contractor.contractor')}}</span></router-link></li>
+                    <li>
+                        <a class="has-arrow" href="#" aria-expanded="false"><i class="fas fa-cog fa-fw"></i> <span class="hide-menu">Task Config</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li v-if="hasPermission('list-task-relevance') && getConfig('show_task_relevance_menu')"><router-link to="/task-relevance" exact><i class="fas fa-university fa-fw"></i> {{trans('task-relevance.task_relevance')}}</router-link></li>
+                        </ul>
+                    </li>
                     <li v-if="hasPermission('list-asset') && getConfig('show_asset_menu')"><router-link to="/asset" exact><i class="fas fa-sitemap fa-fw"></i> <span class="hide-menu">{{trans('asset.asset')}}</span></router-link></li>
                     <li v-if="hasPermission('list-project') && getConfig('show_project_menu')"><router-link to="/project" exact><i class="fas fa-sitemap fa-fw"></i> <span class="hide-menu">{{trans('project.project')}}</span></router-link></li>
                     <li v-if="hasPermission('list-job') && getConfig('show_job_menu')"><router-link to="/job" exact><i class="fas fa-jobs fa-fw"></i> <span class="hide-menu">{{trans('job.job')}}</span></router-link></li>

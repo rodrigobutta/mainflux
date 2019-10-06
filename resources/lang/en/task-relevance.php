@@ -1,0 +1,20 @@
+<?php return array (
+  'add_new_task_relevance' => 'Add New Task Relevance',
+  'added' => 'Task Relevance added.',
+  'could_not_find' => 'Could not find selected task relevance.',
+  'default_cannot_be_deleted' => 'Default task relevance cannot be deleted.',
+  'delete_task_relevance' => 'Delete Task Relevance',
+  'deleted' => 'Task Relevance deleted.',
+  'task_relevance' => 'Task Relevance',
+  'task_relevance_exists' => 'Task Relevance already exists.',
+  'task_relevance_list' => 'Task Relevance List',
+  'description' => 'Description',
+  'edit_task_relevance' => 'Edit Task Relevance',
+  'name' => 'Name',
+  'code' => 'Code',
+  'select_task_relevance' => 'Select Task Relevance',
+  'updated' => 'Task Relevance updated.',
+  'module_info_title' => 'Add some task relevances here!',
+  'module_info_description' => 'Create task relevances for your staff, add designations to every task relevance.',
+  'has_many_designations' => 'Cannot delete as task relevance has many designations.'
+);

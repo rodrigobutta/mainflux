@@ -154,6 +154,30 @@ Route::group(['middleware' => ['jwt.auth']], function () {
     Route::patch('/contractor/{id}','ContractorController@update');
     Route::delete('/contractor/{id}','ContractorController@destroy');
 
+    Route::get('/task-relevance','TaskRelevanceController@index');
+    Route::get('/task-relevance/{id}','TaskRelevanceController@show');
+    Route::post('/task-relevance','TaskRelevanceController@store');
+    Route::patch('/task-relevance/{id}','TaskRelevanceController@update');
+    Route::delete('/task-relevance/{id}','TaskRelevanceController@destroy');
+
+    Route::get('/task-frequency','TaskFrequencyController@index');
+    Route::get('/task-frequency/{id}','TaskFrequencyController@show');
+    Route::post('/task-frequency','TaskFrequencyController@store');
+    Route::patch('/task-frequency/{id}','TaskFrequencyController@update');
+    Route::delete('/task-frequency/{id}','TaskFrequencyController@destroy');
+
+    Route::get('/task-complexity','TaskComplexityController@index');
+    Route::get('/task-complexity/{id}','TaskComplexityController@show');
+    Route::post('/task-complexity','TaskComplexityController@store');
+    Route::patch('/task-complexity/{id}','TaskComplexityController@update');
+    Route::delete('/task-complexity/{id}','TaskComplexityController@destroy');
+
+    Route::get('/task-family','TaskFamilyController@index');
+    Route::get('/task-family/{id}','TaskFamilyController@show');
+    Route::post('/task-family','TaskFamilyController@store');
+    Route::patch('/task-family/{id}','TaskFamilyController@update');
+    Route::delete('/task-family/{id}','TaskFamilyController@destroy');
+
     Route::get('/designation/pre-requisite','DesignationController@preRequisite');
     Route::get('/designation','DesignationController@index');
     Route::get('/designation/{id}','DesignationController@show');
