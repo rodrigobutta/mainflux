@@ -49,7 +49,7 @@ class QuestionSetController extends Controller
     public function store(QuestionSetRequest $request)
     {
 
-    	$question_set = $this->repo->create($this->request->all());
+        $question_set = $this->repo->create($this->request->all());
 
         $this->activity->record([
             'module' => $this->module,
