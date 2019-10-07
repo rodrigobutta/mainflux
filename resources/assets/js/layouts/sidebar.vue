@@ -28,6 +28,9 @@
                         <a class="has-arrow" href="#" aria-expanded="false"><i class="fas fa-cog fa-fw"></i> <span class="hide-menu">Task Config</span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li v-if="hasPermission('list-task-relevance') && getConfig('show_task_relevance_menu')"><router-link to="/task-relevance" exact><i class="fas fa-university fa-fw"></i> {{trans('task-relevance.task_relevance')}}</router-link></li>
+                            <li v-if="hasPermission('list-task-frequency') && getConfig('show_task_frequency_menu')"><router-link to="/task-frequency" exact><i class="fas fa-university fa-fw"></i> {{trans('task-frequency.task_frequency')}}</router-link></li>
+                            <li v-if="hasPermission('list-task-complexity') && getConfig('show_task_complexity_menu')"><router-link to="/task-complexity" exact><i class="fas fa-university fa-fw"></i> {{trans('task-complexity.task_complexity')}}</router-link></li>
+                            <li v-if="hasPermission('list-task-family') && getConfig('show_task_family_menu')"><router-link to="/task-family" exact><i class="fas fa-university fa-fw"></i> {{trans('task-family.task_family')}}</router-link></li>
                         </ul>
                     </li>
                     <li v-if="hasPermission('list-asset') && getConfig('show_asset_menu')"><router-link to="/asset" exact><i class="fas fa-sitemap fa-fw"></i> <span class="hide-menu">{{trans('asset.asset')}}</span></router-link></li>

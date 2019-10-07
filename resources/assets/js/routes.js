@@ -243,30 +243,30 @@ let routes = [
                 path: '/task-relevance/:id/edit',
                 component: require('./views/task-relevance/edit')
             },
-            // {
-            //     path: '/task-frequency',
-            //     component: require('./views/task-frequency/index')
-            // },
-            // {
-            //     path: '/task-frequency/:id/edit',
-            //     component: require('./views/task-frequency/edit')
-            // },
-            // {
-            //     path: '/task-complexity',
-            //     component: require('./views/task-complexity/index')
-            // },
-            // {
-            //     path: '/task-complexity/:id/edit',
-            //     component: require('./views/task-complexity/edit')
-            // },
-            // {
-            //     path: '/task-family',
-            //     component: require('./views/task-family/index')
-            // },
-            // {
-            //     path: '/task-family/:id/edit',
-            //     component: require('./views/task-family/edit')
-            // },
+            {
+                path: '/task-frequency',
+                component: require('./views/task-frequency/index')
+            },
+            {
+                path: '/task-frequency/:id/edit',
+                component: require('./views/task-frequency/edit')
+            },
+            {
+                path: '/task-complexity',
+                component: require('./views/task-complexity/index')
+            },
+            {
+                path: '/task-complexity/:id/edit',
+                component: require('./views/task-complexity/edit')
+            },
+            {
+                path: '/task-family',
+                component: require('./views/task-family/index')
+            },
+            {
+                path: '/task-family/:id/edit',
+                component: require('./views/task-family/edit')
+            },
             {
                 path: '/designation',
                 component: require('./views/designation/index')

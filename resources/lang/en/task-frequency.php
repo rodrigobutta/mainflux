@@ -1,0 +1,20 @@
+<?php return array (
+  'add_new_task_frequency' => 'Add New Task Frequency',
+  'added' => 'Task Frequency added.',
+  'could_not_find' => 'Could not find selected task frequency.',
+  'default_cannot_be_deleted' => 'Default task frequency cannot be deleted.',
+  'delete_task_frequency' => 'Delete Task Frequency',
+  'deleted' => 'Task Frequency deleted.',
+  'task_frequency' => 'Task Frequency',
+  'task_frequency_exists' => 'Task Frequency already exists.',
+  'task_frequency_list' => 'Task Frequency List',
+  'description' => 'Description',
+  'edit_task_frequency' => 'Edit Task Frequency',
+  'name' => 'Name',
+  'code' => 'Code',
+  'select_task_frequency' => 'Select Task Frequency',
+  'updated' => 'Task Frequency updated.',
+  'module_info_title' => 'Add some task frequencys here!',
+  'module_info_description' => 'Create task frequencys for your staff, add designations to every task frequency.',
+  'has_many_designations' => 'Cannot delete as task frequency has many designations.'
+);

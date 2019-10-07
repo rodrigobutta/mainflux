@@ -13,7 +13,7 @@ class CreateTaskFamilyTable extends Migration
      */
     public function up()
     {
-        Schema::create('task_family', function (Blueprint $table) {
+        Schema::create('task_families', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name')->nullable();
@@ -31,6 +31,6 @@ class CreateTaskFamilyTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('task_family');
+        Schema::dropIfExists('task_families');
     }
 }

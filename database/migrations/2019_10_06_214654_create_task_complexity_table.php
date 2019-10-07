@@ -13,7 +13,7 @@ class CreateTaskComplexityTable extends Migration
      */
     public function up()
     {
-        Schema::create('task_complexity', function (Blueprint $table) {
+        Schema::create('task_complexities', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name')->nullable();
@@ -31,6 +31,6 @@ class CreateTaskComplexityTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('task_complexity');
+        Schema::dropIfExists('task_complexities');
     }
 }

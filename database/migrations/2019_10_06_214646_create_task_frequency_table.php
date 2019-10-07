@@ -13,7 +13,7 @@ class CreateTaskFrequencyTable extends Migration
      */
     public function up()
     {
-        Schema::create('task_frequency', function (Blueprint $table) {
+        Schema::create('task_frequencies', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name')->nullable();
@@ -31,6 +31,6 @@ class CreateTaskFrequencyTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('task_frequency');
+        Schema::dropIfExists('task_frequencies');
     }
 }
