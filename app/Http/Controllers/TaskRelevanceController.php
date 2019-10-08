@@ -66,7 +66,7 @@ class TaskRelevanceController extends Controller
             'activity'  => 'added'
         ]);
 
-        return $this->success(['message' => trans('task-relevance.added')]);
+        return $this->success(['message' => trans('task_relevance.added')]);
     }
 
     /**
@@ -109,7 +109,7 @@ class TaskRelevanceController extends Controller
             'activity'  => 'updated'
         ]);
 
-        return $this->success(['message' => trans('task-relevance.updated')]);
+        return $this->success(['message' => trans('task_relevance.updated')]);
     }
 
     /**
@@ -135,6 +135,6 @@ class TaskRelevanceController extends Controller
 
         $this->repo->delete($item);
 
-        return $this->success(['message' => trans('task-relevance.deleted')]);
+        return $this->success(['message' => trans('task_relevance.deleted')]);
     }
 }

@@ -66,7 +66,7 @@ class TaskFrequencyController extends Controller
             'activity'  => 'added'
         ]);
 
-        return $this->success(['message' => trans('task-frequency.added')]);
+        return $this->success(['message' => trans('task_frequency.added')]);
     }
 
     /**
@@ -109,7 +109,7 @@ class TaskFrequencyController extends Controller
             'activity'  => 'updated'
         ]);
 
-        return $this->success(['message' => trans('task-frequency.updated')]);
+        return $this->success(['message' => trans('task_frequency.updated')]);
     }
 
     /**
@@ -135,6 +135,6 @@ class TaskFrequencyController extends Controller
 
         $this->repo->delete($item);
 
-        return $this->success(['message' => trans('task-frequency.deleted')]);
+        return $this->success(['message' => trans('task_frequency.deleted')]);
     }
 }

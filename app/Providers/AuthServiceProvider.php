@@ -18,6 +18,7 @@ class AuthServiceProvider extends ServiceProvider
         'App\Department'   => 'App\Policies\DepartmentPolicy',
         'App\Client'        => 'App\Policies\ClientPolicy',
         'App\Contractor'   => 'App\Policies\ContractorPolicy', 
+        'App\Task'   => 'App\Policies\TaskPolicy',        
         'App\TaskRelevance'   => 'App\Policies\TaskRelevancePolicy',     
         'App\TaskFrequency'   => 'App\Policies\TaskFrequencyPolicy',     
         'App\TaskComplexity'   => 'App\Policies\TaskComplexityPolicy',     

@@ -54,25 +54,31 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>{{trans('configuration.show_menu',{menu: trans('task-relevance.task_relevance')})}}</td>
+                                                    <td>{{trans('configuration.show_menu',{menu: trans('task.task')})}}</td>
+                                                    <td>
+                                                        <switches v-model="configForm.show_task_menu" theme="bootstrap" color="success"></switches>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>{{trans('configuration.show_menu',{menu: trans('task_relevance.task_relevance')})}}</td>
                                                     <td>
                                                         <switches v-model="configForm.show_task_relevance_menu" theme="bootstrap" color="success"></switches>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>{{trans('configuration.show_menu',{menu: trans('task-frequency.task_frequency')})}}</td>
+                                                    <td>{{trans('configuration.show_menu',{menu: trans('task_frequency.task_frequency')})}}</td>
                                                     <td>
                                                         <switches v-model="configForm.show_task_frequency_menu" theme="bootstrap" color="success"></switches>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>{{trans('configuration.show_menu',{menu: trans('task-complexity.task_complexity')})}}</td>
+                                                    <td>{{trans('configuration.show_menu',{menu: trans('task_complexity.task_complexity')})}}</td>
                                                     <td>
                                                         <switches v-model="configForm.show_task_complexity_menu" theme="bootstrap" color="success"></switches>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>{{trans('configuration.show_menu',{menu: trans('task-family.task_family')})}}</td>
+                                                    <td>{{trans('configuration.show_menu',{menu: trans('task_family.task_family')})}}</td>
                                                     <td>
                                                         <switches v-model="configForm.show_task_family_menu" theme="bootstrap" color="success"></switches>
                                                     </td>
@@ -190,6 +196,7 @@
                     show_department_menu: 0,
                     show_client_menu: 0,
                     show_contractor_menu: 0,
+                    show_task_menu: 0,
                     show_task_relevance_menu: 0,
                     show_task_frequency_menu: 0,
                     show_task_complexity_menu: 0,
@@ -218,6 +225,7 @@
             this.configForm.show_department_menu = helper.getConfig('show_department_menu');
             this.configForm.show_client_menu = helper.getConfig('show_client_menu');
             this.configForm.show_contractor_menu = helper.getConfig('show_contractor_menu');
+            this.configForm.show_task_menu = helper.getConfig('show_task_menu');
             this.configForm.show_task_relevance_menu = helper.getConfig('show_task_relevance_menu');
             this.configForm.show_task_frequency_menu = helper.getConfig('show_task_frequency_menu');
             this.configForm.show_task_complexity_menu = helper.getConfig('show_task_complexity_menu');
@@ -241,6 +249,7 @@
                 this.configForm.show_department_menu = (this.configForm.show_department_menu) ? 1 : 0;
                 this.configForm.show_client_menu = (this.configForm.show_client_menu) ? 1 : 0;
                 this.configForm.show_contractor_menu = (this.configForm.show_contractor_menu) ? 1 : 0;
+                this.configForm.show_task_menu = (this.configForm.show_task_menu) ? 1 : 0;
                 this.configForm.show_task_relevance_menu = (this.configForm.show_task_relevance_menu) ? 1 : 0;
                 this.configForm.show_task_frequency_menu = (this.configForm.show_task_frequency_menu) ? 1 : 0;
                 this.configForm.show_task_complexity_menu = (this.configForm.show_task_complexity_menu) ? 1 : 0;

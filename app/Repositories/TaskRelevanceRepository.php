@@ -101,7 +101,7 @@ class TaskRelevanceRepository
         $task_relevance = $this->task_relevance->find($id);
 
         if (! $task_relevance) {
-            throw ValidationException::withMessages(['message' => trans('task-relevance.could_not_find')]);
+            throw ValidationException::withMessages(['message' => trans('task_relevance.could_not_find')]);
         }
 
         return $task_relevance;
@@ -179,7 +179,7 @@ class TaskRelevanceRepository
         $task_relevance = $this->findOrFail($id);
 
         if ($task_relevance->designations()->count()) {
-            throw ValidationException::withMessages(['message' => trans('task-relevance.has_many_designations')]);
+            throw ValidationException::withMessages(['message' => trans('task_relevance.has_many_designations')]);
         }
         
         return $task_relevance;

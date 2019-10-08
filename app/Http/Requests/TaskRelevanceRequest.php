@@ -44,7 +44,7 @@ class TaskRelevanceRequest extends FormRequest
     public function attributes()
     {
         return [
-            'name' => trans('task-relevance.name')
+            'name' => trans('task_relevance.name')
         ];
     }
 }

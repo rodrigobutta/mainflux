@@ -2,10 +2,10 @@
     <div>
         <div class="row page-titles">
             <div class="col-md-6 col-8 align-self-center">
-                <h3 class="text-themecolor m-b-0 m-t-0">{{trans('task-family.task_family')}}</h3>
+                <h3 class="text-themecolor m-b-0 m-t-0">{{trans('task_family.task_family')}}</h3>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><router-link to="/home">{{trans('general.home')}}</router-link></li>
-                    <li class="breadcrumb-item active">{{trans('task-family.task_family')}}</li>
+                    <li class="breadcrumb-item active">{{trans('task_family.task_family')}}</li>
                 </ol>
             </div>
         </div>
@@ -13,7 +13,7 @@
             <div class="col-12 col-sm-4 col-md-4" v-if="hasPermission('create-task-family')">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">{{trans('task-family.add_new_task_family')}}</h4>
+                        <h4 class="card-title">{{trans('task_family.add_new_task_family')}}</h4>
                         <task-family-form @completed="getTaskFamilys"></task-family-form>
                     </div>
                 </div>
@@ -27,13 +27,13 @@
                             <div class="row">
                                 <div class="col-6 col-md-4">
                                     <div class="form-group">
-                                        <label for="">{{trans('task-family.name')}}</label>
+                                        <label for="">{{trans('task_family.name')}}</label>
                                         <input class="form-control" name="name" v-model="filterTaskFamilyForm.name">
                                     </div>
                                 </div>
                                 <div class="col-6 col-md-4">
                                     <div class="form-group">
-                                        <label for="">{{trans('task-family.code')}}</label>
+                                        <label for="">{{trans('task_family.code')}}</label>
                                         <input class="form-control" name="code" v-model="filterTaskFamilyForm.code">
                                     </div>
                                 </div>
@@ -41,8 +41,8 @@
                                     <div class="form-group">
                                         <label for="">{{trans('general.sort_by')}}</label>
                                         <select name="order" class="form-control" v-model="filterTaskFamilyForm.sortBy">
-                                            <option value="name">{{trans('task-family.name')}}</option>
-                                            <option value="description">{{trans('task-family.description')}}</option>
+                                            <option value="name">{{trans('task_family.name')}}</option>
+                                            <option value="description">{{trans('task_family.description')}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -62,16 +62,16 @@
                 <div class="card">
                     <div class="card-body">
                         <button class="btn btn-info btn-sm pull-right" v-if="!showFilterPanel" @click="showFilterPanel = !showFilterPanel"><i class="fas fa-filter"></i> {{trans('general.filter')}}</button>
-                        <h4 class="card-title">{{trans('task-family.task_family_list')}}</h4>
+                        <h4 class="card-title">{{trans('task_family.task_family_list')}}</h4>
                         <h6 class="card-subtitle" v-if="taskFamilys">{{trans('general.total_result_found',{'count' : taskFamilys.total})}}</h6>
                         <h6 class="card-subtitle" v-else>{{trans('general.no_result_found')}}</h6>
                         <div class="table-responsive" v-if="taskFamilys.total">
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>{{trans('task-family.name')}}</th>
-                                        <th>{{trans('task-family.code')}}</th>
-                                        <th>{{trans('task-family.description')}}</th>
+                                        <th>{{trans('task_family.name')}}</th>
+                                        <th>{{trans('task_family.code')}}</th>
+                                        <th>{{trans('task_family.description')}}</th>
                                         <th class="table-option">{{trans('general.action')}}</th>
                                     </tr>
                                 </thead>
@@ -82,8 +82,8 @@
                                         <td v-text="task_family.description"></td>
                                         <td class="table-option">
                                             <div class="btn-group">
-                                                <button class="btn btn-info btn-sm" v-if="hasPermission('edit-task-family')" v-tooltip="trans('task-family.edit_task_family')" @click.prevent="editContractor(task_family)"><i class="fas fa-pencil-alt"></i></button>
-                                                <button class="btn btn-danger btn-sm" v-if="hasPermission('delete-task-family')" :key="task_family.id" v-confirm="{ok: confirmDelete(task_family)}" v-tooltip="trans('task-family.delete_task_family')"><i class="fas fa-trash"></i></button>
+                                                <button class="btn btn-info btn-sm" v-if="hasPermission('edit-task-family')" v-tooltip="trans('task_family.edit_task_family')" @click.prevent="editContractor(task_family)"><i class="fas fa-pencil-alt"></i></button>
+                                                <button class="btn btn-danger btn-sm" v-if="hasPermission('delete-task-family')" :key="task_family.id" v-confirm="{ok: confirmDelete(task_family)}" v-tooltip="trans('task_family.delete_task_family')"><i class="fas fa-trash"></i></button>
                                             </div>
                                         </td>
                                     </tr>

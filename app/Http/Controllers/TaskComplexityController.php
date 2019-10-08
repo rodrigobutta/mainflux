@@ -66,7 +66,7 @@ class TaskComplexityController extends Controller
             'activity'  => 'added'
         ]);
 
-        return $this->success(['message' => trans('task-complexity.added')]);
+        return $this->success(['message' => trans('task_complexity.added')]);
     }
 
     /**
@@ -109,7 +109,7 @@ class TaskComplexityController extends Controller
             'activity'  => 'updated'
         ]);
 
-        return $this->success(['message' => trans('task-complexity.updated')]);
+        return $this->success(['message' => trans('task_complexity.updated')]);
     }
 
     /**
@@ -135,6 +135,6 @@ class TaskComplexityController extends Controller
 
         $this->repo->delete($item);
 
-        return $this->success(['message' => trans('task-complexity.deleted')]);
+        return $this->success(['message' => trans('task_complexity.deleted')]);
     }
 }

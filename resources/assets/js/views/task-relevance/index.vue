@@ -2,10 +2,10 @@
     <div>
         <div class="row page-titles">
             <div class="col-md-6 col-8 align-self-center">
-                <h3 class="text-themecolor m-b-0 m-t-0">{{trans('task-relevance.task_relevance')}}</h3>
+                <h3 class="text-themecolor m-b-0 m-t-0">{{trans('task_relevance.task_relevance')}}</h3>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><router-link to="/home">{{trans('general.home')}}</router-link></li>
-                    <li class="breadcrumb-item active">{{trans('task-relevance.task_relevance')}}</li>
+                    <li class="breadcrumb-item active">{{trans('task_relevance.task_relevance')}}</li>
                 </ol>
             </div>
         </div>
@@ -13,7 +13,7 @@
             <div class="col-12 col-sm-4 col-md-4" v-if="hasPermission('create-task-relevance')">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">{{trans('task-relevance.add_new_task_relevance')}}</h4>
+                        <h4 class="card-title">{{trans('task_relevance.add_new_task_relevance')}}</h4>
                         <task-relevance-form @completed="getTaskRelevances"></task-relevance-form>
                     </div>
                 </div>
@@ -27,13 +27,13 @@
                             <div class="row">
                                 <div class="col-6 col-md-4">
                                     <div class="form-group">
-                                        <label for="">{{trans('task-relevance.name')}}</label>
+                                        <label for="">{{trans('task_relevance.name')}}</label>
                                         <input class="form-control" name="name" v-model="filterTaskRelevanceForm.name">
                                     </div>
                                 </div>
                                 <div class="col-6 col-md-4">
                                     <div class="form-group">
-                                        <label for="">{{trans('task-relevance.code')}}</label>
+                                        <label for="">{{trans('task_relevance.code')}}</label>
                                         <input class="form-control" name="code" v-model="filterTaskRelevanceForm.code">
                                     </div>
                                 </div>
@@ -41,8 +41,8 @@
                                     <div class="form-group">
                                         <label for="">{{trans('general.sort_by')}}</label>
                                         <select name="order" class="form-control" v-model="filterTaskRelevanceForm.sortBy">
-                                            <option value="name">{{trans('task-relevance.name')}}</option>
-                                            <option value="description">{{trans('task-relevance.description')}}</option>
+                                            <option value="name">{{trans('task_relevance.name')}}</option>
+                                            <option value="description">{{trans('task_relevance.description')}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -62,16 +62,16 @@
                 <div class="card">
                     <div class="card-body">
                         <button class="btn btn-info btn-sm pull-right" v-if="!showFilterPanel" @click="showFilterPanel = !showFilterPanel"><i class="fas fa-filter"></i> {{trans('general.filter')}}</button>
-                        <h4 class="card-title">{{trans('task-relevance.task_relevance_list')}}</h4>
+                        <h4 class="card-title">{{trans('task_relevance.task_relevance_list')}}</h4>
                         <h6 class="card-subtitle" v-if="taskRelevances">{{trans('general.total_result_found',{'count' : taskRelevances.total})}}</h6>
                         <h6 class="card-subtitle" v-else>{{trans('general.no_result_found')}}</h6>
                         <div class="table-responsive" v-if="taskRelevances.total">
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>{{trans('task-relevance.name')}}</th>
-                                        <th>{{trans('task-relevance.code')}}</th>
-                                        <th>{{trans('task-relevance.description')}}</th>
+                                        <th>{{trans('task_relevance.name')}}</th>
+                                        <th>{{trans('task_relevance.code')}}</th>
+                                        <th>{{trans('task_relevance.description')}}</th>
                                         <th class="table-option">{{trans('general.action')}}</th>
                                     </tr>
                                 </thead>
@@ -82,8 +82,8 @@
                                         <td v-text="task_relevance.description"></td>
                                         <td class="table-option">
                                             <div class="btn-group">
-                                                <button class="btn btn-info btn-sm" v-if="hasPermission('edit-task-relevance')" v-tooltip="trans('task-relevance.edit_task_relevance')" @click.prevent="editContractor(task_relevance)"><i class="fas fa-pencil-alt"></i></button>
-                                                <button class="btn btn-danger btn-sm" v-if="hasPermission('delete-task-relevance')" :key="task_relevance.id" v-confirm="{ok: confirmDelete(task_relevance)}" v-tooltip="trans('task-relevance.delete_task_relevance')"><i class="fas fa-trash"></i></button>
+                                                <button class="btn btn-info btn-sm" v-if="hasPermission('edit-task-relevance')" v-tooltip="trans('task_relevance.edit_task_relevance')" @click.prevent="editContractor(task_relevance)"><i class="fas fa-pencil-alt"></i></button>
+                                                <button class="btn btn-danger btn-sm" v-if="hasPermission('delete-task-relevance')" :key="task_relevance.id" v-confirm="{ok: confirmDelete(task_relevance)}" v-tooltip="trans('task_relevance.delete_task_relevance')"><i class="fas fa-trash"></i></button>
                                             </div>
                                         </td>
                                     </tr>

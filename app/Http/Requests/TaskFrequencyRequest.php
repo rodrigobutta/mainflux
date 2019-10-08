@@ -44,7 +44,7 @@ class TaskFrequencyRequest extends FormRequest
     public function attributes()
     {
         return [
-            'name' => trans('task-frequency.name')
+            'name' => trans('task_frequency.name')
         ];
     }
 }

@@ -44,7 +44,7 @@ class TaskComplexityRequest extends FormRequest
     public function attributes()
     {
         return [
-            'name' => trans('task-complexity.name')
+            'name' => trans('task_complexity.name')
         ];
     }
 }

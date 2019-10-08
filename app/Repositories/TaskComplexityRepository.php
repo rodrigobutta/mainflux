@@ -101,7 +101,7 @@ class TaskComplexityRepository
         $task_complexity = $this->task_complexity->find($id);
 
         if (! $task_complexity) {
-            throw ValidationException::withMessages(['message' => trans('task-complexity.could_not_find')]);
+            throw ValidationException::withMessages(['message' => trans('task_complexity.could_not_find')]);
         }
 
         return $task_complexity;
@@ -179,7 +179,7 @@ class TaskComplexityRepository
         $task_complexity = $this->findOrFail($id);
 
         if ($task_complexity->designations()->count()) {
-            throw ValidationException::withMessages(['message' => trans('task-complexity.has_many_designations')]);
+            throw ValidationException::withMessages(['message' => trans('task_complexity.has_many_designations')]);
         }
         
         return $task_complexity;

@@ -47,6 +47,7 @@
   'department' => 'Department',
   'client' => 'Client',
   'contractor' => 'Contractor',
+  'task' => 'Task',
   'task_relevance' => 'Task Relevance',
   'task_frequency' => 'Task Frequency',
   'task_complexity' => 'Task Complexity',

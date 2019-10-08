@@ -101,7 +101,7 @@ class TaskFamilyRepository
         $task_family = $this->task_family->find($id);
 
         if (! $task_family) {
-            throw ValidationException::withMessages(['message' => trans('task-family.could_not_find')]);
+            throw ValidationException::withMessages(['message' => trans('task_family.could_not_find')]);
         }
 
         return $task_family;
@@ -179,7 +179,7 @@ class TaskFamilyRepository
         $task_family = $this->findOrFail($id);
 
         if ($task_family->designations()->count()) {
-            throw ValidationException::withMessages(['message' => trans('task-family.has_many_designations')]);
+            throw ValidationException::withMessages(['message' => trans('task_family.has_many_designations')]);
         }
         
         return $task_family;

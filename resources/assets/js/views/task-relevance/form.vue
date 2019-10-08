@@ -1,18 +1,18 @@
 <template>
     <form @submit.prevent="proceed" @keydown="taskRelevanceForm.errors.clear($event.target.name)">
         <div class="form-group">
-            <label for="">{{trans('task-relevance.name')}}</label>
-            <input class="form-control" type="text" value="" v-model="taskRelevanceForm.name" name="name" :placeholder="trans('task-relevance.name')">
+            <label for="">{{trans('task_relevance.name')}}</label>
+            <input class="form-control" type="text" value="" v-model="taskRelevanceForm.name" name="name" :placeholder="trans('task_relevance.name')">
             <show-error :form-name="taskRelevanceForm" prop-name="name"></show-error>
         </div>
         <div class="form-group">
-            <label for="">{{trans('task-relevance.code')}}</label>
-            <input class="form-control" type="text" value="" v-model="taskRelevanceForm.code" name="code" :placeholder="trans('task-relevance.code')">
+            <label for="">{{trans('task_relevance.code')}}</label>
+            <input class="form-control" type="text" value="" v-model="taskRelevanceForm.code" name="code" :placeholder="trans('task_relevance.code')">
             <show-error :form-name="taskRelevanceForm" prop-name="code"></show-error>
         </div>
         <div class="form-group">
-            <label for="">{{trans('task-relevance.description')}}</label>
-            <textarea class="form-control" type="text" value="" v-model="taskRelevanceForm.description" rows="2" name="description" :placeholder="trans('task-relevance.description')"></textarea>
+            <label for="">{{trans('task_relevance.description')}}</label>
+            <textarea class="form-control" type="text" value="" v-model="taskRelevanceForm.description" rows="2" name="description" :placeholder="trans('task_relevance.description')"></textarea>
             <show-error :form-name="taskRelevanceForm" prop-name="description"></show-error>
         </div>
         <button type="submit" class="btn btn-info waves-effect waves-light">

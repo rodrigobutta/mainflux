@@ -236,6 +236,14 @@ let routes = [
                 component: require('./views/contractor/edit')
             },
             {
+                path: '/task',
+                component: require('./views/task/index')
+            },
+            {
+                path: '/task/:id/edit',
+                component: require('./views/task/edit')
+            },
+            {
                 path: '/task-relevance',
                 component: require('./views/task-relevance/index')
             },

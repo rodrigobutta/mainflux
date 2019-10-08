@@ -66,7 +66,7 @@ class TaskFamilyController extends Controller
             'activity'  => 'added'
         ]);
 
-        return $this->success(['message' => trans('task-family.added')]);
+        return $this->success(['message' => trans('task_family.added')]);
     }
 
     /**
@@ -109,7 +109,7 @@ class TaskFamilyController extends Controller
             'activity'  => 'updated'
         ]);
 
-        return $this->success(['message' => trans('task-family.updated')]);
+        return $this->success(['message' => trans('task_family.updated')]);
     }
 
     /**
@@ -135,6 +135,6 @@ class TaskFamilyController extends Controller
 
         $this->repo->delete($item);
 
-        return $this->success(['message' => trans('task-family.deleted')]);
+        return $this->success(['message' => trans('task_family.deleted')]);
     }
 }

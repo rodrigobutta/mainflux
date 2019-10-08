@@ -44,7 +44,7 @@ class TaskFamilyRequest extends FormRequest
     public function attributes()
     {
         return [
-            'name' => trans('task-family.name')
+            'name' => trans('task_family.name')
         ];
     }
 }

@@ -101,7 +101,7 @@ class TaskFrequencyRepository
         $task_frequency = $this->task_frequency->find($id);
 
         if (! $task_frequency) {
-            throw ValidationException::withMessages(['message' => trans('task-frequency.could_not_find')]);
+            throw ValidationException::withMessages(['message' => trans('task_frequency.could_not_find')]);
         }
 
         return $task_frequency;
@@ -179,7 +179,7 @@ class TaskFrequencyRepository
         $task_frequency = $this->findOrFail($id);
 
         if ($task_frequency->designations()->count()) {
-            throw ValidationException::withMessages(['message' => trans('task-frequency.has_many_designations')]);
+            throw ValidationException::withMessages(['message' => trans('task_frequency.has_many_designations')]);
         }
         
         return $task_frequency;

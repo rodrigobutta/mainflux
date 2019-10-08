@@ -154,6 +154,13 @@ Route::group(['middleware' => ['jwt.auth']], function () {
     Route::patch('/contractor/{id}','ContractorController@update');
     Route::delete('/contractor/{id}','ContractorController@destroy');
 
+    Route::get('/task/pre-requisite','TaskController@preRequisite');
+    Route::get('/task','TaskController@index');
+    Route::get('/task/{id}','TaskController@show');
+    Route::post('/task','TaskController@store');
+    Route::patch('/task/{id}','TaskController@update');
+    Route::delete('/task/{id}','TaskController@destroy');
+
     Route::get('/task-relevance','TaskRelevanceController@index');
     Route::get('/task-relevance/{id}','TaskRelevanceController@show');
     Route::post('/task-relevance','TaskRelevanceController@store');

@@ -24,13 +24,14 @@
                     <li v-if="hasPermission('list-user') && getConfig('show_user_menu')"><router-link to="/user" exact><i class="fas fa-users fa-fw"></i> <span class="hide-menu">{{trans('user.user')}}</span></router-link></li>                    
                     <li v-if="hasPermission('list-client') && getConfig('show_client_menu')"><router-link to="/client" exact><i class="fas fa-building fa-fw"></i> <span class="hide-menu">{{trans('client.client')}}</span></router-link></li>
                     <li v-if="hasPermission('list-contractor') && getConfig('show_contractor_menu')"><router-link to="/contractor" exact><i class="fas fa-truck fa-fw"></i> <span class="hide-menu">{{trans('contractor.contractor')}}</span></router-link></li>
+                    <li v-if="hasPermission('list-task') && getConfig('show_task_menu')"><router-link to="/task" exact><i class="fas fa-cog fa-fw"></i> <span class="hide-menu">{{trans('task.task')}}</span></router-link></li>
                     <li>
                         <a class="has-arrow" href="#" aria-expanded="false"><i class="fas fa-cog fa-fw"></i> <span class="hide-menu">Task Config</span></a>
                         <ul aria-expanded="false" class="collapse">
-                            <li v-if="hasPermission('list-task-relevance') && getConfig('show_task_relevance_menu')"><router-link to="/task-relevance" exact><i class="fas fa-university fa-fw"></i> {{trans('task-relevance.task_relevance')}}</router-link></li>
-                            <li v-if="hasPermission('list-task-frequency') && getConfig('show_task_frequency_menu')"><router-link to="/task-frequency" exact><i class="fas fa-university fa-fw"></i> {{trans('task-frequency.task_frequency')}}</router-link></li>
-                            <li v-if="hasPermission('list-task-complexity') && getConfig('show_task_complexity_menu')"><router-link to="/task-complexity" exact><i class="fas fa-university fa-fw"></i> {{trans('task-complexity.task_complexity')}}</router-link></li>
-                            <li v-if="hasPermission('list-task-family') && getConfig('show_task_family_menu')"><router-link to="/task-family" exact><i class="fas fa-university fa-fw"></i> {{trans('task-family.task_family')}}</router-link></li>
+                            <li v-if="hasPermission('list-task-relevance') && getConfig('show_task_relevance_menu')"><router-link to="/task-relevance" exact><i class="fas fa-university fa-fw"></i> {{trans('task_relevance.task_relevance')}}</router-link></li>
+                            <li v-if="hasPermission('list-task-frequency') && getConfig('show_task_frequency_menu')"><router-link to="/task-frequency" exact><i class="fas fa-university fa-fw"></i> {{trans('task_frequency.task_frequency')}}</router-link></li>
+                            <li v-if="hasPermission('list-task-complexity') && getConfig('show_task_complexity_menu')"><router-link to="/task-complexity" exact><i class="fas fa-university fa-fw"></i> {{trans('task_complexity.task_complexity')}}</router-link></li>
+                            <li v-if="hasPermission('list-task-family') && getConfig('show_task_family_menu')"><router-link to="/task-family" exact><i class="fas fa-university fa-fw"></i> {{trans('task_family.task_family')}}</router-link></li>
                         </ul>
                     </li>
                     <li v-if="hasPermission('list-asset') && getConfig('show_asset_menu')"><router-link to="/asset" exact><i class="fas fa-sitemap fa-fw"></i> <span class="hide-menu">{{trans('asset.asset')}}</span></router-link></li>

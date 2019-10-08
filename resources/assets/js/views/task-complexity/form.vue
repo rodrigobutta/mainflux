@@ -1,18 +1,18 @@
 <template>
     <form @submit.prevent="proceed" @keydown="taskComplexityForm.errors.clear($event.target.name)">
         <div class="form-group">
-            <label for="">{{trans('task-complexity.name')}}</label>
-            <input class="form-control" type="text" value="" v-model="taskComplexityForm.name" name="name" :placeholder="trans('task-complexity.name')">
+            <label for="">{{trans('task_complexity.name')}}</label>
+            <input class="form-control" type="text" value="" v-model="taskComplexityForm.name" name="name" :placeholder="trans('task_complexity.name')">
             <show-error :form-name="taskComplexityForm" prop-name="name"></show-error>
         </div>
         <div class="form-group">
-            <label for="">{{trans('task-complexity.code')}}</label>
-            <input class="form-control" type="text" value="" v-model="taskComplexityForm.code" name="code" :placeholder="trans('task-complexity.code')">
+            <label for="">{{trans('task_complexity.code')}}</label>
+            <input class="form-control" type="text" value="" v-model="taskComplexityForm.code" name="code" :placeholder="trans('task_complexity.code')">
             <show-error :form-name="taskComplexityForm" prop-name="code"></show-error>
         </div>
         <div class="form-group">
-            <label for="">{{trans('task-complexity.description')}}</label>
-            <textarea class="form-control" type="text" value="" v-model="taskComplexityForm.description" rows="2" name="description" :placeholder="trans('task-complexity.description')"></textarea>
+            <label for="">{{trans('task_complexity.description')}}</label>
+            <textarea class="form-control" type="text" value="" v-model="taskComplexityForm.description" rows="2" name="description" :placeholder="trans('task_complexity.description')"></textarea>
             <show-error :form-name="taskComplexityForm" prop-name="description"></show-error>
         </div>
         <button type="submit" class="btn btn-info waves-effect waves-light">

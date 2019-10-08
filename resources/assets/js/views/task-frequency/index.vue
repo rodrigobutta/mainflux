@@ -2,10 +2,10 @@
     <div>
         <div class="row page-titles">
             <div class="col-md-6 col-8 align-self-center">
-                <h3 class="text-themecolor m-b-0 m-t-0">{{trans('task-frequency.task_frequency')}}</h3>
+                <h3 class="text-themecolor m-b-0 m-t-0">{{trans('task_frequency.task_frequency')}}</h3>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><router-link to="/home">{{trans('general.home')}}</router-link></li>
-                    <li class="breadcrumb-item active">{{trans('task-frequency.task_frequency')}}</li>
+                    <li class="breadcrumb-item active">{{trans('task_frequency.task_frequency')}}</li>
                 </ol>
             </div>
         </div>
@@ -13,7 +13,7 @@
             <div class="col-12 col-sm-4 col-md-4" v-if="hasPermission('create-task-frequency')">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">{{trans('task-frequency.add_new_task_frequency')}}</h4>
+                        <h4 class="card-title">{{trans('task_frequency.add_new_task_frequency')}}</h4>
                         <task-frequency-form @completed="getTaskFrequencys"></task-frequency-form>
                     </div>
                 </div>
@@ -27,13 +27,13 @@
                             <div class="row">
                                 <div class="col-6 col-md-4">
                                     <div class="form-group">
-                                        <label for="">{{trans('task-frequency.name')}}</label>
+                                        <label for="">{{trans('task_frequency.name')}}</label>
                                         <input class="form-control" name="name" v-model="filterTaskFrequencyForm.name">
                                     </div>
                                 </div>
                                 <div class="col-6 col-md-4">
                                     <div class="form-group">
-                                        <label for="">{{trans('task-frequency.code')}}</label>
+                                        <label for="">{{trans('task_frequency.code')}}</label>
                                         <input class="form-control" name="code" v-model="filterTaskFrequencyForm.code">
                                     </div>
                                 </div>
@@ -41,8 +41,8 @@
                                     <div class="form-group">
                                         <label for="">{{trans('general.sort_by')}}</label>
                                         <select name="order" class="form-control" v-model="filterTaskFrequencyForm.sortBy">
-                                            <option value="name">{{trans('task-frequency.name')}}</option>
-                                            <option value="description">{{trans('task-frequency.description')}}</option>
+                                            <option value="name">{{trans('task_frequency.name')}}</option>
+                                            <option value="description">{{trans('task_frequency.description')}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -62,16 +62,16 @@
                 <div class="card">
                     <div class="card-body">
                         <button class="btn btn-info btn-sm pull-right" v-if="!showFilterPanel" @click="showFilterPanel = !showFilterPanel"><i class="fas fa-filter"></i> {{trans('general.filter')}}</button>
-                        <h4 class="card-title">{{trans('task-frequency.task_frequency_list')}}</h4>
+                        <h4 class="card-title">{{trans('task_frequency.task_frequency_list')}}</h4>
                         <h6 class="card-subtitle" v-if="taskFrequencys">{{trans('general.total_result_found',{'count' : taskFrequencys.total})}}</h6>
                         <h6 class="card-subtitle" v-else>{{trans('general.no_result_found')}}</h6>
                         <div class="table-responsive" v-if="taskFrequencys.total">
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>{{trans('task-frequency.name')}}</th>
-                                        <th>{{trans('task-frequency.code')}}</th>
-                                        <th>{{trans('task-frequency.description')}}</th>
+                                        <th>{{trans('task_frequency.name')}}</th>
+                                        <th>{{trans('task_frequency.code')}}</th>
+                                        <th>{{trans('task_frequency.description')}}</th>
                                         <th class="table-option">{{trans('general.action')}}</th>
                                     </tr>
                                 </thead>
@@ -82,8 +82,8 @@
                                         <td v-text="task_frequency.description"></td>
                                         <td class="table-option">
                                             <div class="btn-group">
-                                                <button class="btn btn-info btn-sm" v-if="hasPermission('edit-task-frequency')" v-tooltip="trans('task-frequency.edit_task_frequency')" @click.prevent="editContractor(task_frequency)"><i class="fas fa-pencil-alt"></i></button>
-                                                <button class="btn btn-danger btn-sm" v-if="hasPermission('delete-task-frequency')" :key="task_frequency.id" v-confirm="{ok: confirmDelete(task_frequency)}" v-tooltip="trans('task-frequency.delete_task_frequency')"><i class="fas fa-trash"></i></button>
+                                                <button class="btn btn-info btn-sm" v-if="hasPermission('edit-task-frequency')" v-tooltip="trans('task_frequency.edit_task_frequency')" @click.prevent="editContractor(task_frequency)"><i class="fas fa-pencil-alt"></i></button>
+                                                <button class="btn btn-danger btn-sm" v-if="hasPermission('delete-task-frequency')" :key="task_frequency.id" v-confirm="{ok: confirmDelete(task_frequency)}" v-tooltip="trans('task_frequency.delete_task_frequency')"><i class="fas fa-trash"></i></button>
                                             </div>
                                         </td>
                                     </tr>
